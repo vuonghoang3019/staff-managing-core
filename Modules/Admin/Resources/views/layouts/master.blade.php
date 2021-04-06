@@ -1486,21 +1486,21 @@
 <script src="{{ asset('admins/assets/js/jquery.vmap.min.js') }}"></script>
 <script src="{{ asset('admins/assets/js/jquery.vmap.usa.js') }}"></script>
 <!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="{{ asset('admins/assets/js/jquery.knob.min.js') }}"></script>
 <!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<script src="{{ asset('admins/assets/js/moment.min.js') }}"></script>
+<script src="{{ asset('admins/assets/js/daterangepicker.js') }}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="{{ asset('admins/assets/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{ asset('admins/assets/js/summernote-bs4.min.js') }}"></script>
 <!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="{{ asset('admins/assets/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+<script src="{{ asset('admins/assets/js/adminlte.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<script src="{{ asset('admins/assets/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
+<script src="{{ asset('admins/assets/js/dashboard.js') }}"></script>
 </body>
 </html>

@@ -2,51 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/OverlayScrollbars.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/adminlte.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/daterangepicker.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/icheck-bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/icheck-bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/jqvmap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/summernote-bs4.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/tempusdominus-bootstrap-4.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/css/tempusdominus-bootstrap-4.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/brands.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/brands.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/fontawesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/fontawesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/regular.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/regular.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/solid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/solid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/svg-with-js.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/svg-with-js.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/v4-shims.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/css/v4-shims.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/fontawesome-free/webfonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/Chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/jquery.vmap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/jquery.vmap.usa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/sparkline.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/OverlayScrollbars.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/adminlte.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/dashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/daterangepicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/demo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/jquery.knob.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/summernote-bs4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admins/assets/js/tempusdominus-bootstrap-4.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/layouts/master.blade.php" afterDir="false" />
     </list>
@@ -186,7 +150,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shopping" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -214,7 +178,8 @@
       <updated>1617642874434</updated>
       <workItem from="1617642875508" duration="67000" />
       <workItem from="1617675467909" duration="4993000" />
-      <workItem from="1617696409796" duration="2427000" />
+      <workItem from="1617696409796" duration="2477000" />
+      <workItem from="1617717616057" duration="780000" />
     </task>
     <servers />
   </component>
