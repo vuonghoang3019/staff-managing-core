@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ asset('admins/assets/css/tempusdominus-bootstrap-4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admins/assets/css/icheck-bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admins/assets/css/jqvmap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admins/assets/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admins/assets/css/OverlayScrollbars.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admins/assets/css/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('admins/assets/css/summernote-bs4.min.css') }}">
     @yield('css')
 </head>
@@ -213,7 +211,7 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
+                            <li class="nav-item ac">
                                 <a href="pages/charts/chartjs.html" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>ChartJS</p>
@@ -273,20 +271,13 @@
 
 </body>
 <script src="{{ asset('admins/assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('admins/assets/js/jquery-ui.min.js') }}"></script>
-<script>$.widget.bridge('uibutton', $.ui.button)</script>
 <script src="{{ asset('admins/assets/js/bootstrap.bundle.min.js')  }}"></script>
-<script src="{{ asset('admins/assets/js/Chart.min.js') }}"></script>
 <script src="{{ asset('admins/assets/js/sparkline.js') }}"></script>
 <script src="{{ asset('admins/assets/js/jquery.knob.min.js') }}"></script>
-<script src="{{ asset('admins/assets/js/moment.min.js') }}"></script>
-<script src="{{ asset('admins/assets/js/daterangepicker.js') }}"></script>
-<script src="{{ asset('admins/assets/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 <script src="{{ asset('admins/assets/js/summernote-bs4.min.js') }}"></script>
 <script src="{{ asset('admins/assets/js/overlayScrollbars.min.js') }}"></script>
 <script src="{{ asset('admins/assets/js/adminlte.js') }}"></script>
 <script src="{{ asset('admins/assets/js/demo.js') }}"></script>
-<script src="{{ asset('admins/assets/js/dashboard.js') }}"></script>
 @yield('js')
 </html>
 
