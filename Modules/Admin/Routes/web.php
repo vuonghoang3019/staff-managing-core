@@ -8,5 +8,13 @@ Route::prefix('admin')->group(function() {
             'as'   => 'category.index',
             'uses' => 'AdminCategoryController@index'
         ]);
+        Route::get('/create', [
+            'as'   => 'category.create',
+            'uses' => 'AdminCategoryController@create'
+        ]);
+        Route::post('/store', [
+            'as'   => 'category.store',
+            'uses' => 'AdminCategoryController@store'
+        ]);
     });
 });
