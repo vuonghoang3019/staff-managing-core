@@ -78,7 +78,7 @@ class AdminCategoryController extends Controller
             'slug' => Str::slug($request->name),
             'parent_id' => $request->parent_id
         ];
-        $this->category->find($id)->update()
+//        $this->category->find($id)->update()
 
     }
 
