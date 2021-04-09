@@ -10,6 +10,6 @@ class Category extends Model
     protected $fillable = ['name','slug','parent_id','total','active'];
     public function categoryChild()
     {
-        return $this->hasMany(Category::class,'parent_id');
+        return $this->hasMany(Category::class,'parent_id','id');
     }
 }

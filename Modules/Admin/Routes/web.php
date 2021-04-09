@@ -16,6 +16,18 @@ Route::prefix('admin')->group(function() {
             'as'   => 'category.store',
             'uses' => 'AdminCategoryController@store'
         ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'category.edit',
+            'uses' => 'AdminCategoryController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'category.update',
+            'uses' => 'AdminCategoryController@update'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'category.delete',
+            'uses' => 'AdminCategoryController@delete'
+        ]);
         Route::get('/action/{id}', [
             'as'   => 'category.action',
             'uses' => 'AdminCategoryController@action'

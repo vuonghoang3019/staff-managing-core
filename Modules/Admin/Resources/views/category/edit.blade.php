@@ -5,15 +5,15 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Category', 'key' => 'Add Category'])
+        @include('admin::components.headerContent',['name' => 'Category', 'key' => 'Edit Category'])
         <section class="content">
             <div class="container-fluid">
-                <form action="{{  route('category.store') }}" method="post">
+                <form action="{{  route('category.update',['id' => $categoryEdit->id]) }}" method="post">
                     @csrf
                     <div class="form-group col-md-6">
                         <label for="name">Nhập danh mục</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                               placeholder="Nhập tên danh mục" name="name" value="{{ old('name') }}">
+                               placeholder="Nhập tên danh mục" name="name" value="{{ old('name',$categoryEdit->name) }}">
                         @error('name')
                         <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                         @enderror
@@ -23,7 +23,7 @@
                         <select class="form-control @error('parent_id') is-invalid @enderror " name="parent_id">
                             <option value="">---Mời bạn chọn danh mục---</option>
                             <option value="0">Mời bạn chọn danh mục cha</option>
-                            {!! $htmlOption !!}
+                           {!! $htmlOption !!}
                         </select>
                         @error('parent_id')
                         <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>

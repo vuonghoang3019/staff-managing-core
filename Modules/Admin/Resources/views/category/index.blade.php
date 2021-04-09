@@ -8,9 +8,9 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                        <div class="col-md-12">
-                            <a href="{{ route('category.create') }}" class="btn btn-success">ADD</a>
-                        </div>
+                    <div class="col-md-12">
+                        <a href="{{ route('category.create') }}" class="btn btn-success">ADD</a>
+                    </div>
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -35,7 +35,12 @@
                                         </a>
                                     </td>
                                     <td>
-
+                                        <a href="{{ route('category.edit',['id' => $data->id]) }}"
+                                           class="btn btn-default">Edit</a>
+                                        <a href="{{ route('category.delete',['id' => $data->id]) }}"
+                                           data-url=""
+                                           class="btn btn-danger action-delete">Delete
+                                        </a>
                                     </td>
                                 </tr>
                                 <?php $stt++; ?>
