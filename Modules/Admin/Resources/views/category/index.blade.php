@@ -28,7 +28,7 @@
                                     <th scope="row">{{ $stt }}</th>
                                     <td>{{ $data->name }}</td>
                                     <td>
-                                        <a href="{{ route('categories.action',['id' => $data->id]) }}"
+                                        <a href="{{ route('category.action',['id' => $data->id]) }}"
                                            class="{{ $data->status == 1 ? "btn btn-primary" : 'btn btn-default'}}"
                                         >
                                             {{ $data->status == 1 ? 'Show' : 'Not Show' }}

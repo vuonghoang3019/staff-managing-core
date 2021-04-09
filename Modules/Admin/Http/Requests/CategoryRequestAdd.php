@@ -14,7 +14,7 @@ class CategoryRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:products|max:255|min:5',
+            'name' => 'required|unique:categories|max:255|min:5',
             'parent_id' => 'required'
         ];
     }

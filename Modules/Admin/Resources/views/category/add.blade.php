@@ -12,14 +12,27 @@
                     @csrf
                     <div class="form-group col-md-6">
                         <label for="name">Nhập danh mục</label>
-                        <input type="text" id="name" name="name" placeholder="name" class="form-control">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
+                               placeholder="Nhập tên danh mục" name="name" value="{{ old('name') }}">
+                        @error('name')
+                        <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group col-md-6">
                         <label for="name">Chọn danh mục</label>
-                        <select class="form-control" name="parent_id">
+                        <select class="form-control @error('parent_id') is-invalid @enderror " name="parent_id">
                             <option value="">---Mời bạn chọn danh mục---</option>
                             <option value="0">Mời bạn chọn danh mục cha</option>
+                            @foreach($categoryParent as $categoryParentItem)
+                                <option value="{{ $categoryParentItem->id }}">{{ $categoryParentItem->name }}</option>
+                                @foreach($categoryParentItem->categoryChild as $categoryChildItem)
+                                    <option value="{{ $categoryChildItem->id }}">--{{ $categoryChildItem->name }}</option>
+                                @endforeach
+                            @endforeach
                         </select>
+                        @error('parent_id')
+                        <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
                 </form>

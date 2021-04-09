@@ -16,5 +16,9 @@ Route::prefix('admin')->group(function() {
             'as'   => 'category.store',
             'uses' => 'AdminCategoryController@store'
         ]);
+        Route::get('/action/{id}', [
+            'as'   => 'category.action',
+            'uses' => 'AdminCategoryController@action'
+        ]);
     });
 });
