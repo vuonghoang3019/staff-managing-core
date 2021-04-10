@@ -16,8 +16,10 @@ class Recursive
             if ($value['parent_id'] != $id) continue;
             $select = !empty($parent_id) && $parent_id  == $value['id'] ? "selected" : "";
             $this->htmlSelect .= "<option $select value='".$value['id']."'>" . $text . $value['name'] . "</option>";
+
             $this->Recursive($parent_id,$value['id'],$text . '-');
         }
         return $this->htmlSelect;
+
     }
 }

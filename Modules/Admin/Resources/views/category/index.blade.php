@@ -37,8 +37,8 @@
                                     <td>
                                         <a href="{{ route('category.edit',['id' => $data->id]) }}"
                                            class="btn btn-default">Edit</a>
-                                        <a href="{{ route('category.delete',['id' => $data->id]) }}"
-                                           data-url=""
+                                        <a href=""
+                                           data-url="{{ route('category.delete',['id' => $data->id]) }}"
                                            class="btn btn-danger action-delete">Delete
                                         </a>
                                     </td>
@@ -56,4 +56,8 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="{{ asset('vendors/sweetAlert2/sweetalert2.js') }}"></script>
+    <script src="{{ asset('admins/assets/delete.js') }}"></script>
 @endsection

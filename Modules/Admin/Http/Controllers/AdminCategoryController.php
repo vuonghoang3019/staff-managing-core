@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Modules\Admin\Http\Requests\CategoryRequestAdd;
 use Modules\Admin\Components\Recursive;
+use Modules\Admin\Traits;
 
 class AdminCategoryController extends Controller
 {
+    use Traits\DeleteTrait;
     private $category;
 
     public function __construct(Category $category)
@@ -51,41 +53,24 @@ class AdminCategoryController extends Controller
     public function edit($id)
     {
         $categoryEdit = $this->category->find($id);
-        $htmlOption = $this->getCategory($id);
+        $htmlOption = $this->getCategory($categoryEdit->parent_id);
         return view('admin::category.edit', compact('htmlOption', 'categoryEdit'));
     }
 
-    public function update(Request $request, $id)
+    public function update(CategoryRequestAdd $request, $id)
     {
-//        $categoryUpdate = $this->category->find($id);
-//        $categoryUpdate->name = $request->name;
-//        $categoryUpdate->slug = Str::slug($request->name);
-//        if ($categoryUpdate->parent_id == $request->parent_id)
-//        {
-//            $categoryUpdate->parent_id = $request->parent_id;
-//        }
-//        else
-//            {
-//
-//        }
-////        DB::connection()->enableQueryLog();
-//        $categoryUpdate->save();
-////        $queries = DB::getQueryLog();
-////        dd($queries);
-//        return redirect()->back();
-        $data = [
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'parent_id' => $request->parent_id
-        ];
-//        $this->category->find($id)->update()
+        $categoryUpdate = $this->category->find($id);
+        $categoryUpdate->name = $request->name;
+        $categoryUpdate->slug = Str::slug($request->name);
+        $categoryUpdate->parent_id = $request->parent_id;
+        $categoryUpdate->save();
+        return redirect()->back();
 
     }
 
     public function delete($id)
     {
-        $this->category->find($id)->delete();
-        return redirect()->back();
+        return $this->deleteModelTrait($id,$this->category);
     }
 
     public function action(Request $request, $id)
