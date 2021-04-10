@@ -65,13 +65,13 @@ class AdminCategoryController extends Controller
         $categoryUpdate->parent_id = $request->parent_id;
         $categoryUpdate->save();
         return redirect()->back();
-
     }
 
     public function delete($id)
     {
         return $this->deleteModelTrait($id,$this->category);
     }
+
 
     public function action(Request $request, $id)
     {

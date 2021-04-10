@@ -83,7 +83,7 @@
 {{--                </li>--}}
                 <li class="nav-item">
                     <a href="{{ route('category.index') }}" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                        <i class="fas fa-bars"></i>
                         <p>
                             Category
                         </p>
