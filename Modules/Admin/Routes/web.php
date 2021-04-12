@@ -33,4 +33,14 @@ Route::prefix('admin')->group(function() {
             'uses' => 'AdminCategoryController@action'
         ]);
     });
+    Route::prefix('grade')->group(function () {
+        Route::get('/', [
+            'as'   => 'grade.index',
+            'uses' => 'AdminGradeController@index'
+        ]);
+        Route::get('/create', [
+            'as'   => 'grade.create',
+            'uses' => 'AdminGradeController@create'
+        ]);
+    });
 });

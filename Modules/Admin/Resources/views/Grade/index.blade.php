@@ -4,27 +4,28 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Category', 'key' => 'List Category'])
+        @include('admin::components.headerContent',['name' => 'Grade', 'key' => 'List Grade'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{ route('category.create') }}" class="btn btn-success">ADD</a>
+                        <a href="{{ route('grade.create') }}" class="btn btn-success">ADD</a>
                     </div>
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Tên danh mục</th>
+                                <th scope="col">Tên</th>
+                                <th scope="col">Mô tả</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $stt = 0 ?>
-                            @if(isset($categories)  )
-                                @foreach($categories as $data)
+                            @if(isset($grades))
+                                @foreach($grades as $data)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->name }}</td>
@@ -41,7 +42,6 @@
                                             <a href=""
                                                data-url="{{ route('category.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
-
                                             </a>
                                         </td>
                                     </tr>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="col-md-12 float-right">
-                        {{ $categories->links('pagination::bootstrap-4') }}
+                        {{ $grades->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>
