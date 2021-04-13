@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Grade', 'key' => 'List Grade'])
+        @include('admin::components.headerContent',['name' => 'grade', 'key' => 'List grade'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -29,6 +29,7 @@
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->name }}</td>
+                                        <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
                                         <td>
                                             <a href="{{ route('category.action',['id' => $data->id]) }}"
                                                class="{{ $data->status == 1 ? "btn btn-primary" : 'btn btn-default'}}"
@@ -37,10 +38,10 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('category.edit',['id' => $data->id]) }}"
+                                            <a href="{{ route('grade.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('category.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('grade.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

@@ -5,10 +5,10 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Grade', 'key' => 'Add Grade'])
+        @include('admin::components.headerContent',['name' => 'grade', 'key' => 'Add grade'])
         <section class="content">
             <div class="container-fluid">
-                <form action="" method="post">
+                <form action="{{ route('grade.store') }}" method="post">
                     @csrf
                     <div class="form-group col-md-6">
                         <label for="name">Nhập danh mục</label>
@@ -27,8 +27,5 @@
                 </form>
             </div>
         </section>
-
-
     </div>
-
 @endsection

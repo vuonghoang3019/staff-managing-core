@@ -14,7 +14,7 @@ class GradeRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:grade'.$this->id
+            'name' => 'required|unique:grade,name,'.$this->id,
         ];
     }
 

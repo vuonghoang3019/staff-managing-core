@@ -42,5 +42,21 @@ Route::prefix('admin')->group(function() {
             'as'   => 'grade.create',
             'uses' => 'AdminGradeController@create'
         ]);
+        Route::post('/store', [
+            'as'   => 'grade.store',
+            'uses' => 'AdminGradeController@store'
+        ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'grade.edit',
+            'uses' => 'AdminGradeController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'grade.update',
+            'uses' => 'AdminGradeController@update'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'grade.delete',
+            'uses' => 'AdminGradeController@delete'
+        ]);
     });
 });
