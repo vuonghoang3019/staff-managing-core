@@ -19,7 +19,7 @@ class AdminGradeController extends Controller
 
     public function index()
     {
-        $grades = $this->grade->paginate(10);
+        $grades = $this->grade->orderBy('id','desc')->paginate(10);
         return view('admin::grade.index',compact('grades'));
     }
     public function create()
