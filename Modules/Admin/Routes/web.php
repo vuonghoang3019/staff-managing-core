@@ -59,4 +59,10 @@ Route::prefix('admin')->group(function() {
             'uses' => 'AdminGradeController@delete'
         ]);
     });
+    Route::prefix('teacher')->group(function () {
+        Route::get('/', [
+            'as'   => 'teacher.index',
+            'uses' => 'AdminTeacherController@index'
+        ]);
+    });
 });

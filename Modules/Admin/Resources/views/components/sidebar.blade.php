@@ -91,9 +91,57 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('grade.index') }}" class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
-                        <i class="fas fa-bars"></i>
+                        <i class="fas fa-layer-group"></i>
                         <p>
                             Grade
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('teacher.index') }}" class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
+                        <i class="fas fa-users"></i>
+                        <p>
+                            Teacher
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link ">
+                        <i class="fas fa-bars"></i>
+                        <p>
+                            Calender
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link ">
+                        <i class="fas fa-bars"></i>
+                        <p>
+                            Content
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link ">
+                        <i class="fas fa-bars"></i>
+                        <p>
+                            Classroom
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link ">
+                        <i class="fas fa-bars"></i>
+                        <p>
+                            Course
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link ">
+                        <i class="fas fa-bars"></i>
+                        <p>
+                            Student
                         </p>
                     </a>
                 </li>
