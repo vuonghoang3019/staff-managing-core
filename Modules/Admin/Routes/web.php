@@ -68,5 +68,9 @@ Route::prefix('admin')->group(function() {
             'as'   => 'teacher.create',
             'uses' => 'AdminTeacherController@create'
         ]);
+        Route::post('/store', [
+            'as'   => 'teacher.store',
+            'uses' => 'AdminTeacherController@store'
+        ]);
     });
 });

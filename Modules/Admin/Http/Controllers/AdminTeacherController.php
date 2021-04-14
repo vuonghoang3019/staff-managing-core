@@ -24,4 +24,8 @@ class AdminTeacherController extends Controller
     {
         return view('admin::teacher.add');
     }
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }
