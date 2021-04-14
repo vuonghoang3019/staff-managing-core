@@ -64,5 +64,9 @@ Route::prefix('admin')->group(function() {
             'as'   => 'teacher.index',
             'uses' => 'AdminTeacherController@index'
         ]);
+        Route::get('/create', [
+            'as'   => 'teacher.create',
+            'uses' => 'AdminTeacherController@create'
+        ]);
     });
 });

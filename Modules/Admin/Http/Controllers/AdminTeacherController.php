@@ -20,4 +20,8 @@ class AdminTeacherController extends Controller
         $teachers = $this->teacher->orderBy('id','desc')->paginate(5);
         return view('admin::teacher.index',compact('teachers'));
     }
+    public function create()
+    {
+        return view('admin::teacher.add');
+    }
 }

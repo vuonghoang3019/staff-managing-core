@@ -4,12 +4,12 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'grade', 'key' => 'List grade'])
+        @include('admin::components.headerContent',['name' => 'Teacher', 'key' => 'List Teacher'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{ route('grade.create') }}" class="btn btn-success">ADD</a>
+                        <a href="{{ route('teacher.create') }}" class="btn btn-success">ADD</a>
                     </div>
                     <div class="col-md-12">
                         <table class="table">

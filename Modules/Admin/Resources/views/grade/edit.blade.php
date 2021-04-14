@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 @section('title')
-    <title>Category</title>
+    <title>Edit Grade</title>
 @endsection
 @section('content')
     <!-- Main content -->
