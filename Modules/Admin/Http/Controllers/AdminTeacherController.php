@@ -2,17 +2,21 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Models\Grade;
 use App\Models\Teacher;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Http\Requests\TeacherRequestAdd;
 
 class AdminTeacherController extends Controller
 {
     private $teacher;
-    public function __construct(Teacher $teacher)
+    private $grade;
+    public function __construct(Teacher $teacher,Grade $grade)
     {
         $this->teacher = $teacher;
+        $this->grade = $grade;
     }
 
     public function index()
@@ -22,10 +26,11 @@ class AdminTeacherController extends Controller
     }
     public function create()
     {
-        return view('admin::teacher.add');
+        $grades = $this->grade->get();
+        return view('admin::teacher.add',compact('grades'));
     }
-    public function store(Request $request)
+    public function store(TeacherRequestAdd $request)
     {
-        dd($request->all());
+
     }
 }
