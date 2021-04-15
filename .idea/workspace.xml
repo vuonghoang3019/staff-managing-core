@@ -24,7 +24,8 @@
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Requests/TeacherRequestAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/TeacherRequestAdd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Traits/StoreImageTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Traits/StorageImageTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,7 +233,8 @@
       <workItem from="1618369698495" duration="1651000" />
       <workItem from="1618373654085" duration="58000" />
       <workItem from="1618407158768" duration="10834000" />
-      <workItem from="1618453660337" duration="4668000" />
+      <workItem from="1618453660337" duration="4784000" />
+      <workItem from="1618493049380" duration="4734000" />
     </task>
     <servers />
   </component>
@@ -271,10 +273,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1618457469441" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1618455850622">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1618504343506">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618455850622" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618504343506" />
     <state x="604" y="336" key="NewPhpFileDialog" timestamp="1617678579651">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -291,6 +293,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="95" y="139" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1618410920891" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1618493414249">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1618493414249" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1617935156648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

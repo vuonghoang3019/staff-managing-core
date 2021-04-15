@@ -31,13 +31,11 @@
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->name }}</td>
-                                        <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
+                                        <td>{{ $data->code }}</td>
+                                        <td><img src="{{ $data->image_path }}" width="100" height="100"></td>
+                                        <td>{{ $data->email }}</td>
                                         <td>
-                                            <a href="{{ route('category.action',['id' => $data->id]) }}"
-                                               class="{{ $data->status == 1 ? "btn btn-primary" : 'btn btn-default'}}"
-                                            >
-                                                {{ $data->status == 1 ? 'Show' : 'Not Show' }}
-                                            </a>
+
                                         </td>
                                         <td>
                                             <a href="{{ route('grade.edit',['id' => $data->id]) }}"

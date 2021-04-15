@@ -59,10 +59,10 @@
                         </div>
                         <div class="col-md-6 ">
                             <div class="drop-zone ">
-                                <span class="drop-zone__prompt @error('image') is-invalid @enderror">Drop file here or click to upload</span>
+                                <span class="drop-zone__prompt @error('image_path') is-invalid @enderror">Drop file here or click to upload</span>
                                 <input type="file" name="image_path" class="drop-zone__input">
                             </div>
-                            @error('image')
+                            @error('image_path')
                             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                             @enderror
                         </div>
