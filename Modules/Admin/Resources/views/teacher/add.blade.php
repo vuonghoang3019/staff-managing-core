@@ -11,7 +11,7 @@
         @include('admin::components.headerContent',['name' => 'Teacher', 'key' => 'Add Teacher'])
         <section class="content">
             <div class="container-fluid">
-                <form action="{{ route('teacher.store') }}" method="post">
+                <form action="{{ route('teacher.store') }}" method="post" enctype="multipart/form-data" >
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -60,12 +60,13 @@
                         <div class="col-md-6 ">
                             <div class="drop-zone ">
                                 <span class="drop-zone__prompt @error('image') is-invalid @enderror">Drop file here or click to upload</span>
-                                <input type="file" name="image" class="drop-zone__input">
+                                <input type="file" name="image_path" class="drop-zone__input">
                             </div>
                             @error('image')
                             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                             @enderror
                         </div>
+
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
                 </form>

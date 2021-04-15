@@ -3,7 +3,7 @@ namespace Modules\Admin\Traits;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-trait StoreImageTrait
+trait StorageImageTrait
 {
     public function storageTraitUpload($request, $filedName, $folderName)
     {
@@ -12,7 +12,7 @@ trait StoreImageTrait
             $file = $request->$filedName;
             $fileNameOrigin = $file->getClientOriginalName();
             $fileNameHash   = Str::random(20) . '.' . $file->getClientOriginalExtension();
-            $filePath       = $request->file($filedName)->storeAs('public/' .$folderName . '/' .auth()->id(), $fileNameHash);
+            $filePath       = $request->file($filedName)->storeAs('public/upload' .$folderName, $fileNameHash);
             $dataUploadTrait = [
                 'file_name' => $fileNameOrigin,
                 'file_path' => Storage::url($filePath)
