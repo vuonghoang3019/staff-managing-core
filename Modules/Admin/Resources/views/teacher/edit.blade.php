@@ -52,7 +52,9 @@
                                 <select name="grade_id[]" class="form-control select2_init" multiple>
                                     <option value=""></option>
                                     @foreach ($grades as $data)
-                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                        <option
+                                            value="{{ $data->id }}" {{ $teacherGrade->contains('id',$data->id) ? 'selected' : '' }}>{{ $data->name }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>

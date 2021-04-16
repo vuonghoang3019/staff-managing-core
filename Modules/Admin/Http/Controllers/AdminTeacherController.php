@@ -52,7 +52,8 @@ class AdminTeacherController extends Controller
     {
         $grades = $this->grade->get();
         $teacherEdit = $this->teacher->find($id);
-        return view('admin::teacher.edit',compact('teacherEdit','grades'));
+        $teacherGrade= $teacherEdit->grade;
+        return view('admin::teacher.edit',compact('teacherEdit','grades','teacherGrade'));
     }
     public function update(Request $request ,$id)
     {
