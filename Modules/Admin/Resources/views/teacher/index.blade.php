@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 @section('title')
-    <title>Category</title>
+    <title>Teachers</title>
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -35,13 +35,17 @@
                                         <td><img src="{{ $data->image_path }}" width="100" height="100"></td>
                                         <td>{{ $data->email }}</td>
                                         <td>
-
+                                            <ul>
+                                                @foreach($data->grade as  $gradeItem)
+                                                    <li> {{  $gradeItem->name  }}</li>
+                                                @endforeach
+                                            </ul>
                                         </td>
                                         <td>
-                                            <a href="{{ route('grade.edit',['id' => $data->id]) }}"
+                                            <a href="{{ route('teacher.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('grade.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('teacher.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>
@@ -54,7 +58,7 @@
                     </div>
 
                     <div class="col-md-12 float-right">
-                        {{ $teachers->links('pagination::bootstrap-4') }}
+                        {{--                        {{ $teachers->links('pagination::bootstrap-4') }}--}}
                     </div>
                 </div>
             </div>

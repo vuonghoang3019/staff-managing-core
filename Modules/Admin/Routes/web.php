@@ -72,5 +72,17 @@ Route::prefix('admin')->group(function() {
             'as'   => 'teacher.store',
             'uses' => 'AdminTeacherController@store'
         ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'teacher.edit',
+            'uses' => 'AdminTeacherController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'teacher.update',
+            'uses' => 'AdminTeacherController@update'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'teacher.delete',
+            'uses' => 'AdminTeacherController@delete'
+        ]);
     });
 });

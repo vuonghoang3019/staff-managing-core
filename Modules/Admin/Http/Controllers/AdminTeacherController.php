@@ -24,7 +24,7 @@ class AdminTeacherController extends Controller
 
     public function index()
     {
-        $teachers = $this->teacher->newQuery()->with(['grade'])->orderBy('id','desc')->paginate(5);
+        $teachers = $this->teacher->newQuery()->with(['grade'])->orderBy('id','desc')->get();
         return view('admin::teacher.index',compact('teachers'));
     }
     public function create()
@@ -47,5 +47,21 @@ class AdminTeacherController extends Controller
         $this->teacher->save();
         $this->teacher->grade()->attach($request->grade_id);
         return redirect()->back();
+    }
+    public function edit($id)
+    {
+        $grades = $this->grade->get();
+        $teacherEdit = $this->teacher->find($id);
+        return view('admin::teacher.edit',compact('teacherEdit','grades'));
+    }
+    public function update(Request $request ,$id)
+    {
+        $userUpload = $this->storageTraitUpload($request,'image_path','teacher');
+        dd($userUpload);
+
+    }
+    public function delete($id)
+    {
+
     }
 }
