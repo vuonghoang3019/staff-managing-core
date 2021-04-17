@@ -27,10 +27,10 @@ trait StorageImageTrait
         {
             $file = $request->$filedName;
             $fileNameOrigin = $file->getClientOriginalName();
-            $fileNameHash   = Str::random(20) . '.' . $file->getClientOriginalExtension();
+//            $fileNameHash   = Str::random(20) . '.' . $file->getClientOriginalExtension();
             $dataUploadTrait = [
                 'file_name' => $fileNameOrigin,
-                'file_path' => $fileNameHash
+//                'file_path' => $fileNameHash
             ];
             return $dataUploadTrait;
         }
