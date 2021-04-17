@@ -7,6 +7,8 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Modules\Admin\Http\Requests\TeacherRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
@@ -69,22 +71,16 @@ class AdminTeacherController extends Controller
         $teacherUpdate->code = $request->code;
         $teacherUpdate->email = $request->email;
         $teacherUpdate->password = $request->password;
-        $dataUpload = $this->fileName($request,'image_path');
-        if ($teacherUpdate->image_name != $dataUpload['file_name'])
-        {
-            $file_path = 'public/'.$teacherUpdate->image_path;
-            unlink($file_path);
+        $dataUpload = $this->fileName($request, 'image_path');
+        if ($teacherUpdate->image_name != $dataUpload['file_name']) {
+            unlink(substr($teacherUpdate->image_path, 1));
+            $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
+            if (!empty($userUpload)) {
+                $teacherUpdate->image_name = $userUpload['file_name'];
+                $teacherUpdate->image_path = $userUpload['file_path'];
+            }
         }
-//        else
-//        {
-//            $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
-//            if (!empty($userUpload)) {
-//                $teacherUpdate->image_name = $userUpload['file_name'];
-//                $teacherUpdate->image_path = $userUpload['file_path'];
-//            }
-//        }
-
-//        $teacherUpdate->save();
+        $teacherUpdate->save();
         $teacherUpdate->grade()->sync($request->grade_id);
         return redirect()->back();
     }
