@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Modules\Admin\Http\Requests\TeacherRequestAdd;
+use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
 class AdminTeacherController extends Controller
 {
     use StorageImageTrait;
+    use DeleteTrait;
     private $teacher;
     private $grade;
 
@@ -63,6 +65,6 @@ class AdminTeacherController extends Controller
     }
     public function delete($id)
     {
-
+        return $this->deleteModelTrait($id,$this->teacher);
     }
 }

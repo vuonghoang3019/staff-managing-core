@@ -32,7 +32,7 @@
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->name }}</td>
                                         <td>{{ $data->code }}</td>
-                                        <td><img src="{{ $data->image_path }}" width="100" height="100"></td>
+                                        <td><img src="{{ asset($data->image_path)  }}" width="100" height="100"></td>
                                         <td>{{ $data->email }}</td>
                                         <td>
                                             <ul>
