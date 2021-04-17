@@ -12,11 +12,25 @@ trait StorageImageTrait
             $file = $request->$filedName;
             $fileNameOrigin = $file->getClientOriginalName();
             $fileNameHash   = Str::random(20) . '.' . $file->getClientOriginalExtension();
-//            $filePath       = $request->file($filedName)->storeAs('public/' .$folderName, $fileNameHash);
-            $filePath       = $request->file($filedName)->move('upload/' .$folderName, $fileNameHash);
+            $filePath       = $request->file($filedName)->storeAs('public/' .$folderName, $fileNameHash);
             $dataUploadTrait = [
                 'file_name' => $fileNameOrigin,
-                'file_path' => $filePath
+                'file_path' => Storage::url($filePath)
+            ];
+            return $dataUploadTrait;
+        }
+        return null;
+    }
+    public function fileName($request, $filedName)
+    {
+        if ($request->hasFile($filedName))
+        {
+            $file = $request->$filedName;
+            $fileNameOrigin = $file->getClientOriginalName();
+            $fileNameHash   = Str::random(20) . '.' . $file->getClientOriginalExtension();
+            $dataUploadTrait = [
+                'file_name' => $fileNameOrigin,
+                'file_path' => $fileNameHash
             ];
             return $dataUploadTrait;
         }
