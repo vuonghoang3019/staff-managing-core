@@ -44,8 +44,8 @@
                                         <td>
                                             <a href="{{ route('teacher.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>
-                                            <a href="{{ route('teacher.delete',['id' => $data->id]) }}"
-{{--                                               data-url="{{ route('teacher.delete',['id' => $data->id]) }}"--}}
+                                            <a href=""
+                                               data-url="{{ route('teacher.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

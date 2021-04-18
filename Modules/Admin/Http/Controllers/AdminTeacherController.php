@@ -72,7 +72,11 @@ class AdminTeacherController extends Controller
         $teacherUpdate->email = $request->email;
         $teacherUpdate->password = $request->password;
         $dataUpload = $this->fileName($request, 'image_path');
-        if ($teacherUpdate->image_name != $dataUpload['file_name']) {
+        if ($dataUpload == null) {
+
+        }
+        else if ($teacherUpdate->image_name != $dataUpload['file_name'])
+        {
             unlink(substr($teacherUpdate->image_path, 1));
             $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
             if (!empty($userUpload)) {
@@ -87,6 +91,8 @@ class AdminTeacherController extends Controller
 
     public function delete($id)
     {
+        $teacherUpdate = $this->teacher->find($id);
+        unlink(substr($teacherUpdate->image_path, 1));
         return $this->deleteModelTrait($id, $this->teacher);
     }
 }
