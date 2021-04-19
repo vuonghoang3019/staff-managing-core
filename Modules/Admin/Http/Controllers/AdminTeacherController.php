@@ -64,7 +64,7 @@ class AdminTeacherController extends Controller
         return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade'));
     }
 
-    public function update(Request $request, $id)
+    public function update(TeacherRequestAdd $request, $id)
     {
         $teacherUpdate = $this->teacher->find($id);
         $teacherUpdate->name = $request->name;
