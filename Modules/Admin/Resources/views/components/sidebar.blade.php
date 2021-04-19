@@ -99,17 +99,17 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('teacher.index') }}" class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-user-graduate"></i>
                         <p>
                             Teacher
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link ">
-                        <i class="fas fa-bars"></i>
+                    <a href="{{ route('course.index') }}" class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">
+                        <i class="fas fa-book"></i>
                         <p>
-                            Calender
+                            Course
                         </p>
                     </a>
                 </li>

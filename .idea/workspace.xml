@@ -20,9 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminCourseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/CourseRequestAdd.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Course.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Requests/TeacherRequestAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/TeacherRequestAdd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +252,7 @@
       <workItem from="1618674277770" duration="8077000" />
       <workItem from="1618756377298" duration="594000" />
       <workItem from="1618765203410" duration="447000" />
-      <workItem from="1618798119865" duration="809000" />
+      <workItem from="1618798119865" duration="4555000" />
     </task>
     <servers />
   </component>
@@ -274,10 +279,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="648" y="308" key="#Custom_Plugin_Repositories/0.0.1536.824@0.0.1536.824" timestamp="1617987563560" />
-    <state x="520" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617680462474">
+    <state x="520" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618800010902">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="520" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1617680462474" />
+    <state x="520" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1618800010902" />
     <state x="266" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618457379019">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

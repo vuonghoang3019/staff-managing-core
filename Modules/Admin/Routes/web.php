@@ -85,4 +85,14 @@ Route::prefix('admin')->group(function() {
             'uses' => 'AdminTeacherController@delete'
         ]);
     });
+    Route::prefix('course')->group(function () {
+        Route::get('/', [
+            'as'   => 'course.index',
+            'uses' => 'AdminCourseController@index'
+        ]);
+        Route::get('/create', [
+            'as'   => 'course.create',
+            'uses' => 'AdminCourseController@create'
+        ]);
+    });
 });
