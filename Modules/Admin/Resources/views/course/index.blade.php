@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Course', 'key' => 'List Course'])
+        @include('admin::components.headerContent',['name' => 'Course', 'key' => 'Add Course'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -22,39 +22,45 @@
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
-{{--                            <tbody>--}}
-{{--                            <?php $stt = 0 ?>--}}
-{{--                            @if(isset($categories)  )--}}
-{{--                                @foreach($categories as $data)--}}
-{{--                                    <tr>--}}
-{{--                                        <th scope="row">{{ $stt }}</th>--}}
-{{--                                        <td>{{ $data->name }}</td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('category.action',['id' => $data->id]) }}"--}}
-{{--                                               class="{{ $data->status == 1 ? "btn btn-primary" : 'btn btn-default'}}"--}}
-{{--                                            >--}}
-{{--                                                {{ $data->status == 1 ? 'Show' : 'Not Show' }}--}}
-{{--                                            </a>--}}
-{{--                                        </td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('category.edit',['id' => $data->id]) }}"--}}
-{{--                                               class="btn btn-default">Edit</a>--}}
-{{--                                            <a href=""--}}
-{{--                                               data-url="{{ route('category.delete',['id' => $data->id]) }}"--}}
-{{--                                               class="btn btn-danger action-delete">Delete--}}
+                            <tbody>
+                            <?php $stt = 0 ?>
+                            @if(isset($courses)  )
+                                @foreach($courses as $course)
+                                    <tr>
+                                        <th scope="row">{{ $stt }}</th>
+                                        <td>{{ $course->name }}</td>
+                                        <td>
+                                            <ul>
+                                                @foreach($course->course_grade as $courseItem)
+                                                    <li>{{ $courseItem->name }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('course.action',['id' => $course->id]) }}"
+                                               class="{{ $course->getStatus($course->status)['class'] }}">
+                                                {{ $course->getStatus($course->status)['name'] }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('course.edit',['id' => $course->id]) }}"
+                                               class="btn btn-default">Edit</a>
+                                            <a href=""
+                                               data-url="{{ route('course.delete',['id' => $course->id]) }}"
+                                               class="btn btn-danger action-delete">Delete
 
-{{--                                            </a>--}}
-{{--                                        </td>--}}
-{{--                                    </tr>--}}
-{{--                                    <?php $stt++; ?>--}}
-{{--                                @endforeach--}}
-{{--                            @endif--}}
-{{--                            </tbody>--}}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php $stt++; ?>
+                                @endforeach
+                            @endif
+                            </tbody>
                         </table>
                     </div>
 
                     <div class="col-md-12 float-right">
-{{--                        {{ $categories->links('pagination::bootstrap-4') }}--}}
+{{--                        {{ $courses->links('pagination::bootstrap-4') }}--}}
                     </div>
                 </div>
             </div>

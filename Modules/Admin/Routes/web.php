@@ -94,5 +94,21 @@ Route::prefix('admin')->group(function() {
             'as'   => 'course.create',
             'uses' => 'AdminCourseController@create'
         ]);
+        Route::post('/store', [
+            'as'   => 'course.store',
+            'uses' => 'AdminCourseController@store'
+        ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'course.edit',
+            'uses' => 'AdminCourseController@edit'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'course.delete',
+            'uses' => 'AdminCourseController@delete'
+        ]);
+        Route::get('/action/{id}', [
+            'as'   => 'course.action',
+            'uses' => 'AdminCourseController@action'
+        ]);
     });
 });

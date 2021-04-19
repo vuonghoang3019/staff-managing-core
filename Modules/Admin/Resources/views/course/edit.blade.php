@@ -8,17 +8,17 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Course', 'key' => 'Add Course'])
+        @include('admin::components.headerContent',['name' => 'Course', 'key' => 'Edit Course'])
         <section class="content">
             <div class="container-fluid">
-                <form action="{{ route('course.store') }}" method="post">
+                <form action="" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
                                 <label for="name">Nhập tên khóa học</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                       placeholder="Nhập tên danh mục" name="name" value="{{ old('name') }}">
+                                       placeholder="Nhập tên danh mục" name="name" value="{{ old('name',$productEdit->name) }}">
                                 @error('name')
                                 <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                                 @enderror
@@ -30,17 +30,18 @@
                                         multiple>
                                     <option value=""></option>
                                     @foreach ($grades as $grade)
-                                        <option value="{{ $grade->id }}" {{ old('grade_id') }}>{{ $grade->name }}</option>
+                                        <option value="{{ $grade->id }}" {{ $productGrade->contains('id',$grade->id) ? 'selected' : '' }}
+                                            {{ old('grade_id') }}>{{ $grade->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('grade_id')
-                                    <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                                <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group ">
                                 <label for="description">Mô tả</label>
                                 <textarea class="form-control " id="description" name="description"
-                                          rows="3">{{ old('description') }}</textarea>
+                                          rows="3">{{ old('description',$productEdit->description) }}</textarea>
                             </div>
                         </div>
                     </div>

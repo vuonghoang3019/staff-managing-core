@@ -14,7 +14,8 @@ class CourseRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:5|unique:course,name,'.$this->id,
+            'grade_id' => 'required'
         ];
     }
 
