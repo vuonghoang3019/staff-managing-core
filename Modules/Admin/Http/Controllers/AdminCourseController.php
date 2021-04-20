@@ -7,11 +7,13 @@ use App\Models\Grade;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\CourseRequestAdd;
+use Modules\Admin\Traits\DeleteTrait;
 
 class AdminCourseController extends Controller
 {
     private $grade;
     private $course;
+    use DeleteTrait;
     public function __construct(Course $course,Grade $grade)
     {
         $this->course = $course;
@@ -39,20 +41,29 @@ class AdminCourseController extends Controller
     public function edit($id)
     {
         $grades = $this->grade->get();
-        $productEdit = $this->course->find($id);
-        $productGrade = $productEdit->course_grade;
-        return view('admin::course.edit',compact('productEdit','grades','productGrade'));
+        $courseEdit = $this->course->find($id);
+        $courseGrade = $courseEdit->course_grade;
+        return view('admin::course.edit',compact('courseEdit','grades','courseGrade'));
 
+    }
+    public function update(Request $request, $id)
+    {
+        $courseEdit = $this->course->find($id);
+        $courseEdit->name = $request->name;
+        $courseEdit->description = $request->description;
+        $courseEdit->save();
+        $courseEdit->course_grade()->sync($request->grade_id);
+        return redirect()->back();
     }
     public function delete($id)
     {
-
+        return $this->deleteModelTrait($id,$this->course);
     }
     public function action($id)
     {
-        $productEdit = $this->course->find($id);
-        $productEdit->status = $productEdit->status ? 0 : 1;
-        $productEdit->save();
+        $courseEdit = $this->course->find($id);
+        $courseEdit->status = $courseEdit->status ? 0 : 1;
+        $courseEdit->save();
         return redirect()->back();
     }
 }

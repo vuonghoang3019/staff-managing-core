@@ -102,6 +102,10 @@ Route::prefix('admin')->group(function() {
             'as'   => 'course.edit',
             'uses' => 'AdminCourseController@edit'
         ]);
+        Route::post('/update/{id}', [
+            'as'   => 'course.update',
+            'uses' => 'AdminCourseController@update'
+        ]);
         Route::get('/delete/{id}', [
             'as'   => 'course.delete',
             'uses' => 'AdminCourseController@delete'
