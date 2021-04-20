@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="col-md-12 float-right">
-{{--                        {{ $courses->links('pagination::bootstrap-4') }}--}}
+                        {{ $courses->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>

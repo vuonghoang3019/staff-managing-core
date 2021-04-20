@@ -22,7 +22,7 @@ class AdminCourseController extends Controller
 
     public function index()
     {
-        $courses = $this->course->newQuery()->with(['course_grade'])->orderBy('id','desc')->get();
+        $courses = $this->course->newQuery()->with(['course_grade'])->orderBy('id','desc')->paginate(5);
         return view('admin::course.index',compact('courses'));
     }
     public function create()
