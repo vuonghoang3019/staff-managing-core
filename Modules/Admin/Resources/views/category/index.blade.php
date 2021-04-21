@@ -30,9 +30,8 @@
                                         <td>{{ $data->name }}</td>
                                         <td>
                                             <a href="{{ route('category.action',['id' => $data->id]) }}"
-                                               class="{{ $data->status == 1 ? "btn btn-primary" : 'btn btn-default'}}"
-                                            >
-                                                {{ $data->status == 1 ? 'Show' : 'Not Show' }}
+                                            class=" {{ $data->getStatus($data->status)['class'] }}">
+                                                {{ $data->getStatus($data->status)['name'] }}
                                             </a>
                                         </td>
                                         <td>

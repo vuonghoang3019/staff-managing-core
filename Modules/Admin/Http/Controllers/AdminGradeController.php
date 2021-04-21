@@ -55,5 +55,12 @@ class AdminGradeController extends Controller
     {
         return $this->deleteModelTrait($id,$this->grade);
     }
+    public function action($id)
+    {
+        $gradeEdit = $this->grade->find($id);
+        $gradeEdit->status = $gradeEdit->status ? 0 : 1;
+        $gradeEdit->save();
+        return redirect()->back();
+    }
 
 }

@@ -72,14 +72,11 @@ class AdminCategoryController extends Controller
         return $this->deleteModelTrait($id,$this->category);
     }
 
-
-    public function action(Request $request, $id)
+    public function action($id)
     {
-        $this->category->find($id);
-        $this->category->status = $request->status == 1 ? 0 : 1;
-        DB::connection()->enableQueryLog();
-        $this->category->save();
-        $queries = DB::getQueryLog();
-        dd($queries);
+        $categoryUpdate = $this->category->find($id);
+        $categoryUpdate->status = $categoryUpdate->status ? 0 : 1;
+        $categoryUpdate->save();
+        return redirect()->back();
     }
 }

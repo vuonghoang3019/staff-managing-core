@@ -58,6 +58,10 @@ Route::prefix('admin')->group(function() {
             'as'   => 'grade.delete',
             'uses' => 'AdminGradeController@delete'
         ]);
+        Route::get('/action/{id}', [
+            'as'   => 'grade.action',
+            'uses' => 'AdminGradeController@action'
+        ]);
     });
     Route::prefix('teacher')->group(function () {
         Route::get('/', [
