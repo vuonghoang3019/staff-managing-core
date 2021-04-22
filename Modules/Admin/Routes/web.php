@@ -119,4 +119,14 @@ Route::prefix('admin')->group(function() {
             'uses' => 'AdminCourseController@action'
         ]);
     });
+    Route::prefix('classroom')->group(function () {
+        Route::get('/', [
+            'as'   => 'classroom.index',
+            'uses' => 'AdminClassroomController@index'
+        ]);
+        Route::get('/create', [
+            'as'   => 'classroom.create',
+            'uses' => 'AdminClassroomController@create'
+        ]);
+    });
 });

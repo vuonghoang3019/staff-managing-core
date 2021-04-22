@@ -99,7 +99,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('teacher.index') }}" class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
-                        <i class="fas fa-user-graduate"></i>
+                        <i class="fas fa-chalkboard-teacher"></i>
                         <p>
                             Teacher
                         </p>
@@ -114,10 +114,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link ">
-                        <i class="fas fa-bars"></i>
+                    <a href="{{ route('classroom.index') }}" class="nav-link {{ \Request::route()->getName() == 'classroom.index' ? 'active' : ''}}">
+                        <i class="fas fa-school"></i>
                         <p>
-                            Content
+                            Classroom
                         </p>
                     </a>
                 </li>
