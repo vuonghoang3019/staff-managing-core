@@ -128,5 +128,25 @@ Route::prefix('admin')->group(function() {
             'as'   => 'classroom.create',
             'uses' => 'AdminClassroomController@create'
         ]);
+        Route::post('/store', [
+            'as'   => 'classroom.store',
+            'uses' => 'AdminClassroomController@store'
+        ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'classroom.edit',
+            'uses' => 'AdminClassroomController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'classroom.update',
+            'uses' => 'AdminClassroomController@update'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'classroom.delete',
+            'uses' => 'AdminClassroomController@delete'
+        ]);
+        Route::get('/action/{id}', [
+            'as'   => 'classroom.action',
+            'uses' => 'AdminClassroomController@action'
+        ]);
     });
 });

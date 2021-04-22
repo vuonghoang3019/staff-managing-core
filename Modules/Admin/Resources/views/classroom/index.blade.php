@@ -23,38 +23,39 @@
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
-{{--                            <tbody>--}}
-{{--                            <?php $stt = 0 ?>--}}
-{{--                            @if(isset($grades))--}}
-{{--                                @foreach($grades as $data)--}}
-{{--                                    <tr>--}}
-{{--                                        <th scope="row">{{ $stt }}</th>--}}
-{{--                                        <td>{{ $data->name }}</td>--}}
-{{--                                        <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('grade.action',['id' => $data->id]) }}"--}}
-{{--                                               class=" {{ $data->getStatus($data->status)['class'] }}">--}}
-{{--                                                {{ $data->getStatus($data->status)['name'] }}--}}
-{{--                                            </a>--}}
-{{--                                        </td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('grade.edit',['id' => $data->id]) }}"--}}
-{{--                                               class="btn btn-default">Edit</a>--}}
-{{--                                            <a href=""--}}
-{{--                                               data-url="{{ route('grade.delete',['id' => $data->id]) }}"--}}
-{{--                                               class="btn btn-danger action-delete">Delete--}}
-{{--                                            </a>--}}
-{{--                                        </td>--}}
-{{--                                    </tr>--}}
-{{--                                    <?php $stt++; ?>--}}
-{{--                                @endforeach--}}
-{{--                            @endif--}}
-{{--                            </tbody>--}}
+                            <tbody>
+                            <?php $stt = 0 ?>
+                            @if(isset($classrooms))
+                                @foreach($classrooms as $data)
+                                    <tr>
+                                        <th scope="row">{{ $stt }}</th>
+                                        <td>{{ $data->name }}</td>
+                                        <td>{{ $data->code }}</td>
+                                        <td>{{ $data->course->name }}</td>
+                                        <td>
+                                            <a href="{{ route('classroom.action',['id' => $data->id]) }}"
+                                               class=" {{ $data->getStatus($data->status)['class'] }}">
+                                                {{ $data->getStatus($data->status)['name'] }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('classroom.edit',['id' => $data->id]) }}"
+                                               class="btn btn-default">Edit</a>
+                                            <a href=""
+                                               data-url="{{ route('classroom.delete',['id' => $data->id]) }}"
+                                               class="btn btn-danger action-delete">Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php $stt++; ?>
+                                @endforeach
+                            @endif
+                            </tbody>
                         </table>
                     </div>
 
                     <div class="col-md-12 float-right">
-{{--                        {{ $grades->links('pagination::bootstrap-4') }}--}}
+                        {{ $classrooms->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>
