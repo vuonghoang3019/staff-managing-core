@@ -154,5 +154,13 @@ Route::prefix('admin')->group(function() {
             'as'   => 'student.index',
             'uses' => 'AdminStudentController@index'
         ]);
+        Route::get('/create', [
+            'as'   => 'student.create',
+            'uses' => 'AdminStudentController@create'
+        ]);
+        Route::post('/store', [
+            'as'   => 'student.store',
+            'uses' => 'AdminStudentController@store'
+        ]);
     });
 });

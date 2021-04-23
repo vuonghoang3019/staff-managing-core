@@ -9,11 +9,30 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{ route('classroom.create') }}" class="btn btn-success">ADD</a>
+                        <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
+                        <a href="{{ route('student.create') }}" class="btn btn-success">Tìm kiếm</a>
                     </div>
-                    <div class="col-md-12">
 
+                    <div class="col-md-12 form-inline mt-2 mb-2">
+                        <div class="form-group col-md-3">
+                            <label for="">Lớp:</label>
+                            <select class="form-control ml-2">
+                                <option>---Chọn đi bro---</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="">Tên:</label>
+                           <input type="text" class="form-control ml-2">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="">Trạng thái:</label>
+                            <select class="form-control ml-2">
+                                <option>---Chọn đi bro---</option>
+                            </select>
+                        </div>
                     </div>
+
+
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -29,39 +48,39 @@
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
-{{--                            <tbody>--}}
-{{--                            <?php $stt = 0 ?>--}}
-{{--                            @if(isset($classrooms))--}}
-{{--                                @foreach($classrooms as $data)--}}
-{{--                                    <tr>--}}
-{{--                                        <th scope="row">{{ $stt }}</th>--}}
-{{--                                        <td>{{ $data->name }}</td>--}}
-{{--                                        <td>{{ $data->code }}</td>--}}
-{{--                                        <td>{{ $data->course->name }}</td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('classroom.action',['id' => $data->id]) }}"--}}
-{{--                                               class=" {{ $data->getStatus($data->status)['class'] }}">--}}
-{{--                                                {{ $data->getStatus($data->status)['name'] }}--}}
-{{--                                            </a>--}}
-{{--                                        </td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('classroom.edit',['id' => $data->id]) }}"--}}
-{{--                                               class="btn btn-default">Edit</a>--}}
-{{--                                            <a href=""--}}
-{{--                                               data-url="{{ route('classroom.delete',['id' => $data->id]) }}"--}}
-{{--                                               class="btn btn-danger action-delete">Delete--}}
-{{--                                            </a>--}}
-{{--                                        </td>--}}
-{{--                                    </tr>--}}
-{{--                                    <?php $stt++; ?>--}}
-{{--                                @endforeach--}}
-{{--                            @endif--}}
-{{--                            </tbody>--}}
+                            {{--                            <tbody>--}}
+                            {{--                            <?php $stt = 0 ?>--}}
+                            {{--                            @if(isset($classrooms))--}}
+                            {{--                                @foreach($classrooms as $data)--}}
+                            {{--                                    <tr>--}}
+                            {{--                                        <th scope="row">{{ $stt }}</th>--}}
+                            {{--                                        <td>{{ $data->name }}</td>--}}
+                            {{--                                        <td>{{ $data->code }}</td>--}}
+                            {{--                                        <td>{{ $data->course->name }}</td>--}}
+                            {{--                                        <td>--}}
+                            {{--                                            <a href="{{ route('classroom.action',['id' => $data->id]) }}"--}}
+                            {{--                                               class=" {{ $data->getStatus($data->status)['class'] }}">--}}
+                            {{--                                                {{ $data->getStatus($data->status)['name'] }}--}}
+                            {{--                                            </a>--}}
+                            {{--                                        </td>--}}
+                            {{--                                        <td>--}}
+                            {{--                                            <a href="{{ route('classroom.edit',['id' => $data->id]) }}"--}}
+                            {{--                                               class="btn btn-default">Edit</a>--}}
+                            {{--                                            <a href=""--}}
+                            {{--                                               data-url="{{ route('classroom.delete',['id' => $data->id]) }}"--}}
+                            {{--                                               class="btn btn-danger action-delete">Delete--}}
+                            {{--                                            </a>--}}
+                            {{--                                        </td>--}}
+                            {{--                                    </tr>--}}
+                            {{--                                    <?php $stt++; ?>--}}
+                            {{--                                @endforeach--}}
+                            {{--                            @endif--}}
+                            {{--                            </tbody>--}}
                         </table>
                     </div>
 
                     <div class="col-md-12 float-right">
-{{--                        {{ $classrooms->links('pagination::bootstrap-4') }}--}}
+                        {{--                        {{ $classrooms->links('pagination::bootstrap-4') }}--}}
                     </div>
                 </div>
             </div>
