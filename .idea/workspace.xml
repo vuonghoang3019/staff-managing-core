@@ -20,15 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminStudentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/student/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminClassroomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminClassroomController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Requests/ClassroomRequestAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/ClassroomRequestAdd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Classroom.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Classroom.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +258,8 @@
       <workItem from="1619013922625" duration="1191000" />
       <workItem from="1619057831131" duration="5865000" />
       <workItem from="1619081424521" duration="347000" />
-      <workItem from="1619094682119" duration="13525000" />
+      <workItem from="1619094682119" duration="13586000" />
+      <workItem from="1619142751503" duration="4566000" />
     </task>
     <servers />
   </component>

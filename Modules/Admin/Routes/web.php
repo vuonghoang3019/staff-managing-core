@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function() {
-    Route::get('/', 'AdminController@index');
+    Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('category')->group(function () {
         Route::get('/', [
             'as'   => 'category.index',
@@ -147,6 +147,12 @@ Route::prefix('admin')->group(function() {
         Route::get('/action/{id}', [
             'as'   => 'classroom.action',
             'uses' => 'AdminClassroomController@action'
+        ]);
+    });
+    Route::prefix('student')->group(function () {
+        Route::get('/', [
+            'as'   => 'student.index',
+            'uses' => 'AdminStudentController@index'
         ]);
     });
 });

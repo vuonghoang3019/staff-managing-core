@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ route('dashboard') }}" class="brand-link">
         <img src="{{ asset('admins/assets/img/AdminLTELogo.png') }}" alt=""
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
@@ -122,24 +122,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link ">
-                        <i class="fas fa-bars"></i>
-                        <p>
-                            Classroom
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link ">
-                        <i class="fas fa-bars"></i>
-                        <p>
-                            Course
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link ">
-                        <i class="fas fa-bars"></i>
+                    <a href="{{ route('student.index') }}" class="nav-link {{ \Request::route()->getName() == 'student.index' ? 'active' : ''}}">
+                        <i class="fas fa-user-graduate"></i>
                         <p>
                             Student
                         </p>
