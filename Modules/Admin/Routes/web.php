@@ -162,5 +162,13 @@ Route::prefix('admin')->group(function() {
             'as'   => 'student.store',
             'uses' => 'AdminStudentController@store'
         ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'student.edit',
+            'uses' => 'AdminStudentController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'student.update',
+            'uses' => 'AdminStudentController@update'
+        ]);
     });
 });

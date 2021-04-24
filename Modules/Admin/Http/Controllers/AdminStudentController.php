@@ -18,7 +18,8 @@ class AdminStudentController extends Controller
 
     public function index()
     {
-        return view('admin::student.index');
+        $students = $this->student->newQuery()->with(['classroom'])->paginate(10);
+        return view('admin::student.index',compact('students'));
     }
     public function create()
     {
@@ -35,5 +36,11 @@ class AdminStudentController extends Controller
         $this->student->classroom_id = $request->classroom_id;
         $this->student->save();
         return redirect()->back();
+    }
+    public function edit($id)
+    {
+        $studentEdit = $this->student->find($id);
+        $classrooms = $this->classroom->get();
+        return view('admin::student.edit',compact('classrooms','studentEdit'));
     }
 }

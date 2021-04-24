@@ -38,8 +38,8 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Mã</th>
                                 <th scope="col">Tên</th>
+                                <th scope="col">Mã</th>
                                 <th scope="col">Ngày sinh</th>
                                 <th scope="col">Giới tính</th>
                                 <th scope="col">Dân tộc</th>
@@ -48,39 +48,42 @@
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
-                            {{--                            <tbody>--}}
-                            {{--                            <?php $stt = 0 ?>--}}
-                            {{--                            @if(isset($classrooms))--}}
-                            {{--                                @foreach($classrooms as $data)--}}
-                            {{--                                    <tr>--}}
-                            {{--                                        <th scope="row">{{ $stt }}</th>--}}
-                            {{--                                        <td>{{ $data->name }}</td>--}}
-                            {{--                                        <td>{{ $data->code }}</td>--}}
-                            {{--                                        <td>{{ $data->course->name }}</td>--}}
-                            {{--                                        <td>--}}
-                            {{--                                            <a href="{{ route('classroom.action',['id' => $data->id]) }}"--}}
-                            {{--                                               class=" {{ $data->getStatus($data->status)['class'] }}">--}}
-                            {{--                                                {{ $data->getStatus($data->status)['name'] }}--}}
-                            {{--                                            </a>--}}
-                            {{--                                        </td>--}}
-                            {{--                                        <td>--}}
-                            {{--                                            <a href="{{ route('classroom.edit',['id' => $data->id]) }}"--}}
-                            {{--                                               class="btn btn-default">Edit</a>--}}
-                            {{--                                            <a href=""--}}
-                            {{--                                               data-url="{{ route('classroom.delete',['id' => $data->id]) }}"--}}
-                            {{--                                               class="btn btn-danger action-delete">Delete--}}
-                            {{--                                            </a>--}}
-                            {{--                                        </td>--}}
-                            {{--                                    </tr>--}}
-                            {{--                                    <?php $stt++; ?>--}}
-                            {{--                                @endforeach--}}
-                            {{--                            @endif--}}
-                            {{--                            </tbody>--}}
+                            <tbody>
+                            <?php $stt = 0 ?>
+                            @if(isset($students))
+                                @foreach($students as $data)
+                                    <tr>
+                                        <th scope="row">{{ $stt }}</th>
+                                        <td>{{ $data->name }}</td>
+                                        <td>{{ $data->code }}</td>
+                                        <td>{{ $data->birthday }}</td>
+                                        <td>{{ $data->sex === 0 ? 'nam' : 'nữ' }}</td>
+                                        <td>{{ $data->nation }}</td>
+                                        <td>{{ $data->classroom->name }}</td>
+                                        <td>
+                                            <a href="{{ route('classroom.action',['id' => $data->id]) }}"
+                                               class=" {{ $data->getStatus($data->status)['class'] }}">
+                                                {{ $data->getStatus($data->status)['name'] }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('student.edit',['id' => $data->id]) }}"
+                                               class="btn btn-default">Edit</a>
+                                            <a href=""
+                                               data-url="{{ route('classroom.delete',['id' => $data->id]) }}"
+                                               class="btn btn-danger action-delete">Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php $stt++; ?>
+                                @endforeach
+                            @endif
+                            </tbody>
                         </table>
                     </div>
 
                     <div class="col-md-12 float-right">
-                        {{--                        {{ $classrooms->links('pagination::bootstrap-4') }}--}}
+                        {{ $students->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>
