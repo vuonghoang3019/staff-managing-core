@@ -70,7 +70,7 @@
                                             <a href="{{ route('student.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('classroom.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('student.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

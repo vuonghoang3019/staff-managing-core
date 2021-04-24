@@ -170,5 +170,9 @@ Route::prefix('admin')->group(function() {
             'as'   => 'student.update',
             'uses' => 'AdminStudentController@update'
         ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'student.delete',
+            'uses' => 'AdminStudentController@delete'
+        ]);
     });
 });

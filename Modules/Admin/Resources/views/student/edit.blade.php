@@ -10,7 +10,7 @@
         @include('admin::components.headerContent',['name' => 'Student', 'key' => 'Edit Student'])
         <section class="content">
             <div class="container-fluid">
-                <form action="" method="post" enctype="multipart/form-data" >
+                <form action="{{ route('student.update',['id' => $studentEdit -> id]) }}" method="post" enctype="multipart/form-data" >
                     @csrf
                     @include('admin::student.form')
                 </form>
