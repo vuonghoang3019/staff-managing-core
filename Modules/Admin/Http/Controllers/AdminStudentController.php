@@ -6,7 +6,6 @@ use App\Models\Classroom;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Carbon\Carbon;
 class AdminStudentController extends Controller
 {
     private $classroom;

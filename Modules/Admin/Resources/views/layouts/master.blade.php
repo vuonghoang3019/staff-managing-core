@@ -17,7 +17,6 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
-
     @include('admin::components.header')
 
     @include('admin::components.sidebar')

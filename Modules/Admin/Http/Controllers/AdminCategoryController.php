@@ -47,7 +47,7 @@ class AdminCategoryController extends Controller
         $this->category->slug = Str::slug($request->slug);
         $this->category->parent_id = $request->parent_id;
         $this->category->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm mới thành công');
     }
 
     public function edit($id)
@@ -64,7 +64,7 @@ class AdminCategoryController extends Controller
         $categoryUpdate->slug = Str::slug($request->name);
         $categoryUpdate->parent_id = $request->parent_id;
         $categoryUpdate->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm mới thành công');
     }
 
     public function delete($id)
@@ -77,6 +77,6 @@ class AdminCategoryController extends Controller
         $categoryUpdate = $this->category->find($id);
         $categoryUpdate->status = $categoryUpdate->status ? 0 : 1;
         $categoryUpdate->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm mới thành công');
     }
 }

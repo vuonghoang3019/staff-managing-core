@@ -2,6 +2,8 @@
 @section('title')
     <title>Category</title>
 @endsection
+@section('css')
+@endsection
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
@@ -37,4 +39,6 @@
 
     </div>
 
+@endsection
+@section('js')
 @endsection
