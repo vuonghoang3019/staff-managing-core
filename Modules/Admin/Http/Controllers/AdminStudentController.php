@@ -13,6 +13,7 @@ class AdminStudentController extends Controller
     private $classroom;
     private $student;
     use DeleteTrait;
+
     public function __construct(Student $student, Classroom $classroom)
     {
         $this->student = $student;
@@ -21,14 +22,17 @@ class AdminStudentController extends Controller
 
     public function index()
     {
+        $classrooms = $this->classroom->get();
         $students = $this->student->newQuery()->with(['classroom'])->paginate(10);
-        return view('admin::student.index',compact('students'));
+        return view('admin::student.index', compact('students', 'classrooms'));
     }
+
     public function create()
     {
         $classrooms = $this->classroom->get();
-        return view('admin::student.add',compact('classrooms'));
+        return view('admin::student.add', compact('classrooms'));
     }
+
     public function store(Request $request)
     {
         $this->student->code = $request->code;
@@ -38,14 +42,16 @@ class AdminStudentController extends Controller
         $this->student->nation = $request->nation;
         $this->student->classroom_id = $request->classroom_id;
         $this->student->save();
-        return redirect()->back()->with('success','Thêm mới thành công');
+        return redirect()->back()->with('success', 'Thêm mới thành công');
     }
+
     public function edit($id)
     {
         $studentEdit = $this->student->find($id);
         $classrooms = $this->classroom->get();
-        return view('admin::student.edit',compact('classrooms','studentEdit'));
+        return view('admin::student.edit', compact('classrooms', 'studentEdit'));
     }
+
     public function update(Request $request, $id)
     {
         $studentUpdate = $this->student->find($id);
@@ -56,10 +62,37 @@ class AdminStudentController extends Controller
         $studentUpdate->nation = $request->nation;
         $studentUpdate->classroom_id = $request->classroom_id;
         $studentUpdate->save();
-        return redirect()->back()->with('success','Cập nhật thành công');
+        return redirect()->back()->with('success', 'Cập nhật thành công');
     }
+
     public function delete($id)
     {
-        return $this->deleteModelTrait($id,$this->student);
+        return $this->deleteModelTrait($id, $this->student);
+    }
+
+    public function ajaxGetSelect(Request $request)
+    {
+        $id = $request->id;
+        if ($id) {
+            $classrooms = $this->classroom->get();
+            $students = $this->student->newQuery()->where('classroom_id', $id)->with(['classroom'])->paginate(10);
+            $html = view('admin::student.index', compact('students', 'classrooms'))->render();
+            return response()->json([
+                'data' => $html
+            ]);
+        }
+    }
+
+    public function searchPost(Request $request)
+    {
+
+        if ($request->searchResult == '') {
+            $students = $this->student->get();
+        } else {
+            $students = $this->student->where('name', 'like', '%' . $request->searchResult . '%')
+                ->orWhere('nation', 'like', '%' . $request->searchResult . '%')->get();
+        }
+        return json_encode($students);
+
     }
 }

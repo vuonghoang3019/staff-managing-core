@@ -174,5 +174,13 @@ Route::prefix('admin')->group(function() {
             'as'   => 'student.delete',
             'uses' => 'AdminStudentController@delete'
         ]);
+        Route::get('/ajaxGetSelect', [
+            'as'   => 'student.ajaxGetSelect',
+            'uses' => 'AdminStudentController@ajaxGetSelect'
+        ]);
+        Route::post('search', [
+            'as' => 'student.search',
+            'uses' => 'AdminStudentController@searchPost'
+        ]);
     });
 });

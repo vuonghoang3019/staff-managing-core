@@ -10,19 +10,22 @@
                 <div class="row">
                     <div class="col-md-12">
                         <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
-                        <a href="{{ route('student.create') }}" class="btn btn-success">Tìm kiếm</a>
+                        <a href="{{ route('student.create') }}" class="btn btn-success" id="filter" name="filter">Tìm kiếm</a>
                     </div>
 
                     <div class="col-md-12 form-inline mt-2 mb-2">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label for="">Lớp:</label>
-                            <select class="form-control ml-2">
+                            <select class="form-control ml-2 classroom" name="classroom_id" data-url="{{ route('student.ajaxGetSelect') }}">
                                 <option>---Chọn đi bro---</option>
+                                @foreach($classrooms as $classroom)
+                                    <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="">Tên:</label>
-                           <input type="text" class="form-control ml-2">
+                           <input type="text" class="form-control ml-2" id="search">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="">Trạng thái:</label>
@@ -31,10 +34,8 @@
                             </select>
                         </div>
                     </div>
-
-
-                    <div class="col-md-12">
-                        <table class="table">
+                    <div class="col-md-12 ">
+                        <table class="table" id="datatable">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -48,7 +49,7 @@
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="dataTable">
                             <?php $stt = 0 ?>
                             @if(isset($students))
                                 @foreach($students as $data)
@@ -81,7 +82,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <div class="col-md-12 float-right">
                         {{ $students->links('pagination::bootstrap-4') }}
                     </div>
@@ -93,4 +93,49 @@
 @section('js')
     <script src="{{ asset('vendors/sweetAlert2/sweetalert2.js') }}"></script>
     <script src="{{ asset('admins/assets/delete.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.classroom').change(function (event) {
+                event.preventDefault();
+                let url = $(this).data('url');
+                let id = $(this).val();
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    data : {id: id},
+                    success: function (data) {
+                        // $('#datatable').html(data);
+                        $('#datatable').html('').append();
+                    }
+                });
+            })
+        });
+        $('body').on('keyup','#search', function () {
+            let searchResult = $(this).val();
+            $.ajax({
+                type: 'POST',
+                url : '{{ route("student.search") }}',
+                dataType: 'json',
+                data: {
+                    '_token' : '{{ csrf_token() }}',
+                    searchResult : searchResult
+                },
+                success: function (res) {
+                   let tableRow = '';
+                   $('.dataTable').html('');
+                   $.each(res, function (index, value) {
+                        tableRow = ' <tr><th scope="row">'+index+'</th>' +
+                            '<td> '+value.name+' </td> ' +
+                            '<td> '+value.code+' </td> ' +
+                            '<td> '+value.birthday+' </td> ' +
+                            '<td> '+value.sex+' </td> ' +
+                            '<td> '+value.nation+' </td> ' +
+                       $('.dataTable').append(tableRow);
+                   })
+
+                }
+
+            });
+        })
+    </script>
 @endsection
