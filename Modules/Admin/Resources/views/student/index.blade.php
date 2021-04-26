@@ -10,13 +10,15 @@
                 <div class="row">
                     <div class="col-md-12">
                         <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
-                        <a href="{{ route('student.create') }}" class="btn btn-success" id="filter" name="filter">Tìm kiếm</a>
+                        <a href="{{ route('student.create') }}" class="btn btn-success" id="filter" name="filter">Tìm
+                            kiếm</a>
                     </div>
 
                     <div class="col-md-12 form-inline mt-2 mb-2">
                         <div class="form-group col-md-4">
                             <label for="">Lớp:</label>
-                            <select class="form-control ml-2 classroom" name="classroom_id" data-url="{{ route('student.ajaxGetSelect') }}">
+                            <select class="form-control ml-2 classroom" name="classroom_id"
+                                    data-url="{{ route('student.ajaxGetSelect') }}">
                                 <option>---Chọn đi bro---</option>
                                 @foreach($classrooms as $classroom)
                                     <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
@@ -25,7 +27,7 @@
                         </div>
                         <div class="form-group col-md-3">
                             <label for="">Tên:</label>
-                           <input type="text" class="form-control ml-2" id="search">
+                            <input type="text" class="form-control ml-2" id="search">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="">Trạng thái:</label>
@@ -35,7 +37,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 ">
-                        <table class="table" id="datatable">
+                        <table class="table" >
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -80,8 +82,12 @@
                                 @endforeach
                             @endif
                             </tbody>
+
                         </table>
+
                     </div>
+
+
                     <div class="col-md-12 float-right">
                         {{ $students->links('pagination::bootstrap-4') }}
                     </div>
@@ -102,36 +108,40 @@
                 $.ajax({
                     url: url,
                     type: 'GET',
-                    data : {id: id},
-                    success: function (data) {
-                        // $('#datatable').html(data);
-                        $('#datatable').html('').append();
+                    dataType: 'json',
+                    data: {id: id},
+                    success: function (students) {
+                        $('.dataTable').html(students);
+
                     }
                 });
             })
         });
-        $('body').on('keyup','#search', function () {
+        $('body').on('keyup', '#search', function () {
             let searchResult = $(this).val();
             $.ajax({
                 type: 'POST',
-                url : '{{ route("student.search") }}',
+                url: '{{ route("student.search") }}',
                 dataType: 'json',
                 data: {
-                    '_token' : '{{ csrf_token() }}',
-                    searchResult : searchResult
+                    '_token': '{{ csrf_token() }}',
+                    searchResult: searchResult
                 },
                 success: function (res) {
-                   let tableRow = '';
-                   $('.dataTable').html('');
-                   $.each(res, function (index, value) {
-                        tableRow = ' <tr><th scope="row">'+index+'</th>' +
-                            '<td> '+value.name+' </td> ' +
-                            '<td> '+value.code+' </td> ' +
-                            '<td> '+value.birthday+' </td> ' +
-                            '<td> '+value.sex+' </td> ' +
-                            '<td> '+value.nation+' </td> ' +
-                       $('.dataTable').append(tableRow);
-                   })
+                    let tableRow = '';
+                    $('.dataTable').html('');
+                    $.each(res, function (index, value) {
+                        tableRow += ' <tr>';
+                        tableRow += '<th scope="row">' + index + '</th>';
+                        tableRow += '<th scope="row">' + value.name + '</th>';
+                        tableRow += '<th scope="row">' + value.code + '</th>';
+                        tableRow += '<th scope="row">' + value.birthday + '</th>';
+                        tableRow += '<th scope="row">' + value.sex + '</th>';
+                        tableRow += '<th scope="row">' + value.nation + '</th>';
+                        tableRow += '<th scope="row"><a href="{{ route('student.create') }}" class="btn btn-default">Edit</a></th>';
+                        tableRow += ' </tr>';
+                        $('.dataTable').html(tableRow);
+                    })
 
                 }
 

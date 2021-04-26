@@ -40,7 +40,7 @@
                 <option value="">---Mời bạn chọn lớp---</option>
                 @foreach($classrooms as $classroom)
                     <option value="{{ $classroom->id }}"
-                        @if(isset($studentEdit)) {{ $studentEdit->classroom_id === $classroom->id ? 'selected' : '' }} @endif>
+                            @if(isset($studentEdit)) {{ $studentEdit->classroom_id == $classroom->id ? 'selected' : '' }} @endif >
                         {{ $classroom->name }}
                     </option>
                 @endforeach
@@ -52,13 +52,15 @@
         <div class="form-group">
             <label for="sex">Giới tính</label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sex" id="male" value="0" {{ $studentEdit->sex === 0 ? 'checked' : ''}} >
+                <input class="form-check-input" type="radio" name="sex" id="male" value="0"
+                @if(isset($studentEdit)) {{  $studentEdit->sex === 0 ? 'checked' : ''}} @endif  >
                 <label class="form-check-label" for="male">
                     Nam
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sex" id="female" value="1" {{ $studentEdit->sex === 1 ? 'checked' : ''}}>
+                <input class="form-check-input" type="radio" name="sex" id="female" value="1"
+                @if(isset($studentEdit)) {{  $studentEdit->sex === 1 ? 'checked' : ''}} @endif  >
                 <label class="form-check-label" for="female">
                     Nữ
                 </label>

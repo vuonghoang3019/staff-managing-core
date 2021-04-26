@@ -73,26 +73,27 @@ class AdminStudentController extends Controller
     public function ajaxGetSelect(Request $request)
     {
         $id = $request->id;
-        if ($id) {
-            $classrooms = $this->classroom->get();
-            $students = $this->student->newQuery()->where('classroom_id', $id)->with(['classroom'])->paginate(10);
-            $html = view('admin::student.index', compact('students', 'classrooms'))->render();
-            return response()->json([
-                'data' => $html
-            ]);
+        if ($id == 0) {
+            $students = $this->student->newQuery()->with(['classroom'])->paginate(10);
         }
+        else
+        {
+            $students = $this->student->newQuery()->where('classroom_id', $id)->with(['classroom'])->paginate(10);
+        }
+        return response($students);
     }
 
     public function searchPost(Request $request)
     {
-
-        if ($request->searchResult == '') {
-            $students = $this->student->get();
-        } else {
-            $students = $this->student->where('name', 'like', '%' . $request->searchResult . '%')
-                ->orWhere('nation', 'like', '%' . $request->searchResult . '%')->get();
+        if ($request->ajax())
+        {
+            if ($request->searchResult == '') {
+                $students = $this->student->get();
+            } else {
+                $students = $this->student->where('name', 'like', '%' . $request->searchResult . '%')
+                    ->orWhere('nation', 'like', '%' . $request->searchResult . '%')->get();
+            }
+            return response($students);
         }
-        return json_encode($students);
-
     }
 }
