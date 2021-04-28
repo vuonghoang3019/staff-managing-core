@@ -138,7 +138,7 @@
                         tableRow += '<th scope="row">' + value.birthday + '</th>';
                         tableRow += '<th scope="row">' + value.sex + '</th>';
                         tableRow += '<th scope="row">' + value.nation + '</th>';
-                        tableRow += '<th scope="row"><a href="{{ route('student.create') }}" class="btn btn-default">Edit</a></th>';
+                        tableRow += '<th scope="row"><a href="{{ route('student.create ') }}" class="btn btn-default">Edit</a></th>';
                         tableRow += ' </tr>';
                         $('.dataTable').html(tableRow);
                     })
