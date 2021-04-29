@@ -182,5 +182,9 @@ Route::prefix('admin')->group(function() {
             'as' => 'student.search',
             'uses' => 'AdminStudentController@searchPost'
         ]);
+        Route::get('/exportExcel', [
+            'as'   => 'student.exportExcel',
+            'uses' => 'AdminStudentController@exportIntoExcel'
+        ]);
     });
 });

@@ -10,8 +10,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
-                        <a href="{{ route('student.create') }}" class="btn btn-success" id="filter" name="filter">Tìm
-                            kiếm</a>
+                        <a href="{{ route('student.create') }}" class="btn btn-success" id="filter" name="filter">Tìm kiếm</a>
+                        <input type="file" class="btn btn-secondary" name="upload">
+                        <a href="{{ route('student.exportExcel') }}" class="btn btn-success" id="export" name="export">Export</a>
                     </div>
 
                     <div class="col-md-12 form-inline mt-2 mb-2">
@@ -138,7 +139,7 @@
                         tableRow += '<th scope="row">' + value.birthday + '</th>';
                         tableRow += '<th scope="row">' + value.sex + '</th>';
                         tableRow += '<th scope="row">' + value.nation + '</th>';
-                        tableRow += '<th scope="row"><a href="{{ route('student.create ') }}" class="btn btn-default">Edit</a></th>';
+                        {{--tableRow += '<th scope="row"><a href="{{ route('student.create ') }}" class="btn btn-default">Edit</a></th>';--}}
                         tableRow += ' </tr>';
                         $('.dataTable').html(tableRow);
                     })

@@ -2,10 +2,12 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Exports\StudentExport;
 use App\Models\Classroom;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Traits\DeleteTrait;
 
 class AdminStudentController extends Controller
@@ -95,5 +97,10 @@ class AdminStudentController extends Controller
             }
             return response($students);
         }
+    }
+
+    public function exportIntoExcel()
+    {
+        return Excel::download(new StudentExport,'student.xlsx');
     }
 }

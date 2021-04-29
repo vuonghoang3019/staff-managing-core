@@ -6,13 +6,11 @@ use App\Models\Grade;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\TeacherRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
-
 
 class AdminTeacherController extends Controller
 {
@@ -95,4 +93,6 @@ class AdminTeacherController extends Controller
         unlink(substr($teacherUpdate->image_path, 1));
         return $this->deleteModelTrait($id, $this->teacher);
     }
+
+
 }
