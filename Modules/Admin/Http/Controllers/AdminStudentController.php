@@ -103,4 +103,9 @@ class AdminStudentController extends Controller
     {
         return Excel::download(new StudentExport,'student.xlsx');
     }
+
+    public function importIntoExcel(Request $request)
+    {
+        dd($request->all());
+    }
 }

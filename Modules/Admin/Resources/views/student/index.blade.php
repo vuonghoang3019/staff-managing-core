@@ -10,11 +10,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
-                        <a href="{{ route('student.create') }}" class="btn btn-success" id="filter" name="filter">Tìm kiếm</a>
-                        <input type="file" class="btn btn-secondary" name="upload">
+                        <input type="file" class="btn btn-secondary" name="import" id="import">
                         <a href="{{ route('student.exportExcel') }}" class="btn btn-success" id="export" name="export">Export</a>
                     </div>
-
                     <div class="col-md-12 form-inline mt-2 mb-2">
                         <div class="form-group col-md-4">
                             <label for="">Lớp:</label>
@@ -38,7 +36,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 ">
-                        <table class="table" >
+                        <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -87,8 +85,6 @@
                         </table>
 
                     </div>
-
-
                     <div class="col-md-12 float-right">
                         {{ $students->links('pagination::bootstrap-4') }}
                     </div>
@@ -118,6 +114,10 @@
                 });
             })
         });
+        $('#import').on('click', function () {
+            let url = '{{ route('student.importExcel') }}';
+            let file = $(this).val();
+        })
         $('body').on('keyup', '#search', function () {
             let searchResult = $(this).val();
             $.ajax({
@@ -140,7 +140,7 @@
                         tableRow += '<th scope="row">' + value.sex + '</th>';
                         tableRow += '<th scope="row">' + value.nation + '</th>';
                         {{--tableRow += '<th scope="row"><a href="{{ route('student.create ') }}" class="btn btn-default">Edit</a></th>';--}}
-                        tableRow += ' </tr>';
+                            tableRow += ' </tr>';
                         $('.dataTable').html(tableRow);
                     })
 

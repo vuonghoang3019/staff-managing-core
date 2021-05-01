@@ -186,5 +186,9 @@ Route::prefix('admin')->group(function() {
             'as'   => 'student.exportExcel',
             'uses' => 'AdminStudentController@exportIntoExcel'
         ]);
+        Route::post('/importExcel', [
+            'as'   => 'student.importExcel',
+            'uses' => 'AdminStudentController@importIntoExcel'
+        ]);
     });
 });
