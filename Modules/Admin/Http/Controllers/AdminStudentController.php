@@ -3,11 +3,13 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Exports\StudentExport;
+use App\Imports\StudentImport;
 use App\Models\Classroom;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Maatwebsite\Excel\Facades\Excel;
+use Modules\Admin\Http\Requests\ImportExcelRequest;
 use Modules\Admin\Traits\DeleteTrait;
 
 class AdminStudentController extends Controller
@@ -106,6 +108,7 @@ class AdminStudentController extends Controller
 
     public function importIntoExcel(Request $request)
     {
-        dd($request->all());
+        return Excel::import(new StudentImport,$request->file)->with('success', 'Cập nhật thành công');
+
     }
 }

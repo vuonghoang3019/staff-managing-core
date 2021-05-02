@@ -2,6 +2,9 @@
 @section('title')
     <title>Student</title>
 @endsection
+@section('css')
+    <link rel="stylesheet" href="{{ asset('admins/assets/css/upload.css') }}">
+@endsection
 @section('content')
     <div class="content-wrapper">
         @include('admin::components.headerContent',['name' => 'Student', 'key' => 'List student'])
@@ -10,7 +13,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
-                        <input type="file" class="btn btn-secondary" name="import" id="import">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formUpload">
+                            Upload
+                        </button>
+
                         <a href="{{ route('student.exportExcel') }}" class="btn btn-success" id="export" name="export">Export</a>
                     </div>
                     <div class="col-md-12 form-inline mt-2 mb-2">
@@ -88,6 +94,37 @@
                     <div class="col-md-12 float-right">
                         {{ $students->links('pagination::bootstrap-4') }}
                     </div>
+                    {{--modal--}}
+                    <div class="modal fade" id="formUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Upload file excel</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ route('student.importExcel') }}" method="POST" id="importExcel" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="drop-zone" style="max-width: 460px; left: 0%">
+                                            <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                            <input type="file" name="file" class="drop-zone__input @error('file') is-invalid @enderror
+                                                fileUpload">
+                                            @error('file')
+                                            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,6 +133,7 @@
 @section('js')
     <script src="{{ asset('vendors/sweetAlert2/sweetalert2.js') }}"></script>
     <script src="{{ asset('admins/assets/delete.js') }}"></script>
+    <script src="{{ asset('admins/assets/js/upload.js') }}"></script>
     <script>
         $(document).ready(function () {
             $('.classroom').change(function (event) {
@@ -114,9 +152,19 @@
                 });
             })
         });
-        $('#import').on('click', function () {
+        $('#importExcel').on('submit', function (event) {
+            event.preventDefault();
             let url = '{{ route('student.importExcel') }}';
-            let file = $(this).val();
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $('.fileUpload').val('');
+                }
+            });
         })
         $('body').on('keyup', '#search', function () {
             let searchResult = $(this).val();
