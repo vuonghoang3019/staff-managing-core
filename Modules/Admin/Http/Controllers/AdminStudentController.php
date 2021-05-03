@@ -27,7 +27,7 @@ class AdminStudentController extends Controller
     public function index()
     {
         $classrooms = $this->classroom->get();
-        $students = $this->student->newQuery()->with(['classroom'])->paginate(10);
+        $students = $this->student->newQuery()->with(['classroom'])->paginate(5);
         return view('admin::student.index', compact('students', 'classrooms'));
     }
 
@@ -79,9 +79,7 @@ class AdminStudentController extends Controller
         $id = $request->id;
         if ($id == 0) {
             $students = $this->student->newQuery()->with(['classroom'])->paginate(10);
-        }
-        else
-        {
+        } else {
             $students = $this->student->newQuery()->where('classroom_id', $id)->with(['classroom'])->paginate(10);
         }
         return response($students);
@@ -89,8 +87,7 @@ class AdminStudentController extends Controller
 
     public function searchPost(Request $request)
     {
-        if ($request->ajax())
-        {
+        if ($request->ajax()) {
             if ($request->searchResult == '') {
                 $students = $this->student->get();
             } else {
@@ -103,12 +100,15 @@ class AdminStudentController extends Controller
 
     public function exportIntoExcel()
     {
-        return Excel::download(new StudentExport,'student.xlsx');
+        return Excel::download(new StudentExport, 'student.xlsx');
     }
 
     public function importIntoExcel(Request $request)
     {
-        return Excel::import(new StudentImport,$request->file)->with('success', 'Cập nhật thành công');
+        $file = $request->file('file');
+        Excel::import(new StudentImport, $file);
+        return redirect()->back();
+
 
     }
 }

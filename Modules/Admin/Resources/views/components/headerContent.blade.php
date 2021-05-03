@@ -10,6 +10,13 @@
                 {{ session('error') }}
             </div>
         @endif
+            @if(isset($errors) && $errors->any())
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach
+                </div>
+            @endif
         <div class="row mb-2">
             <div class="col-sm-6">
                 <h1 class="m-0">{{ $name }}</h1>

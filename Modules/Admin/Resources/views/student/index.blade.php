@@ -105,15 +105,11 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ route('student.importExcel') }}" method="POST" id="importExcel" enctype="multipart/form-data">
+                                    <form action="{{ route('student.importExcel') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="drop-zone" style="max-width: 460px; left: 0%">
                                             <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                                            <input type="file" name="file" class="drop-zone__input @error('file') is-invalid @enderror
-                                                fileUpload">
-                                            @error('file')
-                                            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
-                                            @enderror
+                                            <input type="file" name="file" class="drop-zone__input fileUpload">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -152,20 +148,6 @@
                 });
             })
         });
-        $('#importExcel').on('submit', function (event) {
-            event.preventDefault();
-            let url = '{{ route('student.importExcel') }}';
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: new FormData(this),
-                contentType: false,
-                processData: false,
-                success: function () {
-                    $('.fileUpload').val('');
-                }
-            });
-        })
         $('body').on('keyup', '#search', function () {
             let searchResult = $(this).val();
             $.ajax({
