@@ -38,51 +38,9 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                {{--                <li class="nav-item">--}}
-                {{--                    <a href="#" class="nav-link">--}}
-                {{--                        <i class="nav-icon fas fa-chart-pie"></i>--}}
-                {{--                        <p>--}}
-                {{--                            Charts--}}
-                {{--                            <i class="right fas fa-angle-left"></i>--}}
-                {{--                        </p>--}}
-                {{--                    </a>--}}
-                {{--                    <ul class="nav nav-treeview">--}}
-                {{--                        <li class="nav-item ac">--}}
-                {{--                            <a href="pages/charts/chartjs.html" class="nav-link">--}}
-                {{--                                <i class="far fa-circle nav-icon"></i>--}}
-                {{--                                <p>ChartJS</p>--}}
-                {{--                            </a>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="nav-item">--}}
-                {{--                            <a href="pages/charts/flot.html" class="nav-link">--}}
-                {{--                                <i class="far fa-circle nav-icon"></i>--}}
-                {{--                                <p>Flot</p>--}}
-                {{--                            </a>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="nav-item">--}}
-                {{--                            <a href="pages/charts/inline.html" class="nav-link">--}}
-                {{--                                <i class="far fa-circle nav-icon"></i>--}}
-                {{--                                <p>Inline</p>--}}
-                {{--                            </a>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="nav-item">--}}
-                {{--                            <a href="pages/charts/uplot.html" class="nav-link">--}}
-                {{--                                <i class="far fa-circle nav-icon"></i>--}}
-                {{--                                <p>uPlot</p>--}}
-                {{--                            </a>--}}
-                {{--                        </li>--}}
-                {{--                    </ul>--}}
-                {{--                </li>--}}
-                {{--                <li class="nav-item">--}}
-                {{--                    <a href="pages/gallery.html" class="nav-link">--}}
-                {{--                        <i class="nav-icon far fa-image"></i>--}}
-                {{--                        <p>--}}
-                {{--                            Gallery--}}
-                {{--                        </p>--}}
-                {{--                    </a>--}}
-                {{--                </li>--}}
                 <li class="nav-item">
-                    <a href="{{ route('category.index') }}" class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">
+                    <a href="{{ route('category.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">
                         <i class="fas fa-bars"></i>
                         <p>
                             Category
@@ -90,7 +48,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('grade.index') }}" class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
+                    <a href="{{ route('grade.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
                         <i class="fas fa-layer-group"></i>
                         <p>
                             Grade
@@ -98,7 +57,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('teacher.index') }}" class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
+                    <a href="{{ route('teacher.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
                         <i class="fas fa-chalkboard-teacher"></i>
                         <p>
                             Teacher
@@ -106,7 +66,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('course.index') }}" class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">
+                    <a href="{{ route('course.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">
                         <i class="fas fa-book"></i>
                         <p>
                             Course
@@ -114,7 +75,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('classroom.index') }}" class="nav-link {{ \Request::route()->getName() == 'classroom.index' ? 'active' : ''}}">
+                    <a href="{{ route('classroom.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'classroom.index' ? 'active' : ''}}">
                         <i class="fas fa-school"></i>
                         <p>
                             Classroom
@@ -122,10 +84,27 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('student.index') }}" class="nav-link {{ \Request::route()->getName() == 'student.index' ? 'active' : ''}}">
+                    <a href="{{ route('student.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'student.index' ? 'active' : ''}}">
                         <i class="fas fa-user-graduate"></i>
                         <p>
                             Student
+                        </p>
+                    </a>
+                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="far fa-calendar-alt"></i>--}}
+{{--                        <p>--}}
+{{--                            Calender--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+                <li class="nav-item ac">
+                    <a href="{{ route('schedule.index') }}" class="nav-link">
+                        <i class="fas fa-clock"></i>
+                        <p>
+                            Schedule
                         </p>
                     </a>
                 </li>

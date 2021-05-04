@@ -195,4 +195,15 @@ Route::prefix('admin')->group(function() {
             'uses' => 'AdminStudentController@importIntoExcel'
         ]);
     });
+    Route::prefix('schedule')->group(function () {
+        Route::get('/', [
+            'as'   => 'schedule.index',
+            'uses' => 'AdminScheduleController@index'
+        ]);
+        Route::get('/create', [
+            'as'   => 'schedule.create',
+            'uses' => 'AdminScheduleController@create'
+        ]);
+
+    });
 });
