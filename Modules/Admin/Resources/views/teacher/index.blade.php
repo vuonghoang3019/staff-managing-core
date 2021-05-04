@@ -10,6 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <a href="{{ route('teacher.create') }}" class="btn btn-success">ADD</a>
+                        <a href="{{ route('teacher.export') }}" class="btn btn-success">Export</a>
                     </div>
                     <div class="col-md-12">
                         <table class="table">

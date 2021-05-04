@@ -88,6 +88,10 @@ Route::prefix('admin')->group(function() {
             'as'   => 'teacher.delete',
             'uses' => 'AdminTeacherController@delete'
         ]);
+        Route::get('/exportExcel', [
+            'as'   => 'teacher.export',
+            'uses' => 'AdminTeacherController@exportIntoExcel'
+        ]);
     });
     Route::prefix('course')->group(function () {
         Route::get('/', [

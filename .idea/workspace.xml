@@ -20,26 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-5Y8c2RhDq4ai9JmQb4aTSVwRSNqFljSK.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-6sS20eCrd7QZ3Cwu8Wbr0zQjHQvRabWz.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-7GcZeZ9YARPWEQtDIcSRwhX8WhX8Ntlb.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-9UpUd4ogTxwVqA1VEGiM4Bba7UWidhZL.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-BH6VAjvvjxYtuj2gXOk5aNjSa0nMyHgQ.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-OUVZjw2uM4RON5t4zUuOuoGVsSQON4h6.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-Q365IJ5RtYJWhtmd2BpbPwo9AHUqHVkh.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-SJ4UBWn2jUFM3erLGmVFSYKhGDISJgbD.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-WtawP6S6dGulaO4B3y3AGEpDtZkz0KE9.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-gYbJEWVx9MsVOEtD0WQYYY5Arw0Ygo3e.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-jPZ1j7DdNpEneUare8qxkbGXCPrljlEb.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-lABHFHLpdakIOheqA3xw8abcIsGMcFNM.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-tnSld11wecSsaYb4z1tQFQI5tJiI23Tg.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-uBNJ3A2o99gizJyptagLaKCJtI90fEjA.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-wwAGLTs2Hzhar13iHNA7hpVwZQuJ80vy.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-xCzuO4jfEFuNSgiCAMfUKcgaCzwcVddV.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-zTfzsmYlAPTOgdzNHJbt7bZEJTRhP2Vy.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exports/TeacherExport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminStudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminStudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/StudentImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/StudentImport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +296,7 @@
       <workItem from="1620008412861" duration="223000" />
       <workItem from="1620012058349" duration="1887000" />
       <workItem from="1620046927710" duration="2930000" />
-      <workItem from="1620093059113" duration="2210000" />
+      <workItem from="1620093059113" duration="4364000" />
     </task>
     <servers />
   </component>
@@ -350,10 +335,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="266" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1618457379019" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620012371529">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1620098655316">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1620012371529" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1620098655316" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1620013633397">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

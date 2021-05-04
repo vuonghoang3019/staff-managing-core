@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Exports\TeacherExport;
 use App\Models\Grade;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
@@ -94,5 +95,9 @@ class AdminTeacherController extends Controller
         return $this->deleteModelTrait($id, $this->teacher);
     }
 
+    public function exportIntoExcel()
+    {
+        return Excel::download(new TeacherExport, 'teacher.xlsx');
+    }
 
 }
