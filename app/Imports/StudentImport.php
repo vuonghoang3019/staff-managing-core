@@ -2,36 +2,35 @@
 
 namespace App\Imports;
 
+use App\Models\Classroom;
 use App\Models\Student;
-use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
+use Illuminate\Support\Collection;
 
-class StudentImport implements ToModel, WithHeadingRow, WithValidation
+class StudentImport implements ToCollection, WithHeadingRow, WithValidation
 {
-    /**
-     * @param array $row
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
 
-
-    public function model(array $row)
+    public function collection(Collection $rows)
     {
-        return new Student([
-            'code'          => $row['code'],
-            'name'          => $row['name'],
-            'birthday'      => $row['birthday'],
-            'sex'           => $row['sex'],
-            'nation'        => $row['nation'],
-            'classroom_id'  => $row['classroom_id'],
-        ]);
+        $student = new  Student();
+        foreach ($rows as $row) {
+            $student->newQuery()->create([
+                'code' => $row['code'],
+                'name' => $row['name'],
+                'birthday' => $row['birthday'],
+                'sex' => $row['sex'],
+                'nation' => $row['nation'],
+                'classroom_id' => $row['classroom']
+            ]);
+        }
     }
 
     public function rules(): array
     {
         return [
-          '*.code' => ['unique:student,code']
+            '*.code' => ['unique:student,code']
         ];
     }
 

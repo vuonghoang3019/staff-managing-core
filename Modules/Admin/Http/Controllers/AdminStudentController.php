@@ -103,12 +103,18 @@ class AdminStudentController extends Controller
         return Excel::download(new StudentExport, 'student.xlsx');
     }
 
-    public function importIntoExcel(Request $request)
+    public function importIntoExcel(ImportExcelRequest $request)
     {
         $file = $request->file('file');
-        Excel::import(new StudentImport, $file);
-        return redirect()->back();
-
+        if ($file)
+        {
+            Excel::import(new StudentImport, $file);
+            return redirect()->back()->with('success','Import Thành công');
+        }
+        else
+        {
+            abort(500);
+        }
 
     }
 }
