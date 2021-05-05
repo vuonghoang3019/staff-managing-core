@@ -7,9 +7,9 @@ use App\Models\Classroom;
 use App\Models\Course;
 use App\Models\Schedule;
 use App\Models\Teacher;
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Carbon;
 
 class AdminScheduleController extends Controller
 {
@@ -30,6 +30,7 @@ class AdminScheduleController extends Controller
 
     public function index()
     {
+        $schedules = $this->schedule->newQuery()->with(['calendar'])->get();
         return view('admin::schedule.index');
     }
 
@@ -43,17 +44,18 @@ class AdminScheduleController extends Controller
 
     public function store(Request $request)
     {
-        $calendar = $this->calendar->create([
-            'day' => $request->day,
-            'start_time' => $request->start_time,
-            'end_time' => $request->end_time
-        ]);
-        $this->schedule->create([
-            'calendar_id' => $calendar->id,
+        $schedule = $this->schedule->create([
             'teacher_id' => $request->teacher_id,
             'course_id' => $request->course_id,
             'classroom_id' => $request->classroom_id
         ]);
+        $this->calendar->create([
+            'day' => $request->day,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'schedule_id' => $schedule->id
+        ]);
+
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
