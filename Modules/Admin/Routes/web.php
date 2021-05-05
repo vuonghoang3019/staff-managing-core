@@ -204,6 +204,9 @@ Route::prefix('admin')->group(function() {
             'as'   => 'schedule.create',
             'uses' => 'AdminScheduleController@create'
         ]);
-
+        Route::post('/store', [
+            'as'   => 'schedule.store',
+            'uses' => 'AdminScheduleController@store'
+        ]);
     });
 });
