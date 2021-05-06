@@ -10,6 +10,7 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Carbon;
+use Modules\Admin\Http\Requests\ScheduleRequestAdd;
 
 class AdminScheduleController extends Controller
 {
@@ -42,28 +43,20 @@ class AdminScheduleController extends Controller
         return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses'));
     }
 
-    public function store(Request $request)
+    public function store(ScheduleRequestAdd $request)
     {
-        if ($request->start_time < $request->end_time)
-        {
-            $schedule = $this->schedule->newQuery()->where('start_time', '<')->create([
-                'teacher_id' => $request->teacher_id,
-                'course_id' => $request->course_id,
-                'classroom_id' => $request->classroom_id
-            ]);
-            $this->calendar->create([
-                'day' => $request->day,
-                'start_time' => $request->start_time,
-                'end_time' => $request->end_time,
-                'schedule_id' => $schedule->id
-            ]);
-            return redirect()->back()->with('success', 'Thêm mới thành công');
-        }
-        else
-        {
-            return redirect()->back()->with('error', 'End time không được nhỏ hơn Start time');
-        }
-
+        $schedule = $this->schedule->create([
+            'teacher_id' => $request->teacher_id,
+            'course_id' => $request->course_id,
+            'classroom_id' => $request->classroom_id
+        ]);
+        $this->calendar->create([
+            'day' => $request->day,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'schedule_id' => $schedule->id
+        ]);
+        return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
 }

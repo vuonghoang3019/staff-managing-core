@@ -62,21 +62,21 @@
                                 @enderror
                             </div>
                             <div class="form-group ">
-                                <label for="startTime">Start Time</label>
-                                <input type="time" class="form-control @error('startTime') is-invalid @enderror"
-                                       id="startTime"
-                                       name="start_time" value="{{ old('startTime') }}">
-                                @error('startTime')
+                                <label for="start_time">Start Time</label>
+                                <input type="time" class="form-control @error('start_time') is-invalid @enderror"
+                                       id="start_time"
+                                       name="start_time" value="{{ old('start_time') }}">
+                                @error('start_time')
                                 <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group ">
-                                <label for="endTime">End Time</label>
-                                <input type="time" class="form-control  @error('endTime') is-invalid @enderror"
-                                       id="endTime"
-                                       name="end_time" value="{{ old('endTime') }}">
-                                @error('endTime')
-                                <div class=time>{{ $message }}</div>
+                                <label for="end_time">End Time</label>
+                                <input type="time" class="form-control @error('end_time') is-invalid @enderror"
+                                       id="end_time"
+                                       name="end_time" value="{{ old('end_time') }}">
+                                @error('end_time')
+                                <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
