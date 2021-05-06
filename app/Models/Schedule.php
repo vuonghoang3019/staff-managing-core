@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     protected $table = 'schedule';
-    protected $fillable = ['teacher_id','course_id','classroom_id'];
+    protected $fillable = ['calendar_id','teacher_id','course_id','classroom_id'];
 
     public function calendar()
     {

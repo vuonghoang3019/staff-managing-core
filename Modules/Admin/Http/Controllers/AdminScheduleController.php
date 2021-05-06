@@ -32,7 +32,8 @@ class AdminScheduleController extends Controller
     public function index()
     {
         $schedules = $this->schedule->newQuery()->with(['calendar'])->get();
-        return view('admin::schedule.index');
+        dd($schedules);
+        return view('admin::schedule.index', compact('schedules'));
     }
 
     public function create()
@@ -43,19 +44,30 @@ class AdminScheduleController extends Controller
         return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses'));
     }
 
-    public function store(ScheduleRequestAdd $request)
+
+    public function getTime()
     {
-        $schedule = $this->schedule->create([
-            'teacher_id' => $request->teacher_id,
-            'course_id' => $request->course_id,
-            'classroom_id' => $request->classroom_id
-        ]);
-        $this->calendar->create([
+        return $this->schedule->newQuery()->with(['calendar' => function ($query) {
+            $query->select('start_time', 'end_time');
+        }])->get();
+    }
+
+    public function store(Request $request)
+    {
+//        $startTime = Carbon::parse($request->start_time);
+//        $endTime = Carbon::parse($request->end_time);
+        $calendar = $this->calendar->create([
             'day' => $request->day,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
-            'schedule_id' => $schedule->id
         ]);
+        $this->schedule->create([
+            'teacher_id' => $request->teacher_id,
+            'course_id' => $request->course_id,
+            'classroom_id' => $request->classroom_id,
+            'calendar_id' => $calendar->id
+        ]);
+
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
