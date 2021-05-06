@@ -44,19 +44,26 @@ class AdminScheduleController extends Controller
 
     public function store(Request $request)
     {
-        $schedule = $this->schedule->create([
-            'teacher_id' => $request->teacher_id,
-            'course_id' => $request->course_id,
-            'classroom_id' => $request->classroom_id
-        ]);
-        $this->calendar->create([
-            'day' => $request->day,
-            'start_time' => $request->start_time,
-            'end_time' => $request->end_time,
-            'schedule_id' => $schedule->id
-        ]);
+        if ($request->start_time < $request->end_time)
+        {
+            $schedule = $this->schedule->newQuery()->where('start_time', '<')->create([
+                'teacher_id' => $request->teacher_id,
+                'course_id' => $request->course_id,
+                'classroom_id' => $request->classroom_id
+            ]);
+            $this->calendar->create([
+                'day' => $request->day,
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
+                'schedule_id' => $schedule->id
+            ]);
+            return redirect()->back()->with('success', 'Thêm mới thành công');
+        }
+        else
+        {
+            return redirect()->back()->with('error', 'End time không được nhỏ hơn Start time');
+        }
 
-        return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
 }

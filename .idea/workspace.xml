@@ -22,8 +22,7 @@
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminScheduleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Calendar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Schedule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Schedule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/headerContent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/headerContent.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +300,9 @@
       <workItem from="1620180794128" duration="430000" />
       <workItem from="1620181243861" duration="5621000" />
       <workItem from="1620203776051" duration="1244000" />
-      <workItem from="1620218003823" duration="7777000" />
+      <workItem from="1620218003823" duration="7932000" />
+      <workItem from="1620273516052" duration="2051000" />
+      <workItem from="1620285407709" duration="785000" />
     </task>
     <servers />
   </component>
