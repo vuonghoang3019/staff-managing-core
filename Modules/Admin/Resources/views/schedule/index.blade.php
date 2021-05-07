@@ -43,7 +43,7 @@
                                             <a href="{{ route('schedule.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('grade.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('schedule.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

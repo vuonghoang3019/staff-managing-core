@@ -10,11 +10,13 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Modules\Admin\Http\Requests\ScheduleRequestAdd;
+use Modules\Admin\Traits\DeleteTrait;
 
 class AdminScheduleController extends Controller
 {
+    use DeleteTrait;
     private $classroom;
     private $teacher;
     private $course;
@@ -98,7 +100,24 @@ class AdminScheduleController extends Controller
 
     public function delete($id)
     {
-
+        try
+        {
+            $scheduleDelete = $this->schedule->find($id);
+            $scheduleDelete->delete();
+            $this->calendar->newQuery()->where('id',$scheduleDelete->calendar_id)->delete();
+            return response()->json([
+                'code' => 200,
+                'message' => 'success'
+            ],200);
+        }
+        catch (\Exception $exception)
+        {
+            Log::error('Message'. $exception->getMessage(). 'Line' .$exception->getLine());
+            return response()->json([
+                'code' => 500,
+                'message' => 'fail'
+            ],500);
+        }
     }
 
 }
