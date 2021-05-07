@@ -10,6 +10,7 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Modules\Admin\Http\Requests\ScheduleRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
