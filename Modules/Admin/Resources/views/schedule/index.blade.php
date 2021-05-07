@@ -16,44 +16,47 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Tên</th>
-                                <th scope="col">Mô tả</th>
+                                <th scope="col">Giáo viên</th>
+                                <th scope="col">Lớp</th>
+                                <th scope="col">Khóa học</th>
+                                <th scope="col">Ngày</th>
+                                <th scope="col">Bắt đầu (h)</th>
+                                <th scope="col">Kết thúc (h)</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
-{{--                            <tbody>--}}
-{{--                            <?php $stt = 0 ?>--}}
-{{--                            @if(isset($grades))--}}
-{{--                                @foreach($grades as $data)--}}
-{{--                                    <tr>--}}
-{{--                                        <th scope="row">{{ $stt }}</th>--}}
-{{--                                        <td>{{ $data->name }}</td>--}}
-{{--                                        <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('grade.action',['id' => $data->id]) }}"--}}
-{{--                                               class=" {{ $data->getStatus($data->status)['class'] }}">--}}
-{{--                                                {{ $data->getStatus($data->status)['name'] }}--}}
-{{--                                            </a>--}}
-{{--                                        </td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('grade.edit',['id' => $data->id]) }}"--}}
-{{--                                               class="btn btn-default">Edit</a>--}}
-{{--                                            <a href=""--}}
-{{--                                               data-url="{{ route('grade.delete',['id' => $data->id]) }}"--}}
-{{--                                               class="btn btn-danger action-delete">Delete--}}
-{{--                                            </a>--}}
-{{--                                        </td>--}}
-{{--                                    </tr>--}}
-{{--                                    <?php $stt++; ?>--}}
-{{--                                @endforeach--}}
-{{--                            @endif--}}
-{{--                            </tbody>--}}
+                            <tbody>
+                            <?php $stt = 0 ?>
+                            @if(isset($schedules))
+                                @foreach($schedules as $data)
+                                    <tr>
+                                        <th scope="row">{{ $stt }}</th>
+                                        <td>{{ $data->teacher->name }}</td>
+                                        <td>{{ $data->class->name }}</td>
+                                        <td>{{ $data->course->name }}</td>
+                                        <td>{{ $data->calendar->day }}</td>
+                                        <td>{{ $data->calendar->start_time }}</td>
+                                        <td>{{ $data->calendar->end_time }}</td>
+                                        <td><a href="">Status</a></td>
+                                        <td>
+                                            <a href="{{ route('schedule.edit',['id' => $data->id]) }}"
+                                               class="btn btn-default">Edit</a>
+                                            <a href=""
+                                               data-url="{{ route('grade.delete',['id' => $data->id]) }}"
+                                               class="btn btn-danger action-delete">Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php $stt++; ?>
+                                @endforeach
+                            @endif
+                            </tbody>
                         </table>
                     </div>
 
                     <div class="col-md-12 float-right">
-{{--                        {{ $grades->links('pagination::bootstrap-4') }}--}}
+{{--                        {{ $schedule->links('pagination::bootstrap-4') }}--}}
                     </div>
                 </div>
             </div>

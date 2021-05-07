@@ -208,5 +208,17 @@ Route::prefix('admin')->group(function() {
             'as'   => 'schedule.store',
             'uses' => 'AdminScheduleController@store'
         ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'schedule.edit',
+            'uses' => 'AdminScheduleController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'schedule.update',
+            'uses' => 'AdminScheduleController@update'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'schedule.delete',
+            'uses' => 'AdminScheduleController@delete'
+        ]);
     });
 });

@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 @section('title')
-    <title>Add Schedule</title>
+    <title>Edit Schedule</title>
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('vendors/select2/select2.min.css') }}">
@@ -8,12 +8,12 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Schedule  ', 'key' => 'Add Schedule'])
+        @include('admin::components.headerContent',['name' => 'Schedule  ', 'key' => 'Edit Schedule'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('schedule.store') }}" method="post">
-                    @csrf
-                    @include('admin::schedule.form')
+                @csrf
+                @include('admin::schedule.form')
             </div>
         </section>
     </div>

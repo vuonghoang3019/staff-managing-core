@@ -31,8 +31,7 @@ class AdminScheduleController extends Controller
 
     public function index()
     {
-        $schedules = $this->schedule->newQuery()->with(['calendar'])->get();
-        dd($schedules);
+        $schedules = $this->schedule->newQuery()->with(['calendar','teacher','class','course'])->get();
         return view('admin::schedule.index', compact('schedules'));
     }
 
@@ -43,7 +42,6 @@ class AdminScheduleController extends Controller
         $courses = $this->course->newQuery()->with(['course_grade'])->get();
         return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses'));
     }
-
 
     public function getTime()
     {
@@ -69,6 +67,24 @@ class AdminScheduleController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Thêm mới thành công');
+    }
+
+    public function edit($id)
+    {
+        $classrooms = $this->classroom->newQuery()->with(['course'])->get();
+        $teachers = $this->teacher->newQuery()->with(['grade'])->get();
+        $courses = $this->course->newQuery()->with(['course_grade'])->get();
+        return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses'));
+    }
+
+    public function update($id)
+    {
+
+    }
+
+    public function delete($id)
+    {
+
     }
 
 }
