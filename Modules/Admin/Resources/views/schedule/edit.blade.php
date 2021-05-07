@@ -11,7 +11,7 @@
         @include('admin::components.headerContent',['name' => 'Schedule  ', 'key' => 'Edit Schedule'])
         <section class="content">
             <div class="container-fluid">
-                <form action="{{ route('schedule.store') }}" method="post">
+                <form action="{{ route('schedule.update',['id' => $scheduleEdit->id ]) }}" method="post">
                 @csrf
                 @include('admin::schedule.form')
             </div>

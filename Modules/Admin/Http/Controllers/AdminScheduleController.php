@@ -10,6 +10,7 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Modules\Admin\Http\Requests\ScheduleRequestAdd;
 
 class AdminScheduleController extends Controller
@@ -74,12 +75,25 @@ class AdminScheduleController extends Controller
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $teachers = $this->teacher->newQuery()->with(['grade'])->get();
         $courses = $this->course->newQuery()->with(['course_grade'])->get();
-        return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses'));
+        $scheduleEdit = $this->schedule->with(['calendar','teacher','class','course'])->findOrFail($id);
+        return view('admin::schedule.edit', compact('classrooms', 'teachers', 'courses','scheduleEdit'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-
+        $scheduleUpdate = $this->schedule->find($id);
+        $scheduleUpdate->update([
+            'teacher_id' => $request->teacher_id,
+            'course_id' => $request->course_id,
+            'classroom_id' => $request->classroom_id,
+        ]);
+        $calendarUpdate = $this->calendar->newQuery()->where('id',$scheduleUpdate->calendar_id);
+        $calendarUpdate->update([
+            'day'  =>  $request->day,
+            'start_time'  =>  $request->start_time,
+            'end_time'  =>  $request->end_time,
+        ]);
+        return redirect()->back()->with('success', 'Cập nhật thành công');
     }
 
     public function delete($id)
