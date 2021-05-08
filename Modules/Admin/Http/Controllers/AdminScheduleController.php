@@ -54,10 +54,8 @@ class AdminScheduleController extends Controller
         }])->get();
     }
 
-    public function store(Request $request)
+    public function store(ScheduleRequestAdd $request)
     {
-//        $startTime = Carbon::parse($request->start_time);
-//        $endTime = Carbon::parse($request->end_time);
         $calendar = $this->calendar->create([
             'day' => $request->day,
             'start_time' => $request->start_time,
@@ -82,7 +80,7 @@ class AdminScheduleController extends Controller
         return view('admin::schedule.edit', compact('classrooms', 'teachers', 'courses','scheduleEdit'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ScheduleRequestAdd $request, $id)
     {
         $scheduleUpdate = $this->schedule->find($id);
         $scheduleUpdate->update([
