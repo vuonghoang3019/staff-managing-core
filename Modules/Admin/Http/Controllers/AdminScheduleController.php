@@ -36,6 +36,10 @@ class AdminScheduleController extends Controller
     public function index()
     {
         $schedules = $this->schedule->newQuery()->with(['calendar','teacher','class','course'])->get();
+        DB::connection()->enableQueryLog();
+        $this->schedule->validateTime('Monday','07:30:00');
+        $queries = DB::getQueryLog();
+        dd($queries);
         return view('admin::schedule.index', compact('schedules'));
     }
 
