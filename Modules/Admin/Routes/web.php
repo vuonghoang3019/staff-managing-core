@@ -221,4 +221,30 @@ Route::prefix('admin')->group(function() {
             'uses' => 'AdminScheduleController@delete'
         ]);
     });
+    Route::prefix('calendar')->group(function () {
+        Route::get('/', [
+            'as'   => 'calendar.index',
+            'uses' => 'AdminCalendarController@index'
+        ]);
+        Route::get('/create', [
+            'as'   => 'calendar.create',
+            'uses' => 'AdminCalendarController@create'
+        ]);
+        Route::post('/store', [
+            'as'   => 'calendar.store',
+            'uses' => 'AdminCalendarController@store'
+        ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'calendar.edit',
+            'uses' => 'AdminCalendarController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'calendar.update',
+            'uses' => 'AdminCalendarController@update'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'calendar.delete',
+            'uses' => 'AdminCalendarController@delete'
+        ]);
+    });
 });

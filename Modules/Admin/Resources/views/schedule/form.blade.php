@@ -44,29 +44,24 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="form-group ">
-            <label for="day">Nhập thứ</label>
-            <input type="text" class="form-control @error('day') is-invalid @enderror" id="day"
-                   placeholder="Monday-Sunday" name="day" value="{{ old('day',isset($scheduleEdit) ? $scheduleEdit->calendar->day : '') }}">
-            @error('day')
+        <div class="form-group">
+            <label for="start_time">Chọn lịch</label>
+            <select class="form-control " name="calendar_id">
+                <option value="">---Chọn lịch---</option>
+                @foreach($calendars as $calendar)
+                    <option value="{{ $calendar->id }}">{{ $calendar->day }} {{ $calendar->start_time }}-{{ $calendar->end_time }}</option>
+                @endforeach
+            </select>
+            @error('calendar_id')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group ">
-            <label for="start_time">Start Time</label>
-            <input type="time" class="form-control @error('start_time') is-invalid @enderror"
-                   id="start_time"
-                   name="start_time" value="{{ old('start_time',isset($scheduleEdit) ? $scheduleEdit->calendar->start_time : '') }}">
-            @error('start_time')
-            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="form-group ">
-            <label for="end_time">End Time</label>
-            <input type="time" class="form-control @error('end_time') is-invalid @enderror"
-                   id="end_time"
-                   name="end_time" value="{{ old('end_time',isset($scheduleEdit) ? $scheduleEdit->calendar->end_time : '') }}">
-            @error('end_time')
+            <label for="date">Date</label>
+            <input type="date" class="form-control @error('date') is-invalid @enderror"
+                   id="date"
+                   name="date" value="{{ old('end_time',isset($scheduleEdit) ? $scheduleEdit->calendar->end_time : '') }}">
+            @error('date')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>

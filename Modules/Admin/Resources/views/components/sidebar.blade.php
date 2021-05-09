@@ -92,14 +92,14 @@
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="#" class="nav-link">--}}
-{{--                        <i class="far fa-calendar-alt"></i>--}}
-{{--                        <p>--}}
-{{--                            Calender--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                <li class="nav-item">
+                    <a href="{{ route('calendar.index') }}" class="nav-link">
+                        <i class="far fa-calendar-alt"></i>
+                        <p>
+                            Calender
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item ac">
                     <a href="{{ route('schedule.index') }}" class="nav-link">
                         <i class="fas fa-clock"></i>
