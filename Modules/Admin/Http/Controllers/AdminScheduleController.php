@@ -18,6 +18,7 @@ use Modules\Admin\Traits\DeleteTrait;
 class AdminScheduleController extends Controller
 {
     use DeleteTrait;
+
     private $classroom;
     private $teacher;
     private $course;
@@ -35,7 +36,7 @@ class AdminScheduleController extends Controller
 
     public function index()
     {
-        $schedules = $this->schedule->newQuery()->with(['calendar','teacher','class','course'])->get();
+        $schedules = $this->schedule->newQuery()->with(['calendar', 'teacher', 'class', 'course'])->get();
         return view('admin::schedule.index', compact('schedules'));
     }
 
@@ -45,18 +46,27 @@ class AdminScheduleController extends Controller
         $teachers = $this->teacher->newQuery()->with(['grade'])->get();
         $courses = $this->course->newQuery()->with(['course_grade'])->get();
         $calendars = $this->calendar->newQuery()->get();
-        return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses','calendars'));
+        return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses', 'calendars'));
     }
 
     public function store(Request $request)
     {
-        $this->schedule->calendar_id = $request->calendar_id;
-        $this->schedule->teacher_id = $request->teacher_id;
-        $this->schedule->classroom_id = $request->classroom_id;
-        $this->schedule->course_id = $request->course_id;
-        $this->schedule->date = $request->date;
-        $this->schedule->save();
-        return redirect()->back()->with('success','Đặt lịch thành công');
+        $validate = $this->schedule->countNumber($request->teacher_id, $request->classroom_id);
+        if ($validate >= 3)
+        {
+            return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
+        }
+        else
+        {
+            $this->schedule->calendar_id = $request->calendar_id;
+            $this->schedule->teacher_id = $request->teacher_id;
+            $this->schedule->classroom_id = $request->classroom_id;
+            $this->schedule->course_id = $request->course_id;
+            $this->schedule->date_start = $request->date_start;
+            $this->schedule->date_end = $request->date_end;
+            $this->schedule->save();
+            return redirect()->back()->with('success', 'Đặt lịch thành công');
+        }
     }
 
     public function edit($id)
@@ -64,35 +74,36 @@ class AdminScheduleController extends Controller
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $teachers = $this->teacher->newQuery()->with(['grade'])->get();
         $courses = $this->course->newQuery()->with(['course_grade'])->get();
-        $scheduleEdit = $this->schedule->with(['calendar','teacher','class','course'])->findOrFail($id);
-        return view('admin::schedule.edit', compact('classrooms', 'teachers', 'courses','scheduleEdit'));
+        $calendars = $this->calendar->newQuery()->get();
+        $scheduleEdit = $this->schedule->with(['calendar', 'teacher', 'class', 'course'])->findOrFail($id);
+        return view('admin::schedule.edit', compact('classrooms', 'teachers', 'courses', 'scheduleEdit','calendars'));
     }
 
     public function update(ScheduleRequestAdd $request, $id)
     {
+        $validate = $this->schedule->countNumber($request->teacher_id, $request->classroom_id);
+        if ($validate >= 3)
+        {
+            return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
+        }
+        else
+        {
+            $scheduleEdit = $this->schedule->findOrFail($id);
+            $scheduleEdit->calendar_id = $request->calendar_id;
+            $scheduleEdit->teacher_id = $request->teacher_id;
+            $scheduleEdit->classroom_id = $request->classroom_id;
+            $scheduleEdit->course_id = $request->course_id;
+            $scheduleEdit->date_start = $request->date_start;
+            $scheduleEdit->date_end = $request->date_end;
+            $scheduleEdit->save();
+            return redirect()->back()->with('success', 'Cập nhật thành công');
+        }
 
     }
 
     public function delete($id)
     {
-//        try
-//        {
-//            $scheduleDelete = $this->schedule->find($id);
-//            $scheduleDelete->delete();
-//            $this->calendar->newQuery()->where('id',$scheduleDelete->calendar_id)->delete();
-//            return response()->json([
-//                'code' => 200,
-//                'message' => 'success'
-//            ],200);
-//        }
-//        catch (\Exception $exception)
-//        {
-//            Log::error('Message'. $exception->getMessage(). 'Line' .$exception->getLine());
-//            return response()->json([
-//                'code' => 500,
-//                'message' => 'fail'
-//            ],500);
-//        }
+        return $this->deleteModelTrait($id, $this->schedule);
     }
 
 }

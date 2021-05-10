@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 @section('title')
-    <title>Grade</title>
+    <title>Schedule</title>
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -18,11 +18,11 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Giáo viên</th>
                                 <th scope="col">Lớp</th>
-                                <th scope="col">Khóa học</th>
+{{--                                <th scope="col">Khóa học</th>--}}
                                 <th scope="col">Ngày</th>
-                                <th scope="col">Bắt đầu (h)</th>
-                                <th scope="col">Kết thúc (h)</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Giờ học</th>
+                                <th scope="col">Ngày bắt đầu</th>
+                                <th scope="col">Ngày bắt đầu</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -34,11 +34,22 @@
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->teacher->name }}</td>
                                         <td>{{ $data->class->name }}</td>
-                                        <td>{{ $data->course->name }}</td>
+{{--                                        <td>{{ $data->course->name }}</td>--}}
                                         <td>{{ $data->calendar->day }}</td>
-                                        <td>{{ $data->calendar->start_time }}</td>
-                                        <td>{{ $data->calendar->end_time }}</td>
-                                        <td><a href="">Status</a></td>
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    Bắt đầu :
+                                                    {{ $data->calendar->start_time }}
+                                                </li>
+                                                <li>
+                                                    Kết thúc :
+                                                    {{ $data->calendar->end_time }}
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>{{ $data->date_start }}</td>
+                                        <td>{{ $data->date_end }}</td>
                                         <td>
                                             <a href="{{ route('schedule.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>

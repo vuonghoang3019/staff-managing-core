@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     protected $table = 'schedule';
-    protected $fillable = ['calendar_id', 'teacher_id', 'course_id', 'classroom_id','date'];
+    protected $fillable = ['calendar_id', 'teacher_id', 'course_id', 'classroom_id','date_start','date_end'];
 
     public function calendar()
     {
@@ -29,21 +29,11 @@ class Schedule extends Model
         return $this->belongsTo(Course::class, 'course_id');
     }
 
-//    public function validateTime($day, $startTime, $endTime, $teacherID,$classID, $ignore = '')
-//    {
-//        return $this->newQuery()
-//            ->join('calendar', 'schedule.calendar_id', '=', 'calendar.id')
-//            ->where(
-//                [
-//                    ['day', '=', $day],
-//                    ['teacher_id', '=', $teacherID],
-//                    ['classroom_id','=',$classID]
-//                ])
-//            ->whereBetween('end_time',[$startTime,$endTime])
-//            ->orWhereBetween('start_time',[$startTime,$endTime])
-//            ->when(!empty($ignore), function ($q) use ($ignore) {
-//                return $q->where('calendar_id', '!=', $ignore);
-//            })
-//            ->get();
-//    }
+    public function countNumber($teacherID, $classId)
+    {
+        return $this->newQuery()
+            ->where('teacher_id',$teacherID)
+            ->orWhere('classroom_id',$classId)
+            ->get()->count();
+    }
 }

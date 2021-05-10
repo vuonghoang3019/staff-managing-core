@@ -49,7 +49,9 @@
             <select class="form-control " name="calendar_id">
                 <option value="">---Chọn lịch---</option>
                 @foreach($calendars as $calendar)
-                    <option value="{{ $calendar->id }}">{{ $calendar->day }} {{ $calendar->start_time }}-{{ $calendar->end_time }}</option>
+                    <option value="{{ $calendar->id }}"
+                            @if(isset($scheduleEdit)) {{ $scheduleEdit->calendar_id === $calendar->id ? 'selected' : '' }} @endif
+                    >{{ $calendar->day }} {{ $calendar->start_time }}-{{ $calendar->end_time }}</option>
                 @endforeach
             </select>
             @error('calendar_id')
@@ -57,11 +59,20 @@
             @enderror
         </div>
         <div class="form-group ">
-            <label for="date">Date</label>
-            <input type="date" class="form-control @error('date') is-invalid @enderror"
+            <label for="date_start">Ngày dự kiến bắt đầu</label>
+            <input type="date" class="form-control @error('date_start') is-invalid @enderror"
                    id="date"
-                   name="date" value="{{ old('end_time',isset($scheduleEdit) ? $scheduleEdit->calendar->end_time : '') }}">
-            @error('date')
+                   name="date_start" value="{{ old('date_start',isset($scheduleEdit) ? $scheduleEdit->date_start : '') }}">
+            @error('date_start')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group ">
+            <label for="date_end">Ngày dự kiến kết thúc</label>
+            <input type="date" class="form-control @error('date_end') is-invalid @enderror"
+                   id="date_end"
+                   name="date_end" value="{{ old('date_end',isset($scheduleEdit) ? $scheduleEdit->date_end : '') }}">
+            @error('date_end')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>

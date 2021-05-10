@@ -14,65 +14,30 @@ class ScheduleRequestAdd extends FormRequest
      *
      */
     private $schedule;
-    private $calendar;
 
-//    public function __construct(Schedule $schedule)
-//    {
-//        parent::__construct();
-//        $this->schedule = $schedule;
-//    }
-//
-//    public function isValidate($ignore = '')
-//    {
-//        try {
-//            $startTime = $this->get('start_time');
-//            $endTime = $this->get('end_time');
-//            $day = $this->get('day');
-//            $classID = $this->get('classroom_id');
-//            $teacherID = $this->get('teacher_id');
-//            return $this->schedule->validateTime($day, $startTime, $endTime, $teacherID, $classID, $ignore);
-//        } catch (\Exception $exception) {
-//            Log::error('Message' . $exception->getMessage() . 'Line' . $exception->getLine());
-//        }
-//    }
+    public function __construct(Schedule $schedule)
+    {
+        parent::__construct();
+        $this->schedule = $schedule;
+    }
 
 
     public function rules()
     {
         return [
-
+            'classroom_id' => 'required',
+            'teacher_id'   => 'required',
+            'course_id'    => 'required',
+            'calendar_id'  => 'required|unique:schedule,calendar_id,' . $this->id,
+            'date_start'   => 'required|after_or_equal:today',
+            'date_end'     => 'required|after:date_start'
         ];
-
-//        if (!is_null($this->get('start_time', null)) && !is_null($this->get('end_time', null))) {
-//            $rules['start_time'] = [
-//                'required',
-//                'date_format:H:i',
-//                function ($attributes, $value, $fail) {
-//                    if ($this->isValidate() == null) {
-//                        return $fail(sprintf("The %s already", $attributes));
-//                    }
-//                },
-//            ];
-//
-//            $rules['end_time'] = [
-//                'required',
-//                'date_format:H:i',
-//                'after:start_time',
-//                function ($attributes, $value, $fail) {
-//                    if ($this->isValidate() == null) {
-//                        return $fail(sprintf("The %s already", $attributes));
-//                    }
-//                },
-//            ];
-//        }
-
-
     }
 
     public function messages()
     {
         return [
-            'end_time.after' => 'End time must be after Start time',
+
         ];
     }
 
