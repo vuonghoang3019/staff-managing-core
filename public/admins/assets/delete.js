@@ -25,8 +25,16 @@ function actionDelete(event) {
                                 'success'
                             )
                         }
+                        else if (data.code == 201)
+                        {
+                            Swal.fire(
+                                'Not Delete!',
+                                'Có thầy giáo dang dạy',
+                                'error'
+                            )
+                        }
                     },
-                    error: function () {
+                    error: function (data) {
 
                     }
                 });

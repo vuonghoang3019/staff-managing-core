@@ -2,10 +2,8 @@
 
 namespace Modules\Admin\Http\Requests;
 
-use App\Models\Calendar;
 use App\Models\Schedule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Log;
 
 class ScheduleRequestAdd extends FormRequest
 {

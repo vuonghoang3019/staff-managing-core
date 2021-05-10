@@ -36,4 +36,11 @@ class Schedule extends Model
             ->orWhere('classroom_id',$classId)
             ->get()->count();
     }
+
+    public function countTeacher($teacherID)
+    {
+        return $this->newQuery()
+            ->where('teacher_id',$teacherID)
+            ->get()->count();
+    }
 }

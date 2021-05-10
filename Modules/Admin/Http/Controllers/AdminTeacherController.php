@@ -4,10 +4,10 @@ namespace Modules\Admin\Http\Controllers;
 
 use App\Exports\TeacherExport;
 use App\Models\Grade;
+use App\Models\Schedule;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\TeacherRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
@@ -20,11 +20,12 @@ class AdminTeacherController extends Controller
 
     private $teacher;
     private $grade;
-
-    public function __construct(Teacher $teacher, Grade $grade)
+    private $schedule;
+    public function __construct(Teacher $teacher, Grade $grade, Schedule $schedule)
     {
         $this->teacher = $teacher;
         $this->grade = $grade;
+        $this->schedule = $schedule;
     }
 
     public function index()
@@ -52,7 +53,7 @@ class AdminTeacherController extends Controller
         }
         $this->teacher->save();
         $this->teacher->grade()->attach($request->grade_id);
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm mới thành công');
     }
 
     public function edit($id)
@@ -72,7 +73,7 @@ class AdminTeacherController extends Controller
         $teacherUpdate->password = $request->password;
         $dataUpload = $this->fileName($request, 'image_path');
         if ($dataUpload == null) {
-
+            return redirect()->back()->with('error','Thiếu ảnh');
         }
         else if ($teacherUpdate->image_name != $dataUpload['file_name'])
         {
@@ -85,14 +86,24 @@ class AdminTeacherController extends Controller
         }
         $teacherUpdate->save();
         $teacherUpdate->grade()->sync($request->grade_id);
-        return redirect()->back();
+        return redirect()->back()->with('success','Cập nhật thành công');
     }
 
     public function delete($id)
     {
-        $teacherUpdate = $this->teacher->find($id);
-        unlink(substr($teacherUpdate->image_path, 1));
-        return $this->deleteModelTrait($id, $this->teacher);
+        $countTeacher = $this->schedule->countTeacher($id);
+        if ($countTeacher > 0){
+            return response()->json([
+                'code' => 201,
+                'message' => 'success'
+            ],201);
+        }
+        else
+        {
+            $teacherUpdate = $this->teacher->find($id);
+            unlink(substr($teacherUpdate->image_path, 1));
+            return $this->deleteModelTrait($id, $this->teacher);
+        }
     }
 
     public function exportIntoExcel()
