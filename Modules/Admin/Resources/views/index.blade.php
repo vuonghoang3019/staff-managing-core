@@ -5,67 +5,47 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Dashboard', 'key' => ''])
+        @include('admin::components.headerContent',['name' => '', 'key' => 'Dashboard'])
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>150</h3>
-
-                                <p>New Orders</p>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                Calendar
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <th>Time</th>
+                                    @foreach($weekDays as $day)
+                                        <th>{{ $day }}</th>
+                                    @endforeach
+                                    </thead>
+                                    <tbody>
+                                    @foreach($calendars as $time => $calendar)
+                                        <tr>
+                                            <td>
+                                                {{ $time }}
+                                            </td>
+                                            @foreach($calendar as $value)
+                                                @if(is_array($value))
+                                                    <td rowspan="{{ $value['rowspan'] }}"
+                                                        class="align-middle text-center"
+                                                        style="background-color:#f0f0f0">
+                                                        {{ $value['className'] }} <br>
+                                                        Teacher
+                                                        {{ $value['teacherName'] }}
+                                                    </td>
+                                                @elseif($value == 1)
+                                                    <td></td>
+                                                @endif
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                <p>Bounce Rate</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                            <div class="inner">
-                                <h3>44</h3>
-
-                                <p>User Registrations</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-danger">
-                            <div class="inner">
-                                <h3>65</h3>
-
-                                <p>Unique Visitors</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>

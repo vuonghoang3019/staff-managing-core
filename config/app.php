@@ -229,5 +229,9 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
+    'calendar' => [
+        'start'    => '08:00',
+        'end'      => '21:00',
+    ],
 
 ];
