@@ -27,7 +27,7 @@ class Schedule extends Model
 
     public function calendar()
     {
-        return $this->belongsTo(Calendar::class, 'calendar_id');
+        return $this->belongsTo(Calendar::class,'calendar_id');
     }
 
     public function teacher()

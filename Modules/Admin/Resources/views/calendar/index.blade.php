@@ -29,7 +29,12 @@
                                 @foreach($calendars as $data)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td>{{ $data->day }}</td>
+                                        @foreach($weeks as $item => $day)
+                                            @if($item === $data->day)
+                                                <td>{{ $day }}</td>
+                                            @endif
+                                        @endforeach
+
                                         <td>{{ $data->start_time }}</td>
                                         <td>{{ $data->end_time }}</td>
                                         <td><a href="">Status</a></td>

@@ -3,6 +3,7 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Models\Calendar;
+use App\Models\Schedule;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -12,21 +13,25 @@ use Modules\Admin\Traits\DeleteTrait;
 class AdminCalendarController extends Controller
 {
     use DeleteTrait;
+    private $schedule;
     private $calendar;
-    public function __construct(Calendar $calendar)
+    public function __construct(Calendar $calendar, Schedule $schedule)
     {
         $this->calendar = $calendar;
+        $this->schedule = $schedule;
     }
 
     public function index()
     {
+        $weeks = $this->schedule->getWeek();
         $calendars = $this->calendar->paginate(5);
-        return view('admin::calendar.index',compact('calendars'));
+        return view('admin::calendar.index',compact('calendars','weeks'));
     }
 
     public function create()
     {
-        return view('admin::calendar.add');
+        $weeks = $this->schedule->getWeek();
+        return view('admin::calendar.add',compact('weeks'));
     }
 
     public function store(CalendarRequestAdd $request)
@@ -40,8 +45,9 @@ class AdminCalendarController extends Controller
 
     public function edit($id)
     {
+        $weeks = $this->schedule->getWeek();
         $calendarUpdate = $this->calendar->findOrFail($id);
-        return view('admin::calendar.edit',compact('calendarUpdate'));
+        return view('admin::calendar.edit',compact('calendarUpdate','weeks'));
     }
 
     public function update(CalendarRequestAdd $request, $id)

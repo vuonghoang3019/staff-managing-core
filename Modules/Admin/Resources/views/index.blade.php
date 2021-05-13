@@ -18,31 +18,30 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <th>Time</th>
-                                    @foreach($weekDays as $day)
-                                        <th>{{ $day }}</th>
-                                    @endforeach
+                                        @foreach($weekDays as $day)
+                                            <th>{{ $day }}</th>
+                                        @endforeach
                                     </thead>
                                     <tbody>
-                                    @foreach($calendars as $time => $calendar)
-                                        <tr>
-                                            <td>
-                                                {{ $time }}
-                                            </td>
-                                            @foreach($calendar as $value)
-                                                @if(is_array($value))
-                                                    <td rowspan="{{ $value['rowspan'] }}"
-                                                        class="align-middle text-center"
-                                                        style="background-color:#f0f0f0">
-                                                        {{ $value['className'] }} <br>
-                                                        Teacher
-                                                        {{ $value['teacherName'] }}
-                                                    </td>
-                                                @elseif($value == 1)
-                                                    <td></td>
-                                                @endif
-                                            @endforeach
-                                        </tr>
-                                    @endforeach
+                                        @foreach($calendars as $time => $calendar)
+                                            <tr>
+                                                <td>
+                                                    {{ $time }}
+                                                </td>
+                                                @foreach($calendar as $value)
+                                                    @if(is_array($value))
+                                                        <td rowspan="{{ $value['rowspan'] }}"
+                                                            class="align-middle text-center"
+                                                            style="background-color:#f0f0f0; ">
+{{--                                                            {{ $value['className'] }} <br/>--}}
+{{--                                                            Teacher: {{ $value['teacherName'] }}--}}
+                                                        </td>
+                                                    @elseif($value === 1)
+                                                        <td></td>
+                                                    @endif
+                                                @endforeach
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
