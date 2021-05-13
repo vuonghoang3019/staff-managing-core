@@ -22,7 +22,7 @@
                                 <th scope="col">Ngày</th>
                                 <th scope="col">Giờ học</th>
                                 <th scope="col">Ngày bắt đầu</th>
-                                <th scope="col">Ngày bắt đầu</th>
+                                <th scope="col">Ngày kết thúc</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -35,7 +35,12 @@
                                         <td>{{ $data->teacher->name }}</td>
                                         <td>{{ $data->class->name }}</td>
 {{--                                        <td>{{ $data->course->name }}</td>--}}
-                                        <td>{{ $data->calendar->day }}</td>
+                                        <td>
+                                            @foreach($weeks as $item => $day)
+                                                {{ $data->calendar->day === $item ? $day : '' }}
+                                            @endforeach
+
+                                        </td>
                                         <td>
                                             <ul>
                                                 <li>

@@ -36,8 +36,9 @@ class AdminScheduleController extends Controller
 
     public function index()
     {
+        $weeks = $this->schedule->getWeek();
         $schedules = $this->schedule->newQuery()->with(['calendar', 'teacher', 'class', 'course'])->get();
-        return view('admin::schedule.index', compact('schedules'));
+        return view('admin::schedule.index', compact('schedules','weeks'));
     }
 
     public function create()
@@ -46,7 +47,8 @@ class AdminScheduleController extends Controller
         $teachers = $this->teacher->newQuery()->with(['grade'])->get();
         $courses = $this->course->newQuery()->with(['course_grade'])->get();
         $calendars = $this->calendar->newQuery()->get();
-        return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses', 'calendars'));
+        $weeks = $this->schedule->getWeek();
+        return view('admin::schedule.add', compact('classrooms', 'teachers', 'courses', 'calendars','weeks'));
     }
 
     public function store(Request $request)
@@ -71,12 +73,13 @@ class AdminScheduleController extends Controller
 
     public function edit($id)
     {
+        $weeks = $this->schedule->getWeek();
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $teachers = $this->teacher->newQuery()->with(['grade'])->get();
         $courses = $this->course->newQuery()->with(['course_grade'])->get();
         $calendars = $this->calendar->newQuery()->get();
         $scheduleEdit = $this->schedule->with(['calendar', 'teacher', 'class', 'course'])->findOrFail($id);
-        return view('admin::schedule.edit', compact('classrooms', 'teachers', 'courses', 'scheduleEdit','calendars'));
+        return view('admin::schedule.edit', compact('classrooms', 'teachers', 'courses', 'scheduleEdit','calendars','weeks'));
     }
 
     public function update(ScheduleRequestAdd $request, $id)

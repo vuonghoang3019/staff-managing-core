@@ -12,8 +12,8 @@ class CalendarService
     public function generateCalendarData($weekDays)
     {
         $calendarData = [];
-        $timeRange = (new TimeService)->generateTimeRange(config('app.calendar.start'), config('app.calendar.end'));
-        $schedules = Schedule::with(['calendar', 'teacher', 'class'])->get();
+        $timeRange = (new TimeService)->generateTimeRange(config('app.calendar.start_t'), config('app.calendar.end_t'));
+        $schedules = Schedule::with('calendar', 'teacher', 'class')->get();
         foreach ($timeRange as $time)
         {
             $timeText = $time['start'] . ' - ' . $time['end'];

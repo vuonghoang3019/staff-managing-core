@@ -49,9 +49,15 @@
             <select class="form-control " name="calendar_id">
                 <option value="">---Chọn lịch---</option>
                 @foreach($calendars as $calendar)
+
                     <option value="{{ $calendar->id }}"
                             @if(isset($scheduleEdit)) {{ $scheduleEdit->calendar_id === $calendar->id ? 'selected' : '' }} @endif
-                    >{{ $calendar->day }} {{ $calendar->start_time }}-{{ $calendar->end_time }}</option>
+                    >
+                        @foreach($weeks as $item => $day)
+                            {{ $calendar->day === $item ? $day : '' }}
+                        @endforeach
+
+                        {{ $calendar->start_time }}-{{ $calendar->end_time }}</option>
                 @endforeach
             </select>
             @error('calendar_id')
