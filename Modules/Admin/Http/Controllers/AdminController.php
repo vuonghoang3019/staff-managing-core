@@ -19,7 +19,7 @@ class AdminController extends Controller
     {
         $weekDays = $this->schedule->getWeek();
         $calendarData = $calendarService->generateCalendarData($weekDays);
-        return view('admin::index', compact('weekDays','calendarData'));
+        return view('admin::index', compact('weekDays', 'calendarData'));
     }
 
 }

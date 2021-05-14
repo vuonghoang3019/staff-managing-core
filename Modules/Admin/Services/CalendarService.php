@@ -4,7 +4,6 @@ namespace Modules\Admin\Services;
 
 use App\Models\Schedule;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class CalendarService
 {
@@ -14,29 +13,21 @@ class CalendarService
         $calendarData = [];
         $timeRange = (new TimeService)->generateTimeRange(config('app.calendar.start_time'), config('app.calendar.end_time'));
         $schedules = Schedule::with('calendar', 'teacher', 'class')->get();
-        $count=0;
-        foreach ($timeRange as $time)
-        {
+        foreach ($timeRange as $time) {
             $timeText = $time['start'] . ' - ' . $time['end'];
             $calendarData[$timeText] = [];
-            foreach ($weekDays as $index =>  $day)
-            {
-
-                $schedule = $schedules->where('calendar.day',$index)->where('calendar.start_time', $time['start'])->first();
-                if ($schedule)
-                {
+            foreach ($weekDays as $index => $day) {
+                $schedule = $schedules->where('calendar.day', $index)->where('calendar.start_time', $time['start'])->first();
+                if ($schedule) {
                     array_push($calendarData[$timeText], [
                         'class_name'   => $schedule->class->name,
                         'teacher_name' => $schedule->teacher->name,
-                        'rowspan'      => $schedule->difference/30 ?? ''
+                        'rowspan'      => $schedule->difference / 30 ?? ''
                     ]);
 
-                }
-                else if (!$schedules->where('calendar.day', $index)->where('calendar.start_time', '<', $time['start'])->where('calendar.end_time', '>=', $time['end'])->count())
-                {
+                } else if (!$schedules->where('calendar.day', $index)->where('calendar.start_time', '<', $time['start'])->where('calendar.end_time', '>=', $time['end'])->count()) {
                     array_push($calendarData[$timeText], 1);
-                }
-                else {
+                } else {
                     array_push($calendarData[$timeText], 0);
                 }
             }

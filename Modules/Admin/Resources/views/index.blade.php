@@ -20,18 +20,19 @@
                                 <thead>
                                 <th width="125">Time</th>
                                 @foreach($weekDays as $day)
-                                    <th >{{ $day }}</th>
+                                    <th>{{ $day }}</th>
                                 @endforeach
                                 </thead>
                                 <tbody>
                                 @foreach($calendarData as $time => $days)
                                     <tr>
                                         <td>
-                                            {{ $time  }}
+                                            {{ $time }}
                                         </td>
                                         @foreach($days as $value)
                                             @if (is_array($value))
-                                                <td rowspan="4" class="align-middle text-center"  style="background-color:#f0f0f0">
+                                                <td rowspan="4" class="align-middle text-center" width="250"
+                                                    style="background-color:#f0f0f0">
                                                     {{ $value['class_name'] }}<br>
                                                     Teacher: {{ $value['teacher_name'] }}
                                                 </td>
