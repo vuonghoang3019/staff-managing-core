@@ -12,8 +12,8 @@ class TimeService
         $timeRange = [];
         do {
             array_push($timeRange, [
-                'start' => $time->format("H:i"),
-                'end'   => $time->addMinute(30)->format("H:i")
+                'start' => $time->format("H:i:s"),
+                'end'   => $time->addMinute(30)->format("H:i:s")
             ]);
         } while ($time->format("H:i") !== $to);
         return $timeRange;

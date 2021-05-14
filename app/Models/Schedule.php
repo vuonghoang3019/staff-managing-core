@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 
@@ -9,7 +10,6 @@ class Schedule extends Model
 {
     protected $table = 'schedule';
     protected $fillable = ['calendar_id', 'teacher_id', 'course_id', 'classroom_id','date_start','date_end'];
-
     protected $weekDay = [
         '1' => 'Monday',
         '2' => 'Tuesday',
@@ -25,11 +25,15 @@ class Schedule extends Model
         return Arr::get($this->weekDay,$this->week,'N\A');
     }
 
+    public function getTimeAttribute($value)
+    {
+        $time = Carbon::createFromFormat('H:i:s', $value);
+        return $time->format('H:i');
+    }
     public function calendar()
     {
         return $this->belongsTo(Calendar::class,'calendar_id');
     }
-
     public function teacher()
     {
         return $this->belongsTo(Teacher::class, 'teacher_id');

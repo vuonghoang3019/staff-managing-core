@@ -4,6 +4,7 @@ namespace Modules\Admin\Http\Controllers;
 
 use App\Models\Calendar;
 use App\Models\Schedule;
+use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -36,6 +37,7 @@ class AdminCalendarController extends Controller
 
     public function store(CalendarRequestAdd $request)
     {
+
         $this->calendar->day = $request->day;
         $this->calendar->start_time = $request->start_time;
         $this->calendar->end_time = $request->end_time;

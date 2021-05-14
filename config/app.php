@@ -230,8 +230,8 @@ return [
 
     ],
     'calendar' => [
-        'start_t'    => '08:00',
-        'end_t'      => '21:00',
+        'start_time'    => '08:00',
+        'end_time'      => '21:00',
     ],
 
 ];
