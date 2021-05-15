@@ -9,7 +9,7 @@ use Illuminate\Support\Arr;
 class Schedule extends Model
 {
     protected $table = 'schedule';
-    protected $fillable = ['calendar_id', 'teacher_id', 'course_id', 'classroom_id','date_start','date_end'];
+    protected $fillable = ['calendar_id', 'user_id', 'course_id', 'classroom_id','date_start','date_end'];
     protected $weekDay = [
         '1' => 'Monday',
         '2' => 'Tuesday',
@@ -34,9 +34,9 @@ class Schedule extends Model
     {
         return $this->belongsTo(Calendar::class,'calendar_id');
     }
-    public function teacher()
+    public function user()
     {
-        return $this->belongsTo(Teacher::class, 'teacher_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function class()
@@ -49,18 +49,18 @@ class Schedule extends Model
         return $this->belongsTo(Course::class, 'course_id');
     }
 
-    public function countNumber($teacherID, $classId)
+    public function countNumber($userID, $classId)
     {
         return $this->newQuery()
-            ->where('teacher_id',$teacherID)
+            ->where('user_id',$userID)
             ->orWhere('classroom_id',$classId)
             ->get()->count();
     }
 
-    public function countTeacher($teacherID)
+    public function countTeacher($userID)
     {
         return $this->newQuery()
-            ->where('teacher_id',$teacherID)
+            ->where('user_id',$userID)
             ->get()->count();
     }
 }

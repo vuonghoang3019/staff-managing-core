@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Teacher extends Model
+class User extends Model
 {
-    protected $table = 'teacher';
+    protected $table = 'users';
     protected $fillable = ['name','code','email','password','image_name','image_path'];
     public function grade()
     {
-        return $this->belongsToMany(Grade::class,'teacher_grade','teacher_id','grade_id');
+        return $this->belongsToMany(Grade::class,'user_grade','user_id','grade_id');
     }
 }

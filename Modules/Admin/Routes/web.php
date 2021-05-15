@@ -1,6 +1,8 @@
 <?php
 use Illuminate\Support\Facades\Route;
-
+Route::get('login','auth\LoginController@getLogin')->name('login');
+Route::post('postLogin','auth\LoginController@postLogin')->name('postLogin');
+Route::get('logout','auth\LoginController@logout')->name('logout');
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('category')->group(function () {
@@ -248,3 +250,4 @@ Route::prefix('admin')->group(function() {
         ]);
     });
 });
+

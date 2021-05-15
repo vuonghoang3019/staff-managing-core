@@ -12,7 +12,7 @@ class CalendarService
     {
         $calendarData = [];
         $timeRange = (new TimeService)->generateTimeRange(config('app.calendar.start_time'), config('app.calendar.end_time'));
-        $schedules = Schedule::with('calendar', 'teacher', 'class')->get();
+        $schedules = Schedule::with('calendar', 'user', 'class')->get();
         foreach ($timeRange as $time) {
             $timeText = $time['start'] . ' - ' . $time['end'];
             $calendarData[$timeText] = [];
@@ -21,7 +21,7 @@ class CalendarService
                 if ($schedule) {
                     array_push($calendarData[$timeText], [
                         'class_name'   => $schedule->class->name,
-                        'teacher_name' => $schedule->teacher->name,
+                        'teacher_name' => $schedule->user->name,
                         'rowspan'      => $schedule->difference / 30 ?? ''
                     ]);
 

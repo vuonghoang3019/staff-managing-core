@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Teacher', 'key' => 'List Teacher'])
+        @include('admin::components.headerContent',['name' => 'User', 'key' => 'List User'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

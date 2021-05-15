@@ -15,16 +15,16 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="teacher_id">Giáo Viên</label>
-            <select class="form-control " name="teacher_id">
+            <label for="user_id">Giáo Viên</label>
+            <select class="form-control " name="user_id">
                 <option value="">---Chọn giáo viên---</option>
-                @foreach($teachers as $teacher)
-                    <option value="{{ $teacher->id }}"
-                    @if(isset($scheduleEdit)) {{ $scheduleEdit->teacher_id === $teacher->id ? 'selected' : '' }} @endif
-                    >{{ $teacher->name }}</option>
+                @foreach($users as $user)
+                    <option value="{{ $users->id }}"
+                    @if(isset($scheduleEdit)) {{ $scheduleEdit->user_id === $users->id ? 'selected' : '' }} @endif
+                    >{{ $users->name }}</option>
                 @endforeach
             </select>
-            @error('teacher_id')
+            @error('user_id')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>

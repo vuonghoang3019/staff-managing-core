@@ -5,7 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use App\Exports\TeacherExport;
 use App\Models\Grade;
 use App\Models\Schedule;
-use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Maatwebsite\Excel\Facades\Excel;
@@ -18,19 +18,19 @@ class AdminTeacherController extends Controller
     use StorageImageTrait;
     use DeleteTrait;
 
-    private $teacher;
+    private $user;
     private $grade;
     private $schedule;
-    public function __construct(Teacher $teacher, Grade $grade, Schedule $schedule)
+    public function __construct(User $user, Grade $grade, Schedule $schedule)
     {
-        $this->teacher = $teacher;
+        $this->user = $user;
         $this->grade = $grade;
         $this->schedule = $schedule;
     }
 
     public function index()
     {
-        $teachers = $this->teacher->newQuery()->with(['grade'])->orderBy('id', 'desc')->paginate(5);
+        $teachers = $this->user->newQuery()->with(['grade'])->orderBy('id', 'desc')->paginate(5);
         return view('admin::teacher.index', compact('teachers'));
     }
 

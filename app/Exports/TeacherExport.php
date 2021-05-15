@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Teacher;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
@@ -15,7 +15,7 @@ class TeacherExport implements FromCollection, WithHeadings, WithMapping, Should
 
     public function collection()
     {
-        return Teacher::all();
+        return User::all();
     }
 
     public function map($teacher): array
