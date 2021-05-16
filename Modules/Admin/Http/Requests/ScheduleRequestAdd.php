@@ -26,7 +26,7 @@ class ScheduleRequestAdd extends FormRequest
             'classroom_id' => 'required',
             'user_id'      => 'required',
             'course_id'    => 'required',
-            'calendar_id'  => 'required|unique:schedule,calendar_id,' . $this->id,
+            'calendar_id'  => 'required|unique:schedules,calendar_id,' . $this->id,
             'date_start'   => 'required|after_or_equal:today',
             'date_end'     => 'required|after:date_start'
         ];

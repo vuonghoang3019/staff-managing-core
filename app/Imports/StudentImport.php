@@ -30,7 +30,7 @@ class StudentImport implements ToCollection, WithHeadingRow, WithValidation
     public function rules(): array
     {
         return [
-            '*.code' => ['unique:student,code']
+            '*.code' => ['unique:students,code']
         ];
     }
 

@@ -35,7 +35,7 @@
             @enderror
         </div>
         <div class="form-group ">
-            <label for="classroom_id">Dân tộc</label>
+            <label for="classroom_id">Lớp</label>
             <select class="form-control" name="classroom_id">
                 <option value="">---Mời bạn chọn lớp---</option>
                 @foreach($classrooms as $classroom)

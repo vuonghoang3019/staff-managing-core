@@ -37,7 +37,7 @@ class AdminClassroomController extends Controller
         $this->classroom->name = $request->name;
         $this->classroom->course_id = $request->course_id;
         $this->classroom->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm mới thành công');
     }
     public function edit($id)
     {
@@ -52,7 +52,7 @@ class AdminClassroomController extends Controller
         $classroomUpdate->name = $request->name;
         $classroomUpdate->course_id = $request->course_id;
         $classroomUpdate->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Cập nhật thành công');
     }
     public function delete($id)
     {
