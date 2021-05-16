@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 
 class Student extends Model
 {
-    protected $table = 'student';
+    protected $table = 'students';
     protected $fillable = ['code','name','birthday','sex','nation','classroom_id','status'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;

@@ -31,7 +31,7 @@ class AdminGradeController extends Controller
         $this->grade->name = $request->name;
         $this->grade->description = $request->description;
         $this->grade->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm mới thành công');
     }
     public function edit($id)
     {
@@ -49,7 +49,7 @@ class AdminGradeController extends Controller
         $gradeEdit->name = $request->name;
         $gradeEdit->description = $request->description;
         $gradeEdit->save();
-        return redirect()->back();
+        return redirect()->back()->with('success','Cập nhật thành công');
     }
     public function delete($id)
     {

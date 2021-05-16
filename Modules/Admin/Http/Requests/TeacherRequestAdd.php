@@ -17,7 +17,7 @@ class TeacherRequestAdd extends FormRequest
             'name'       => 'required',
             'code'       => 'required',
             'password'   => 'required',
-            'email'      => 'required|unique:teacher,email,' . $this->id,
+            'email'      => 'required|unique:users,email,' . $this->id,
             'image_path' => 'max:10000|mimes:jpeg,png,jpg' //a required, max 10000kb, jpeg,png,jpg
         ];
     }

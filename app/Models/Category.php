@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 
 class Category extends Model
 {
-    protected $table = 'category';
+    protected $table = 'categories';
     protected $fillable = ['name','slug','parent_id','total','active'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;

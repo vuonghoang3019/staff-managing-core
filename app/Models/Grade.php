@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 
 class Grade extends Model
 {
-    protected $table = 'grade';
+    protected $table = 'grades';
     protected $fillable = ['name','description','status'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;

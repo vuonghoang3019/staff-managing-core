@@ -48,7 +48,7 @@ class AdminScheduleController extends Controller
         return view('admin::schedule.add', compact('classrooms', 'users', 'courses', 'calendars','weeks'));
     }
 
-    public function store(Request $request)
+    public function store(ScheduleRequestAdd $request)
     {
         $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id);
         if ($validate >= 3)

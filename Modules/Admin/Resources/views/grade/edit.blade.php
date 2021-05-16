@@ -5,7 +5,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'grade', 'key' => 'Edit grade'])
+        @include('admin::components.headerContent',['name' => 'Grade', 'key' => 'Edit grade'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('grade.update',['id' => $gradeEdit->id]) }}" method="post">

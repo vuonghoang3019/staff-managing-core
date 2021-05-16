@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Calendar extends Model
 {
-    protected $table = 'calendar';
+    protected $table = 'calendars';
     protected $fillable = ['day','start_time','end_time','status'];
 
     public function validateDay($calendarID)

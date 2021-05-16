@@ -5,7 +5,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'grade', 'key' => 'Add grade'])
+        @include('admin::components.headerContent',['name' => 'Grade', 'key' => 'Add grade'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('grade.store') }}" method="post">

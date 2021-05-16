@@ -8,7 +8,7 @@ use Illuminate\Support\Arr;
 
 class Schedule extends Model
 {
-    protected $table = 'schedule';
+    protected $table = 'schedules';
     protected $fillable = ['calendar_id', 'user_id', 'course_id', 'classroom_id','date_start','date_end'];
     protected $weekDay = [
         '1' => 'Monday',

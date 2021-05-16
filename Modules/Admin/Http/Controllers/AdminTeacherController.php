@@ -42,38 +42,38 @@ class AdminTeacherController extends Controller
 
     public function store(TeacherRequestAdd $request)
     {
-        $this->teacher->name = $request->name;
-        $this->teacher->code = $request->code;
-        $this->teacher->email = $request->email;
-        $this->teacher->password = $request->password;
+        $this->user->name = $request->name;
+        $this->user->code = $request->code;
+        $this->user->email = $request->email;
+        $this->user->password = $request->password;
         $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
         if (!empty($userUpload)) {
-            $this->teacher->image_name = $userUpload['file_name'];
-            $this->teacher->image_path = $userUpload['file_path'];
+            $this->user->image_name = $userUpload['file_name'];
+            $this->user->image_path = $userUpload['file_path'];
         }
-        $this->teacher->save();
-        $this->teacher->grade()->attach($request->grade_id);
+        $this->user->save();
+        $this->user->grade()->attach($request->grade_id);
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 
     public function edit($id)
     {
         $grades = $this->grade->get();
-        $teacherEdit = $this->teacher->find($id);
+        $teacherEdit = $this->user->find($id);
         $teacherGrade = $teacherEdit->grade;
         return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade'));
     }
 
     public function update(TeacherRequestAdd $request, $id)
     {
-        $teacherUpdate = $this->teacher->find($id);
+        $teacherUpdate = $this->user->find($id);
         $teacherUpdate->name = $request->name;
         $teacherUpdate->code = $request->code;
         $teacherUpdate->email = $request->email;
         $teacherUpdate->password = $request->password;
         $dataUpload = $this->fileName($request, 'image_path');
         if ($dataUpload == null) {
-            return redirect()->back()->with('error','Thiếu ảnh');
+//            return redirect()->back()->with('error','Thiếu ảnh');
         }
         else if ($teacherUpdate->image_name != $dataUpload['file_name'])
         {
@@ -100,9 +100,9 @@ class AdminTeacherController extends Controller
         }
         else
         {
-            $teacherUpdate = $this->teacher->find($id);
+            $teacherUpdate = $this->user->find($id);
             unlink(substr($teacherUpdate->image_path, 1));
-            return $this->deleteModelTrait($id, $this->teacher);
+            return $this->deleteModelTrait($id, $this->user);
         }
     }
 

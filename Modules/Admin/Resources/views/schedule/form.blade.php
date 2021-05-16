@@ -19,9 +19,9 @@
             <select class="form-control " name="user_id">
                 <option value="">---Chọn giáo viên---</option>
                 @foreach($users as $user)
-                    <option value="{{ $users->id }}"
-                    @if(isset($scheduleEdit)) {{ $scheduleEdit->user_id === $users->id ? 'selected' : '' }} @endif
-                    >{{ $users->name }}</option>
+                    <option value="{{ $user->id }}"
+                    @if(isset($scheduleEdit)) {{ $scheduleEdit->user_id === $user->id ? 'selected' : '' }} @endif
+                    >{{ $user->name }}</option>
                 @endforeach
             </select>
             @error('user_id')
