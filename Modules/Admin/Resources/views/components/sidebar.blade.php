@@ -93,7 +93,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('calendar.index') }}" class="nav-link">
+                    <a href="{{ route('calendar.index') }}" class="nav-link {{ \Request::route()->getName() == 'calendar.index' ? 'active' : ''}}">
                         <i class="far fa-calendar-alt"></i>
                         <p>
                             Calender
@@ -101,10 +101,18 @@
                     </a>
                 </li>
                 <li class="nav-item ac">
-                    <a href="{{ route('schedule.index') }}" class="nav-link">
+                    <a href="{{ route('schedule.index') }}" class="nav-link {{ \Request::route()->getName() == 'schedule.index' ? 'active' : ''}}">
                         <i class="fas fa-clock"></i>
                         <p>
                             Schedule
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ac">
+                    <a href="{{ route('role.index') }}" class="nav-link {{ \Request::route()->getName() == 'role.index' ? 'active' : ''}}">
+                        <i class="fas fa-users-cog"></i>
+                        <p>
+                            Role
                         </p>
                     </a>
                 </li>

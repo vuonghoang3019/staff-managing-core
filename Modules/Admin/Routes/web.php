@@ -1,8 +1,13 @@
 <?php
 use Illuminate\Support\Facades\Route;
-Route::get('login','auth\LoginController@getLogin')->name('login');
-Route::post('postLogin','auth\LoginController@postLogin')->name('postLogin');
-Route::get('logout','auth\LoginController@logout')->name('logout');
+
+
+Route::prefix('authenticate')->group(function () {
+    Route::get('/login','auth\LoginController@getLogin')->name('login')->middleware('');
+    Route::post('postLogin','auth\LoginController@postLogin')->name('postLogin');
+    Route::get('logout','auth\LoginController@logout')->name('logout');
+
+});
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('category')->group(function () {
@@ -247,6 +252,24 @@ Route::prefix('admin')->group(function() {
         Route::get('/delete/{id}', [
             'as'   => 'calendar.delete',
             'uses' => 'AdminCalendarController@delete'
+        ]);
+    });
+    Route::prefix('role')->group(function () {
+        Route::get('/', [
+            'as'   => 'role.index',
+            'uses' => 'AdminRoleController@index'
+        ]);
+        Route::get('/create', [
+            'as'   => 'role.create',
+            'uses' => 'AdminRoleController@create'
+        ]);
+        Route::post('/store', [
+            'as'   => 'role.store',
+            'uses' => 'AdminRoleController@store'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'role.delete',
+            'uses' => 'AdminRoleController@delete'
         ]);
     });
 });

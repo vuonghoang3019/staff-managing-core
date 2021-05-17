@@ -56,7 +56,6 @@
                         @foreach($weeks as $item => $day)
                             {{ $calendar->day === $item ? $day : '' }}
                         @endforeach
-
                         {{ $calendar->start_time }}-{{ $calendar->end_time }}</option>
                 @endforeach
             </select>
