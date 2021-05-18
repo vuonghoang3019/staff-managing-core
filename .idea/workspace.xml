@@ -20,23 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminRoleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/RoleRequestAdd.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLogin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Database/Migrations/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Middleware/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/assets/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/lang/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/schedule/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/schedule/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminRoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminRoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,7 +365,8 @@
       <workItem from="1621178224936" duration="5292000" />
       <workItem from="1621217848944" duration="3317000" />
       <workItem from="1621240784529" duration="1552000" />
-      <workItem from="1621258603704" duration="12088000" />
+      <workItem from="1621258603704" duration="12132000" />
+      <workItem from="1621304228124" duration="5522000" />
     </task>
     <servers />
   </component>

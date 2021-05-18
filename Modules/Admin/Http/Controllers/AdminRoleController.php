@@ -35,6 +35,16 @@ class AdminRoleController extends Controller
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 
+    public function update(RoleRequestAdd $request ,$id)
+    {
+        $roleUpdate = $this->role->findOrFail($id);
+        $roleUpdate->name = $request->name;
+        $roleUpdate->description = $request->description;
+        $roleUpdate->save();
+        return redirect()->back()->with('success','Cập nhật thành công');
+
+    }
+
     public function delete($id)
     {
         return $this->deleteModelTrait($id, $this->role);

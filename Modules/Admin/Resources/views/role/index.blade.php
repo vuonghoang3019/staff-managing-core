@@ -9,52 +9,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editRole">
                             Add
                         </button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="{{ route('role.store') }}" method="POST">
-                                            @csrf
-                                            <div class="form-group ">
-                                                <label for="name">Nhập tên</label>
-                                                <input type="text"
-                                                       class="form-control "
-                                                       id="name"
-                                                       placeholder="Nhập tên mức độ" name="name"
-                                                       value="{{ old('name') }}">
-
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="description">Nhập mô tả</label>
-                                                <textarea class="form-control "
-                                                          id="text" name="description"
-                                                          rows="3">{{ old('description') }}</textarea>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                    Close
-                                                </button>
-                                                <button type="submit" class="btn btn-success">Submit</button>
-                                            </div>
-
-                                        </form>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        @include('admin::role.form')
                     </div>
                     <div class="col-md-12">
                         <table class="table">
@@ -76,8 +34,9 @@
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
 
                                         <td>
-                                            <a href="{{ route('grade.edit',['id' => $data->id]) }}"
+                                            <a href="#" data-toggle="modal" data-target="#editRole{{ $data->id }}"
                                                class="btn btn-default">Edit</a>
+                                            @include('admin::role.form')
                                             <a href=""
                                                data-url="{{ route('role.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
