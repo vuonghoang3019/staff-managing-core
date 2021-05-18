@@ -3,12 +3,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('authenticate')->group(function () {
-    Route::get('/login','auth\LoginController@getLogin')->name('login')->middleware('');
+    Route::get('/login','auth\LoginController@getLogin')->name('login');
     Route::post('postLogin','auth\LoginController@postLogin')->name('postLogin');
     Route::get('logout','auth\LoginController@logout')->name('logout');
 
 });
-Route::prefix('admin')->group(function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('category')->group(function () {
         Route::get('/', [
@@ -277,4 +277,8 @@ Route::prefix('admin')->group(function() {
         ]);
     });
 });
+//Route::prefix('admin')->group(function() {
+//
+//
+//});
 

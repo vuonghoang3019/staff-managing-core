@@ -14,8 +14,8 @@ class CheckLoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required|alphaNum|min:3'
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required'
         ];
     }
 
