@@ -16,11 +16,22 @@ class CheckLogin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->status === 1) {
-            dd('Day la middelware');
-        } else {
-
+        if (Auth::check())
+        {
+            $user = Auth::user();
+            if ($user->status ==1 )
+            {
+                return $next($request);
+            }
+            else
+            {
+                Auth::logout();
+                return redirect()->route('getLogin');
+            }
         }
-        return $next($request);
+        else
+        {
+            return redirect()->route('getLogin');
+        }
     }
 }

@@ -26,13 +26,11 @@
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
         @if(count($errors) > 0)
-            <div class="alert alert-danger">
                 <ul>
                     @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li class="text-danger">{{ $error }}</li>
                     @endforeach
                 </ul>
-            </div>
         @endif
         <!-- Remind Passowrd -->
         <div id="formFooter">

@@ -2,13 +2,10 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::prefix('authenticate')->group(function () {
-    Route::get('/login','auth\LoginController@getLogin')->name('login');
-    Route::post('postLogin','auth\LoginController@postLogin')->name('postLogin');
-    Route::get('logout','auth\LoginController@logout')->name('logout');
-
-});
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::get('login','auth\LoginController@getLogin')->name('getLogin');
+Route::post('postLogin','auth\LoginController@postLogin')->name('postLogin');
+Route::get('logout','auth\LoginController@logout')->name('logout');
+Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('category')->group(function () {
         Route::get('/', [
@@ -277,8 +274,4 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         ]);
     });
 });
-//Route::prefix('admin')->group(function() {
-//
-//
-//});
 

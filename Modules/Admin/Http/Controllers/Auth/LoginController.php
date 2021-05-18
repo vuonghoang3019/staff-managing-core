@@ -11,32 +11,37 @@ class LoginController extends Controller
 {
     public function getLogin()
     {
-        return view('admin::auth.login');
+        if (Auth::check())
+        {
+            //login success
+            return redirect('admin');
+        }
+        else
+        {
+            return view('admin::auth.login');
+        }
     }
 
     public function postLogin(CheckLoginRequest $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
-            dd($request->all());
-        } else {
-
-            dd($request->all());
+        $login = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        if (Auth::attempt($login))
+        {
+            return redirect('admin');
+        }
+        else
+        {
+            return redirect()->back()->with('error','Sai pass');
         }
     }
+
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->route('getLogin');
     }
-//    public function authenticate(Request $request)
-//    {
-//        $credentials = $request->only('email', 'password');
-//
-//        if (Auth::attempt($credentials)) {
-//
-//            return redirect()->intended('dashboard');
-//        }
-//    }
-
 }
