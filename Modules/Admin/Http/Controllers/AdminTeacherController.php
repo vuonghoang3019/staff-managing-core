@@ -4,6 +4,7 @@ namespace Modules\Admin\Http\Controllers;
 
 use App\Exports\TeacherExport;
 use App\Models\Grade;
+use App\Models\Role;
 use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -53,6 +54,7 @@ class AdminTeacherController extends Controller
         }
         $this->user->save();
         $this->user->grade()->attach($request->grade_id);
+        $this->user->role()->attach(Role::where('name','Teacher')->first());
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 
