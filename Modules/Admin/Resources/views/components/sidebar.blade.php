@@ -21,18 +21,18 @@
             </div>
         </div>
 
-        <!-- SidebarSearch Form -->
-        <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                       aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+{{--        <!-- SidebarSearch Form -->--}}
+{{--        <div class="form-inline">--}}
+{{--            <div class="input-group" data-widget="sidebar-search">--}}
+{{--                <input class="form-control form-control-sidebar" type="search" placeholder="Search"--}}
+{{--                       aria-label="Search">--}}
+{{--                <div class="input-group-append">--}}
+{{--                    <button class="btn btn-sidebar">--}}
+{{--                        <i class="fas fa-search fa-fw"></i>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -93,7 +93,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('calendar.index') }}" class="nav-link {{ \Request::route()->getName() == 'calendar.index' ? 'active' : ''}}">
+                    <a href="{{ route('calendar.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'calendar.index' ? 'active' : ''}}">
                         <i class="far fa-calendar-alt"></i>
                         <p>
                             Calender
@@ -101,7 +102,8 @@
                     </a>
                 </li>
                 <li class="nav-item ac">
-                    <a href="{{ route('schedule.index') }}" class="nav-link {{ \Request::route()->getName() == 'schedule.index' ? 'active' : ''}}">
+                    <a href="{{ route('schedule.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'schedule.index' ? 'active' : ''}}">
                         <i class="fas fa-clock"></i>
                         <p>
                             Schedule
@@ -109,10 +111,20 @@
                     </a>
                 </li>
                 <li class="nav-item ac">
-                    <a href="{{ route('role.index') }}" class="nav-link {{ \Request::route()->getName() == 'role.index' ? 'active' : ''}}">
+                    <a href="{{ route('role.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'role.index' ? 'active' : ''}}">
                         <i class="fas fa-users-cog"></i>
                         <p>
                             Role
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item ac">
+                    <a href="{{ route('permission.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'permission.index' ? 'active' : ''}}">
+                        <i class="fas fa-user-lock"></i>
+                        <p>
+                            Permission
                         </p>
                     </a>
                 </li>

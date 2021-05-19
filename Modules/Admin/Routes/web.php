@@ -273,5 +273,15 @@ Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
             'uses' => 'AdminRoleController@delete'
         ]);
     });
+    Route::prefix('permission')->group(function () {
+        Route::get('/', [
+            'as'   => 'permission.index',
+            'uses' => 'AdminPermissionController@index'
+        ]);
+        Route::post('/store', [
+            'as'   => 'permission.store',
+            'uses' => 'AdminPermissionController@store'
+        ]);
+    });
 });
 

@@ -9,7 +9,6 @@ use Modules\Admin\Services\CalendarService;
 class AdminController extends Controller
 {
     private $schedule;
-
     public function __construct(Schedule $schedule)
     {
         $this->schedule = $schedule;
