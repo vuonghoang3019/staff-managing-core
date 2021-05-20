@@ -4,7 +4,7 @@ namespace Modules\Admin\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourseRequestAdd extends FormRequest
+class PermissionRequestAdd extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,8 +14,9 @@ class CourseRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'name'     => 'required|min:5|unique:courses,name,' . $this->id,
-            'grade_id' => 'required'
+            'name'         => 'required',
+            'module_child' => 'required',
+            'description'  => 'required'
         ];
     }
 

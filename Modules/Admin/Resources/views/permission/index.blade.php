@@ -2,6 +2,9 @@
 @section('title')
     <title>Permission</title>
 @endsection
+@section('css')
+    <link rel="stylesheet" href="{{ asset('admins/assets/css/checkbox.css') }}">
+@endsection
 @section('content')
     <div class="content-wrapper">
         @include('admin::components.headerContent',['name' => 'Permission', 'key' => 'List Permission'])
@@ -33,16 +36,10 @@
                                         <td>{{ $data->name }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
                                         <td>
-                                            <a href="{{ route('grade.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
-                                        </td>
-                                        <td>
                                             <a href="{{ route('grade.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('grade.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('permission.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

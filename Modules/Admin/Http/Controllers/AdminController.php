@@ -9,6 +9,7 @@ use Modules\Admin\Services\CalendarService;
 class AdminController extends Controller
 {
     private $schedule;
+
     public function __construct(Schedule $schedule)
     {
         $this->schedule = $schedule;
@@ -20,5 +21,7 @@ class AdminController extends Controller
         $calendarData = $calendarService->generateCalendarData($weekDays);
         return view('admin::index', compact('weekDays', 'calendarData'));
     }
+
+
 
 }
