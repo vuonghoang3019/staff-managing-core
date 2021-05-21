@@ -20,7 +20,7 @@
                                 <th scope="col">Tên</th>
                                 <th scope="col">Mã NV</th>
                                 <th scope="col">Ảnh</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">Quyền</th>
                                 <th scope="col">Trình độ</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -34,7 +34,13 @@
                                         <td>{{ $data->name }}</td>
                                         <td>{{ $data->code }}</td>
                                         <td><img src="{{ asset($data->image_path)  }}" width="100" height="100"></td>
-                                        <td>{{ $data->email }}</td>
+                                        <td>
+                                            <ul>
+                                                @foreach($data->role as  $roleItem)
+                                                    <li> {{  $roleItem->name  }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
                                         <td>
                                             <ul>
                                                 @foreach($data->grade as  $gradeItem)

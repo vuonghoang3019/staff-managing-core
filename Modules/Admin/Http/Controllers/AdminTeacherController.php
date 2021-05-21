@@ -9,6 +9,7 @@ use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\TeacherRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
@@ -31,7 +32,7 @@ class AdminTeacherController extends Controller
 
     public function index()
     {
-        $teachers = $this->user->newQuery()->with(['grade'])->orderBy('id', 'desc')->paginate(5);
+        $teachers = $this->user->newQuery()->with(['grade','role'])->orderBy('id', 'desc')->paginate(5);
         return view('admin::teacher.index', compact('teachers'));
     }
 
@@ -46,7 +47,7 @@ class AdminTeacherController extends Controller
         $this->user->name = $request->name;
         $this->user->code = $request->code;
         $this->user->email = $request->email;
-        $this->user->password = $request->password;
+        $this->user->password = Hash::make($request->password);
         $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
         if (!empty($userUpload)) {
             $this->user->image_name = $userUpload['file_name'];
@@ -72,7 +73,7 @@ class AdminTeacherController extends Controller
         $teacherUpdate->name = $request->name;
         $teacherUpdate->code = $request->code;
         $teacherUpdate->email = $request->email;
-        $teacherUpdate->password = $request->password;
+        $teacherUpdate->password = Hash::make($request->password);
         $dataUpload = $this->fileName($request, 'image_path');
         if ($dataUpload == null) {
 //            return redirect()->back()->with('error','Thiếu ảnh');
