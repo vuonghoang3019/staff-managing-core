@@ -23,18 +23,26 @@ class AdminPermissionController extends Controller
 
     public function index()
     {
-        $permissions = $this->permission->paginate(5);
+        $permissions = $this->permission->newQuery()->with(['child'])->where('parent_id',0)->paginate(5);
         $modules = $this->module->get();
         return view('admin::permission.index', compact('permissions', 'modules'));
     }
 
     public function store(PermissionRequestAdd $request)
     {
+        $dataAdd = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'parent_id' => 0,
+        ];
+        $permissions = $this->permission->create($dataAdd);
         foreach ($request->module_child as $value)
         {
             $data = [
-                'name' => $value . '_' . $request->name,
-                'description' => $request->description
+                'name' => $value,
+                'description' => $value,
+                'parent_id' => $permissions->id,
+                'value' => $value.'_'.$request->name
             ];
             $this->permission->create($data);
         }
@@ -43,7 +51,7 @@ class AdminPermissionController extends Controller
 
     public function delete($id)
     {
-        return $this->deleteModelTrait($id, $this->permission);
+        return $this->deleteModelParent_idTrait($id, $this->permission);
     }
 
 }

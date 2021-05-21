@@ -16,17 +16,13 @@
                     @csrf
                     <div class="form-group ">
                         <label for="name">Nhập tên</label>
-                        <input type="text"
-                               class="form-control "
-                               id="name"
-                               placeholder="Nhập tên mức độ" name="name"
+                        <input type="text" class="form-control " id="nameRole" placeholder="Nhập tên mức độ" name="name"
                                value="{{ old('name',isset($data) ? $data->name : '') }}">
-
                     </div>
                     <div class="form-group">
                         <label for="description">Nhập mô tả</label>
                         <textarea class="form-control "
-                                  id="text" name="description"
+                                  id="descriptionRole" name="description"
                                   rows="3">{{ old('description',isset($data) ? $data->description : '') }}</textarea>
                     </div>
 
