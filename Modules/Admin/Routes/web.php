@@ -282,6 +282,10 @@ Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
             'as'   => 'permission.store',
             'uses' => 'AdminPermissionController@store'
         ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'permission.edit',
+            'uses' => 'AdminPermissionController@edit'
+        ]);
         Route::get('/delete/{id}', [
             'as'   => 'permission.delete',
             'uses' => 'AdminPermissionController@delete'

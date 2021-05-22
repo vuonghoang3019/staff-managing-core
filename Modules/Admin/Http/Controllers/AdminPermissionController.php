@@ -6,6 +6,7 @@ use App\Models\Module;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Modules\Admin\Http\Requests\PermissionRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
@@ -47,6 +48,14 @@ class AdminPermissionController extends Controller
             $this->permission->create($data);
         }
         return redirect()->back()->with('success','Thêm mới thành công');
+    }
+
+    public function edit($id)
+    {
+        $permissionEdit = $this->permission->findOrFail($id);
+        $permissionCheck = $permissionEdit->child;
+        $modules = $this->module->get();
+        return view('admin::permission.edit',compact('permissionEdit','modules','permissionCheck'));
     }
 
     public function delete($id)

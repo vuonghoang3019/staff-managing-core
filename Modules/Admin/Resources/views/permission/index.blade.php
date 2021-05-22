@@ -4,6 +4,46 @@
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('admins/assets/css/checkbox.css') }}">
+    <style>
+        .rounded-list a{
+            position: relative;
+            display: block;
+            padding: .4em .4em .4em 2em;
+            *padding: .4em;
+            margin: .5em 0;
+            background: #ddd;
+            color: #444;
+            text-decoration: none;
+            border-radius: .3em;
+            transition: all .3s ease-out;
+        }
+
+        .rounded-list a:hover{
+            background: #eee;
+        }
+
+        .rounded-list a:hover:before{
+            transform: rotate(360deg);
+        }
+
+        .rounded-list a:before{
+            content: counter(li);
+            counter-increment: li;
+            position: absolute;
+            left: -1.3em;
+            top: 50%;
+            margin-top: -1.3em;
+            background: #87ceeb;
+            height: 2em;
+            width: 2em;
+            line-height: 2em;
+            border: .3em solid #fff;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 2em;
+            transition: all .3s ease-out;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -15,7 +55,7 @@
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#actionPermission">
                             Add
                         </button>
-                        @include('admin::permission.form')
+                        @include('admin::permission.add')
                     </div>
                     <div class="col-md-12">
                         <table class="table">
@@ -37,16 +77,17 @@
                                         <td>{{ $data->name }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
                                         <td>
-                                            <ul>
+                                            <ul class="rounded-list" >
                                                 @foreach($data->child as $item)
                                                     <li>
                                                         {{ $item->name }}
+                                                        <hr>
                                                     </li>
                                                 @endforeach
                                             </ul>
                                         </td>
                                         <td>
-                                            <a href="{{ route('grade.edit',['id' => $data->id]) }}"
+                                            <a href="{{ route('permission.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
                                                data-url="{{ route('permission.delete',['id' => $data->id]) }}"
@@ -64,6 +105,7 @@
                     <div class="col-md-12 float-right">
                         {{ $permissions->links('pagination::bootstrap-4') }}
                     </div>
+
                 </div>
             </div>
         </div>
