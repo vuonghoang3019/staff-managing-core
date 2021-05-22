@@ -23,6 +23,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Tên</th>
+                                <th scope="col">Module</th>
                                 <th scope="col">Mô tả</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -35,6 +36,15 @@
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->name }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
+                                        <td>
+                                            <ul>
+                                                @foreach($data->child as $item)
+                                                    <li>
+                                                        {{ $item->name }}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
                                         <td>
                                             <a href="{{ route('grade.edit',['id' => $data->id]) }}"
                                                class="btn btn-default">Edit</a>
