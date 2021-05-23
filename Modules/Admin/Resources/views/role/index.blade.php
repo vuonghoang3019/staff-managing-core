@@ -9,16 +9,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editRole">
-                            Add
-                        </button>
-                        @include('admin::role.form')
+                        <a href="{{ route('role.create') }}" class="btn btn-success">Add</a>
                     </div>
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Code</th>
                                 <th scope="col">Tên</th>
                                 <th scope="col">Mô tả</th>
                                 <th scope="col">Action</th>
@@ -30,15 +28,14 @@
                                 @foreach($roles as $data)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
+                                        <td>{{ $data->code }}</td>
                                         <td>{{ $data->name }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
 
                                         <td>
-                                            <a href="#" data-toggle="modal" data-target="#editRole{{ $data->id }}"
-                                               class="btn btn-default">Edit</a>
-                                            @include('admin::role.form')
+                                            <a href="#" class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('role.delete',['id' => $data->id]) }}"
+                                               data-url=""
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>
