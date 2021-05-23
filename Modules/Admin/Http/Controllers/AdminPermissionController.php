@@ -58,6 +58,29 @@ class AdminPermissionController extends Controller
         return view('admin::permission.edit',compact('permissionEdit','modules','permissionCheck'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $this->permission->newQuery()->where('parent_id',$id)->delete();
+        $permissionUpdate = $this->permission->find($id);
+        $dataUpdate = [
+            'name' => $request->name,
+            'description' => $request->description,
+            'parent_id' => 0,
+        ];
+        $permissionUpdate->update($dataUpdate);
+        foreach ($request->module_child as $value)
+        {
+            $dataChild = [
+                'name' => $value,
+                'description' => $value,
+                'parent_id' => $request->id,
+                'value' => $value.'_'.$request->name
+            ];
+            $this->permission->create($dataChild);
+        }
+        return redirect()->back()->with('success','Cập nhật thành công');
+    }
+
     public function delete($id)
     {
         return $this->deleteModelParent_idTrait($id, $this->permission);

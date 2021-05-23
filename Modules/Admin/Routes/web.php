@@ -286,6 +286,10 @@ Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
             'as'   => 'permission.edit',
             'uses' => 'AdminPermissionController@edit'
         ]);
+        Route::post('/update/{id}', [
+            'as'   => 'permission.update',
+            'uses' => 'AdminPermissionController@update'
+        ]);
         Route::get('/delete/{id}', [
             'as'   => 'permission.delete',
             'uses' => 'AdminPermissionController@delete'

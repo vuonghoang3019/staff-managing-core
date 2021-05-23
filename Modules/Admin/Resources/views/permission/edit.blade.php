@@ -11,7 +11,7 @@
         @include('admin::components.headerContent',['name' => 'Permission', 'key' => 'Edit Permission'])
         <section class="content">
             <div class="container-fluid">
-                <form action="" method="POST">
+                <form action="{{ route('permission.update',['id' => $permissionEdit -> id]) }}" method="POST">
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group">
