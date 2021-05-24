@@ -2,7 +2,9 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Models\Permission;
 use App\Models\Role;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\RoleRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
@@ -10,10 +12,12 @@ use Modules\Admin\Traits\DeleteTrait;
 class AdminRoleController extends Controller
 {
     private $role;
+    private $permission;
     use DeleteTrait;
-    public function __construct(Role $role)
+    public function __construct(Role $role, Permission $permission)
     {
         $this->role = $role;
+        $this->permission = $permission;
     }
 
     public function index()
@@ -24,14 +28,19 @@ class AdminRoleController extends Controller
 
     public function create()
     {
-        return view('admin::role.add');
+        $permissions = $this->permission->newQuery()->with('child')->where('parent_id',0)->get();
+        return view('admin::role.add',compact('permissions'));
     }
 
-    public function store(RoleRequestAdd $request)
+    public function store(Request $request)
     {
-        $this->role->name = $request->name;
-        $this->role->description = $request->description;
-        $this->role->save();
+        $dataRole = [
+            'code' => $request->code,
+            'name' => $request->name,
+            'description' => $request->description
+        ];
+        $roleAdd = $this->role->create($dataRole);
+        $roleAdd->permission_role()->attach($request->permissionID);
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 

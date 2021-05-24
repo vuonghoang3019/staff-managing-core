@@ -14,7 +14,7 @@ class PermissionRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'name'         => 'required',
+            'name'         => 'required|unique:permissions,name,'.$this->id,
             'module_child' => 'required',
             'description'  => 'required'
         ];

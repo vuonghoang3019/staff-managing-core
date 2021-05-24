@@ -260,7 +260,10 @@ Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
             'as'   => 'role.create',
             'uses' => 'AdminRoleController@create'
         ]);
-
+        Route::post('/store', [
+            'as'   => 'role.store',
+            'uses' => 'AdminRoleController@store'
+        ]);
     });
     Route::prefix('permission')->group(function () {
         Route::get('/', [

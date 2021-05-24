@@ -6,7 +6,7 @@ use App\Models\Module;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Modules\Admin\Http\Requests\PermissionRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
@@ -32,16 +32,16 @@ class AdminPermissionController extends Controller
     public function store(PermissionRequestAdd $request)
     {
         $dataAdd = [
-            'name' => $request->name,
-            'description' => $request->description,
+            'name' => ucfirst(strtolower($request->name)),
+            'description' => ucfirst(strtolower($request->description)),
             'parent_id' => 0,
         ];
         $permissions = $this->permission->create($dataAdd);
         foreach ($request->module_child as $value)
         {
             $data = [
-                'name' => $value,
-                'description' => $value,
+                'name' => ucfirst(strtolower($value)),
+                'description' => ucfirst(strtolower($value)),
                 'parent_id' => $permissions->id,
                 'value' => $value.'_'.$request->name
             ];

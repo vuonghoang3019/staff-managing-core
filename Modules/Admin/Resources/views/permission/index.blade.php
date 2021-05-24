@@ -77,14 +77,9 @@
                                         <td>{{ $data->name }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
                                         <td>
-                                            <ul class="rounded-list" >
-                                                @foreach($data->child as $item)
-                                                    <li>
-                                                        {{ $item->name }}
-                                                        <hr>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
+                                            @foreach($data->child as $item)
+                                                {{ $item->name }},
+                                            @endforeach
                                         </td>
                                         <td>
                                             <a href="{{ route('permission.edit',['id' => $data->id]) }}"
