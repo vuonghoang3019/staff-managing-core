@@ -5,6 +5,16 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('admins/assets/css/upload.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/select2/select2.min.css') }}">
+    <style>
+        .select2-container--default .select2-selection--multiple .select2-selection__choice
+        {
+            background-color: #007bff;
+            border-color: #006fe6;
+            color: #fff;
+            padding: 0 10px;
+            margin-top: .31rem;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -58,6 +68,17 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="Password">Chọn quyền hệ thống</label>
+                                <select name="role_id[]" class="form-control select2_init" multiple>
+                                    <option value=""></option>
+                                    @foreach ($roles as $role)
+                                        <option
+                                            value="{{ $role->id }}" >{{ $role->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-6 ">
                             <div class="drop-zone ">
@@ -68,6 +89,7 @@
                             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                             @enderror
                         </div>
+
 
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>

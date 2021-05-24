@@ -23,11 +23,13 @@ class AdminTeacherController extends Controller
     private $user;
     private $grade;
     private $schedule;
-    public function __construct(User $user, Grade $grade, Schedule $schedule)
+    private $role;
+    public function __construct(User $user, Grade $grade, Schedule $schedule, Role $role)
     {
         $this->user = $user;
         $this->grade = $grade;
         $this->schedule = $schedule;
+        $this->role = $role;
     }
 
     public function index()
@@ -64,7 +66,8 @@ class AdminTeacherController extends Controller
         $grades = $this->grade->get();
         $teacherEdit = $this->user->find($id);
         $teacherGrade = $teacherEdit->grade;
-        return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade'));
+        $roles = $this->role->get();
+        return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade','roles'));
     }
 
     public function update(TeacherRequestAdd $request, $id)
@@ -89,6 +92,7 @@ class AdminTeacherController extends Controller
         }
         $teacherUpdate->save();
         $teacherUpdate->grade()->sync($request->grade_id);
+        $teacherUpdate->role()->sync($request->role_id);
         return redirect()->back()->with('success','Cập nhật thành công');
     }
 

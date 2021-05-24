@@ -33,9 +33,9 @@
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
 
                                         <td>
-                                            <a href="#" class="btn btn-default">Edit</a>
+                                            <a href="{{ route('role.edit',['id' => $data->id]) }}" class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url=""
+                                               data-url="{{ route('role.delete',['id' => $data->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

@@ -264,6 +264,18 @@ Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
             'as'   => 'role.store',
             'uses' => 'AdminRoleController@store'
         ]);
+        Route::get('/edit/{id}', [
+            'as'   => 'role.edit',
+            'uses' => 'AdminRoleController@edit'
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'role.update',
+            'uses' => 'AdminRoleController@update'
+        ]);
+        Route::get('/delete/{id}', [
+            'as'   => 'role.delete',
+            'uses' => 'AdminRoleController@delete'
+        ]);
     });
     Route::prefix('permission')->group(function () {
         Route::get('/', [

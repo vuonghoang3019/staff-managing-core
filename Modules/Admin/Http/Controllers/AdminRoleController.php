@@ -44,12 +44,24 @@ class AdminRoleController extends Controller
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 
+    public function edit($id)
+    {
+        $roleEdit = $this->role->findOrFail($id);
+        $permissions = $this->permission->newQuery()->with('child')->where('parent_id',0)->get();
+        $roleCheck = $roleEdit->permission_role;
+        return view('admin::role.edit',compact('permissions','roleEdit','roleCheck'));
+    }
+
     public function update(RoleRequestAdd $request ,$id)
     {
-        $roleUpdate = $this->role->findOrFail($id);
-        $roleUpdate->name = $request->name;
-        $roleUpdate->description = $request->description;
-        $roleUpdate->save();
+        $roleEdit = $this->role->findOrFail($id);
+        $dataRole = [
+            'code' => $request->code,
+            'name' => $request->name,
+            'description' => $request->description
+        ];
+        $roleEdit->update($dataRole);
+        $roleEdit->permission_role()->sync($request->permissionID);
         return redirect()->back()->with('success','Cập nhật thành công');
 
     }
