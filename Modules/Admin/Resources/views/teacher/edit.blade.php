@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group ">
                                 <label for="password">Nhập password</label>
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
+                                <input type="text" class="form-control @error('password') is-invalid @enderror" id="password"
                                        placeholder="*****" name="password" value="{{ old('password',$teacherEdit->password) }}">
                                 @error('password')
                                 <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
@@ -74,7 +74,7 @@
                                     <option value=""></option>
                                     @foreach ($roles as $role)
                                         <option
-                                            value="{{ $role->id }}" >{{ $role->name }}
+                                            value="{{ $role->id }}" {{ $teacherRole->contains('id',$role->id) ? 'selected' : '' }} >{{ $role->name }}
                                         </option>
                                     @endforeach
                                 </select>

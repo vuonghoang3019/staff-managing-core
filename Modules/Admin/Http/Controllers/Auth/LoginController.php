@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Modules\Admin\Http\Requests\CheckLoginRequest;
 
 class LoginController extends Controller
@@ -24,12 +25,11 @@ class LoginController extends Controller
 
     public function postLogin(CheckLoginRequest $request)
     {
-
         $login = [
             'email' => $request->email,
             'password' => $request->password,
         ];
-        if (Auth::attempt($login))
+        if (\auth()->attempt($login))
         {
             return redirect('admin');
         }

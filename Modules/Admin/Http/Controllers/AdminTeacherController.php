@@ -9,6 +9,7 @@ use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\TeacherRequestAdd;
@@ -67,7 +68,8 @@ class AdminTeacherController extends Controller
         $teacherEdit = $this->user->find($id);
         $teacherGrade = $teacherEdit->grade;
         $roles = $this->role->get();
-        return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade','roles'));
+        $teacherRole = $teacherEdit->role;
+        return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade','roles','teacherRole'));
     }
 
     public function update(TeacherRequestAdd $request, $id)
@@ -76,7 +78,7 @@ class AdminTeacherController extends Controller
         $teacherUpdate->name = $request->name;
         $teacherUpdate->code = $request->code;
         $teacherUpdate->email = $request->email;
-        $teacherUpdate->password = Hash::make($request->password);
+        $this->user->password = Hash::make($request->password);
         $dataUpload = $this->fileName($request, 'image_path');
         if ($dataUpload == null) {
 //            return redirect()->back()->with('error','Thiếu ảnh');
