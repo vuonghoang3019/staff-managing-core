@@ -8,28 +8,30 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+
     protected $table = 'users';
-    protected $fillable = ['name','code','email','password','image_name','image_path','status'];
-    public function grade()
+    protected $fillable = ['name', 'code', 'email', 'password', 'image_name', 'image_path', 'status'];
+
+    public function grades()
     {
-        return $this->belongsToMany(Grade::class,'user_grade','user_id','grade_id');
+        return $this->belongsToMany(Grade::class, 'user_grade', 'user_id', 'grade_id');
     }
 
-    public function role()
+    public function roles()
     {
-        return $this->belongsToMany(Role::class,'role_user','user_id','role_id');
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
     }
 
     //check one role (check user one role)
     public function hasRole($role)
     {
-        return null !== $this->role()->where('name',$role)->first();
+        return null !== $this->roles()->where('name', $role)->first();
     }
 
     //check multiple role (check user one-to-many role)
     public function hasAnyRole($roles)
     {
-        return null !== $this->role()->whereIn('name',$roles)->first();
+        return null !== $this->roles()->whereIn('name', $roles)->first();
     }
 
     public function authorizeRoles($roles)
@@ -39,4 +41,18 @@ class User extends Authenticatable
         }
         return $this->hasRole($roles) || abort(401, 'This action is unauthorized.');
     }
+
+    public function checkPermission($permissionCheck)
+    {
+        $roles = auth()->user()->roles;
+        foreach ($roles as $role)
+        {
+            $permission = $role->permission_role;
+            if ($permission->contains('value', $permissionCheck)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

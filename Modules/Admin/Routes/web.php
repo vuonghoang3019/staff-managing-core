@@ -10,11 +10,13 @@ Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
     Route::prefix('category')->group(function () {
         Route::get('/', [
             'as'   => 'category.index',
-            'uses' => 'AdminCategoryController@index'
+            'uses' => 'AdminCategoryController@index',
+            'middleware' => 'can:category-list'
         ]);
         Route::get('/create', [
             'as'   => 'category.create',
-            'uses' => 'AdminCategoryController@create'
+            'uses' => 'AdminCategoryController@create',
+            'middleware' => 'can:category-add'
         ]);
         Route::post('/store', [
             'as'   => 'category.store',
@@ -22,7 +24,8 @@ Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
         ]);
         Route::get('/edit/{id}', [
             'as'   => 'category.edit',
-            'uses' => 'AdminCategoryController@edit'
+            'uses' => 'AdminCategoryController@edit',
+            'middleware' => 'can:category-update',
         ]);
         Route::post('/update/{id}', [
             'as'   => 'category.update',
@@ -30,7 +33,8 @@ Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
         ]);
         Route::get('/delete/{id}', [
             'as'   => 'category.delete',
-            'uses' => 'AdminCategoryController@delete'
+            'uses' => 'AdminCategoryController@delete',
+            'middleware' => 'can:category-delete'
         ]);
         Route::get('/action/{id}', [
             'as'   => 'category.action',

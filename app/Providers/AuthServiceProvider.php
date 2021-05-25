@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Modules\Admin\Services\DefineRole;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -24,7 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        $defineRole = new DefineRole();
+        $defineRole->setGateAndPolicy();
 
-        //
     }
 }

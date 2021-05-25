@@ -35,7 +35,7 @@ class AdminTeacherController extends Controller
 
     public function index()
     {
-        $teachers = $this->user->newQuery()->with(['grade','role'])->orderBy('id', 'desc')->paginate(5);
+        $teachers = $this->user->newQuery()->with(['grades','roles'])->orderBy('id', 'desc')->paginate(5);
         return view('admin::teacher.index', compact('teachers'));
     }
 
@@ -66,9 +66,9 @@ class AdminTeacherController extends Controller
     {
         $grades = $this->grade->get();
         $teacherEdit = $this->user->find($id);
-        $teacherGrade = $teacherEdit->grade;
+        $teacherGrade = $teacherEdit->grades;
         $roles = $this->role->get();
-        $teacherRole = $teacherEdit->role;
+        $teacherRole = $teacherEdit->roles;
         return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade','roles','teacherRole'));
     }
 
@@ -93,8 +93,8 @@ class AdminTeacherController extends Controller
             }
         }
         $teacherUpdate->save();
-        $teacherUpdate->grade()->sync($request->grade_id);
-        $teacherUpdate->role()->sync($request->role_id);
+        $teacherUpdate->grades()->sync($request->grade_id);
+        $teacherUpdate->roles()->sync($request->role_id);
         return redirect()->back()->with('success','Cập nhật thành công');
     }
 

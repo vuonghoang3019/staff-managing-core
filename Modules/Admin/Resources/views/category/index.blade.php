@@ -8,9 +8,11 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('category.create') }}" class="btn btn-success">ADD</a>
-                    </div>
+                    @can('category-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('category.create') }}" class="btn btn-success">ADD</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -30,18 +32,21 @@
                                         <td>{{ $data->name }}</td>
                                         <td>
                                             <a href="{{ route('category.action',['id' => $data->id]) }}"
-                                            class=" {{ $data->getStatus($data->status)['class'] }}">
+                                               class=" {{ $data->getStatus($data->status)['class'] }}">
                                                 {{ $data->getStatus($data->status)['name'] }}
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('category.edit',['id' => $data->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('category.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-
-                                            </a>
+                                            @can('category-update')
+                                                <a href="{{ route('category.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit</a>
+                                            @endcan
+                                            @can('category-delete')
+                                                <a href=""
+                                                   data-url="{{ route('category.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

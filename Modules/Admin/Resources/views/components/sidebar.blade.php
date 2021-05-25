@@ -26,6 +26,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 {{--category--}}
+                @can('category-list')
                 <li class="nav-item">
                     <a href="{{ route('category.index') }}"
                        class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">
@@ -35,7 +36,7 @@
                         </p>
                     </a>
                 </li>
-
+                @endcan
                 {{--School--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -46,6 +47,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+
                         <li class="nav-item">
                             <a href="{{ route('grade.index') }}"
                                class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
@@ -55,6 +57,7 @@
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('course.index') }}"
                                class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">

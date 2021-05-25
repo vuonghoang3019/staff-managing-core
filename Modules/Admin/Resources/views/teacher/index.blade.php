@@ -36,14 +36,14 @@
                                         <td><img src="{{ asset($data->image_path)  }}" width="100" height="100"></td>
                                         <td>
                                             <ul>
-                                                @foreach($data->role as  $roleItem)
+                                                @foreach($data->roles as  $roleItem)
                                                     <li> {{  $roleItem->name  }}</li>
                                                 @endforeach
                                             </ul>
                                         </td>
                                         <td>
                                             <ul>
-                                                @foreach($data->grade as  $gradeItem)
+                                                @foreach($data->grades as  $gradeItem)
                                                     <li> {{  $gradeItem->name  }}</li>
                                                 @endforeach
                                             </ul>
