@@ -21,11 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLogin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -391,7 +387,8 @@
       <workItem from="1621839830124" duration="10000" />
       <workItem from="1621841815229" duration="6625000" />
       <workItem from="1621867155466" duration="6631000" />
-      <workItem from="1621909212133" duration="5970000" />
+      <workItem from="1621909212133" duration="6096000" />
+      <workItem from="1621953355101" duration="120000" />
     </task>
     <servers />
   </component>

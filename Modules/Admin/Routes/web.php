@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('login','auth\LoginController@getLogin')->name('getLogin');
 Route::post('postLogin','auth\LoginController@postLogin')->name('postLogin');
 Route::get('logout','auth\LoginController@logout')->name('logout');
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware' => ['CheckLogin']], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('category')->group(function () {
         Route::get('/', [
