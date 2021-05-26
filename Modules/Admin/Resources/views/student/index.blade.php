@@ -11,14 +11,16 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formUpload">
-                            Upload
-                        </button>
-
-                        <a href="{{ route('student.exportExcel') }}" class="btn btn-success" id="export" name="export">Export</a>
-                    </div>
+                    @can('student-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formUpload">
+                                Upload
+                            </button>
+                            <a href="{{ route('student.exportExcel') }}" class="btn btn-success" id="export"
+                               name="export">Export</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12 form-inline mt-2 mb-2">
                         <div class="form-group col-md-4">
                             <label for="">Lớp:</label>
@@ -75,12 +77,16 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('student.edit',['id' => $data->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('student.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-                                            </a>
+                                            @can('student-update')
+                                                <a href="{{ route('student.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit</a>
+                                            @endcan
+                                            @can('student-delete')
+                                                <a href=""
+                                                   data-url="{{ route('student.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>
@@ -95,7 +101,8 @@
                         {{ $students->links('pagination::bootstrap-4') }}
                     </div>
                     {{--modal--}}
-                    <div class="modal fade" id="formUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="formUpload" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -105,14 +112,16 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ route('student.importExcel') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('student.importExcel') }}" method="POST"
+                                          enctype="multipart/form-data">
                                         @csrf
                                         <div class="drop-zone" style="max-width: 460px; left: 0%">
                                             <span class="drop-zone__prompt">Drop file here or click to upload</span>
                                             <input type="file" name="file" class="drop-zone__input fileUpload">
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                            </button>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
                                     </form>

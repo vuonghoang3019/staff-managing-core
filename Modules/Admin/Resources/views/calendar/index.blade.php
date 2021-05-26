@@ -8,9 +8,11 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('calendar.create') }}" class="btn btn-success">ADD</a>
-                    </div>
+                    @can('calendar-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('calendar.create') }}" class="btn btn-success">ADD</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -39,12 +41,16 @@
                                         <td>{{ $data->end_time }}</td>
                                         <td><a href="">Status</a></td>
                                         <td>
-                                            <a href="{{ route('calendar.edit',['id' => $data->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('calendar.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-                                            </a>
+                                            @can('calendar-update')
+                                                <a href="{{ route('calendar.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit</a>
+                                            @endcan
+                                            @can('calendar-delete')
+                                                <a href=""
+                                                   data-url="{{ route('calendar.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>
@@ -55,7 +61,7 @@
                     </div>
 
                     <div class="col-md-12 float-right">
-                                                {{ $calendars->links('pagination::bootstrap-4') }}
+                        {{ $calendars->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>

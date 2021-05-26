@@ -8,10 +8,12 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('teacher.create') }}" class="btn btn-success">ADD</a>
-                        <a href="{{ route('teacher.export') }}" class="btn btn-success">Export</a>
-                    </div>
+                    @can('teacher-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('teacher.create') }}" class="btn btn-success">ADD</a>
+                            <a href="{{ route('teacher.export') }}" class="btn btn-success">Export</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -49,12 +51,16 @@
                                             </ul>
                                         </td>
                                         <td>
-                                            <a href="{{ route('teacher.edit',['id' => $data->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('teacher.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-                                            </a>
+                                            @can('teacher-update')
+                                                <a href="{{ route('teacher.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit</a>
+                                            @endcan
+                                            @can('teacher-delete')
+                                                <a href=""
+                                                   data-url="{{ route('teacher.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

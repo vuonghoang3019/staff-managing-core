@@ -8,9 +8,11 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('grade.create') }}" class="btn btn-success">ADD</a>
-                    </div>
+                    @can('grade-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('grade.create') }}" class="btn btn-success">ADD</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -31,18 +33,22 @@
                                         <td>{{ $data->name }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
                                         <td>
-                                           <a href="{{ route('grade.action',['id' => $data->id]) }}"
-                                             class=" {{ $data->getStatus($data->status)['class'] }}">
-                                               {{ $data->getStatus($data->status)['name'] }}
-                                           </a>
+                                            <a href="{{ route('grade.action',['id' => $data->id]) }}"
+                                               class=" {{ $data->getStatus($data->status)['class'] }}">
+                                                {{ $data->getStatus($data->status)['name'] }}
+                                            </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('grade.edit',['id' => $data->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('grade.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-                                            </a>
+                                            @can('grade-update')
+                                                <a href="{{ route('grade.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit</a>
+                                            @endcan
+                                            @can('grade-delete')
+                                                <a href=""
+                                                   data-url="{{ route('grade.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

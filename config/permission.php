@@ -2,9 +2,9 @@
 
 return [
     'module_child' => [
-        1 => 'list',
-        2 => 'add',
-        3 => 'update',
-        4 => 'delete'
+        1 => 'List',
+        2 => 'Add',
+        3 => 'Update',
+        4 => 'Delete'
     ]
 ];

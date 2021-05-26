@@ -4,13 +4,15 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'classroom', 'key' => 'List classroom'])
+        @include('admin::components.headerContent',['name' => 'Classroom', 'key' => 'List Classroom'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('classroom.create') }}" class="btn btn-success">ADD</a>
-                    </div>
+                    @can('classroom-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('classroom.create') }}" class="btn btn-success">ADD</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -39,12 +41,16 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('classroom.edit',['id' => $data->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('classroom.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-                                            </a>
+                                            @can('classroom-update')
+                                                <a href="{{ route('classroom.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit</a>
+                                            @endcan
+                                            @can('classroom-delete')
+                                                <a href=""
+                                                   data-url="{{ route('classroom.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

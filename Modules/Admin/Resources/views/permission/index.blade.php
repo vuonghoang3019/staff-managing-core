@@ -5,7 +5,7 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('admins/assets/css/checkbox.css') }}">
     <style>
-        .rounded-list a{
+        .rounded-list a {
             position: relative;
             display: block;
             padding: .4em .4em .4em 2em;
@@ -18,15 +18,15 @@
             transition: all .3s ease-out;
         }
 
-        .rounded-list a:hover{
+        .rounded-list a:hover {
             background: #eee;
         }
 
-        .rounded-list a:hover:before{
+        .rounded-list a:hover:before {
             transform: rotate(360deg);
         }
 
-        .rounded-list a:before{
+        .rounded-list a:before {
             content: counter(li);
             counter-increment: li;
             position: absolute;
@@ -51,12 +51,15 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    @can('permission-add')
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#actionPermission">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#actionPermission">
                             Add
                         </button>
                         @include('admin::permission.add')
                     </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -82,12 +85,17 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            <a href="{{ route('permission.edit',['id' => $data->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('permission.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-                                            </a>
+                                            @can('permission-update')
+                                                <a href="{{ route('permission.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit
+                                                </a>
+                                            @endcan
+                                            @can('permission-delete')
+                                                <a href=""
+                                                   data-url="{{ route('permission.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

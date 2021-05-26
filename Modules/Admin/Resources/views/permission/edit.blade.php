@@ -58,7 +58,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-success">Submit</button>
-
+                    <a href="{{ route('permission.index') }}" class="btn btn-primary">Go Back</a>
 
                 </form>
             </div>

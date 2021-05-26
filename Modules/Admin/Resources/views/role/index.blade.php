@@ -8,9 +8,11 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('role.create') }}" class="btn btn-success">Add</a>
-                    </div>
+                    @can('role-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('role.create') }}" class="btn btn-success">Add</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -33,11 +35,17 @@
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
 
                                         <td>
-                                            <a href="{{ route('role.edit',['id' => $data->id]) }}" class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('role.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-                                            </a>
+                                            @can('role-update')
+                                                <a href="{{ route('role.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit
+                                                </a>
+                                            @endcan
+                                            @can('role-delete')
+                                                <a href=""
+                                                   data-url="{{ route('role.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

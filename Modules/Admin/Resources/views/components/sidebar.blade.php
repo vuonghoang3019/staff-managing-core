@@ -27,15 +27,15 @@
 
                 {{--category--}}
                 @can('category-list')
-                <li class="nav-item">
-                    <a href="{{ route('category.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">
-                        <i class="fas fa-bars"></i>
-                        <p>
-                            Category
-                        </p>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="{{ route('category.index') }}"
+                           class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">
+                            <i class="fas fa-bars"></i>
+                            <p>
+                                Category
+                            </p>
+                        </a>
+                    </li>
                 @endcan
                 {{--School--}}
                 <li class="nav-item">
@@ -47,35 +47,39 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-
-                        <li class="nav-item">
-                            <a href="{{ route('grade.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
-                                <i class="fas fa-layer-group"></i>
-                                <p>
-                                    Grade
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('course.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">
-                                <i class="fas fa-book"></i>
-                                <p>
-                                    Course
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('classroom.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'classroom.index' ? 'active' : ''}}">
-                                <i class="fas fa-school"></i>
-                                <p>
-                                    Classroom
-                                </p>
-                            </a>
-                        </li>
+                        @can('grade-list')
+                            <li class="nav-item">
+                                <a href="{{ route('grade.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
+                                    <i class="fas fa-layer-group"></i>
+                                    <p>
+                                        Grade
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('course-list')
+                            <li class="nav-item">
+                                <a href="{{ route('course.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">
+                                    <i class="fas fa-book"></i>
+                                    <p>
+                                        Course
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('classroom-list')
+                            <li class="nav-item">
+                                <a href="{{ route('classroom.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'classroom.index' ? 'active' : ''}}">
+                                    <i class="fas fa-school"></i>
+                                    <p>
+                                        Classroom
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
 
@@ -89,24 +93,28 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('teacher.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                                <p>
-                                    Teacher
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('student.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'student.index' ? 'active' : ''}}">
-                                <i class="fas fa-user-graduate"></i>
-                                <p>
-                                    Student
-                                </p>
-                            </a>
-                        </li>
+                        @can('teacher-list')
+                            <li class="nav-item">
+                                <a href="{{ route('teacher.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <p>
+                                        Teacher
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('student-list')
+                            <li class="nav-item">
+                                <a href="{{ route('student.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'student.index' ? 'active' : ''}}">
+                                    <i class="fas fa-user-graduate"></i>
+                                    <p>
+                                        Student
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
 
@@ -120,24 +128,28 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('calendar.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'calendar.index' ? 'active' : ''}}">
-                                <i class="far fa-calendar-alt"></i>
-                                <p>
-                                    Calender
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item ac">
-                            <a href="{{ route('schedule.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'schedule.index' ? 'active' : ''}}">
-                                <i class="fas fa-clock"></i>
-                                <p>
-                                    Schedule
-                                </p>
-                            </a>
-                        </li>
+                        @can('calendar-list')
+                            <li class="nav-item">
+                                <a href="{{ route('calendar.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'calendar.index' ? 'active' : ''}}">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <p>
+                                        Calender
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('schedule-list')
+                            <li class="nav-item ac">
+                                <a href="{{ route('schedule.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'schedule.index' ? 'active' : ''}}">
+                                    <i class="fas fa-clock"></i>
+                                    <p>
+                                        Schedule
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
 
@@ -151,24 +163,28 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item ac">
-                            <a href="{{ route('role.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'role.index' ? 'active' : ''}}">
-                                <i class="fas fa-users-cog"></i>
-                                <p>
-                                    Role
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item ac">
-                            <a href="{{ route('permission.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'permission.index' ? 'active' : ''}}">
-                                <i class="fas fa-user-lock"></i>
-                                <p>
-                                    Permission
-                                </p>
-                            </a>
-                        </li>
+                        @can('role-list')
+                            <li class="nav-item ac">
+                                <a href="{{ route('role.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'role.index' ? 'active' : ''}}">
+                                    <i class="fas fa-users-cog"></i>
+                                    <p>
+                                        Role
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('permission-list')
+                            <li class="nav-item ac">
+                                <a href="{{ route('permission.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'permission.index' ? 'active' : ''}}">
+                                    <i class="fas fa-user-lock"></i>
+                                    <p>
+                                        Permission
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
 

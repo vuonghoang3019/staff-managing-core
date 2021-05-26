@@ -32,16 +32,16 @@ class AdminPermissionController extends Controller
     public function store(PermissionRequestAdd $request)
     {
         $dataAdd = [
-            'name' => ucfirst(strtolower($request->name)),
-            'description' => ucfirst(strtolower($request->description)),
+            'name' => $request->name,
+            'description' => $request->description,
             'parent_id' => 0,
         ];
         $permissions = $this->permission->create($dataAdd);
         foreach ($request->module_child as $value)
         {
             $data = [
-                'name' => ucfirst(strtolower($value)),
-                'description' => ucfirst(strtolower($value)),
+                'name' => $value,
+                'description' => $value,
                 'parent_id' => $permissions->id,
                 'value' => $value.'_'.$request->name
             ];
@@ -58,7 +58,7 @@ class AdminPermissionController extends Controller
         return view('admin::permission.edit',compact('permissionEdit','modules','permissionCheck'));
     }
 
-    public function update(Request $request, $id)
+    public function update(PermissionRequestAdd $request, $id)
     {
         $this->permission->newQuery()->where('parent_id',$id)->delete();
         $permissionUpdate = $this->permission->find($id);

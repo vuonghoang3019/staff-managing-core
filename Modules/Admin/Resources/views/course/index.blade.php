@@ -8,9 +8,11 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('course.create') }}" class="btn btn-success">ADD</a>
-                    </div>
+                    @can('course-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('course.create') }}" class="btn btn-success">ADD</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -43,13 +45,16 @@
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="{{ route('course.edit',['id' => $course->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('course.delete',['id' => $course->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-
-                                            </a>
+                                            @can('course-update')
+                                                <a href="{{ route('course.edit',['id' => $course->id]) }}"
+                                                   class="btn btn-default">Edit</a>
+                                            @endcan
+                                            @can('course-delete')
+                                                <a href=""
+                                                   data-url="{{ route('course.delete',['id' => $course->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

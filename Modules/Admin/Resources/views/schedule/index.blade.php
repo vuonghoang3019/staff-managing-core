@@ -8,9 +8,11 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ route('schedule.create') }}" class="btn btn-success">ADD</a>
-                    </div>
+                    @can('schedule-add')
+                        <div class="col-md-12">
+                            <a href="{{ route('schedule.create') }}" class="btn btn-success">ADD</a>
+                        </div>
+                    @endcan
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -54,12 +56,17 @@
                                         <td>{{ $data->date_start }}</td>
                                         <td>{{ $data->date_end }}</td>
                                         <td>
-                                            <a href="{{ route('schedule.edit',['id' => $data->id]) }}"
-                                               class="btn btn-default">Edit</a>
-                                            <a href=""
-                                               data-url="{{ route('schedule.delete',['id' => $data->id]) }}"
-                                               class="btn btn-danger action-delete">Delete
-                                            </a>
+                                            @can('schedule-update')
+                                                <a href="{{ route('schedule.edit',['id' => $data->id]) }}"
+                                                   class="btn btn-default">Edit
+                                                </a>
+                                            @endcan
+                                            @can('schedule-delete')
+                                                <a href=""
+                                                   data-url="{{ route('schedule.delete',['id' => $data->id]) }}"
+                                                   class="btn btn-danger action-delete">Delete
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>
@@ -70,7 +77,7 @@
                     </div>
 
                     <div class="col-md-12 float-right">
-{{--                        {{ $schedule->links('pagination::bootstrap-4') }}--}}
+                        {{--                        {{ $schedule->links('pagination::bootstrap-4') }}--}}
                     </div>
                 </div>
             </div>
