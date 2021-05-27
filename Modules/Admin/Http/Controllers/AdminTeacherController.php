@@ -57,8 +57,8 @@ class AdminTeacherController extends Controller
             $this->user->image_path = $userUpload['file_path'];
         }
         $this->user->save();
-        $this->user->grade()->attach($request->grade_id);
-        $this->user->role()->attach(Role::where('name','Teacher')->first());
+        $this->user->grades()->attach($request->grade_id);
+        $this->user->roles()->attach(Role::where('name','Teacher')->first());
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 
