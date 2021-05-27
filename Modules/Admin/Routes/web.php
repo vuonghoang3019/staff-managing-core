@@ -207,6 +207,10 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['CheckLogin']], function ()
             'uses'       => 'AdminStudentController@delete',
             'middleware' => 'can:student-delete'
         ]);
+        Route::get('/action/{id}', [
+            'as'   => 'student.action',
+            'uses' => 'AdminStudentController@action'
+        ]);
         Route::get('/ajaxGetSelect', [
             'as'   => 'student.ajaxGetSelect',
             'uses' => 'AdminStudentController@ajaxGetSelect'

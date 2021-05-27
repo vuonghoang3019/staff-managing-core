@@ -6,6 +6,7 @@ use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use App\Models\Classroom;
 use App\Models\Student;
+use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Maatwebsite\Excel\Facades\Excel;
@@ -74,27 +75,67 @@ class AdminStudentController extends Controller
         return $this->deleteModelTrait($id, $this->student);
     }
 
+    public function action($id)
+    {
+        $studentAction = $this->student->find($id);
+        $studentAction->status = $studentAction->status ? 0 : 1;
+        $studentAction->save();
+        return redirect()->back()->with('success', 'Cập nhật trạng thái thành công');
+    }
+
     public function ajaxGetSelect(Request $request)
     {
-        $id = $request->id;
-        if ($id == 0) {
-            $students = $this->student->newQuery()->with(['classroom'])->paginate(10);
-        } else {
+        if ($request->get('id')) {
+            $id = $request->get('id');
             $students = $this->student->newQuery()->where('classroom_id', $id)->with(['classroom'])->paginate(10);
+            $output = '';
+            foreach ($students as $student) {
+                $output .= '<tr>
+                    <td>' . $student->id . '</td>
+                    <td>' . $student->name . '</td>
+                     <td>' . $student->code . '</td>
+                      <td>' . $student->birthday . '</td>
+                       <td>' . $student->sex . '  </td>
+                        <td>' . $student->nation . '</td>
+                       <td>' . $student->classroom->name . '</td>
+                       <td><a class="' . $student->getStatus($student->status)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getStatus($student->status)['name'] . '</a></td>
+                          <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>
+                          <td><a class="btn btn-danger action-delete" href="#" data-url="' . route('student.delete', ['id' => $student->id]) . '">Delete</a></td>
+                    </tr>';
+            }
+
+            return response($output);
         }
-        return response($students);
     }
+
 
     public function searchPost(Request $request)
     {
-        if ($request->ajax()) {
-            if ($request->searchResult == '') {
-                $students = $this->student->get();
-            } else {
-                $students = $this->student->where('name', 'like', '%' . $request->searchResult . '%')
-                    ->orWhere('nation', 'like', '%' . $request->searchResult . '%')->get();
+        if ($request->get('searchResult')) {
+            $query = $request->get('searchResult');
+            $students = $this->student->with('classroom')
+                ->where('name', 'like', '%' . $query . '%')
+                ->orWhere('nation', 'like', '%' . $query . '%')->get();
+            $output = '';
+            foreach ($students as $student) {
+                $output .= '<tr>
+                    <td>' . $student->id . '</td>
+                    <td>' . $student->name . '</td>
+                     <td>' . $student->code . '</td>
+                      <td>' . $student->birthday . '</td>
+                       <td>' . $student->sex . '  </td>
+                        <td>' . $student->nation . '</td>
+                       <td>' . $student->classroom->name . '</td>
+                       <td><a class="' . $student->getStatus($student->status)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getStatus($student->status)['name'] . '</a></td>
+                          <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>
+                          <td><a class="btn btn-danger action-delete" href="#" data-url="' . route('student.delete', ['id' => $student->id]) . '">Delete</a></td>
+                    </tr>';
             }
-            return response($students);
+
+            return response($output);
+        } else {
+            $students = $this->student->newQuery()->with(['classroom'])->get();
+            return $students;
         }
     }
 
@@ -106,13 +147,10 @@ class AdminStudentController extends Controller
     public function importIntoExcel(ImportExcelRequest $request)
     {
         $file = $request->file('file');
-        if ($file)
-        {
+        if ($file) {
             Excel::import(new StudentImport, $file);
-            return redirect()->back()->with('success','Import Thành công');
-        }
-        else
-        {
+            return redirect()->back()->with('success', 'Import Thành công');
+        } else {
             abort(500);
         }
 

@@ -58,7 +58,7 @@
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
-                            <tbody class="dataTable">
+                            <tbody>
                             <?php $stt = 0 ?>
                             @if(isset($students))
                                 @foreach($students as $data)
@@ -71,7 +71,7 @@
                                         <td>{{ $data->nation }}</td>
                                         <td>{{ $data->classroom->name }}</td>
                                         <td>
-                                            <a href="{{ route('classroom.action',['id' => $data->id]) }}"
+                                            <a href="{{ route('student.action',['id' => $data->id]) }}"
                                                class=" {{ $data->getStatus($data->status)['class'] }}">
                                                 {{ $data->getStatus($data->status)['name'] }}
                                             </a>
@@ -144,6 +144,7 @@
             $('.classroom').change(function (event) {
                 event.preventDefault();
                 let url = $(this).data('url');
+                alert(url);
                 let id = $(this).val();
                 $.ajax({
                     url: url,
@@ -151,41 +152,28 @@
                     dataType: 'json',
                     data: {id: id},
                     success: function (students) {
-                        $('.dataTable').html(students);
+                        $('tbody').html(students);
 
                     }
                 });
             })
+            $('#search').on('keyup',function () {
+                let searchResult = $(this).val();
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route("student.search") }}',
+                    data: {
+                        '_token': '{{ csrf_token() }}',
+                        searchResult: searchResult
+                    },
+                    beforeSend: function () {
+                        $('tbody').html('<td>Loading..</td>');
+                    },
+                    success: function (data) {
+                        $('tbody').html(data);
+                    }
+                });
+            })
         });
-        $('body').on('keyup', '#search', function () {
-            let searchResult = $(this).val();
-            $.ajax({
-                type: 'POST',
-                url: '{{ route("student.search") }}',
-                dataType: 'json',
-                data: {
-                    '_token': '{{ csrf_token() }}',
-                    searchResult: searchResult
-                },
-                success: function (res) {
-                    let tableRow = '';
-                    $('.dataTable').html('');
-                    $.each(res, function (index, value) {
-                        tableRow += ' <tr>';
-                        tableRow += '<th scope="row">' + index + '</th>';
-                        tableRow += '<th scope="row">' + value.name + '</th>';
-                        tableRow += '<th scope="row">' + value.code + '</th>';
-                        tableRow += '<th scope="row">' + value.birthday + '</th>';
-                        tableRow += '<th scope="row">' + value.sex + '</th>';
-                        tableRow += '<th scope="row">' + value.nation + '</th>';
-                        {{--tableRow += '<th scope="row"><a href="{{ route('student.create ') }}" class="btn btn-default">Edit</a></th>';--}}
-                            tableRow += ' </tr>';
-                        $('.dataTable').html(tableRow);
-                    })
-
-                }
-
-            });
-        })
     </script>
 @endsection
