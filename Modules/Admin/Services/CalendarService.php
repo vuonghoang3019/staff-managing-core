@@ -9,14 +9,15 @@ class CalendarService
 
     public function generateCalendarData($weekDays)
     {
+        $id = auth()->user()->id;
         $calendarData = [];
         $timeRange = (new TimeService)->generateTimeRange(config('app.calendar.start_time'), config('app.calendar.end_time'));
         $schedules = Schedule::with('calendar', 'user', 'class')->get();
         foreach ($timeRange as $time) {
-            $timeText = $time['start'] . ' - ' . $time['end'];
+            $timeText = substr($time['start'],0,-3)  . ' - ' . substr($time['end'],0,-3) ;
             $calendarData[$timeText] = [];
             foreach ($weekDays as $index => $day) {
-                $schedule = $schedules->where('calendar.day', $index)->where('calendar.start_time', $time['start'])->first();
+                $schedule = $schedules->where('user_id',$id)->where('calendar.day', $index)->where('calendar.start_time', $time['start'])->first();
                 if ($schedule) {
                     array_push($calendarData[$timeText], [
                         'class_name'   => $schedule->class->name,

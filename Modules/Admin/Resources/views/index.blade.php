@@ -13,9 +13,7 @@
                         <div class="card-header">
                             Calendar
                         </div>
-
                         <div class="card-body">
-
                             <table class="table table-bordered">
                                 <thead>
                                 <th width="125">Time</th>
@@ -31,7 +29,8 @@
                                         </td>
                                         @foreach($days as $value)
                                             @if (is_array($value))
-                                                <td rowspan="4" class="align-middle text-center" width="250"
+                                                <td rowspan="4" class="align-middle text-center" width="200"
+                                                    height="200"
                                                     style="background-color:#f0f0f0">
                                                     {{ $value['class_name'] }}<br>
                                                     Teacher: {{ $value['teacher_name'] }}

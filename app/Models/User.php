@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasRole($roles) || abort(401, 'This action is unauthorized.');
     }
 
+    public function isAdmin($code)
+    {
+        return $this->roles()->where('code',$code)->exists();
+    }
+
     public function checkPermission($permissionCheck)
     {
         $roles = auth()->user()->roles;
@@ -54,5 +59,7 @@ class User extends Authenticatable
         }
         return false;
     }
+
+
 
 }

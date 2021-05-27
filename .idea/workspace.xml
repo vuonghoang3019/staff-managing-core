@@ -20,32 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/CalendarPolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/ClassroomPolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/CoursePolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/GradePolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/PermissionPolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/RolePolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/SchedulePolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/StudentPolicy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Policies/TeacherPolicy.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/calendar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminPermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminPermissionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Policies/CategoryPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Policies/CategoryPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/calendar/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/calendar/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/grade/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/grade/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/permission/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/permission/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/permission/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/permission/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/role/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/schedule/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/schedule/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/student/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/student/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminScheduleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Services/DefineRole.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Services/DefineRole.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Services/CalendarService.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Services/CalendarService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +179,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shopping" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Laravel-School-Timetable-Calendar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -206,7 +189,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -413,7 +396,18 @@
       <workItem from="1621867155466" duration="6631000" />
       <workItem from="1621909212133" duration="6096000" />
       <workItem from="1621953355101" duration="9917000" />
-      <workItem from="1621994603326" duration="5444000" />
+      <workItem from="1621994603326" duration="5781000" />
+      <workItem from="1622015555660" duration="592000" />
+      <workItem from="1622018407795" duration="3377000" />
+      <workItem from="1622032785622" duration="12000" />
+      <workItem from="1622039631819" duration="7644000" />
+      <workItem from="1622081338279" duration="341000" />
+      <workItem from="1622083361017" duration="246000" />
+      <workItem from="1622084640460" duration="1499000" />
+      <workItem from="1622086401356" duration="56000" />
+      <workItem from="1622086585268" duration="39000" />
+      <workItem from="1622092446065" duration="131000" />
+      <workItem from="1622102581946" duration="6850000" />
     </task>
     <servers />
   </component>
@@ -464,10 +458,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="452" y="43" key="#phpunit.xml/0.0.1536.824@0.0.1536.824" timestamp="1620917447001" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1621999042399">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622104504551">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621999042399" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622104504550" />
     <state x="486" y="135" key="NewPhpClassDialog" timestamp="1621007606122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -476,10 +470,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1617678579651" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1621243927810">
+    <state x="277" y="57" width="1071" height="709" key="SettingsEditor" timestamp="1622051071161">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621243927810" />
+    <state x="277" y="57" width="1071" height="709" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1622051071161" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1620374252846">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -504,9 +498,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1621501331469" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1621958945729">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1622092542627">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1621958945729" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622092542627" />
   </component>
 </project>

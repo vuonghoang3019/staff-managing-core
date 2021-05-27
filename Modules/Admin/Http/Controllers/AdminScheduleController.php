@@ -41,7 +41,7 @@ class AdminScheduleController extends Controller
     public function create()
     {
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
-        $users = $this->user->newQuery()->with(['grade'])->get();
+        $users = $this->user->newQuery()->with(['grades'])->get();
         $courses = $this->course->newQuery()->with(['course_grade'])->get();
         $calendars = $this->calendar->newQuery()->get();
         $weeks = $this->schedule->getWeek();
@@ -72,7 +72,7 @@ class AdminScheduleController extends Controller
     {
         $weeks = $this->schedule->getWeek();
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
-        $users = $this->user->newQuery()->with(['grade'])->get();
+        $users = $this->user->newQuery()->with(['grades'])->get();
         $courses = $this->course->newQuery()->with(['course_grade'])->get();
         $calendars = $this->calendar->newQuery()->get();
         $scheduleEdit = $this->schedule->with(['calendar', 'user', 'class', 'course'])->findOrFail($id);
