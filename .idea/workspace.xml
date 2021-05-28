@@ -20,10 +20,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/animate.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/bootstrap-touch-slider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/flaticon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/owl.carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/prettyPhoto.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/responsive.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/timeline.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/versions.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/all.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/brands.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/brands.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/fontawesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/fontawesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/regular.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/regular.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/solid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/solid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/svg-with-js.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/svg-with-js.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/v4-shims.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/css/v4-shims.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/fontawesome-free/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/1200px-Sun-group-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/200854_Gallery_1_0431004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/42-428447_mens-long-sleeve-t-shirt-full-t-shirt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/arrow-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/images/arrow-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/js/all.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/js/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/js/modernizer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/js/timeline.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layout/sidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/master/master.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminStudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminStudentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/student/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/student/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admins/assets/css/adminlte.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/assets/css/adminlte.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admins/assets/js/daterangepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/assets/js/daterangepicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +234,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Laravel-School-Timetable-Calendar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/home/css" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -189,9 +249,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\StaffManaging\public\home\css" />
+      <recent name="D:\xampp\htdocs\StaffManaging\public\home" />
+      <recent name="D:\xampp\htdocs\StaffManaging\public\home\js" />
       <recent name="D:\xampp\htdocs\StaffManaging\public\storage" />
       <recent name="D:\xampp\htdocs\StaffManaging\public\storage\uploadteacher" />
-      <recent name="D:\xampp\htdocs\StaffManaging\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\StaffManaging\app\Models" />
@@ -404,7 +466,11 @@
       <workItem from="1622092446065" duration="131000" />
       <workItem from="1622102581946" duration="7055000" />
       <workItem from="1622120881338" duration="4159000" />
-      <workItem from="1622130246313" duration="3691000" />
+      <workItem from="1622130246313" duration="4129000" />
+      <workItem from="1622167062178" duration="5386000" />
+      <workItem from="1622185058711" duration="7196000" />
+      <workItem from="1622204429188" duration="5419000" />
+      <workItem from="1622212945509" duration="6223000" />
     </task>
     <servers />
   </component>
@@ -435,18 +501,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="53" key="#Plugins/0.0.1536.824@0.0.1536.824" timestamp="1619922738979" />
-    <state x="520" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1621071552114">
+    <state x="520" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1622219096879">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="520" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1621071552114" />
+    <state x="520" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1622219096879" />
     <state x="266" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1621996417005">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="266" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1621996417005" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622109803149">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622209889831">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1622109803149" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1622209889831" />
     <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1621999535628">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -463,10 +529,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="486" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1621007606122" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1617678579651">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1622205008365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1617678579651" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1622205008365" />
     <state x="277" y="57" width="1071" height="709" key="SettingsEditor" timestamp="1622051071161">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -495,9 +561,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1621501331469" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1622131554997">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1622219275616">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622131554997" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622219275616" />
   </component>
 </project>
