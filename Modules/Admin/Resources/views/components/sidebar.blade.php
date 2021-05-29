@@ -37,6 +37,16 @@
                         </a>
                     </li>
                 @endcan
+
+                <li class="nav-item">
+                    <a href="{{ route('slider.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'slider.index' ? 'active' : ''}}">
+                        <i class="fas fa-images"></i>
+                        <p>
+                            Slider
+                        </p>
+                    </a>
+                </li>
                 {{--School--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
