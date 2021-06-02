@@ -47,6 +47,16 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('about.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'about.index' ? 'active' : ''}}">
+                        <i class="fas fa-info-circle"></i>
+                        <p>
+                            About
+                        </p>
+                    </a>
+                </li>
                 {{--School--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">

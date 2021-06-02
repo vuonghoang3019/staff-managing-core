@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+Route::any('/ckfinder/examples/{example?}', 'CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
+    ->name('ckfinder_examples');
 
 Route::get('login', 'auth\LoginController@getLogin')->name('getLogin');
 Route::post('postLogin', 'auth\LoginController@postLogin')->name('postLogin');
@@ -70,6 +71,36 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['CheckLogin']], function ()
         Route::get('/action/{id}', [
             'as'         => 'slider.action',
             'uses'       => 'AdminSliderController@action',
+        ]);
+    });
+    Route::prefix('about')->group(function () {
+        Route::get('/', [
+            'as'         => 'about.index',
+            'uses'       => 'AdminAboutController@index',
+        ]);
+        Route::get('/create', [
+            'as'         => 'about.create',
+            'uses'       => 'AdminAboutController@create',
+        ]);
+        Route::post('/store', [
+            'as'         => 'about.store',
+            'uses'       => 'AdminAboutController@store',
+        ]);
+        Route::get('/edit/{id}', [
+            'as'         => 'about.edit',
+            'uses'       => 'AdminAboutController@edit',
+        ]);
+        Route::post('/update/{id}', [
+            'as'         => 'about.update',
+            'uses'       => 'AdminAboutController@update',
+        ]);
+        Route::get('/delete/{id}', [
+            'as'         => 'about.delete',
+            'uses'       => 'AdminAboutController@delete',
+        ]);
+        Route::get('/action/{id}', [
+            'as'         => 'about.action',
+            'uses'       => 'AdminAboutController@action',
         ]);
     });
     Route::prefix('grade')->group(function () {

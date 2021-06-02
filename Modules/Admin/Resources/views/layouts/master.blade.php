@@ -34,6 +34,7 @@
 <script src="{{ asset('admins/assets/js/overlayScrollbars.min.js') }}"></script>
 <script src="{{ asset('admins/assets/js/adminlte.js') }}"></script>
 <script src="{{ asset('admins/assets/js/demo.js') }}"></script>
+<script src="{{ asset('admins/ckeditor/ckeditor.js') }}"></script>
 @yield('js')
 </html>
 
