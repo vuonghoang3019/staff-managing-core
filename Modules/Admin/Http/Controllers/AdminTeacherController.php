@@ -25,6 +25,7 @@ class AdminTeacherController extends Controller
     private $grade;
     private $schedule;
     private $role;
+
     public function __construct(User $user, Grade $grade, Schedule $schedule, Role $role)
     {
         $this->user = $user;
@@ -35,7 +36,7 @@ class AdminTeacherController extends Controller
 
     public function index()
     {
-        $teachers = $this->user->newQuery()->with(['grades','roles'])->orderBy('id', 'desc')->paginate(5);
+        $teachers = $this->user->newQuery()->with(['grades', 'roles'])->orderBy('id', 'desc')->paginate(5);
         return view('admin::teacher.index', compact('teachers'));
     }
 
@@ -58,8 +59,8 @@ class AdminTeacherController extends Controller
         }
         $this->user->save();
         $this->user->grades()->attach($request->grade_id);
-        $this->user->roles()->attach(Role::where('name','Teacher')->first());
-        return redirect()->back()->with('success','Thêm mới thành công');
+        $this->user->roles()->attach(Role::where('name', 'Teacher')->first());
+        return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
     public function edit($id)
@@ -69,7 +70,7 @@ class AdminTeacherController extends Controller
         $teacherGrade = $teacherEdit->grades;
         $roles = $this->role->get();
         $teacherRole = $teacherEdit->roles;
-        return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade','roles','teacherRole'));
+        return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade', 'roles', 'teacherRole'));
     }
 
     public function update(TeacherRequestAdd $request, $id)
@@ -79,36 +80,27 @@ class AdminTeacherController extends Controller
         $teacherUpdate->code = $request->code;
         $teacherUpdate->email = $request->email;
         $this->user->password = Hash::make($request->password);
-        $dataUpload = $this->fileName($request, 'image_path');
-        if ($dataUpload == null) {
-//            return redirect()->back()->with('error','Thiếu ảnh');
-        }
-        else if ($teacherUpdate->image_name != $dataUpload['file_name'])
-        {
+        $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
+        if (!empty($userUpload)) {
             unlink(substr($teacherUpdate->image_path, 1));
-            $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
-            if (!empty($userUpload)) {
-                $teacherUpdate->image_name = $userUpload['file_name'];
-                $teacherUpdate->image_path = $userUpload['file_path'];
-            }
+            $teacherUpdate->image_name = $userUpload['file_name'];
+            $teacherUpdate->image_path = $userUpload['file_path'];
         }
         $teacherUpdate->save();
         $teacherUpdate->grades()->sync($request->grade_id);
         $teacherUpdate->roles()->sync($request->role_id);
-        return redirect()->back()->with('success','Cập nhật thành công');
+        return redirect()->back()->with('success', 'Cập nhật thành công');
     }
 
     public function delete($id)
     {
         $countTeacher = $this->schedule->countTeacher($id);
-        if ($countTeacher > 0){
+        if ($countTeacher > 0) {
             return response()->json([
-                'code' => 201,
+                'code'    => 201,
                 'message' => 'success'
-            ],201);
-        }
-        else
-        {
+            ], 201);
+        } else {
             $teacherUpdate = $this->user->find($id);
             unlink(substr($teacherUpdate->image_path, 1));
             return $this->deleteModelTrait($id, $this->user);

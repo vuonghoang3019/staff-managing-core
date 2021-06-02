@@ -14,9 +14,9 @@ class AboutRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'title'      => 'required|max:255|min:5|unique:abouts,title,' . $this->id,
+            'title'      => 'required|max:100|min:5|unique:abouts,title,' . $this->id,
             'image_path' => 'max:10000|mimes:jpeg,png,jpg',
-            'Content'    => 'required|min:5',
+            'Content'    => 'required|max:1000|min:5',
         ];
     }
 

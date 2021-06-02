@@ -62,9 +62,10 @@
     <script src="{{ asset('admins/assets/js/upload.js') }}"></script>
     <script>
         CKEDITOR.replace( 'title');
-        CKEDITOR.replace( 'Content', {
-            filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
-        } );
+        CKEDITOR.replace( 'Content');
+        {{--CKEDITOR.replace( 'Content', {--}}
+        {{--    filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',--}}
+        {{--} );--}}
     </script>
     @include('ckfinder::setup')
 @endsection

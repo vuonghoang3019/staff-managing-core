@@ -55,19 +55,11 @@ class AdminSliderController extends Controller
         $sliderUpdate = $this->slider->findOrFail($id);
         $sliderUpdate->name = $request->name;
         $sliderUpdate->description = $request->description;
-        $dataUpload = $this->fileName($request, 'image_path');
-        if ($dataUpload == null) {
-
-
-        }
-        else if ($sliderUpdate->image_name != $dataUpload['file_name'])
-        {
+        $sliderUpload = $this->storageTraitUpload($request, 'image_path', 'slider');
+        if (!empty($dataUpload)) {
             unlink(substr($sliderUpdate->image_path, 1));
-            $sliderUpload = $this->storageTraitUpload($request, 'image_path', 'slider');
-            if (!empty($dataUpload)) {
-                $sliderUpdate->image_name = $sliderUpload['file_name'];
-                $sliderUpdate->image_path = $sliderUpload['file_path'];
-            }
+            $sliderUpdate->image_name = $sliderUpload['file_name'];
+            $sliderUpdate->image_path = $sliderUpload['file_path'];
         }
         $sliderUpdate->save();
         return redirect()->back()->with('success', 'Cập nhật thành công');

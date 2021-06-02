@@ -53,21 +53,14 @@ class AdminAboutController extends Controller
         $aboutUpdate = $this->about->findOrFail($id);
         $aboutUpdate->title = $request->title;
         $aboutUpdate->content = $request->Content;
-        $dataUpload = $this->fileName($request, 'image_path');
-        if ($dataUpload == null) {
-//            return redirect()->back()->with('error','Thiếu ảnh');
-        }
-        else if ($aboutUpdate->image_name != $dataUpload['file_name'])
-        {
+        $aboutUpload = $this->storageTraitUpload($request, 'image_path', 'about');
+        if (!empty($aboutUpload)) {
             unlink(substr($aboutUpdate->image_path, 1));
-            $aboutUpload = $this->storageTraitUpload($request, 'image_path', 'about');
-            if (!empty($userUpload)) {
-                $aboutUpdate->image_name = $aboutUpload['file_name'];
-                $aboutUpdate->image_path = $aboutUpload['file_path'];
-            }
+            $aboutUpdate->image_name = $aboutUpload['file_name'];
+            $aboutUpdate->image_path = $aboutUpload['file_path'];
         }
         $aboutUpdate->save();
-        return redirect()->back()->with('success','Thêm dữ liệu thành công');
+        return redirect()->back()->with('success','Cập nhật dữ liệu thành công');
     }
 
     public function delete($id)
@@ -81,6 +74,7 @@ class AdminAboutController extends Controller
     {
         $aboutUpdate = $this->about->findOrFail($id);
         $aboutUpdate->status = $aboutUpdate->status ? 0 : 1;
+        $aboutUpdate->save();
         return redirect()->back()->with('success','Cập nhật trạng thái thành công');
     }
 
