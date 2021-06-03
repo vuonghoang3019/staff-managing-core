@@ -5,8 +5,8 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-        @foreach($sliders as $slider)
-            <div class="carousel-item active">
+        @foreach($sliders as $key => $slider)
+            <div class="carousel-item {{ $key == 0 ? 'active' : ''}}">
                 <img src="{{ asset($slider->image_path) }}" class="d-block w-100" alt="" height="700">
             </div>
         @endforeach
@@ -20,3 +20,4 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+
