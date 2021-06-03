@@ -1,12 +1,12 @@
 <div class="content-header">
     <div class="container-fluid">
         @if(session('success'))
-            <div class="alert alert-success" role="alert" style="position: fixed;right: 2%;bottom: 15%">
+            <div class="alert alert-success" role="alert" style="position: fixed;right: 2%;top: 15%">
                 {{ session('success') }}
             </div>
         @endif
         @if(session('error'))
-            <div class="alert alert-danger" role="alert" style="position: fixed;right: 2%;bottom: 15%">
+            <div class="alert alert-danger" role="alert" style="position: fixed;right: 2%;top: 15%">
                 {{ session('error') }}
             </div>
         @endif

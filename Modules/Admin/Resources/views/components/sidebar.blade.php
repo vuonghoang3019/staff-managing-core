@@ -57,6 +57,16 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('recruitment.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
+                        <i class="fas fa-info-circle"></i>
+                        <p>
+                            Recruitment
+                        </p>
+                    </a>
+                </li>
                 {{--School--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
