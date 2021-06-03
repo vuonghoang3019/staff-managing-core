@@ -19,6 +19,14 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
+                        <label for="redirect">Nhập chuyển hướng</label>
+                        <input type="text" class="form-control @error('redirect') is-invalid @enderror" id="redirect"
+                               placeholder="Nhập chuyển hướng" name="redirect" value="{{ old('route',$categoryEdit->redirect) }}">
+                        @error('route')
+                        <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group col-md-6">
                         <label for="name">Chọn danh mục</label>
                         <select class="form-control @error('parent_id') is-invalid @enderror " name="parent_id">
                             <option value="">---Mời bạn chọn danh mục---</option>

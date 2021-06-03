@@ -52,6 +52,8 @@ class AdminTeacherController extends Controller
         $this->user->code = $request->code;
         $this->user->email = $request->email;
         $this->user->password = Hash::make($request->password);
+        $this->user->description = $request->description;
+        $this->user->description = $request->is_check;
         $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
         if (!empty($userUpload)) {
             $this->user->image_name = $userUpload['file_name'];
@@ -79,6 +81,8 @@ class AdminTeacherController extends Controller
         $teacherUpdate->name = $request->name;
         $teacherUpdate->code = $request->code;
         $teacherUpdate->email = $request->email;
+        $teacherUpdate->description = $request->description;
+        $teacherUpdate->is_check = $request->is_check == null ? 0 : 1;
         $this->user->password = Hash::make($request->password);
         $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
         if (!empty($userUpload)) {

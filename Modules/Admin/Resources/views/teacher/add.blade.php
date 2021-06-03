@@ -13,6 +13,7 @@
             <div class="container-fluid">
                 <form action="{{ route('teacher.store') }}" method="post" enctype="multipart/form-data" >
                     @csrf
+                    <button type="submit" class="btn btn-success">Submit</button>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
@@ -56,19 +57,32 @@
                                     @endforeach
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-md-6 ">
-                            <div class="drop-zone ">
-                                <span class="drop-zone__prompt @error('image_path') is-invalid @enderror">Drop file here or click to upload</span>
-                                <input type="file" name="image_path" class="drop-zone__input">
+                            <div class="form-group">
+                                <input type="checkbox" name="is_check" value="1"> Nổi bật
                             </div>
-                            @error('image_path')
-                            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
-                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="drop-zone ">
+                                    <span class="drop-zone__prompt @error('image_path') is-invalid @enderror">Drop file here or click to upload</span>
+                                    <input type="file" name="image_path" class="drop-zone__input">
+                                </div>
+                                @error('image_path')
+                                <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Mô tả</label>
+                                <textarea name="description" class="form-control @error('image_path') is-invalid @enderror" rows="2">{{ old('description') }}</textarea>
+                                @error('image_path')
+                                <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                         </div>
 
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+
                 </form>
             </div>
         </section>

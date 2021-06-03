@@ -24,6 +24,7 @@
                                 <th scope="col">Ảnh</th>
                                 <th scope="col">Quyền</th>
                                 <th scope="col">Trình độ</th>
+                                <th scope="col">Nổi bật</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -49,6 +50,13 @@
                                                     <li> {{  $gradeItem->name  }}</li>
                                                 @endforeach
                                             </ul>
+                                        </td>
+                                        <td>
+                                            @if($data->is_check == 1)
+                                                <i class="fas fa-check-circle" style="color: green"></i>
+                                            @else
+                                                <i class="fas fa-times-circle" style="color: red"></i>
+                                            @endif
                                         </td>
                                         <td>
                                             @can('teacher-update')

@@ -14,11 +14,12 @@ class TeacherRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'name'       => 'required',
-            'code'       => 'required',
-            'password'   => 'required',
-            'email'      => 'required|unique:users,email,' . $this->id,
-            'image_path' => 'max:10000|mimes:jpeg,png,jpg' //a required, max 10000kb, jpeg,png,jpg
+            'name'        => 'required',
+            'code'        => 'required',
+            'password'    => 'required',
+            'email'       => 'required|unique:users,email,' . $this->id,
+            'image_path'  => 'max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
+            'description' => 'max:255'
         ];
     }
 

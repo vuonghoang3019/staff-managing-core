@@ -8,7 +8,10 @@
     <!-- End carouse -->
 
     <!-- about -->
-    @include('components.about')
+    <div id="overviews" class="section wb">
+        @include('components.about')
+    </div>
+
     <!-- End about -->
 
     <!-- timeline -->
@@ -17,7 +20,8 @@
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
                     <h3>Our history</h3>
-                    <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
+                    <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
+                        lorem
                         quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!
                     </p>
                 </div>
@@ -178,7 +182,8 @@
                                             <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
                                             <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
                                             <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support
+                                            </p>
                                         </div>
                                         <div class="pricing-table-sign-up">
                                             <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
@@ -197,7 +202,8 @@
                                             <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
                                             <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
                                             <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support
+                                            </p>
                                         </div>
                                         <div class="pricing-table-sign-up">
                                             <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
@@ -216,7 +222,8 @@
                                             <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
                                             <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
                                             <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support
+                                            </p>
                                         </div>
                                         <div class="pricing-table-sign-up">
                                             <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
@@ -241,7 +248,8 @@
                                             <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
                                             <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
                                             <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support
+                                            </p>
                                         </div>
                                         <div class="pricing-table-sign-up">
                                             <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
@@ -260,7 +268,8 @@
                                             <p><i class="fa fa-rocket"></i> <strong>65GB</strong> of Storage</p>
                                             <p><i class="fa fa-database"></i> <strong>60</strong> Databases</p>
                                             <p><i class="fa fa-link"></i> <strong>30</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support
+                                            </p>
                                         </div>
                                         <div class="pricing-table-sign-up">
                                             <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>
@@ -279,7 +288,8 @@
                                             <p><i class="fa fa-rocket"></i> <strong>125GB</strong> of Storage</p>
                                             <p><i class="fa fa-database"></i> <strong>140</strong> Databases</p>
                                             <p><i class="fa fa-link"></i> <strong>60</strong> Domains</p>
-                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support</p>
+                                            <p><i class="fa fa-life-ring"></i> <strong>24/7 Unlimited</strong> Support
+                                            </p>
                                         </div>
                                         <div class="pricing-table-sign-up">
                                             <a href="#" class="hover-btn-new orange"><span>Order Now</span></a>

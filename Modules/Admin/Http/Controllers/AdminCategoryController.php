@@ -44,8 +44,9 @@ class AdminCategoryController extends Controller
     public function store(CategoryRequestAdd $request)
     {
         $this->category->name = $request->name;
-        $this->category->slug = Str::slug($request->slug);
+        $this->category->slug = Str::slug($request->name);
         $this->category->parent_id = $request->parent_id;
+        $this->category->redirect = trim(strtolower($request->redirect));
         $this->category->save();
         return redirect()->back()->with('success','Thêm mới thành công');
     }
@@ -63,8 +64,9 @@ class AdminCategoryController extends Controller
         $categoryUpdate->name = $request->name;
         $categoryUpdate->slug = Str::slug($request->name);
         $categoryUpdate->parent_id = $request->parent_id;
+        $categoryUpdate->redirect = trim(strtolower($request->redirect));
         $categoryUpdate->save();
-        return redirect()->back()->with('success','Thêm mới thành công');
+        return redirect()->back()->with('success','Cập nhật thành công');
     }
 
     public function delete($id)

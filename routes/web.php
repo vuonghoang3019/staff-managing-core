@@ -13,4 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'AboutController@index')->name('about');
+Route::get('/teacher', 'AboutController@index')->name('teacher');
+Route::get('/contact', 'AboutController@index')->name('contact');
+Route::get('/enrollment', 'AboutController@index')->name('enrollment');
+Route::get('/course', 'AboutController@index')->name('course');
