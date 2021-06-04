@@ -20,15 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminRecruitmentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/recruitment/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/recruitment/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/recruitment/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Recruitment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/RecruitmentRequestAdd.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/update/RecruitmentRequestUpdate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/recruitment.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/recruitmentDetail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/headerContent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/headerContent.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminRecruitmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminRecruitmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/recruitment/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/recruitment/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Recruitment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Recruitment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -438,7 +440,9 @@
       <workItem from="1622648170535" duration="1415000" />
       <workItem from="1622684282668" duration="9428000" />
       <workItem from="1622712367464" duration="3398000" />
-      <workItem from="1622724580875" duration="9771000" />
+      <workItem from="1622724580875" duration="9838000" />
+      <workItem from="1622771396639" duration="8677000" />
+      <workItem from="1622792000789" duration="4283000" />
     </task>
     <servers />
   </component>
@@ -489,10 +493,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="452" y="43" key="#phpunit.xml/0.0.1536.824@0.0.1536.824" timestamp="1620917447001" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622686460506">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1622772727625">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622686460506" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1622772727625" />
     <state x="486" y="135" key="NewPhpClassDialog" timestamp="1621007606122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -529,9 +533,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1622732436530" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1622604678359">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1622797522490">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622604678359" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622797522490" />
   </component>
 </project>

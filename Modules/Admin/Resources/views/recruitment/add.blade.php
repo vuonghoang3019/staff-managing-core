@@ -38,9 +38,9 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="content">Viết nội dung</label>
-                                <textarea class="form-control @error('content') is-invalid @enderror" name="Content" id="content">{{ old('content') }}</textarea>
-                                @error('content')
+                                <label for="Content">Viết nội dung</label>
+                                <textarea class="form-control @error('Content') is-invalid @enderror" name="Content" id="Content">{{ old('Content') }}</textarea>
+                                @error('Content')
                                 <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                                 @enderror
                             </div>

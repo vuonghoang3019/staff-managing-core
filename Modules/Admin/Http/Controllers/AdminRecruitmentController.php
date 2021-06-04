@@ -3,8 +3,9 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Models\Recruitment;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Http\Requests\RecruitmentRequestAdd;
+use Modules\Admin\Http\Requests\update\RecruitmentRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
@@ -29,7 +30,7 @@ class AdminRecruitmentController extends Controller
         return view('admin::recruitment.add');
     }
 
-    public function store(Request $request)
+    public function store(RecruitmentRequestAdd $request)
     {
         $this->recruitment->title = $request->title;
         $this->recruitment->content = $request->Content;
@@ -48,16 +49,16 @@ class AdminRecruitmentController extends Controller
         return view('admin::recruitment.edit',compact('reEdit'));
     }
 
-    public function update(Request $request, $id)
+    public function update(RecruitmentRequestUpdate $request, $id)
     {
         $reEdit = $this->recruitment->findOrFail($id);
         $reEdit->title = $request->title;
         $reEdit->content = $request->Content;
         $reEditUpload = $this->storageTraitUpload($request, 'image_path', 'recruitment');
         if (!empty($reEditUpload)) {
-            unlink(substr($reEdit->image_path, 1));
             $reEdit->image_name = $reEditUpload['file_name'];
             $reEdit->image_path = $reEditUpload['file_path'];
+            unlink(substr($reEdit->image_path, 1));
         }
         $reEdit->save();
         return redirect()->back()->with('success','Cập nhật dữ liệu thành công');
@@ -78,6 +79,7 @@ class AdminRecruitmentController extends Controller
         $reEdit->save();
         return redirect()->back()->with('success','Cập nhật trạng thái thành công');
     }
+
 
 
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 
 class Recruitment extends Model
 {
-    protected $table = 'recruitment';
+    protected $table = 'recruitments';
     protected $fillable = ['title','content','status','image_name','image_path'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;
