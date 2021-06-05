@@ -6,14 +6,12 @@ use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use App\Models\Classroom;
 use App\Models\Student;
-use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\ImportExcelRequest;
 use Modules\Admin\Traits\DeleteTrait;
 
-class AdminStudentController extends Controller
+class AdminStudentController extends FrontendController
 {
     private $classroom;
     private $student;
@@ -21,6 +19,7 @@ class AdminStudentController extends Controller
 
     public function __construct(Student $student, Classroom $classroom)
     {
+        parent::__construct();
         $this->student = $student;
         $this->classroom = $classroom;
     }

@@ -9,13 +9,14 @@ use Modules\Admin\Http\Requests\update\RecruitmentRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
-class AdminRecruitmentController extends Controller
+class AdminRecruitmentController extends FrontendController
 {
     private $recruitment;
     use DeleteTrait;
     use StorageImageTrait;
     public function __construct(Recruitment $recruitment)
     {
+        parent::__construct();
         $this->recruitment = $recruitment;
     }
 

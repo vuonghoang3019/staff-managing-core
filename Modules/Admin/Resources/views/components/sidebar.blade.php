@@ -59,9 +59,19 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('contact.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
+                        <i class="fas fa-id-card-alt"></i>
+                        <p>
+                            Contact
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{ route('recruitment.index') }}"
                        class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
-                        <i class="fas fa-info-circle"></i>
+                        <i class="fas fa-user-plus"></i>
                         <p>
                             Recruitment
                         </p>

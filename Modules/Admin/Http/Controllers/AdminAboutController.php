@@ -8,13 +8,14 @@ use Modules\Admin\Http\Requests\AboutRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
-class AdminAboutController extends Controller
+class AdminAboutController extends FrontendController
 {
     private $about;
     use DeleteTrait;
     use StorageImageTrait;
     public function __construct(About $about)
     {
+        parent::__construct();
         $this->about = $about;
     }
 

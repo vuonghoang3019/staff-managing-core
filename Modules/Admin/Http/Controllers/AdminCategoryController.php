@@ -11,13 +11,14 @@ use Modules\Admin\Http\Requests\CategoryRequestAdd;
 use Modules\Admin\Components\Recursive;
 use Modules\Admin\Traits;
 
-class AdminCategoryController extends Controller
+class AdminCategoryController extends FrontendController
 {
     use Traits\DeleteTrait;
     private $category;
 
     public function __construct(Category $category)
     {
+        parent::__construct();
         $this->category = $category;
     }
 

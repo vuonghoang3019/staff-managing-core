@@ -12,7 +12,7 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\ScheduleRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
-class AdminScheduleController extends Controller
+class AdminScheduleController extends FrontendController
 {
     use DeleteTrait;
 
@@ -24,6 +24,7 @@ class AdminScheduleController extends Controller
 
     public function __construct(Classroom $classroom, User $user, Course $course, Calendar $calendar, Schedule $schedule)
     {
+        parent::__construct();
         $this->classroom = $classroom;
         $this->user = $user;
         $this->course = $course;

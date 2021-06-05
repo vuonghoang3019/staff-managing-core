@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Modules\Admin\Http\Requests\PermissionRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
-class AdminPermissionController extends Controller
+class AdminPermissionController extends FrontendController
 {
     use DeleteTrait;
     private $permission;
@@ -18,6 +18,7 @@ class AdminPermissionController extends Controller
 
     public function __construct(Permission $permission, Module $module)
     {
+        parent::__construct();
         $this->permission = $permission;
         $this->module = $module;
     }

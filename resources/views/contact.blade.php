@@ -14,6 +14,7 @@
             let phone = $('.phone').val();
             let name_student = $('.name_student').val();
             let email = $('.email').val();
+            let Content = $('.content').val();
             let url = "{{ route('contact.store') }}";
             $.ajax({
                 type: "POST",
@@ -23,7 +24,8 @@
                     name_parent,
                     phone,
                     name_student,
-                    email
+                    email,
+                    Content
                 },
                 success: function (data) {
                     if (data.code === 200) {
@@ -84,6 +86,9 @@
                     <div class="form-group">
                         <input type="email" name="email" class="form-control email" placeholder="google@gmail.com"
                                value="{{ old('email') }}">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Content" class="form-control content" rows="2">{{ old('Content') }}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary accept">ĐĂNG KÝ</button>
 

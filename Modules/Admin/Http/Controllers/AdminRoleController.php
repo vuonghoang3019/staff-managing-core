@@ -9,13 +9,14 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\RoleRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
-class AdminRoleController extends Controller
+class AdminRoleController extends FrontendController
 {
     private $role;
     private $permission;
     use DeleteTrait;
     public function __construct(Role $role, Permission $permission)
     {
+        parent::__construct();
         $this->role = $role;
         $this->permission = $permission;
     }

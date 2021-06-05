@@ -11,13 +11,14 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\CalendarRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
-class AdminCalendarController extends Controller
+class AdminCalendarController extends FrontendController
 {
     use DeleteTrait;
     private $schedule;
     private $calendar;
     public function __construct(Calendar $calendar, Schedule $schedule)
     {
+        parent::__construct();
         $this->calendar = $calendar;
         $this->schedule = $schedule;
     }

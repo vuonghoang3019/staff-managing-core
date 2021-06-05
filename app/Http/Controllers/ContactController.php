@@ -29,10 +29,12 @@ class ContactController extends Controller
         $this->contact->phone = $request->phone;
         $this->contact->name_student = $request->name_student;
         $this->contact->email = $request->email;
+        $this->contact->content = $request->Content;
         $this->contact->save();
         return response()->json([
             'code' => 200,
             'message' => 'success'
         ],200);
     }
+
 }

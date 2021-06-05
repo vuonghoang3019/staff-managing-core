@@ -8,7 +8,7 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
-class AdminSliderController extends Controller
+class AdminSliderController extends FrontendController
 {
     use StorageImageTrait;
     use DeleteTrait;
@@ -17,6 +17,7 @@ class AdminSliderController extends Controller
 
     public function __construct(Slider $slider)
     {
+        parent::__construct();
         $this->slider = $slider;
     }
 

@@ -8,12 +8,13 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\GradeRequestAdd;
 use Modules\Admin\Traits;
 
-class AdminGradeController extends Controller
+class AdminGradeController extends FrontendController
 {
     use Traits\DeleteTrait;
     private $grade;
     public function __construct(Grade $grade)
     {
+        parent::__construct();
         $this->grade = $grade;
     }
 

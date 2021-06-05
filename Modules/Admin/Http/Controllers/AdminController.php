@@ -6,12 +6,13 @@ use App\Models\Schedule;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Services\CalendarService;
 
-class AdminController extends Controller
+class AdminController extends FrontendController
 {
     private $schedule;
 
     public function __construct(Schedule $schedule)
     {
+        parent::__construct();
         $this->schedule = $schedule;
     }
 

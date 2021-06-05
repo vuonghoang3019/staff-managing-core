@@ -9,13 +9,14 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\ClassroomRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
-class AdminClassroomController extends Controller
+class AdminClassroomController extends FrontendController
 {
     private $course;
     private $classroom;
     use DeleteTrait;
     public function __construct(Classroom $classroom, Course $course)
     {
+        parent::__construct();
         $this->classroom = $classroom;
         $this->course = $course;
     }

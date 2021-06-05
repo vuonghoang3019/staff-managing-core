@@ -16,7 +16,7 @@ use Modules\Admin\Http\Requests\TeacherRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
-class AdminTeacherController extends Controller
+class AdminTeacherController extends FrontendController
 {
     use StorageImageTrait;
     use DeleteTrait;
@@ -28,6 +28,7 @@ class AdminTeacherController extends Controller
 
     public function __construct(User $user, Grade $grade, Schedule $schedule, Role $role)
     {
+        parent::__construct();
         $this->user = $user;
         $this->grade = $grade;
         $this->schedule = $schedule;
