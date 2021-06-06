@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequestAdd;
 use App\Models\Category;
 use App\Models\Contact;
-use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
@@ -23,7 +23,7 @@ class ContactController extends Controller
         return view('contact', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(ContactRequestAdd $request)
     {
         $this->contact->name_parent = $request->name_parent;
         $this->contact->phone = $request->phone;
@@ -31,10 +31,7 @@ class ContactController extends Controller
         $this->contact->email = $request->email;
         $this->contact->content = $request->Content;
         $this->contact->save();
-        return response()->json([
-            'code' => 200,
-            'message' => 'success'
-        ],200);
+        return redirect()->back()->with('success', 'Thao tác thành công');
     }
 
 }

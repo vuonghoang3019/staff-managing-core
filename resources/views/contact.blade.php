@@ -4,45 +4,9 @@
 @endsection
 @section('js')
     <script src="{{ asset('vendors/sweetAlert2/sweetalert2.js') }}"></script>
-    <script>
-        // $(document).ready(function () {
-        //
-        // })
-        $('.accept').on('click', function (event) {
-            event.preventDefault();
-            let name_parent = $('.name_parent').val();
-            let phone = $('.phone').val();
-            let name_student = $('.name_student').val();
-            let email = $('.email').val();
-            let Content = $('.content').val();
-            let url = "{{ route('contact.store') }}";
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: {
-                    '_token': '{{ csrf_token() }}',
-                    name_parent,
-                    phone,
-                    name_student,
-                    email,
-                    Content
-                },
-                success: function (data) {
-                    if (data.code === 200) {
-                        Swal.fire({
-                            position: 'center',
-                            icon: 'success',
-                            title: 'Thông tin của bạn đã được gửi',
-                            showConfirmButton: true,
-                        })
-                    }
-                }
-            });
-        })
-
-    </script>
 @endsection
 @section('content')
+
     <div class="all-title-box" style="background: url({{ asset('home/images/1200px-Sun-group-logo.png') }})">
         <div class="container text-center">
             <h1>Contact<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
@@ -70,28 +34,54 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-12 col-sm-12">
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    <form action="{{ route('contact.store') }}" method="post" id="form">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" name="name_parent"
+                                   class="form-control name_parent @error('name_parent') is-invalid @enderror"
+                                   placeholder="Họ và tên phụ huynh" value="{{ old('name_parent') }}">
+                            @error('name_parent')
+                            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="phone"
+                                   class="form-control phone @error('phone') is-invalid @enderror"
+                                   placeholder="01234568"
+                                   value="{{ old('phone') }}">
+                            @error('phone')
+                            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name_student"
+                                   class="form-control name_student @error('name_student') is-invalid @enderror"
+                                   placeholder="Họ và tên học sinh" value="{{ old('name_student') }}">
+                            @error('name_student')
+                            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email"
+                                   class="form-control email @error('email') is-invalid @enderror"
+                                   placeholder="google@gmail.com"
+                                   value="{{ old('email') }}">
+                            @error('email')
+                            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Content" class="form-control content"
+                                      rows="2">{{ old('Content') }}</textarea>
 
-                    <div class="form-group">
-                        <input type="text" name="name_parent" class="form-control name_parent"
-                               placeholder="Họ và tên phụ huynh" value="{{ old('name_parent') }}">
-                    </div>
-                    <div class="form-group">
-                        <input type="number" name="phone" class="form-control phone" placeholder="01234568"
-                               value="{{ old('phone') }}">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="name_student" class="form-control name_student"
-                               placeholder="Họ và tên học sinh" value="{{ old('name_student') }}">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control email" placeholder="google@gmail.com"
-                               value="{{ old('email') }}">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="Content" class="form-control content" rows="2">{{ old('Content') }}</textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary accept">ĐĂNG KÝ</button>
-
+                        </div>
+                        <button type="submit" class="btn btn-primary accept">ĐĂNG KÝ</button>
+                    </form>
                 </div>
             </div><!-- end row -->
         </div><!-- end container -->
