@@ -32,10 +32,11 @@
                                         <td>{{ $data->phone }}</td>
                                         <td>{{ $data->email }}</td>
                                         <td>
-                                            <a href="{{ route('contact.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
+
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactDetail{{ $data->id }}">
+                                                View
+                                            </button>
+                                            @include('admin::contact.modal')
 
                                             <a href=""
                                                data-url=""

@@ -14,7 +14,7 @@
                     <div class="col-md-6">
                         <div class="form-group ">
                             <label for="">Họ và tên phụ huynh</label>
-                            <input type="text" class="form-control" style="background-color:Black; color:Lime;" value="{{ $contactDetail->name_parent }}" readonly>
+                            <input type="text" class="form-control"  value="{{ $contactDetail->name_parent }}" readonly>
                         </div>
                         <div class="form-group ">
                             <label for="">Họ và tên học sinh</label>
