@@ -2,9 +2,6 @@
 @section('title')
     <title>Home</title>
 @endsection
-@section('js')
-    <script src="{{ asset('vendors/sweetAlert2/sweetalert2.js') }}"></script>
-@endsection
 @section('content')
 
     <div class="all-title-box" style="background: url({{ asset('home/images/1200px-Sun-group-logo.png') }})">
