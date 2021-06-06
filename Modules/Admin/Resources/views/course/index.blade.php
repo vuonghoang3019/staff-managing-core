@@ -18,6 +18,7 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Ảnh</th>
                                 <th scope="col">Tên khóa học</th>
                                 <th scope="col">Mức độ</th>
                                 <th scope="col">Status</th>
@@ -30,6 +31,7 @@
                                 @foreach($courses as $course)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
+                                        <td><img src="{{ asset($course->image_path) }}" width="100" height="100"></td>
                                         <td>{{ $course->name }}</td>
                                         <td>
                                             <ul>

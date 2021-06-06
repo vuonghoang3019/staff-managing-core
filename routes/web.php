@@ -18,8 +18,16 @@ Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/teacher', 'TeacherController@index')->name('teacher');
 Route::get('/recruitment', 'RecruitmentController@index')->name('recruitment');
 Route::get('/recruitmentDetail/{id}', 'RecruitmentController@detail')->name('recruitmentDetail');
-Route::get('/course', 'AboutController@index')->name('course');
-
+Route::prefix('course')->group(function () {
+    Route::get('/', [
+        'as'         => 'course',
+        'uses'       => 'CourseController@index',
+    ]);
+    Route::get('/courseDetail/{id}', [
+        'as'         => 'course.detail',
+        'uses'       => 'CourseController@detail',
+    ]);
+});
 Route::prefix('contact')->group(function () {
     Route::get('/', 'ContactController@index')->name('contact');
     Route::post('/store', [

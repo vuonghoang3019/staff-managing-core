@@ -9,7 +9,7 @@ use Illuminate\Support\Arr;
 class Course extends Model
 {
     protected $table = 'courses';
-    protected $fillable = ['name','description','status'];
+    protected $fillable = ['name','description','image_name','image_path','status'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;
     protected $statusCourse = [

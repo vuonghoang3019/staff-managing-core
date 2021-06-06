@@ -4,6 +4,7 @@
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('vendors/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admins/assets/css/upload.css') }}">
 @endsection
 @section('content')
     <!-- Main content -->
@@ -11,7 +12,7 @@
         @include('admin::components.headerContent',['name' => 'Course', 'key' => 'Add Course'])
         <section class="content">
             <div class="container-fluid">
-                <form action="{{ route('course.store') }}" method="post">
+                <form action="{{ route('course.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -43,18 +44,33 @@
                                           rows="3">{{ old('description') }}</textarea>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="drop-zone ">
+                                    <span class="drop-zone__prompt @error('image_path') is-invalid @enderror">Drop file here or click to upload</span>
+                                    <input type="file" name="image_path" class="drop-zone__input">
+                                </div>
+                                @error('image_path')
+                                <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
                     </div>
-
                     <button type="submit" class="btn btn-success">Submit</button>
+                    <a href="{{ route('course.index') }}" class="btn btn-primary">Quay lại</a>
                 </form>
             </div>
         </section>
-
-
     </div>
-
 @endsection
 @section('js')
+    <script src="{{ asset('admins/assets/js/upload.js') }}"></script>
     <script src="{{ asset('admins/assets/js/add.js') }}"></script>
     <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
+    <script>
+        // CKEDITOR.replace( 'description');
+        CKEDITOR.replace( 'description', {
+            filebrowserBrowseUrl: '{{ route('ckfinder_browser') }}',
+        } );
+    </script>
 @endsection

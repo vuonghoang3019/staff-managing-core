@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\CourseRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
+use Modules\Admin\Traits\StorageImageTrait;
 
 class AdminCourseController extends FrontendController
 {
+    use StorageImageTrait;
     private $grade;
     private $course;
     use DeleteTrait;
@@ -35,9 +37,14 @@ class AdminCourseController extends FrontendController
     {
         $this->course->name = $request->name;
         $this->course->description = $request->description;
+        $courseUpload = $this->storageTraitUpload($request, 'image_path', 'course');
+        if (!empty($courseUpload)) {
+            $this->course->image_name = $courseUpload['file_name'];
+            $this->course->image_path = $courseUpload['file_path'];
+        }
         $this->course->save();
         $this->course->course_grade()->attach($request->grade_id);
-        return redirect()->back();
+        return redirect()->back()->with('success','Thêm mới thành công');
     }
     public function edit($id)
     {
@@ -47,17 +54,25 @@ class AdminCourseController extends FrontendController
         return view('admin::course.edit',compact('courseEdit','grades','courseGrade'));
 
     }
-    public function update(Request $request, $id)
+    public function update(CourseRequestAdd $request, $id)
     {
         $courseEdit = $this->course->find($id);
         $courseEdit->name = $request->name;
         $courseEdit->description = $request->description;
+        $courseUpload = $this->storageTraitUpload($request, 'image_path', 'course');
+        if (!empty($courseUpload)) {
+            unlink(substr($courseEdit->image_path, 1));
+            $courseEdit->image_name = $courseUpload['file_name'];
+            $courseEdit->image_path = $courseUpload['file_path'];
+        }
         $courseEdit->save();
         $courseEdit->course_grade()->sync($request->grade_id);
-        return redirect()->back();
+        return redirect()->back()->with('success','Cập nhật thành công');
     }
     public function delete($id)
     {
+        $courseEdit = $this->course->find($id);
+        unlink(substr($courseEdit->image_path, 1));
         return $this->deleteModelTrait($id,$this->course);
     }
     public function action($id)

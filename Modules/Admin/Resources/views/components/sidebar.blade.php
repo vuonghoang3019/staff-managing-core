@@ -26,17 +26,17 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 {{--category--}}
-                @can('category-list')
-                    <li class="nav-item">
-                        <a href="{{ route('category.index') }}"
-                           class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">
-                            <i class="fas fa-bars"></i>
-                            <p>
-                                Category
-                            </p>
-                        </a>
-                    </li>
-                @endcan
+{{--                @can('category-list')--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ route('category.index') }}"--}}
+{{--                           class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">--}}
+{{--                            <i class="fas fa-bars"></i>--}}
+{{--                            <p>--}}
+{{--                                Category--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endcan--}}
 
                 <li class="nav-item">
                     <a href="{{ route('slider.index') }}"
