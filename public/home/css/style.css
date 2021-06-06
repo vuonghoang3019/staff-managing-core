@@ -3290,10 +3290,10 @@ span.m_1 {
     overflow: hidden;
     position: relative;
 }
-.our-team .team-img img{
-    width: 100%;
-    height: auto;
-}
+/*.our-team .team-img img{*/
+/*    width: 100%;*/
+/*    height: auto;*/
+/*}*/
 .our-team .social{
     width: 100%;
     height: 30%;
