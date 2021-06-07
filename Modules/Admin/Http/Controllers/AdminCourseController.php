@@ -7,6 +7,7 @@ use App\Models\Grade;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\CourseRequestAdd;
+use Modules\Admin\Http\Requests\update\CourseRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
@@ -54,7 +55,7 @@ class AdminCourseController extends FrontendController
         return view('admin::course.edit',compact('courseEdit','grades','courseGrade'));
 
     }
-    public function update(CourseRequestAdd $request, $id)
+    public function update(CourseRequestUpdate $request, $id)
     {
         $courseEdit = $this->course->find($id);
         $courseEdit->name = $request->name;

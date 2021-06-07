@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Admin\Http\Requests;
+namespace Modules\Admin\Http\Requests\update;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourseRequestAdd extends FormRequest
+class CourseRequestUpdate extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -16,7 +16,7 @@ class CourseRequestAdd extends FormRequest
         return [
             'name'       => 'required|min:5|unique:courses,name,' . $this->id,
             'grade_id'   => 'required',
-            'image_path'  => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
+            'image_path'  => 'max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
         ];
     }
 
