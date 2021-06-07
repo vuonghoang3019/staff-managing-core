@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequestAdd;
 use App\Models\Contact;
 
-class ContactController extends Controller
+class ContactController extends FrontendController
 {
     private $contact;
 
     public function __construct(Contact $contact)
     {
+        parent::__construct();
         $this->contact = $contact;
     }
 
     public function index()
     {
-        return view('contact', );
+        return view('contact');
     }
 
     public function store(ContactRequestAdd $request)

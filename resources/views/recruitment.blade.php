@@ -1,6 +1,6 @@
 @extends('master.master')
 @section('title')
-    <title>About</title>
+    <title>Tuyển dụng</title>
 @endsection
 @section('content')
     <div class="all-title-box" style="background: url({{ asset('home/images/1200px-Sun-group-logo.png') }})">
