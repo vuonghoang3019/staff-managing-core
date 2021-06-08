@@ -30,4 +30,9 @@ class Course extends Model
     {
         return $this->belongsToMany(Grade::class,'course_grade','course_id','grade_id');
     }
+
+    public function price()
+    {
+        return $this->hasMany(Price::class,'course_id');
+    }
 }

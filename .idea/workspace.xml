@@ -20,10 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/update/CourseRequestUpdate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Price.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/date.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminCourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminCourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Requests/CourseRequestAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/CourseRequestAdd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/course/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Course.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -445,7 +450,10 @@
       <workItem from="1622956189481" duration="65000" />
       <workItem from="1622964901890" duration="7563000" />
       <workItem from="1622984998382" duration="9623000" />
-      <workItem from="1623031849103" duration="3073000" />
+      <workItem from="1623031849103" duration="7020000" />
+      <workItem from="1623052850932" duration="6281000" />
+      <workItem from="1623072739098" duration="10632000" />
+      <workItem from="1623118920078" duration="6269000" />
     </task>
     <servers />
   </component>
@@ -496,10 +504,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="452" y="43" key="#phpunit.xml/0.0.1536.824@0.0.1536.824" timestamp="1620917447001" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1623036256088">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1623037141126">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1623036256088" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1623037141126" />
     <state x="486" y="135" key="NewPhpClassDialog" timestamp="1621007606122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

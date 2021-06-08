@@ -20,6 +20,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Ảnh</th>
                                 <th scope="col">Tên khóa học</th>
+                                <th scope="col">Giá</th>
                                 <th scope="col">Mức độ</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
@@ -33,6 +34,14 @@
                                         <th scope="row">{{ $stt }}</th>
                                         <td><img src="{{ asset($course->image_path) }}" width="100" height="100"></td>
                                         <td>{{ $course->name }}</td>
+                                        <td>
+                                            <ul>
+                                                @foreach($course->price as $courseItem)
+                                                    <li>{{ $courseItem->name }}:{{ number_format($courseItem->price) }} VNĐ</li>
+                                                @endforeach
+                                            </ul>
+
+                                        </td>
                                         <td>
                                             <ul>
                                                 @foreach($course->course_grade as $courseItem)
