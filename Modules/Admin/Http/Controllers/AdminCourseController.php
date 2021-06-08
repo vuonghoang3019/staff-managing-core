@@ -7,6 +7,7 @@ use App\Models\Grade;
 use App\Models\Price;
 use Illuminate\Http\Request;
 use Modules\Admin\Http\Requests\CourseRequestAdd;
+use Modules\Admin\Http\Requests\PriceRequestAdd;
 use Modules\Admin\Http\Requests\update\CourseRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
@@ -83,6 +84,7 @@ class AdminCourseController extends FrontendController
 
     public function delete($id)
     {
+
         $courseEdit = $this->course->find($id);
         unlink(substr($courseEdit->image_path, 1));
         return $this->deleteModelTrait($id, $this->course);
@@ -96,7 +98,7 @@ class AdminCourseController extends FrontendController
         return redirect()->back();
     }
 
-    public function storePrice(Request $request)
+    public function storePrice(PriceRequestAdd $request)
     {
         $count = count($request->name);
         for ($i = 0;$i < $count; $i++)
@@ -112,7 +114,7 @@ class AdminCourseController extends FrontendController
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
-    public function updatePrice(Request $request ,$id)
+    public function updatePrice(PriceRequestAdd $request ,$id)
     {
         $count = count($request->name);
         for ($i = 0;$i < $count; $i++)

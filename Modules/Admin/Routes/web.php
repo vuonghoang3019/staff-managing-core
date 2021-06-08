@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 Route::any('/ckfinder/examples/{example?}', 'CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
     ->name('ckfinder_examples');
 
-Route::get('login', 'auth\LoginController@getLogin')->name('getLogin');
-Route::post('postLogin', 'auth\LoginController@postLogin')->name('postLogin');
+Route::get('admin/login', 'auth\LoginController@getLogin')->name('getLogin');
+Route::post('admin/postLogin', 'auth\LoginController@postLogin')->name('postLogin');
 Route::get('logout', 'auth\LoginController@logout')->name('logout');
 Route::group(['prefix' => 'admin' , 'middleware' => ['CheckLogin']], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');

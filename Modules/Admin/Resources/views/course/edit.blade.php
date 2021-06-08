@@ -17,15 +17,15 @@
                     <div class="col-md-12">
                         <nav>
                             <div class="nav nav-tabs nav-fill col-md-4" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link " id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                                   role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-                                <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab"
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                                   role="tab" aria-controls="nav-home" aria-selected="true">Khóa học</a>
+                                <a class="nav-item nav-link " id="nav-profile-tab" data-toggle="tab"
                                    href="#nav-profile"
-                                   role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+                                   role="tab" aria-controls="nav-profile" aria-selected="false">Giá</a>
                             </div>
                         </nav>
                         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                            <div class="tab-pane fade " id="nav-home" role="tabpanel"
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                                  aria-labelledby="nav-home-tab">
                                 <form action="{{ route('course.update',['id' => $courseEdit->id]) }}" method="post"
                                       enctype="multipart/form-data">
@@ -82,7 +82,7 @@
                                     <a href="{{ route('course.index') }}" class="btn btn-primary">Quay lại</a>
                                 </form>
                             </div>
-                            <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
+                            <div class="tab-pane fade " id="nav-profile" role="tabpanel"
                                  aria-labelledby="nav-profile-tab">
                                 <form action="{{ route('course.updatePrice',['id' => $courseEdit->id]) }}" method="post">
                                     @csrf
@@ -90,7 +90,7 @@
                                     <a href="{{ route('course.index') }}" class="btn btn-primary">Quay lại</a>
                                     <div class="col-md-3 mt-3 ">
                                         <div class="form-group">
-                                            <select class="form-control" name="course_id">
+                                            <select class="form-control @error('course_id') is-invalid @enderror" name="course_id">
                                                 <option value="">---Mời bạn chọn khóa học---</option>
                                                 @foreach($courses as $course)
                                                     <option value="{{ $course->id }}"
@@ -98,6 +98,9 @@
                                                     >{{ $course->name }}</option>
                                                 @endforeach
                                             </select>
+                                            @error('course_id')
+                                            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row clearfix">
@@ -124,7 +127,7 @@
                                                                    class="form-control"/>
                                                         </td>
                                                         <td data-name="mail">
-                                                            <input type="number" name='price[]' value="{{ $price->price }}"
+                                                            <input type="number" name='price[]' min="0" value="{{ $price->price }}"
                                                                    class="form-control"/>
                                                         </td>
                                                     </tr>
