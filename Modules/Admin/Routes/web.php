@@ -208,6 +208,10 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['CheckLogin']], function ()
             'as'   => 'course.storePrice',
             'uses' => 'AdminCourseController@storePrice'
         ]);
+        Route::post('/updatePrice/{id}', [
+            'as'   => 'course.updatePrice',
+            'uses' => 'AdminCourseController@updatePrice'
+        ]);
     });
     Route::prefix('classroom')->group(function () {
         Route::get('/', [

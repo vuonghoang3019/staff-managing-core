@@ -6,7 +6,6 @@ use App\Models\Course;
 use App\Models\Grade;
 use App\Models\Price;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\CourseRequestAdd;
 use Modules\Admin\Http\Requests\update\CourseRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
@@ -111,5 +110,22 @@ class AdminCourseController extends FrontendController
         }
 
         return redirect()->back()->with('success', 'Thêm mới thành công');
+    }
+
+    public function updatePrice(Request $request ,$id)
+    {
+        $count = count($request->name);
+        for ($i = 0;$i < $count; $i++)
+        {
+            $idPrice = $this->price->newQuery()->where('course_id',$id)->pluck('id');
+            $this->price->newQuery()->where('id',$idPrice)->delete();
+            $names = [
+                'course_id' => $request->course_id,
+                'name' => $request->name[$i],
+                'price' => $request->price[$i]
+            ];
+            $this->price->create($names);
+        }
+        return redirect()->back()->with('success', 'Cập nhật thành công');
     }
 }

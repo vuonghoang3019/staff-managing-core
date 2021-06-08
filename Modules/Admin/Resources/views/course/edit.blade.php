@@ -19,13 +19,13 @@
                             <div class="nav nav-tabs nav-fill col-md-4" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link " id="nav-home-tab" data-toggle="tab" href="#nav-home"
                                    role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-                                <a class="nav-item nav-link active col-md-4" id="nav-profile-tab" data-toggle="tab"
+                                <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab"
                                    href="#nav-profile"
                                    role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
                             </div>
                         </nav>
                         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                            <div class="tab-pane fade  " id="nav-home" role="tabpanel"
+                            <div class="tab-pane fade " id="nav-home" role="tabpanel"
                                  aria-labelledby="nav-home-tab">
                                 <form action="{{ route('course.update',['id' => $courseEdit->id]) }}" method="post"
                                       enctype="multipart/form-data">
@@ -84,7 +84,7 @@
                             </div>
                             <div class="tab-pane fade show active" id="nav-profile" role="tabpanel"
                                  aria-labelledby="nav-profile-tab">
-                                <form action="{{ route('course.storePrice') }}" method="post">
+                                <form action="{{ route('course.updatePrice',['id' => $courseEdit->id]) }}" method="post">
                                     @csrf
                                     <button type="submit" class="btn btn-success">Submit</button>
                                     <a href="{{ route('course.index') }}" class="btn btn-primary">Quay lại</a>
