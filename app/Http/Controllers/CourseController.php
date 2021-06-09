@@ -26,7 +26,7 @@ class CourseController extends FrontendController
     {
         $courses = $this->course->paginate(4);
 
-        return view('course', compact('courses'));
+        return view('course.course', compact('courses'));
     }
 
     public function detail($id)
@@ -37,8 +37,18 @@ class CourseController extends FrontendController
             ->join('courses', 'courses.id', '=', 'classrooms.course_id')
             ->where('courses.id', $id)
             ->get();
-        $prices = $this->price->newQuery()->with(['course'])->where('course_id',$id)->get();
+        $prices = $this->price->newQuery()->with(['course'])->where([
+            ['course_id','=',$id],
+            ['price','>',0]
+        ])->whereNotNull('price')->get();
         $courseDetail = $this->course->findOrFail($id);
-        return view('courseDetail', compact('courseDetail', 'classrooms','prices'));
+        return view('course.courseDetail', compact('courseDetail', 'classrooms','prices'));
+    }
+
+    public function showCart($idPrice,$idCourse)
+    {
+        $prices = $this->price->findOrFail($idPrice);
+        $courseDetail =  $this->course->findOrFail($idCourse);
+        return view('cart.cart',compact('prices','courseDetail'));
     }
 }

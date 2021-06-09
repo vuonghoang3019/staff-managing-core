@@ -27,6 +27,10 @@ Route::prefix('course')->group(function () {
         'as'         => 'course.detail',
         'uses'       => 'CourseController@detail',
     ]);
+    Route::get('/courseDetail/showCart/{idPrice},{idCourse}', [
+        'as'         => 'course.showCart',
+        'uses'       => 'CourseController@showCart',
+    ]);
 });
 Route::prefix('contact')->group(function () {
     Route::get('/', 'ContactController@index')->name('contact');

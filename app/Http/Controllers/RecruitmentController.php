@@ -11,13 +11,13 @@ class RecruitmentController extends FrontendController
     {
         parent::__construct();
         $recruitments= Recruitment::where('status',1)->limit(6)->get();
-        return view('recruitment',compact('recruitments'));
+        return view('recruitment.recruitment',compact('recruitments'));
     }
 
 
     public function detail($id)
     {
         $recruitmentDetail = Recruitment::all()->find($id)->where('status',1)->first();
-        return view('recruitmentDetail',compact('recruitmentDetail'));
+        return view('recruitment.recruitmentDetail',compact('recruitmentDetail'));
     }
 }

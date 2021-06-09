@@ -1484,8 +1484,7 @@ a img.aligncenter {
 }
 
 .pricing-table-features {
-    margin: 15px 30px 0 30px;
-    padding: 0 10px 15px 30px;
+    padding: 0 10px 15px 20px;
     border-bottom: 1px solid #ececec;
     text-align: left;
     line-height: 30px;

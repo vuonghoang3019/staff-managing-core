@@ -27,28 +27,6 @@
                         </div>
                     </div>
 
-                    @foreach($prices as $price)
-                        <div class="blog-author">
-                            <div class="author-bio">
-                                <h3 class="author_name"><a href="#">Tom Jobs</a></h3>
-                                <h5>CEO at <a href="#">SmartEDU</a></h5>
-                                <p class="author_det">
-                                    Lorem ipsum dolor sit amet, consectetur adip, sed do eiusmod tempor incididunt ut
-                                    aut reiciendise voluptat maiores alias consequaturs aut perferendis doloribus omnis
-                                    saperet docendi nec, eos ea alii molestiae aliquand.
-                                </p>
-                            </div>
-                            <div class="author-desc">
-                                <img src="images/author.jpg" alt="about author">
-                                <ul class="author-social">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    @endforeach
-
 
                 </div><!-- end col -->
 
@@ -95,12 +73,57 @@
                     </div>
                 </div>
             </div><!-- end row -->
+            <hr class="hr3">
+            <div id="plan" class="section wb" style="padding: 0">
+                <div class="container">
+                    <hr class="invis">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tab-content">
+                                <div class="row text-center">
+                                    @foreach($prices as $price)
+                                        <div class="col-md-3">
+                                            <div class="pricing-table pricing-table-highlighted">
+                                                <div class="pricing-table-header grd1">
+                                                    <h2>{{ number_format($price->price)  }} VNĐ </h2>
+                                                    @if($price->name == 'month')
+                                                        <h3>/ 1 Tháng</h3>
+                                                    @elseif($price->name == 'threeMonth')
+                                                        <h3>/ 3 Tháng</h3>
+                                                    @elseif($price->name == 'quarter')
+                                                        <h3>/ Qúy</h3>
+                                                    @elseif($price->name == 'year')
+                                                        <h3>/ 1 Năm</h3>
+                                                    @endif
+                                                </div>
+                                                <div class="pricing-table-space"></div>
+                                                <div class="pricing-table-features">
+                                                    @if($price->sale > 0)
+                                                        <p><strong>-
+                                                                Tặng</strong>{{ number_format(( $price->sale *$price->price) / 100 )  }}
+                                                            VNĐ</p>
+                                                    @endif
+                                                    <p><strong>- {{ $price->lesson }}</strong>Buổi</p>
+                                                    <p><strong><i class="fas fa-tshirt"></i></strong>150.000 VNĐ/1 chiếc
+                                                    </p>
+                                                    <p><strong><i class="fas fa-suitcase-rolling"></i></strong>150.000
+                                                        VNĐ/1 chiếc</p>
+                                                    <p><strong><i class="fas fa-book"></i></strong>660.000 VNĐ/ bộ sách
+                                                        Discover,WW</p>
+                                                </div>
+                                                <div class="pricing-table-sign-up">
+                                                    <a href="{{ route('course.showCart',['idPrice' => $price->id,'idCourse' => $courseDetail->id]) }}" class="hover-btn-new"><span>Đặt ngay</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div><!-- end row -->
+
+                            </div><!-- end content -->
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end container -->
+            </div><!-- end section -->
         </div><!-- end container -->
     </div><!-- end section -->
-
-
-
-
-
-
 @endsection
