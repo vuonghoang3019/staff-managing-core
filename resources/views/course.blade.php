@@ -26,23 +26,16 @@
                         <div class="course-item">
                             <div class="image-blog">
                                 <a href="{{ route('course.detail',['id' => $course->id]) }}"><img src="{{ asset($course->image_path) }}" alt="" width="500" height="400"></a>
-
                             </div>
                             <div class="course-br">
                                 <div class="course-title">
-                                    <h2><a href="#" title="">{{ $course->name }}</a></h2>
+                                    <h2><a href="{{ route('course.detail',['id' => $course->id]) }}" title="">{{ $course->name }}</a></h2>
                                 </div>
                                 <div class="course-desc">
                                     <p>
-                                        {{ \Illuminate\Support\Str::limit($course->description,50) }}
+                                        {!!  \Illuminate\Support\Str::limit($course->description,50) !!}
                                     </p>
                                 </div>
-                            </div>
-                            <div class="course-meta-bot">
-                                <ul>
-                                    <li><i class="fa fa-calendar" aria-hidden="true"></i> 6 Month</li>
-                                    <li><i class="fa fa-users" aria-hidden="true"></i> 56 Student</li>
-                                </ul>
                             </div>
                         </div>
                     </div>

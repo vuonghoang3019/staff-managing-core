@@ -27,6 +27,28 @@
                         </div>
                     </div>
 
+                    @foreach($prices as $price)
+                        <div class="blog-author">
+                            <div class="author-bio">
+                                <h3 class="author_name"><a href="#">Tom Jobs</a></h3>
+                                <h5>CEO at <a href="#">SmartEDU</a></h5>
+                                <p class="author_det">
+                                    Lorem ipsum dolor sit amet, consectetur adip, sed do eiusmod tempor incididunt ut
+                                    aut reiciendise voluptat maiores alias consequaturs aut perferendis doloribus omnis
+                                    saperet docendi nec, eos ea alii molestiae aliquand.
+                                </p>
+                            </div>
+                            <div class="author-desc">
+                                <img src="images/author.jpg" alt="about author">
+                                <ul class="author-social">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    @endforeach
+
 
                 </div><!-- end col -->
 
@@ -35,7 +57,8 @@
                         <div class="site-search-area">
                             <form method="get" id="site-searchform" action="#">
                                 <div>
-                                    <input class="input-text form-control" name="search-k" id="search-k" placeholder="Search keywords..." type="text">
+                                    <input class="input-text form-control" name="search-k" id="search-k"
+                                           placeholder="Search keywords..." type="text">
                                     <input id="searchsubmit" value="Search" type="submit">
                                 </div>
                             </form>
