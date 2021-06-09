@@ -109,10 +109,19 @@
                                                 <thead>
                                                 <tr>
                                                     <th class="text-center">
-                                                        Name
+                                                        Tên
                                                     </th>
                                                     <th class="text-center">
-                                                        Price
+                                                        Giá
+                                                    </th>
+                                                    <th class="text-center">
+                                                        Buổi
+                                                    </th>
+                                                    <th class="text-center">
+                                                        Khuyến mại
+                                                    </th>
+                                                    <th class="text-center">
+                                                        Mô tả
                                                     </th>
                                                 </tr>
                                                 </thead>
@@ -120,11 +129,19 @@
                                                 @foreach(config('date.dateOfYear') as $year)
                                                     <tr>
                                                         <td>
-                                                            <input type="text" name="name[]" placeholder='{{ $year }}' value="{{ $year }}" readonly style="background-color: #fff"
-                                                                   class="form-control"/>
+                                                            <input type="text" name="name[]" placeholder='{{ $year }}' value="{{ $year }}" readonly style="background-color: #fff" class="form-control"/>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name='price[]' min="0" placeholder='0' class="form-control"/>
+                                                            <input type="number" name='price[]' min="0" placeholder='0'  class="form-control"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name='lesson[]' min="0" placeholder='0'  class="form-control"/>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" name='sale[]' min="0" placeholder='0' max="100%" class="form-control"/>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" name="description[]" ></textarea>
                                                         </td>
                                                     </tr>
                                                 @endforeach

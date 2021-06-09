@@ -31,7 +31,7 @@ class AdminCourseController extends FrontendController
 
     public function index()
     {
-        $courses = $this->course->newQuery()->with(['course_grade','price'])->orderBy('id', 'desc')->paginate(5);
+        $courses = $this->course->newQuery()->with(['course_grade', 'price'])->orderBy('id', 'desc')->paginate(5);
         return view('admin::course.index', compact('courses'));
     }
 
@@ -58,12 +58,12 @@ class AdminCourseController extends FrontendController
 
     public function edit($id)
     {
-        $priceEdit = $this->price->newQuery()->with(['course'])->where('course_id',$id)->get();
+        $priceEdit = $this->price->newQuery()->with(['course'])->where('course_id', $id)->get();
         $grades = $this->grade->get();
         $courses = $this->course->with(['price'])->get();
         $courseEdit = $this->course->find($id);
         $courseGrade = $courseEdit->course_grade;
-        return view('admin::course.edit', compact('courseEdit', 'grades', 'courseGrade','courses','priceEdit'));
+        return view('admin::course.edit', compact('courseEdit', 'grades', 'courseGrade', 'courses', 'priceEdit'));
     }
 
     public function update(CourseRequestUpdate $request, $id)
@@ -98,15 +98,17 @@ class AdminCourseController extends FrontendController
         return redirect()->back();
     }
 
-    public function storePrice(PriceRequestAdd $request)
+    public function storePrice(Request $request)
     {
         $count = count($request->name);
-        for ($i = 0;$i < $count; $i++)
-        {
+        for ($i = 0; $i < $count; $i++) {
             $names = [
                 'course_id' => $request->course_id,
-                'name' => $request->name[$i],
-                'price' => $request->price[$i]
+                'name'      => $request->name[$i],
+                'price'     => $request->price[$i],
+                'lesson'    => $request->lesson[$i],
+                'sale'      => $request->sale[$i],
+                'description'      => $request->description[$i]
             ];
             $this->price->create($names);
         }
@@ -114,17 +116,19 @@ class AdminCourseController extends FrontendController
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
-    public function updatePrice(PriceRequestAdd $request ,$id)
+    public function updatePrice(Request $request, $id)
     {
         $count = count($request->name);
-        for ($i = 0;$i < $count; $i++)
-        {
-            $idPrice = $this->price->newQuery()->where('course_id',$id)->pluck('id');
-            $this->price->newQuery()->where('id',$idPrice)->delete();
+        for ($i = 0; $i < $count; $i++) {
+            $idPrice = $this->price->newQuery()->where('course_id', $id)->pluck('id');
+            $this->price->newQuery()->where('id', $idPrice)->delete();
             $names = [
                 'course_id' => $request->course_id,
-                'name' => $request->name[$i],
-                'price' => $request->price[$i]
+                'name'      => $request->name[$i],
+                'price'     => $request->price[$i],
+                'lesson'    => $request->lesson[$i],
+                'sale'      => $request->sale[$i],
+                'description'      => $request->description[$i]
             ];
             $this->price->create($names);
         }
