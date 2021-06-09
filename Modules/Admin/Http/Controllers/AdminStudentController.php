@@ -9,6 +9,7 @@ use App\Models\Student;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\ImportExcelRequest;
+use Modules\Admin\Http\Requests\StudentRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
 class AdminStudentController extends FrontendController
@@ -37,7 +38,7 @@ class AdminStudentController extends FrontendController
         return view('admin::student.add', compact('classrooms'));
     }
 
-    public function store(Request $request)
+    public function store(StudentRequestAdd $request)
     {
         $this->student->code = $request->code;
         $this->student->name = $request->name;
@@ -56,7 +57,7 @@ class AdminStudentController extends FrontendController
         return view('admin::student.edit', compact('classrooms', 'studentEdit'));
     }
 
-    public function update(Request $request, $id)
+    public function update(StudentRequestAdd $request, $id)
     {
         $studentUpdate = $this->student->find($id);
         $studentUpdate->code = $request->code;

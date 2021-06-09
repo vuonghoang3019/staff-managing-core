@@ -14,7 +14,7 @@ class TeacherRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required',
+            'name'         => 'required|max:50|min:10',
             'code'        => 'required',
             'password'    => 'required',
             'email'       => 'required|unique:users,email,' . $this->id,

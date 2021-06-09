@@ -65,6 +65,9 @@
                     Nữ
                 </label>
             </div>
+            @error('sex')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
         </div>
     </div>
 
