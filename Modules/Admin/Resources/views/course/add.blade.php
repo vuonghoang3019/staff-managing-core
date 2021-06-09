@@ -124,7 +124,7 @@
                                                                    class="form-control"/>
                                                         </td>
                                                         <td>
-                                                            <input type="number" name='price[]' min="0" placeholder='0' class="form-control" value="{{ old('price') }}"/>
+                                                            <input type="number" name='price[]' min="0" placeholder='0' class="form-control"/>
                                                         </td>
                                                     </tr>
                                                 @endforeach
