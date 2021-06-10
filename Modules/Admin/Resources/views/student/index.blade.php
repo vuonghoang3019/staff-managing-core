@@ -49,10 +49,9 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Tên</th>
+                                <th scope="col">Email</th>
                                 <th scope="col">Mã</th>
-                                <th scope="col">Ngày sinh</th>
-                                <th scope="col">Giới tính</th>
-                                <th scope="col">Dân tộc</th>
+                                <th scope="col">Thông tin</th>
                                 <th scope="col">Lớp</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
@@ -65,10 +64,16 @@
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->name }}</td>
+                                        <td>{{ $data->email }}</td>
                                         <td>{{ $data->code }}</td>
-                                        <td>{{ $data->birthday }}</td>
-                                        <td>{{ $data->sex === 0 ? 'nam' : 'nữ' }}</td>
-                                        <td>{{ $data->nation }}</td>
+                                        <td>
+                                            <ul>
+                                                <li>Ngày sinh: {{ $data->birthday }}</li>
+                                                <li>Giới tính: {{ $data->sex === 0 ? 'nam' : 'nữ' }}</li>
+                                                <li>Dân tộc: {{ $data->nation }}</li>
+                                            </ul>
+
+                                        </td>
                                         <td>{{ $data->classroom->name }}</td>
                                         <td>
                                             <a href="{{ route('student.action',['id' => $data->id]) }}"

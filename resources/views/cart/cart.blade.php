@@ -16,19 +16,28 @@
         <section class="mb-5 mt-4">
             <div class="wrapper row">
                 <div class="preview col-md-6">
-
                     <div class="preview-pic tab-content">
-                        <div class="tab-pane active"><img src="{{ asset($courseDetail->image_path) }}" class="rounded border"
+                        <div class="tab-pane active"><img src="{{ asset($courseDetail->image_path) }}"
+                                                          class="rounded border"
                                                           style="width: 510px; height: 320px"/></div>
                     </div>
                 </div>
                 <div class="details col-md-6">
                     <h3 class="product-title">{{ $courseDetail->name }}</h3>
-                    <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia
-                        sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-                    <h4 class="price">current price: <span>$180</span></h4>
+                    <p class="product-description">Số buổi:<strong> {{ $prices->lesson }}</strong> /
+                        @if($prices->name == 'month')
+                            1 Tháng
+                        @elseif($prices->name == 'threeMonth')
+                            3 Tháng
+                        @elseif($prices->name == 'quarter')
+                            Qúy
+                        @elseif($prices->name == 'year')
+                            1 Năm
+                        @endif
+                    </p>
+                    <h4 class="price">Giá<span> :{{ number_format($prices->price) }} VNĐ</span></h4>
                     <div class="action">
-                        <button class="add-to-cart btn btn-default" type="button">add to cart</button>
+                        <button class="add-to-cart btn btn-default" type="button">Thanh toán</button>
                     </div>
                 </div>
             </div>

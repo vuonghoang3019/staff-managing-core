@@ -7,6 +7,7 @@ use App\Imports\StudentImport;
 use App\Models\Classroom;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\ImportExcelRequest;
 use Modules\Admin\Http\Requests\StudentRequestAdd;
@@ -46,6 +47,8 @@ class AdminStudentController extends FrontendController
         $this->student->sex = $request->sex;
         $this->student->nation = $request->nation;
         $this->student->classroom_id = $request->classroom_id;
+        $this->student->email = $request->email;
+        $this->student->password = Hash::make($request->password);
         $this->student->save();
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
@@ -65,7 +68,9 @@ class AdminStudentController extends FrontendController
         $studentUpdate->birthday = $request->birthday;
         $studentUpdate->sex = $request->sex;
         $studentUpdate->nation = $request->nation;
+        $studentUpdate->email = $request->email;
         $studentUpdate->classroom_id = $request->classroom_id;
+        $this->student->password = Hash::make($request->password);
         $studentUpdate->save();
         return redirect()->back()->with('success', 'Cập nhật thành công');
     }

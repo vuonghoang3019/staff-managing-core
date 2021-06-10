@@ -18,9 +18,17 @@
         </div>
         <div class="form-group ">
             <label for="birthday">Ngày sinh</label>
-            <input type="date" class="form-control @error('email') is-invalid @enderror" id="birthday"
+            <input type="date" class="form-control @error('birthday') is-invalid @enderror" id="birthday"
                    placeholder="Nhập email" name="birthday" value="{{ old('birthday',isset($studentEdit) ? $studentEdit->birthday : '') }}">
             @error('birthday')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group ">
+            <label for="email">Email</label>
+            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                   placeholder="Nhập email" name="email" value="{{ old('email',isset($studentEdit) ? $studentEdit->email : '') }}">
+            @error('email')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>
@@ -66,6 +74,14 @@
                 </label>
             </div>
             @error('sex')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group ">
+            <label for="password">Password</label>
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
+                   placeholder="****" name="password" value="{{ old('password',isset($studentEdit) ? $studentEdit->password : '') }}">
+            @error('password')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>

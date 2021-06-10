@@ -7,7 +7,38 @@
 {{--</div>--}}
 <!-- END LOADER -->
 <!-- Start header -->
+<div class="topbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-12">
+                <!-- Top Left -->
+                <div class="top-left">
+                    <ul class="list-main">
+                        <li><i class="fas fa-headset"></i> +060 (800) 801-582</li>
+                    </ul>
+                </div>
+                <!--/ End Top Left -->
+            </div>
+            <div class="col-lg-8 col-md-12 col-12">
+                <!-- Top Right -->
+                <div class="right-content" style="float: right">
+                    <ul class="list-main">
+                        @if(\Illuminate\Support\Facades\Auth::check())
+                            <li><i class="fas fa-user"></i><a href="#">Tài khoản</a></li>
+                            <li><i class="fas fa-power-off"></i><a href="{{ route('logout.User') }}">Đăng xuất</a></li>
+                        @else
+                            <li><i class="fas fa-power-off"></i><a href="{{ route('login') }}">Đăng nhập</a></li>
+                            <li><i class="fas fa-power-off"></i><a href="{{ route('register') }}">Đăng ký</a></li>
+                        @endif
+                    </ul>
+                </div>
+                <!-- End Top Right -->
+            </div>
+        </div>
+    </div>
+</div>
 <header class="top-navbar">
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">
@@ -18,10 +49,11 @@
                     <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}">Trang chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">Giới Thiệu</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{ route('course') }}" >Khóa học </a>
+                        <a class="nav-link " href="{{ route('course') }}">Khóa học </a>
                         <div class="dropdown-menu" aria-labelledby="dropdown-a">
                             @foreach($courses as $course)
-                                <a class="dropdown-item" href="{{ route('course.detail',['id' => $course-> id]) }}">{{ $course->name }}</a>
+                                <a class="dropdown-item"
+                                   href="{{ route('course.detail',['id' => $course-> id]) }}">{{ $course->name }}</a>
                             @endforeach
                         </div>
                     </li>
@@ -30,7 +62,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Liên hệ</a></li>
                 </ul>
             </div>
-{{--            @include('components.mainMenu')--}}
+            {{--            @include('components.mainMenu')--}}
 
         </div>
     </nav>

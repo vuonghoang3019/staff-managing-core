@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Student extends Model
+class Student extends Authenticatable
 {
+    use Notifiable;
     protected $table = 'students';
-    protected $fillable = ['code','name','birthday','sex','nation','classroom_id','status'];
+    protected $guarded = 'student';
+    protected $fillable = ['code','name','birthday','sex','nation','classroom_id','status','email','password'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;
     protected $statusStudent = [

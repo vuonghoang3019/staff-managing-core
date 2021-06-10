@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'auth'],function (){
+    Route::get('/register', 'auth\LoginController@getRegister')->name('register');
+    Route::post('/postRegister', 'auth\LoginController@postRegister')->name('postRegister');
+    Route::get('/login', 'auth\LoginController@getLogin')->name('login');
+    Route::post('/postLogin', 'auth\LoginController@postLogin')->name('postLogin.User');
+    Route::get('/logout', 'auth\LoginController@logout')->name('logout.User');
+});
+
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/teacher', 'TeacherController@index')->name('teacher');
 Route::get('/recruitment', 'RecruitmentController@index')->name('recruitment');
@@ -39,3 +47,7 @@ Route::prefix('contact')->group(function () {
         'uses'       => 'ContactController@store',
     ]);
 });
+Route::get('payment','PaymentController@index')->name('payment.index');
+//Route::post('payment/online','PaymentController@index')->name('payment.online');
+
+

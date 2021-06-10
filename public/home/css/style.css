@@ -3859,6 +3859,24 @@ a.link-style3 {
     border-radius: 4px;
     padding: 2.4rem 0;
 }
+.list-main li
+{
+    display: inline-block;
+    color: #333;
+    font-size: 13px;
+    font-weight: 500;
+    border-right: 1px solid #f0f0f0;
+    padding: 0px 13px;
+}
+.list-main li i
+{
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 15px;
+    color: #F7941D;
+    position: relative;
+    top: 1px;
+}
 
 
 

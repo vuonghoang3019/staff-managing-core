@@ -16,10 +16,12 @@ class StudentRequestAdd extends FormRequest
         return [
             'code'         => 'required|unique:students,code,' . $this->id,
             'name'         => 'required|max:50|min:10',
-            'birthday'     => 'required|after_or_equal:today',
+            'birthday'     => 'required',
             'nation'       => 'required',
             'classroom_id' => 'required',
-            'sex'          => 'required'
+            'sex'          => 'required',
+            'email'        => 'required|unique:students,email,' . $this->id,
+            'password'     => 'required',
         ];
     }
 
@@ -32,10 +34,12 @@ class StudentRequestAdd extends FormRequest
             'name.max'                => 'Tên không được quá 50 ký tự',
             'name.min'                => 'Tên phải trên 10 ký tự',
             'birthday.required'       => 'Ngày sinh không được để trống',
-            'birthday.after_or_equal' => 'Ngày sinh phải lớn hơn ngày hiện tại',
             'nation.required'         => 'Dân tộc không được để trống',
             'classroom_id.required'   => 'Lớp không được để trống',
-            'sex.required'            => 'giới tính không được để trống'
+            'sex.required'            => 'giới tính không được để trống',
+            'email.required'          => 'Email học sinh không được để trống',
+            'email.unique'            => 'Email học sinh không được để trùng',
+            'password.required'       => 'Pass không được để trống',
         ];
     }
 
