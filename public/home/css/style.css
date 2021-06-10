@@ -3852,6 +3852,13 @@ a.link-style3 {
 .course-meta-bot ul li:hover{
     color: #eea412;
 }
+.description-course
+{
+    background-color: #fbfbf8;
+    border: 1px solid #dcdacb;
+    border-radius: 4px;
+    padding: 2.4rem 0;
+}
 
 
 

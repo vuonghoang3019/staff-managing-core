@@ -20,16 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/cart/cart.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/home/css/cart.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/home/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/course/course.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/courseDetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/course/courseDetail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitment/recruitment.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recruitmentDetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitment/recruitmentDetail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cart/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cart/cart.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -461,7 +455,10 @@
       <workItem from="1623157514138" duration="14920000" />
       <workItem from="1623206271743" duration="6678000" />
       <workItem from="1623221013430" duration="11291000" />
-      <workItem from="1623247959677" duration="13012000" />
+      <workItem from="1623247959677" duration="13096000" />
+      <workItem from="1623293629405" duration="561000" />
+      <workItem from="1623295248722" duration="21000" />
+      <workItem from="1623296216536" duration="12410000" />
     </task>
     <servers />
   </component>
@@ -512,10 +509,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="452" y="43" key="#phpunit.xml/0.0.1536.824@0.0.1536.824" timestamp="1620917447001" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1623250392470">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1623312971656">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1623250392470" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1623312971656" />
     <state x="486" y="135" key="NewPhpClassDialog" timestamp="1621007606122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
