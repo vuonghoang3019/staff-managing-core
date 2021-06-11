@@ -19,7 +19,7 @@ Route::group(['prefix' => 'auth'],function (){
     Route::post('/postRegister', 'auth\LoginController@postRegister')->name('postRegister');
     Route::get('/login', 'auth\LoginController@getLogin')->name('login');
     Route::post('/postLogin', 'auth\LoginController@postLogin')->name('postLogin.User');
-    Route::get('/logout', 'auth\LoginController@logout')->name('logout.User');
+    Route::get('logout', 'auth\LoginController@logoutUser')->name('logoutUser');
 });
 
 Route::get('/about', 'AboutController@index')->name('about');

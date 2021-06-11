@@ -23,9 +23,11 @@
                 <!-- Top Right -->
                 <div class="right-content" style="float: right">
                     <ul class="list-main">
-                        @if(\Illuminate\Support\Facades\Auth::check())
-                            <li><i class="fas fa-user"></i><a href="#">Tài khoản</a></li>
-                            <li><i class="fas fa-power-off"></i><a href="{{ route('logout.User') }}">Đăng xuất</a></li>
+{{--                        {{ dd(\Illuminate\Support\Facades\Auth::guard('student')->user()) }}--}}
+                        @if(Auth::guard('student')->check())
+                            <li>Xin chào</li>
+                            <li><i class="fas fa-user"></i><a href="#">{{  auth()->guard('student')->user()->name }}</a></li>
+                            <li><i class="fas fa-power-off"></i><a href="{{ route('logoutUser') }}">Đăng xuất</a></li>
                         @else
                             <li><i class="fas fa-power-off"></i><a href="{{ route('login') }}">Đăng nhập</a></li>
                             <li><i class="fas fa-power-off"></i><a href="{{ route('register') }}">Đăng ký</a></li>

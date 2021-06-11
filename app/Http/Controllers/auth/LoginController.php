@@ -52,9 +52,9 @@ class LoginController extends Controller
         }
     }
 
-    public function logout()
+    public function logoutUser()
     {
-        Auth::logout();
+        Auth::guard('student')->logout();
         return redirect()->route('home');
     }
 }
