@@ -57,7 +57,7 @@ class AdminSliderController extends FrontendController
         $sliderUpdate->name = $request->name;
         $sliderUpdate->description = $request->description;
         $sliderUpload = $this->storageTraitUpload($request, 'image_path', 'slider');
-        if (!empty($dataUpload)) {
+        if (!empty($sliderUpload)) {
             unlink(substr($sliderUpdate->image_path, 1));
             $sliderUpdate->image_name = $sliderUpload['file_name'];
             $sliderUpdate->image_path = $sliderUpload['file_path'];
