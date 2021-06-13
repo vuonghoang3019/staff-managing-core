@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 |--------------------------------------------------------------------------
 |
 | This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
+| your application. Factories provide a convenient way to generate news
 | model instances for testing / seeding your application's database.
 |
 */

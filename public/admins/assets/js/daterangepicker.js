@@ -1155,7 +1155,7 @@
                 this.endDate = this.oldEndDate.clone();
             }
 
-            //if a new date range was selected, invoke the user callback function
+            //if a news date range was selected, invoke the user callback function
             if (!this.startDate.isSame(this.oldStartDate) || !this.endDate.isSame(this.oldEndDate))
                 this.callback(this.startDate.clone(), this.endDate.clone(), this.chosenLabel);
 
@@ -1414,7 +1414,7 @@
                 leftOrRight = isLeft ? 'left' : 'right',
                 cal = this.container.find('.drp-calendar.'+leftOrRight);
 
-            // Month must be Number for new moment versions
+            // Month must be Number for news moment versions
             var month = parseInt(cal.find('.monthselect').val(), 10);
             var year = cal.find('.yearselect').val();
 
@@ -1490,10 +1490,10 @@
                 this.setEndDate(end);
             }
 
-            //update the calendars so all clickable dates reflect the new time component
+            //update the calendars so all clickable dates reflect the news time component
             this.updateCalendars();
 
-            //update the form inputs above the calendars with the new time
+            //update the form inputs above the calendars with the news time
             this.updateFormInputs();
 
             //re-render the time pickers because changing one selection can affect what's enabled in another

@@ -77,6 +77,16 @@
                         </p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('news.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
+                        <i class="fas fa-newspaper"></i>
+                        <p>
+                            News
+                        </p>
+                    </a>
+                </li>
                 {{--School--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">

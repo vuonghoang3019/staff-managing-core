@@ -1,2 +1,11 @@
-
-/** ADD YOUR AWESOME CODES HERE **/
+.news-left
+{
+    float: left
+}
+.new-right
+{
+    float: left;
+    height: 50px;
+    width: 100px;
+    word-wrap: break-word
+}

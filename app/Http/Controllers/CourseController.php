@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Classroom;
 use App\Models\Course;
+use App\Models\News;
 use App\Models\Price;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,19 +15,20 @@ class CourseController extends FrontendController
     private $course;
     private $classroom;
     private $price;
+    private $news;
 
-    public function __construct(Course $course, Classroom $classroom, Price $price)
+    public function __construct(Course $course, Classroom $classroom, Price $price, News $news)
     {
         parent::__construct();
         $this->course = $course;
         $this->classroom = $classroom;
         $this->price = $price;
+        $this->news = $news;
     }
 
     public function index()
     {
         $courses = $this->course->paginate(4);
-
         return view('course.course', compact('courses'));
     }
 
@@ -43,7 +45,8 @@ class CourseController extends FrontendController
             ['price','>',0]
         ])->whereNotNull('price')->get();
         $courseDetail = $this->course->findOrFail($id);
-        return view('course.courseDetail', compact('courseDetail', 'classrooms','prices'));
+        $news = $this->news->newQuery()->limit(3)->get();
+        return view('course.courseDetail', compact('courseDetail', 'classrooms','prices','news'));
     }
 
     public function showCart($idPrice,$idCourse)
