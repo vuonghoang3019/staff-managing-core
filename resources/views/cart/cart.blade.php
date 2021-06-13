@@ -11,6 +11,11 @@
             <h1>Blog<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
         </div>
     </div>
+    @if(session('error'))
+        <div class="alert alert-danger" role="alert" style="position: fixed;right: 2%;bottom: 15%">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="container">
         <!--Section: Block Content-->
         <section class="mb-5 mt-4">
@@ -35,9 +40,19 @@
                             1 Năm
                         @endif
                     </p>
-                    <h4 class="price">Giá<span> :{{ number_format($prices->price) }} VNĐ</span></h4>
+                    @if($prices->sale > 0)
+                        <p class="product-description">Khuyến mãi: <strong>{{ $prices->sale }}%</strong>
+                            Tiết kiệm: <strong> {{ number_format(($prices->sale * $prices->price) / 100) }}</strong> VNĐ</p>
+                        <h4 class="price">Giá<span style="font-size: 1rem;text-decoration: line-through;color: #929292;margin-right: 10px;"> :{{ number_format($prices->price) }} VNĐ</span>
+                            <span style="color: #d0011b;font-size: 1.875rem;"> {{ number_format( $prices->price - (($prices->sale * $prices->price) / 100)) }} VNĐ</span>
+                        </h4>
+                    @else
+                        <h4 class="price">Giá<span> :{{ number_format($prices->price) }} VNĐ</span>
+
+                        </h4>
+                    @endif
                     <div class="action">
-                        <button class="add-to-cart btn btn-default" type="button">Thanh toán</button>
+                        <a href="{{ route('payment.index',['idPrice' => $prices->id,'idCourse' => $courseDetail->id]) }}" class="add-to-cart btn btn-default">Thanh toán</a>
                     </div>
                 </div>
             </div>
@@ -107,6 +122,12 @@
                                     <strong>360.000 - 500.000</strong> / ca giáo viên Việt, <strong>1.200.000 - 1.800.000</strong> / ca giáo viên NN/ GV bản địa
                                 </span>
                             </p>
+                            <p>
+                                <span class="mr-1">
+                                    <i class="fas fa-check" style="color: #73726c"></i>
+                                    {{ $prices->description }}
+                                </span>
+                            </p>
                         </div>
                     </div>
 
@@ -118,4 +139,19 @@
         </section>
         <!--Section: Block Content-->
     </div>
+@endsection
+@section('js')
+{{--    <script>--}}
+{{--        $('.add-to-cart').on('click', function () {--}}
+{{--            let url = "{{ route('course.addToCart',['idPrice' => $prices->id,'idCourse' => $courseDetail->id]) }}";--}}
+{{--            $.ajax({--}}
+{{--                type: "GET",--}}
+{{--                url: url,--}}
+{{--                dataType: 'json',--}}
+{{--                success: function (data) {--}}
+
+{{--                }--}}
+{{--            });--}}
+{{--        })--}}
+{{--    </script>--}}
 @endsection

@@ -39,6 +39,18 @@ Route::prefix('course')->group(function () {
         'as'         => 'course.showCart',
         'uses'       => 'CourseController@showCart',
     ]);
+    Route::get('/payment/{idPrice}/{idCourse}', [
+        'as'         => 'payment.index',
+        'uses'       => 'CourseController@payment',
+    ]);
+    Route::post('/payment/online', [
+        'as'         => 'payment.online',
+        'uses'       => 'CourseController@postPay',
+    ]);
+    Route::get('vnpay/return', [
+        'as'         => 'vnpay.return',
+        'uses'       => 'CourseController@vnpayReturn',
+    ]);
 });
 Route::prefix('contact')->group(function () {
     Route::get('/', 'ContactController@index')->name('contact');
@@ -47,7 +59,5 @@ Route::prefix('contact')->group(function () {
         'uses'       => 'ContactController@store',
     ]);
 });
-Route::get('payment','PaymentController@index')->name('payment.index');
-//Route::post('payment/online','PaymentController@index')->name('payment.online');
 
 
