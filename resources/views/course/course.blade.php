@@ -11,12 +11,7 @@
 
     <div id="overviews" class="section wb">
         <div class="container">
-            <div class="section-title row text-center">
-                <div class="col-md-8 offset-md-2">
-                    <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
-                        lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
-                </div>
-            </div><!-- end title -->
+
 
             <hr class="invis">
 

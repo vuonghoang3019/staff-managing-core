@@ -28,29 +28,9 @@
                     </div>
                 </div><!-- end col -->
 
-                <div class="col-lg-3 col-12 right-single">
-                    <div class="widget-categories">
-                        <h3 class="widget-title">Categories</h3>
-                        <ul>
-                            @foreach($news as $newItem)
-                                <li>
-                                    <div class="row">
-                                        <div class="flex-row">
-                                            <div class="flex-column news-left">
-                                                <img class="rounded-circle"
-                                                     src="{{ asset($newItem->image_path) }}"
-                                                     width="100" height="100">
-                                            </div>
-                                            <div class="flex-column new-right ml-2">
-                                                {!! $newItem->title !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
+                {{-- new--}}
+                @include('components.news')
+                {{-- End new--}}
 
             </div><!-- end row -->
             <hr class="hr3">

@@ -62,6 +62,8 @@
                     <li class="nav-item"><a class="nav-link" href="{{ route('teacher') }}">Giáo Viên</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('recruitment') }}">Tuyển dụng</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Liên hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('news') }}">Tin tức</a></li>
+
                 </ul>
             </div>
             {{--            @include('components.mainMenu')--}}

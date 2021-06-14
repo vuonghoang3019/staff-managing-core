@@ -20,44 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45b8a489-862a-4c0e-a738-7616a44f46ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminNewsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/news/add.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/news/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/news/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/news.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/news/news.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/news/newsDetail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/assets/js/daterangepicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/assets/js/daterangepicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/assets/js/moment.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/assets/js/moment.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/assets/js/summernote-bs4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/assets/js/summernote-bs4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/assets/js/tempusdominus-bootstrap-4.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/assets/js/tempusdominus-bootstrap-4.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/bn.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/bn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/bs.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/bs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/en-au.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/en-au.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/en-ca.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/en-ca.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/en-gb.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/en-gb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/en.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/en.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/hi.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/hi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/is.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/is.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/mk.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/mk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/mn.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/mn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/ms.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/ms.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/lang/tt.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/lang/tt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/plugins/wsc/dialogs/wsc.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/plugins/wsc/dialogs/wsc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/samples/old/ajax.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/samples/old/ajax.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/samples/old/dialog/dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/samples/old/dialog/dialog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admins/ckeditor/vendor/promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admins/ckeditor/vendor/promise.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home/js/all.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/home/js/all.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendors/sweetAlert2/sweetalert2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/vendors/sweetAlert2/sweetalert2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecruitmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/course/course.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/course/course.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/course/courseDetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/course/courseDetail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/recruitment/recruitmentDetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recruitment/recruitmentDetail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +190,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shopping" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -499,7 +472,14 @@
       <workItem from="1623347027796" duration="4929000" />
       <workItem from="1623377833896" duration="7476000" />
       <workItem from="1623395472993" duration="9951000" />
-      <workItem from="1623592322178" duration="9591000" />
+      <workItem from="1623592322178" duration="9649000" />
+      <workItem from="1623655486599" duration="112000" />
+      <workItem from="1623680693465" duration="929000" />
+      <workItem from="1623682280669" duration="684000" />
+      <workItem from="1623684551085" duration="135000" />
+      <workItem from="1623685681182" duration="155000" />
+      <workItem from="1623685990739" duration="600000" />
+      <workItem from="1623690041513" duration="1552000" />
     </task>
     <servers />
   </component>
@@ -550,10 +530,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="452" y="43" key="#phpunit.xml/0.0.1536.824@0.0.1536.824" timestamp="1620917447001" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1623600627875">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1623655601259">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1623600627875" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1623655601259" />
     <state x="486" y="135" key="NewPhpClassDialog" timestamp="1621007606122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -15,7 +15,7 @@
                 <div class="col-lg-9 blog-post-single">
                     <div class="blog-item">
                         <div class="image-blog">
-                            <img src="{{ asset($recruitmentDetail->image_path) }}" alt="" width="750" height="450">
+                            <img src="{{ asset($newsDetail->image_path) }}" alt="" width="750" height="450">
                         </div>
                         <div class="post-content">
                             <div class="post-date">
@@ -23,13 +23,13 @@
                                 <span class="month">Nov</span>
                             </div>
                             <div class="meta-info-blog">
-                                <span><i class="fa fa-calendar"></i> {{ $recruitmentDetail->created_at }} </span>
+                                <span><i class="fa fa-calendar"></i> {{ $newsDetail->created_at }} </span>
                             </div>
                             <div class="blog-title">
-                                <h2>{!! $recruitmentDetail->title  !!}</h2>
+                                <h2>{!! $newsDetail->title  !!}</h2>
                             </div>
                             <div class="blog-desc">
-                                <p>{!! $recruitmentDetail->content !!}</p>
+                                <p>{!! $newsDetail->content !!}</p>
                             </div>
                         </div>
                     </div>

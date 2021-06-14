@@ -21,9 +21,11 @@ Route::group(['prefix' => 'auth'],function (){
     Route::post('/postLogin', 'auth\LoginController@postLogin')->name('postLogin.User');
     Route::get('logout', 'auth\LoginController@logoutUser')->name('logoutUser');
 });
-
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/teacher', 'TeacherController@index')->name('teacher');
+Route::get('/news', 'NewsController@index')->name('news');
+Route::get('/news/{id}', 'NewsController@detail')->name('news.detail');
+
 Route::get('/recruitment', 'RecruitmentController@index')->name('recruitment');
 Route::get('/recruitmentDetail/{id}', 'RecruitmentController@detail')->name('recruitmentDetail');
 Route::prefix('course')->group(function () {
