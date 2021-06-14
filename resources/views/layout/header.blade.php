@@ -23,10 +23,14 @@
                 <!-- Top Right -->
                 <div class="right-content" style="float: right">
                     <ul class="list-main">
-{{--                        {{ dd(\Illuminate\Support\Facades\Auth::guard('student')->user()) }}--}}
                         @if(Auth::guard('student')->check())
                             <li>Xin chào</li>
-                            <li><i class="fas fa-user"></i><a href="#">{{  auth()->guard('student')->user()->name }}</a></li>
+                            <li>
+                                <i class="fas fa-user"></i>
+                                <a href="{{ route('user.info',['id' => auth()->guard('student')->user()->id ]) }}">
+                                    {{  auth()->guard('student')->user()->name }}
+                                </a>
+                            </li>
                             <li><i class="fas fa-power-off"></i><a href="{{ route('logoutUser') }}">Đăng xuất</a></li>
                         @else
                             <li><i class="fas fa-power-off"></i><a href="{{ route('login') }}">Đăng nhập</a></li>

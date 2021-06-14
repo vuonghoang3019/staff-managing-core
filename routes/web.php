@@ -15,10 +15,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'auth'],function (){
-    Route::get('/register', 'auth\LoginController@getRegister')->name('register');
-    Route::post('/postRegister', 'auth\LoginController@postRegister')->name('postRegister');
-    Route::get('/login', 'auth\LoginController@getLogin')->name('login');
-    Route::post('/postLogin', 'auth\LoginController@postLogin')->name('postLogin.User');
+    Route::get('/register', [
+        'as'         => 'register',
+        'uses'       => 'auth\LoginController@getRegister',
+    ]);
+    Route::post('/postRegister', [
+        'as'         => 'postRegister',
+        'uses'       => 'auth\LoginController@postRegister',
+    ]);
+    Route::get('/login', [
+        'as'         => 'login',
+        'uses'       => 'auth\LoginController@getLogin',
+    ]);
+    Route::post('/postLogin', [
+        'as'         => 'postLogin.User',
+        'uses'       => 'auth\LoginController@postLogin',
+    ]);
+    Route::get('userInfo/{id}', [
+        'as'         => 'user.info',
+        'uses'       => 'auth\UserController@index',
+    ]);
+
     Route::get('logout', 'auth\LoginController@logoutUser')->name('logoutUser');
 });
 Route::get('/about', 'AboutController@index')->name('about');
@@ -27,7 +44,7 @@ Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/news/{id}', 'NewsController@detail')->name('news.detail');
 
 Route::get('/recruitment', 'RecruitmentController@index')->name('recruitment');
-Route::get('/recruitmentDetail/{id}', 'RecruitmentController@detail')->name('recruitmentDetail');
+Route::get('/recruitmentDetail/{id}', 'RecruitmentController@detail')->name('recruitment.detail');
 Route::prefix('course')->group(function () {
     Route::get('/', [
         'as'         => 'course',

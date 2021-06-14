@@ -25,7 +25,7 @@
                     <div class="col-lg-4 col-md-6 col-12 mb-4">
                         <div class="blog-item">
                             <div class="image-blog">
-                                <a href="{{ route('recruitmentDetail',['id' => $recruitment->id]) }}"> <img
+                                <a href="{{ route('recruitment.detail',['id' => $recruitment->id]) }}"> <img
                                         src="{{ asset($recruitment->image_path) }}" alt="" class="img-fluid"></a>
 
                             </div>
@@ -34,7 +34,7 @@
                                         href="#">{{ $recruitment->created_at }}</a> </span>
                             </div>
                             <div class="blog-title">
-                                <h2><a href="{{ route('recruitmentDetail',['id' => $recruitment->id]) }}" title="">
+                                <h2><a href="{{ route('recruitment.detail',['id' => $recruitment->id]) }}" title="">
                                         <p>{!! $recruitment->title !!}</p></a></h2>
                             </div>
                             <div class="blog-desc">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="blog-button">
                                 <a class="hover-btn-new orange"
-                                   href="{{ route('recruitmentDetail',['id' => $recruitment->id]) }}"><span>Read More</span></a>
+                                   href="{{ route('recruitment.detail',['id' => $recruitment->id]) }}"><span>Read More</span></a>
                             </div>
                         </div>
                     </div>
