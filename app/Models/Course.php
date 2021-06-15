@@ -35,4 +35,9 @@ class Course extends Model
     {
         return $this->hasMany(Price::class,'course_id');
     }
+
+    public function classroom()
+    {
+        return $this->hasMany(Classroom::class,'course_id');
+    }
 }
