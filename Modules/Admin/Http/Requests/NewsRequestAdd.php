@@ -4,7 +4,7 @@ namespace Modules\Admin\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RecruitmentRequestAdd extends FormRequest
+class NewsRequestAdd extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,9 +14,10 @@ class RecruitmentRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:100|unique:recruitments,title,'.$this->id,
-            'Content' => 'required|min:20',
-            'image_path'  => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
+            'title'      => 'required|max:255|unique:news,title' . $this->id,
+            'Content'    => 'required|min:20',
+            'image_path' => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
+
         ];
     }
 
@@ -27,6 +28,7 @@ class RecruitmentRequestAdd extends FormRequest
             'title.max'           => 'Độ dài tối đa 255 ký tự',
             'unique.unique'       => 'Tiêu đề không được trùng',
             'unique.min'          => 'Độ dài không được ít hơn 20 ký tự',
+            'Content.required'    => 'Nội dung không được để trống',
             'image_path.required' => 'Ảnh không được để trống',
             'image_path.max'      => 'Dung lượng đã vượt quá tối đa',
             'image_path.mimes'    => 'Chỉ chấp nhận ảnh: jpeg,png,jpg',

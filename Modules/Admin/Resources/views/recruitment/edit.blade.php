@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 @section('title')
-    <title>About</title>
+    <title>Tuyển dụng</title>
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('admins/assets/css/upload.css') }}">
@@ -8,12 +8,13 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'About', 'key' => 'Add About'])
+        @include('admin::components.headerContent',['name' => 'Tuyển dụng', 'key' => 'Add About'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('recruitment.update',['id' => $reEdit->id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
+                    <a href="{{ route('recruitment.index') }}" class="btn btn-primary">Quay lại</a>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

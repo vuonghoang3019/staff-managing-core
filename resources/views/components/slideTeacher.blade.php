@@ -1,8 +1,8 @@
 <div id="testimonials" class="parallax section db parallax-off">
     <div class="container">
         <div class="section-title text-center">
-            <h3>Testimonials</h3>
-            <p>Lorem ipsum dolor sit aet, consectetur adipisicing lit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <h3>Những người sáng lập</h3>
+            <p></p>
         </div><!-- end title -->
 
         <div class="row">

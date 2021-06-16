@@ -15,7 +15,7 @@ class RecruitmentRequestUpdate extends FormRequest
     {
         return [
             'title' => 'required|max:100|unique:recruitments,title,'.$this->id,
-            'Content' => 'required|max:1000,min:20',
+            'Content' => 'required|min:20',
             'image_path'  => 'max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
         ];
     }

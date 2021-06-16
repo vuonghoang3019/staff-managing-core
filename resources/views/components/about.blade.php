@@ -1,9 +1,10 @@
 <div class="container">
     <div class="section-title row text-center">
         <div class="col-md-8 offset-md-2">
-            <h3>About</h3>
-            <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
-                quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!
+            <h3>Giới thiệu</h3>
+            <p class="lead">Là một trong những trung tâm chuyên đào tạo Ngoại ngữ ở TP.Hạ Long,
+                trung tâm Ngoại ngữ Asia trở thành
+                lựa chọn hàng đầu của những người có nhu cầu học ngoại ngữ
             </p>
         </div>
     </div>

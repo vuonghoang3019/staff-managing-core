@@ -40,8 +40,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="content">Viết nội dung</label>
-                                <textarea class="form-control @error('content') is-invalid @enderror" name="Content" id="content">{{ old('content') }}</textarea>
-                                @error('content')
+                                <textarea class="form-control @error('Content') is-invalid @enderror" name="Content" id="content">{{ old('Content') }}</textarea>
+                                @error('Content')
                                 <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                                 @enderror
                             </div>

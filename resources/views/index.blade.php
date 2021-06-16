@@ -19,92 +19,92 @@
         <div class="container">
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
-                    <h3>Our history</h3>
-                    <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
-                        lorem
-                        quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!
+                    <h3>Các hoạt động tại trung tâm ASIA</h3>
+                    <p class="lead">
+                        Tại trung tâm, không chỉ có những buổi học vui vẻ, mà còn có những buổi ngoại khóa bổ ích mang
+                        lại
+                        niềm hưng thú học tập cho các em
                     </p>
                 </div>
             </div>
             <!-- end title -->
-            <div class="timeline">
-                <div class="timeline__wrap">
-                    <div class="timeline__items">
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg">
-                                <h2>2018</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque
-                                    condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg">
-                                <h2>2015</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque
-                                    condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg">
-                                <h2>2014</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque
-                                    condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg">
-                                <h2>2012</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque
-                                    condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg">
-                                <h2>2010</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque
-                                    condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg">
-                                <h2>2007</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque
-                                    condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg">
-                                <h2>2004</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque
-                                    condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__content img-bg">
-                                <h2>2002</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dignissim neque
-                                    condimentum lacus dapibus. Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/23735967_1527841197253065_1552406061031976797_o.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/23737576_1527837430586775_6711863325875544897_o.jpg') }}" alt="" width="300" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/159239991_3750019965035166_2301047150127593530_n.jpg') }}" alt="" width="300" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/23783485_1527842647252920_6153414976471746244_o.jpg') }}" alt="" width="300" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/135887636_3583696248334206_8152789178872712242_n.jpg') }}" alt="" width="300" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/34581766_1719161371454379_2450204706937503744_n.jpg') }}" alt="" width="300" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/34689415_1719152501455266_6904625940861550592_n.jpg') }}" alt="" width="300" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/34602588_1719151164788733_7057667385238487040_n.jpg') }}" alt="" width="300" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-12 mt-3">
+                    <div class="course-item">
+                        <div class="image-blog">
+                            <a href=""><img src="{{ asset('home/images/activity/34644281_1719162674787582_4915523137501659136_n.jpg') }}" alt="" width="300" height="300"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end row -->
+
         </div>
     </section>
     <!-- End timeline -->
@@ -150,8 +150,7 @@
             <!--  title -->
             <div class="section-title row text-center">
                 <div class="col-md-8 offset-md-2">
-                    <p class="lead">Lorem Ipsum dolroin gravida nibh vel velit auctor aliquet. Aenean sollicitudin,
-                        lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem!</p>
+                    <p class="lead font-weight-bold">ƯU ĐIỂM - LỢI ÍCH KHI HỌC TẠI TRUNG TÂM ASIA</p>
                 </div>
             </div><!-- end title -->
 
@@ -217,7 +216,8 @@
                             </div>
                             <div class="course-desc">
                                 <p>
-                                    Với học viên đăng ký khóa từ 6 tháng trở lên, sẽ được hỗ trợ trả góp học phí với lãi suất 0%.
+                                    Với học viên đăng ký khóa từ 6 tháng trở lên, sẽ được hỗ trợ trả góp học phí với lãi
+                                    suất 0%.
                                     Thật tuyệt vời khi chỉ hưởng khuyến mại từ khóa 6 tháng, 12 tháng phải không nào?
                                 </p>
                             </div>
@@ -239,7 +239,8 @@
                             </div>
                             <div class="course-desc">
                                 <p>
-                                    Được học lại miễn phí khi kết quả kiểm tra định kỳ dưới 50% điểm trung bình các bài kiểm tra toàn
+                                    Được học lại miễn phí khi kết quả kiểm tra định kỳ dưới 50% điểm trung bình các bài
+                                    kiểm tra toàn
                                     khóa(không áp dụng với học sinh nghỉ quá 4 buổi/ khóa)
                                 </p>
                             </div>
@@ -255,7 +256,8 @@
                             </div>
                             <div class="course-desc">
                                 <p>
-                                    Được gửi nản kiểm tra nói (video), bài kiểm tra viết, phiếu nhận xét học tập định kỳ 3 tháng 1 lần
+                                    Được gửi nản kiểm tra nói (video), bài kiểm tra viết, phiếu nhận xét học tập định kỳ
+                                    3 tháng 1 lần
                                     (Tính theo thời gian của lớp học, không theo thời gian nhập học).
                                 </p>
                             </div>
@@ -271,7 +273,8 @@
                             </div>
                             <div class="course-desc">
                                 <p>
-                                    Học viên được dào tạo theo chương trình chuẩn quốc tế của ĐH OXFORD/CAMBRIDE. Chương trình xuyên suốt
+                                    Học viên được dào tạo theo chương trình chuẩn quốc tế của ĐH OXFORD/CAMBRIDE. Chương
+                                    trình xuyên suốt
                                     cho mọi lứa tuổi từ mẫu giáo đến người đi làm.
                                 </p>
                             </div>
@@ -287,8 +290,10 @@
                             </div>
                             <div class="course-desc">
                                 <p>
-                                    Được học giáo viên nước ngoài hiệu quả nhất, phát triển cân bằng 4 kỹ năng Nghe hiểu - Nói -
-                                    Đọc hiểu - Viết luận, đáp ứng cả nhu cầu của trường học và nhu cầu ứng dụng thực tiễn của học viên.
+                                    Được học giáo viên nước ngoài hiệu quả nhất, phát triển cân bằng 4 kỹ năng Nghe hiểu
+                                    - Nói -
+                                    Đọc hiểu - Viết luận, đáp ứng cả nhu cầu của trường học và nhu cầu ứng dụng thực
+                                    tiễn của học viên.
                                 </p>
                             </div>
                         </div>

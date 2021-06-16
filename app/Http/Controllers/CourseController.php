@@ -28,7 +28,7 @@ class CourseController extends FrontendController
 
     public function index()
     {
-        $courses = $this->course->paginate(4);
+        $courses = $this->course->paginate(6);
         return view('course.course', compact('courses'));
     }
 

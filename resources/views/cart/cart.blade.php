@@ -6,10 +6,7 @@
     <link rel="stylesheet" href="{{ asset('home\css\cart.css') }}">
 @endsection
 @section('content')
-    <div class="all-title-box" style="background: url({{ asset('home/images/1200px-Sun-group-logo.png') }})">
-        <div class="container text-center">
-            <h1>Blog<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
-        </div>
+    <div class="all-title-box" style="background: url({{ asset('home/images/banner.png') }})">
     </div>
     @if(session('error'))
         <div class="alert alert-danger" role="alert" style="position: fixed;right: 2%;bottom: 15%">

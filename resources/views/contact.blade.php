@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-    <div class="all-title-box" style="background: url({{ asset('home/images/1200px-Sun-group-logo.png') }})">
+    <div class="all-title-box" style="background: url({{ asset('home/images/banner.png') }})">
         <div class="container text-center">
             <h1>Contact<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
         </div>
@@ -22,8 +22,8 @@
                 <div class="col-xl-6 col-md-12 col-sm-12">
                     <div class="form-group">
                         <ul>
-                            <li><strong style="font-size: 15px; ">Hotline:</strong> 0328741074</li>
-                            <li><strong style="font-size: 15px; ">Hotline:</strong> vuongmau199@gmail.com</li>
+                            <li><strong style="font-size: 15px; ">Hotline:</strong> +84 0962 190 498</li>
+                            <li><strong style="font-size: 15px; ">Email:</strong> asiaedu@gmail.com</li>
                             <li><strong style="font-size: 15px; ">Địa chỉ:</strong> Ô 41, lô sg1, đường, Cái Dăm, tổ 3
                                 khu 7, Thành phố Hạ Long, Quảng Ninh
                             </li>
@@ -77,7 +77,7 @@
                                       rows="2">{{ old('Content') }}</textarea>
 
                         </div>
-                        <button type="submit" class="btn btn-primary accept">ĐĂNG KÝ</button>
+                        <button type="submit" class="btn btn-primary accept">Gửi</button>
                     </form>
                 </div>
             </div><!-- end row -->

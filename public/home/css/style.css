@@ -1136,6 +1136,7 @@ a img.aligncenter {
 }
 .inner-hmv p{
     margin: 0px;
+    height: 170px;
 }
 
 .inner-hmv:hover .icon-box-hmv{
@@ -3379,7 +3380,8 @@ span.m_1 {
 }
 .image-blog img{
     padding: 0 !important;
-    width: 100%;
+    width: 300px;
+    height: 200px;
     margin: 0 !important;
     opacity: 1;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -3392,6 +3394,27 @@ span.m_1 {
     transition: all 150ms ease-in-out;
 }
 .image-blog img:hover{
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    -moz-opacity: 0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+}
+.course-list img{
+    padding: 0 !important;
+    width: 350px;
+    height: 200px;
+    margin: 0 !important;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    -moz-opacity: 1;
+    -khtml-opacity: 1;
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+.course-list img:hover{
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
     -moz-opacity: 0.8;
     -khtml-opacity: 0.8;
@@ -3829,7 +3852,7 @@ a.link-style3 {
 .course-br{
     border: 1px solid #4babb1;
     padding: 15px;
-    height: 280px;
+    height: 200px;
 }
 .course-meta-bot{
     border: 1px solid #4babb1;

@@ -14,7 +14,7 @@
                 <!-- Top Left -->
                 <div class="top-left">
                     <ul class="list-main">
-                        <li><i class="fas fa-headset"></i> +060 (800) 801-582</li>
+                        <li><i class="fas fa-headset"></i>+84 0962 190 498</li>
                     </ul>
                 </div>
                 <!--/ End Top Left -->

@@ -30,6 +30,8 @@
                                 <form action="{{ route('course.update',['id' => $courseEdit->id]) }}" method="post"
                                       enctype="multipart/form-data">
                                     @csrf
+                                    <button type="submit" class="btn btn-success">Lưu</button>
+                                    <a href="{{ route('course.index') }}" class="btn btn-primary">Quay lại</a>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group ">
@@ -78,8 +80,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-success">Submit</button>
-                                    <a href="{{ route('course.index') }}" class="btn btn-primary">Quay lại</a>
                                 </form>
                             </div>
                             <div class="tab-pane fade " id="nav-profile" role="tabpanel"
@@ -148,7 +148,7 @@
                                                                    class="form-control"/>
                                                         </td>
                                                         <td>
-                                                            <textarea class="form-control" name="description[]" ></textarea>
+                                                            <textarea class="form-control" name="description[]">{{ $price->description }}</textarea>
                                                         </td>
                                                     </tr>
                                                 @endforeach

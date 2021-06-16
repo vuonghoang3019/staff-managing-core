@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Http\Requests\NewsRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
@@ -30,7 +31,7 @@ class AdminNewsController extends FrontendController
         return view('admin::news.add');
     }
 
-    public function store(Request $request)
+    public function store(NewsRequestAdd $request)
     {
         $this->news->title = $request->title;
         $this->news->content = $request->Content;

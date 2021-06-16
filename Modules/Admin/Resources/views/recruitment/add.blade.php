@@ -13,7 +13,8 @@
             <div class="container-fluid">
                 <form action="{{ route('recruitment.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
+                    <a href="{{ route('recruitment.index') }}" class="btn btn-primary">Quay lại</a>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

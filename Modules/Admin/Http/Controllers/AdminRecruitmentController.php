@@ -57,9 +57,9 @@ class AdminRecruitmentController extends FrontendController
         $reEdit->content = $request->Content;
         $reEditUpload = $this->storageTraitUpload($request, 'image_path', 'recruitment');
         if (!empty($reEditUpload)) {
+            unlink(substr($reEdit->image_path, 1));
             $reEdit->image_name = $reEditUpload['file_name'];
             $reEdit->image_path = $reEditUpload['file_path'];
-            unlink(substr($reEdit->image_path, 1));
         }
         $reEdit->save();
         return redirect()->back()->with('success','Cập nhật dữ liệu thành công');

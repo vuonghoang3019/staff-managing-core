@@ -28,7 +28,7 @@
                                  aria-labelledby="nav-home-tab">
                                 <form action="{{ route('course.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success">Lưu</button>
                                     <a href="{{ route('course.index') }}" class="btn btn-primary">Quay lại</a>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -87,7 +87,7 @@
                                  aria-labelledby="nav-profile-tab">
                                 <form action="{{ route('course.storePrice') }}" method="post">
                                     @csrf
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-success">Lưu</button>
                                     <a href="{{ route('course.index') }}" class="btn btn-primary">Quay lại</a>
                                     <div class="col-md-3 mt-3 ">
                                         <div class="form-group">

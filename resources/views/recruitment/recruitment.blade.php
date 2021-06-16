@@ -3,7 +3,7 @@
     <title>Tuyển dụng</title>
 @endsection
 @section('content')
-    <div class="all-title-box" style="background: url({{ asset('home/images/1200px-Sun-group-logo.png') }})">
+    <div class="all-title-box" style="background: url({{ asset('home/images/banner.png') }})">
         <div class="container text-center">
             <h1>Blog<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
         </div>
@@ -26,7 +26,7 @@
                         <div class="blog-item">
                             <div class="image-blog">
                                 <a href="{{ route('recruitment.detail',['id' => $recruitment->id]) }}"> <img
-                                        src="{{ asset($recruitment->image_path) }}" alt="" class="img-fluid"></a>
+                                        src="{{ asset($recruitment->image_path) }}" alt="" width="310" height="250"></a>
 
                             </div>
                             <div class="meta-info-blog">
@@ -38,11 +38,11 @@
                                         <p>{!! $recruitment->title !!}</p></a></h2>
                             </div>
                             <div class="blog-desc">
-                                <p> {!! \Illuminate\Support\Str::limit($recruitment->content,130) !!}</p>
+                                <p> {!! \Illuminate\Support\Str::limit($recruitment->content,100) !!}</p>
                             </div>
                             <div class="blog-button">
                                 <a class="hover-btn-new orange"
-                                   href="{{ route('recruitment.detail',['id' => $recruitment->id]) }}"><span>Read More</span></a>
+                                   href="{{ route('recruitment.detail',['id' => $recruitment->id]) }}"><span>Đọc thêm</span></a>
                             </div>
                         </div>
                     </div>
