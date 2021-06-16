@@ -1,6 +1,6 @@
 @extends('master.master')
 @section('title')
-    <title>About</title>
+    <title>Chi tiết khóa học</title>
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('home\css\cart.css') }}">
@@ -21,7 +21,8 @@
                     <div class="preview-pic tab-content">
                         <div class="tab-pane active"><img src="{{ asset($courseDetail->image_path) }}"
                                                           class="rounded border"
-                                                          style="width: 510px; height: 320px"/></div>
+                                                          style="width: 510px; height: 320px"/>
+                        </div>
                     </div>
                 </div>
                 <div class="details col-md-6">

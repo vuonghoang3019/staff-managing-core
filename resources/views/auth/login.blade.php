@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 login-sec">
-                <h2 class="text-center">Login Now</h2>
+                <h2 class="text-center">Đăng nhập</h2>
                 <form action="{{ route('postLogin.User') }}" method="post" class="login-form">
                     @csrf
                     <div class="form-group">
@@ -32,23 +32,15 @@
                             <input type="checkbox" class="form-check-input">
                             <small>Remember Me</small>
                         </label>
-                        <button type="submit" class="btn btn-login float-right">Submit</button>
+                        <button type="submit" class="btn btn-login float-right">Đăng nhập</button>
                     </div>
-
                 </form>
-                <div class="copy-text">Created with <i class="fa fa-heart"></i> by Grafreez</div>
             </div>
             <div class="col-md-8 banner-sec">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="banner-text">
-                                    <h2>This is Heaven</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                                </div>
-                            </div>
+                            <img class="d-block" src="{{ asset('home/images/banner.png') }}" alt="" width="760" height="500">
                         </div>
 
                     </div>
