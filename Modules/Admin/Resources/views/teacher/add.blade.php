@@ -8,7 +8,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'User', 'key' => 'Add User'])
+        @include('admin::components.headerContent',['name' => 'Giáo viên', 'key' => 'Thêm giáo viên'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('teacher.store') }}" method="post" enctype="multipart/form-data" >

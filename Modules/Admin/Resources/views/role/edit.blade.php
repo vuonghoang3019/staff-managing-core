@@ -8,12 +8,13 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Role', 'key' => 'Edit Role'])
+        @include('admin::components.headerContent',['name' => 'Quyền hệ thống', 'key' => 'Sửa quyền'])
         <section class="content">
             <div class="container-fluid" style="background-color: #ecf0f1">
                 <form action="{{ route('role.update',['id' => $roleEdit -> id]) }}" method="post">
                     @csrf
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
+                    <a href="{{ route('role.index') }}" class="btn btn-primary">Quay lại</a>
                     <div class="row">
                         <div class="col-md-6 mt-3">
                             <div class="form-group">

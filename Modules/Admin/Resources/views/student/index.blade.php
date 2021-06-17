@@ -7,13 +7,13 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Student', 'key' => 'List student'])
+        @include('admin::components.headerContent',['name' => 'Học sinh', 'key' => 'Danh sách'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     @can('student-add')
                         <div class="col-md-12">
-                            <a href="{{ route('student.create') }}" class="btn btn-success">ADD</a>
+                            <a href="{{ route('student.create') }}" class="btn btn-success">Thêm</a>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formUpload">
                                 Upload
                             </button>
@@ -24,9 +24,8 @@
                     <div class="col-md-12 form-inline mt-2 mb-2">
                         <div class="form-group col-md-4">
                             <label for="">Lớp:</label>
-                            <select class="form-control ml-2 classroom" name="classroom_id"
-                                    data-url="{{ route('student.ajaxGetSelect') }}">
-                                <option>---Chọn đi bro---</option>
+                            <select class="form-control ml-2 classroom" name="classroom_id">
+                                <option>---Chọn đi lớp---</option>
                                 @foreach($classrooms as $classroom)
                                     <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
                                 @endforeach
@@ -39,7 +38,7 @@
                         <div class="form-group col-md-3">
                             <label for="">Trạng thái:</label>
                             <select class="form-control ml-2">
-                                <option>---Chọn đi bro---</option>
+                                <option>---Chọn trạng thái---</option>
                             </select>
                         </div>
                     </div>
@@ -71,8 +70,8 @@
                                                 <li>Ngày sinh: {{ $data->birthday }}</li>
                                                 <li>Giới tính: {{ $data->sex === 0 ? 'nam' : 'nữ' }}</li>
                                                 <li>Dân tộc: {{ $data->nation }}</li>
+                                                <li>Số điện thoại: {{ $data->phone }}</li>
                                             </ul>
-
                                         </td>
                                         <td>{{ $data->classroom->name }}</td>
                                         <td>
@@ -84,12 +83,12 @@
                                         <td>
                                             @can('student-update')
                                                 <a href="{{ route('student.edit',['id' => $data->id]) }}"
-                                                   class="btn btn-default">Edit</a>
+                                                   class="btn btn-default">Sửa</a>
                                             @endcan
                                             @can('student-delete')
                                                 <a href=""
                                                    data-url="{{ route('student.delete',['id' => $data->id]) }}"
-                                                   class="btn btn-danger action-delete">Delete
+                                                   class="btn btn-danger action-delete">Xóa
                                                 </a>
                                             @endcan
                                         </td>
@@ -146,18 +145,18 @@
     <script src="{{ asset('admins/assets/js/upload.js') }}"></script>
     <script>
         $(document).ready(function () {
-            $('.classroom').change(function (event) {
-                event.preventDefault();
+            $('.classroom').change(function () {
                 let url = $(this).data('url');
-                alert(url);
                 let id = $(this).val();
                 $.ajax({
-                    url: url,
+                    url: '{{ route('student.ajaxGetSelect') }}',
                     type: 'GET',
-                    dataType: 'json',
                     data: {id: id},
-                    success: function (students) {
-                        $('tbody').html(students);
+                    beforeSend: function () {
+                        $('tbody').html('<td>Loading..</td>');
+                    },
+                    success: function (data) {
+                        $('tbody').html(data);
 
                     }
                 });

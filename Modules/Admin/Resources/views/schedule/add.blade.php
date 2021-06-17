@@ -8,7 +8,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Schedule  ', 'key' => 'Add Schedule'])
+        @include('admin::components.headerContent',['name' => 'Lịch  ', 'key' => 'Thêm Lịch'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('schedule.store') }}" method="post">

@@ -20,6 +20,7 @@ class StudentRequestAdd extends FormRequest
             'nation'       => 'required',
             'classroom_id' => 'required',
             'sex'          => 'required',
+            'phone'        => 'required',
             'email'        => 'required|unique:students,email,' . $this->id,
             'password'     => 'required',
         ];
@@ -28,18 +29,19 @@ class StudentRequestAdd extends FormRequest
     public function messages()
     {
         return [
-            'code.required'           => 'Mã học sinh không được để trống',
-            'code.unique'             => 'Mã học sinh không được để trùng',
-            'name.required'           => 'Tên không được để trống',
-            'name.max'                => 'Tên không được quá 50 ký tự',
-            'name.min'                => 'Tên phải trên 10 ký tự',
-            'birthday.required'       => 'Ngày sinh không được để trống',
-            'nation.required'         => 'Dân tộc không được để trống',
-            'classroom_id.required'   => 'Lớp không được để trống',
-            'sex.required'            => 'giới tính không được để trống',
-            'email.required'          => 'Email học sinh không được để trống',
-            'email.unique'            => 'Email học sinh không được để trùng',
-            'password.required'       => 'Pass không được để trống',
+            'code.required'         => 'Mã học sinh không được để trống',
+            'code.unique'           => 'Mã học sinh không được để trùng',
+            'name.required'         => 'Tên không được để trống',
+            'name.max'              => 'Tên không được quá 50 ký tự',
+            'name.min'              => 'Tên phải trên 10 ký tự',
+            'birthday.required'     => 'Ngày sinh không được để trống',
+            'nation.required'       => 'Dân tộc không được để trống',
+            'classroom_id.required' => 'Lớp không được để trống',
+            'phone.required'        => 'Số điện thoại không được để trống',
+            'sex.required'          => 'giới tính không được để trống',
+            'email.required'        => 'Email học sinh không được để trống',
+            'email.unique'          => 'Email học sinh không được để trùng',
+            'password.required'     => 'Pass không được để trống',
         ];
     }
 

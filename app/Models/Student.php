@@ -11,7 +11,7 @@ class Student extends Authenticatable
     use Notifiable;
     protected $table = 'students';
     protected $guarded = 'student';
-    protected $fillable = ['code','name','birthday','sex','nation','classroom_id','status','email','password'];
+    protected $fillable = ['code','name','birthday','sex','nation','classroom_id','status','email','password','phone'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;
     protected $statusStudent = [

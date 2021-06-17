@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\TeacherRequestAdd;
+use Modules\Admin\Http\Requests\update\TeacherRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
@@ -76,7 +77,7 @@ class AdminTeacherController extends FrontendController
         return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade', 'roles', 'teacherRole'));
     }
 
-    public function update(TeacherRequestAdd $request, $id)
+    public function update(TeacherRequestUpdate $request, $id)
     {
         $teacherUpdate = $this->user->find($id);
         $teacherUpdate->name = $request->name;

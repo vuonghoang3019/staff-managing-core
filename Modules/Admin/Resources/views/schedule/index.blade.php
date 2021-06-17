@@ -4,13 +4,13 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Schedule', 'key' => 'List schedule'])
+        @include('admin::components.headerContent',['name' => 'Lịch dạy', 'key' => 'Danh sách'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     @can('schedule-add')
                         <div class="col-md-12">
-                            <a href="{{ route('schedule.create') }}" class="btn btn-success">ADD</a>
+                            <a href="{{ route('schedule.create') }}" class="btn btn-success">Thêm</a>
                         </div>
                     @endcan
                     <div class="col-md-12">
@@ -58,13 +58,13 @@
                                         <td>
                                             @can('schedule-update')
                                                 <a href="{{ route('schedule.edit',['id' => $data->id]) }}"
-                                                   class="btn btn-default">Edit
+                                                   class="btn btn-default">Sửa
                                                 </a>
                                             @endcan
                                             @can('schedule-delete')
                                                 <a href=""
                                                    data-url="{{ route('schedule.delete',['id' => $data->id]) }}"
-                                                   class="btn btn-danger action-delete">Delete
+                                                   class="btn btn-danger action-delete">Xóa
                                                 </a>
                                             @endcan
                                         </td>

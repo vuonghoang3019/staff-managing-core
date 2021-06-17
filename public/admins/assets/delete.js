@@ -3,13 +3,13 @@ function actionDelete(event) {
     let urlRequest = $(this).data('url');
     let that = $(this);
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Bạn có chắc muốn xóa?',
+        text: "Bạn sẽ không thể khôi phục lại dữ liệu!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Đồng ý'
     }).then((result) => {
         if (result.value) {
             $.ajax(
@@ -20,8 +20,8 @@ function actionDelete(event) {
                         if (data.code == 200) {
                             that.parent().parent().remove();
                             Swal.fire(
-                                'Deleted!',
-                                'Your record has been deleted.',
+                                'Đã xóa!',
+                                'Bạn đã xóa thành công',
                                 'success'
                             )
                         }

@@ -1,3 +1,5 @@
+<button type="submit" class="btn btn-success">Lưu</button>
+<a href="{{ route('student.index') }}" class="btn btn-primary">Quay lại</a>
 <div class="row">
     <div class="col-md-6">
         <div class="form-group ">
@@ -29,6 +31,15 @@
             <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
                    placeholder="Nhập email" name="email" value="{{ old('email',isset($studentEdit) ? $studentEdit->email : '') }}">
             @error('email')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group ">
+            <label for="phone">Số điện thoại</label>
+            <input type="phone" class="form-control @error('phone') is-invalid @enderror" id="phone"
+                   placeholder="0123456789" name="phone"
+                   value="{{ old('phone',isset($studentEdit) ? $studentEdit->phone : '') }}">
+            @error('phone')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>
@@ -88,4 +99,4 @@
     </div>
 
 </div>
-<button type="submit" class="btn btn-success">Submit</button>
+

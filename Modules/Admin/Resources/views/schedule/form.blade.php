@@ -69,6 +69,16 @@
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>
+        <div class="form-group">
+            <label for="start_time">Phòng</label>
+            <select class="form-control " name="calendar_id">
+                <option value="">---Chọn phòng học---</option>
+
+            </select>
+            @error('calendar_id')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
     </div>
 </div>
 

@@ -17,7 +17,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'User', 'key' => 'Add User'])
+        @include('admin::components.headerContent',['name' => 'Giáo viên', 'key' => 'Sửa giáo viên'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('teacher.update',['id' => $teacherEdit->id]) }}" method="post"

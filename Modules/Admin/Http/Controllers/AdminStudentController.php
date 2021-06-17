@@ -49,6 +49,7 @@ class AdminStudentController extends FrontendController
         $this->student->classroom_id = $request->classroom_id;
         $this->student->email = $request->email;
         $this->student->password = Hash::make($request->password);
+        $this->student->phone = $request->phone;
         $this->student->save();
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
@@ -71,6 +72,7 @@ class AdminStudentController extends FrontendController
         $studentUpdate->email = $request->email;
         $studentUpdate->classroom_id = $request->classroom_id;
         $this->student->password = Hash::make($request->password);
+        $studentUpdate->phone = $request->phone;
         $studentUpdate->save();
         return redirect()->back()->with('success', 'Cập nhật thành công');
     }
@@ -92,16 +94,17 @@ class AdminStudentController extends FrontendController
     {
         if ($request->get('id')) {
             $id = $request->get('id');
-            $students = $this->student->newQuery()->where('classroom_id', $id)->with(['classroom'])->paginate(10);
+            $students = $this->student->with(['classroom'])
+                ->where('classroom_id', $id)
+                ->get();
             $output = '';
             foreach ($students as $student) {
                 $output .= '<tr>
                     <td>' . $student->id . '</td>
                     <td>' . $student->name . '</td>
+                     <td>' . $student->email . '</td>
                      <td>' . $student->code . '</td>
-                      <td>' . $student->birthday . '</td>
-                       <td>' . $student->sex . '  </td>
-                        <td>' . $student->nation . '</td>
+                     <td><ul><li>' . $student->birthday . '</li><li>'. $student->nation .'</li><li>'. $student->phone .'</li></ul></td>
                        <td>' . $student->classroom->name . '</td>
                        <td><a class="' . $student->getStatus($student->status)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getStatus($student->status)['name'] . '</a></td>
                           <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>
@@ -126,10 +129,9 @@ class AdminStudentController extends FrontendController
                 $output .= '<tr>
                     <td>' . $student->id . '</td>
                     <td>' . $student->name . '</td>
+                     <td>' . $student->email . '</td>
                      <td>' . $student->code . '</td>
-                      <td>' . $student->birthday . '</td>
-                       <td>' . $student->sex . '  </td>
-                        <td>' . $student->nation . '</td>
+                     <td><ul><li>' . $student->birthday . '</li><li>'. $student->nation .'</li><li>'. $student->phone .'</li></ul></td>
                        <td>' . $student->classroom->name . '</td>
                        <td><a class="' . $student->getStatus($student->status)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getStatus($student->status)['name'] . '</a></td>
                           <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>

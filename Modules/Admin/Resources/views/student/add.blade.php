@@ -7,7 +7,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Student', 'key' => 'Add Student'])
+        @include('admin::components.headerContent',['name' => 'Học sinh', 'key' => 'Thêm học sinh'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('student.store') }}" method="post" enctype="multipart/form-data" >
@@ -16,10 +16,7 @@
                 </form>
             </div>
         </section>
-
-
     </div>
-
 @endsection
 @section('js')
     <script src="{{ asset('admins/assets/js/add.js') }}"></script>

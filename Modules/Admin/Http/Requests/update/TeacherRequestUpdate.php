@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Admin\Http\Requests;
+namespace Modules\Admin\Http\Requests\update;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TeacherRequestAdd extends FormRequest
+class TeacherRequestUpdate extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -18,7 +18,7 @@ class TeacherRequestAdd extends FormRequest
             'code'        => 'required',
             'password'    => 'required',
             'email'       => 'required|unique:users,email,' . $this->id,
-            'image_path'  => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
+            'image_path'  => 'max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
             'description' => 'max:255'
         ];
     }
