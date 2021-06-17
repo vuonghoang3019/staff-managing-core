@@ -1,10 +1,10 @@
 @extends('master.master')
 @section('title')
-    <title>Home</title>
+    <title>Giáo viên</title>
 @endsection
 @section('content')
 
-    <div class="all-title-box" style="background: url({{ asset('home/images/1200px-Sun-group-logo.png') }})">
+    <div class="all-title-box" style="background: url({{ asset('home/images/banner.png') }})">
         <div class="container text-center">
             <h1>Teachers<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
         </div>
@@ -17,7 +17,7 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="our-team">
                             <div class="team-img">
-                                <img src="{{ asset($user->image_path) }}" width="255" height="325">
+                                <img src="{{ asset($user->image_path) }}" width="255" height="325" class="border">
 {{--                                <div class="social">--}}
 {{--                                    <ul>--}}
 {{--                                        <li><a href="#" class="fa fa-facebook"></a></li>--}}

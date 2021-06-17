@@ -15,8 +15,8 @@ class CalendarRequestAdd extends FormRequest
     {
         return [
             'day' => 'required',
-            'start_time' => 'required|date_format:H:i',
-            'end_time' => 'required|date_format:H:i|after:start_time',
+            'start_time' => 'required',
+            'end_time' => 'required|after:start_time',
         ];
     }
 

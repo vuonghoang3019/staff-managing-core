@@ -1,3 +1,5 @@
+<button type="submit" class="btn btn-success">Lưu</button>
+<a href="{{ route('calendar.index') }}" class="btn btn-primary">Quay lại</a>
 <div class="row">
     <div class="col-md-6">
         <div class="form-group ">
@@ -36,4 +38,4 @@
         </div>
     </div>
 </div>
-<button type="submit" class="btn btn-success">Submit</button>
+

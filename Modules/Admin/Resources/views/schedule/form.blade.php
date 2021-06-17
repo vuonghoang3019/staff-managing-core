@@ -1,3 +1,5 @@
+<button type="submit" class="btn btn-success">Lưu</button>
+<a href="{{ route('schedule.index') }}" class="btn btn-primary">Quay lại</a>
 <div class="row">
     <div class="col-md-6">
         <div class="form-group ">
@@ -6,7 +8,7 @@
                 <option value="">---Chọn lớp---</option>
                 @foreach($classrooms as $classroom)
                     <option value="{{ $classroom->id }}"
-                            @if(isset($scheduleEdit)) {{ $scheduleEdit->classroom_id === $classroom->id ? 'selected' : '' }} @endif
+                    @if(isset($scheduleEdit)) {{ $scheduleEdit->classroom_id === $classroom->id ? 'selected' : '' }} @endif
                     >{{ $classroom->name }}</option>
                 @endforeach
             </select>
@@ -28,22 +30,6 @@
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group ">
-            <label for="course_id">Khóa học</label>
-            <select class="form-control " name="course_id">
-                <option value="">---Chọn khóa học---</option>
-                @foreach($courses as $course)
-                    <option value="{{ $course->id }}"
-                    @if(isset($scheduleEdit)) {{ $scheduleEdit->course_id === $course->id ? 'selected' : '' }} @endif
-                    >{{ $course->name }}</option>
-                @endforeach
-            </select>
-            @error('course_id')
-            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
-            @enderror
-        </div>
-    </div>
-    <div class="col-md-6">
         <div class="form-group">
             <label for="start_time">Chọn lịch</label>
             <select class="form-control " name="calendar_id">
@@ -51,8 +37,7 @@
                 @foreach($calendars as $calendar)
 
                     <option value="{{ $calendar->id }}"
-                            @if(isset($scheduleEdit)) {{ $scheduleEdit->calendar_id === $calendar->id ? 'selected' : '' }} @endif
-                    >
+                    @if(isset($scheduleEdit)) {{ $scheduleEdit->calendar_id === $calendar->id ? 'selected' : '' }} @endif>
                         @foreach($weeks as $item => $day)
                             {{ $calendar->day === $item ? $day : '' }}
                         @endforeach
@@ -63,11 +48,14 @@
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>
+    </div>
+    <div class="col-md-6">
         <div class="form-group ">
             <label for="date_start">Ngày dự kiến bắt đầu</label>
             <input type="date" class="form-control @error('date_start') is-invalid @enderror"
                    id="date"
-                   name="date_start" value="{{ old('date_start',isset($scheduleEdit) ? $scheduleEdit->date_start : '') }}">
+                   name="date_start"
+                   value="{{ old('date_start',isset($scheduleEdit) ? $scheduleEdit->date_start : '') }}">
             @error('date_start')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
@@ -83,4 +71,4 @@
         </div>
     </div>
 </div>
-<button type="submit" class="btn btn-success">Submit</button>
+

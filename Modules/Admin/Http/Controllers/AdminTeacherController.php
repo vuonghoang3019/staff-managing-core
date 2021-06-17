@@ -37,7 +37,7 @@ class AdminTeacherController extends FrontendController
 
     public function index()
     {
-        $teachers = $this->user->newQuery()->with(['grades', 'roles'])->orderBy('id', 'desc')->paginate(5);
+        $teachers = $this->user->newQuery()->with(['grades', 'roles'])->orderBy('id', 'asc')->paginate(5);
         return view('admin::teacher.index', compact('teachers'));
     }
 

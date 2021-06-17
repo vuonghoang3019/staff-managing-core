@@ -11,7 +11,7 @@
                     @foreach($users as $user)
                         <div class="testimonial clearfix">
                             <div class="testi-meta">
-                                <img src="{{ asset($user->image_path) }}" alt="" class="img-fluid">
+                                <img src="{{ asset($user->image_path) }}" alt="" class="img-fluid" style="background-color: white">
                                 <h4>{{ $user->name }}</h4>
                             </div>
                             <div class="desc">
