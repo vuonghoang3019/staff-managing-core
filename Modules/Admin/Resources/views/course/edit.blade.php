@@ -10,7 +10,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Course', 'key' => 'Edit Course'])
+        @include('admin::components.headerContent',['name' => 'Khóa học', 'key' => 'Sửa khóa học'])
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
