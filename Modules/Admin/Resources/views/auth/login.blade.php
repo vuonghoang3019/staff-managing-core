@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('admins/assets/css/style.css') }}">
 </head>
 <body>
-<div class="wrapper fadeInDown">
+<div class="wrapper fadeInDown" style="background: url({{ asset('home/images/banner.png') }})">
     <div id="formContent">
         <!-- Tabs Titles -->
 

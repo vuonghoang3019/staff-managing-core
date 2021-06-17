@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 Route::any('/ckfinder/examples/{example?}', 'CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
     ->name('ckfinder_examples');
 
 Route::get('admin/login', 'auth\LoginController@getLogin')->name('getLogin');
 Route::post('admin/postLogin', 'auth\LoginController@postLogin')->name('postLogin');
 Route::get('logout', 'auth\LoginController@logout')->name('logout');
-Route::group(['prefix' => 'admin' , 'middleware' => ['CheckLogin']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('category')->group(function () {
         Route::get('/', [
@@ -45,62 +46,62 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['CheckLogin']], function ()
     });
     Route::prefix('slider')->group(function () {
         Route::get('/', [
-            'as'         => 'slider.index',
-            'uses'       => 'AdminSliderController@index',
+            'as'   => 'slider.index',
+            'uses' => 'AdminSliderController@index',
         ]);
         Route::get('/create', [
-            'as'         => 'slider.create',
-            'uses'       => 'AdminSliderController@create',
+            'as'   => 'slider.create',
+            'uses' => 'AdminSliderController@create',
         ]);
         Route::post('/store', [
-            'as'         => 'slider.store',
-            'uses'       => 'AdminSliderController@store',
+            'as'   => 'slider.store',
+            'uses' => 'AdminSliderController@store',
         ]);
         Route::get('/edit/{id}', [
-            'as'         => 'slider.edit',
-            'uses'       => 'AdminSliderController@edit',
+            'as'   => 'slider.edit',
+            'uses' => 'AdminSliderController@edit',
         ]);
         Route::post('/update/{id}', [
-            'as'         => 'slider.update',
-            'uses'       => 'AdminSliderController@update',
+            'as'   => 'slider.update',
+            'uses' => 'AdminSliderController@update',
         ]);
         Route::get('/delete/{id}', [
-            'as'         => 'slider.delete',
-            'uses'       => 'AdminSliderController@delete',
+            'as'   => 'slider.delete',
+            'uses' => 'AdminSliderController@delete',
         ]);
         Route::get('/action/{id}', [
-            'as'         => 'slider.action',
-            'uses'       => 'AdminSliderController@action',
+            'as'   => 'slider.action',
+            'uses' => 'AdminSliderController@action',
         ]);
     });
     Route::prefix('about')->group(function () {
         Route::get('/', [
-            'as'         => 'about.index',
-            'uses'       => 'AdminAboutController@index',
+            'as'   => 'about.index',
+            'uses' => 'AdminAboutController@index',
         ]);
         Route::get('/create', [
-            'as'         => 'about.create',
-            'uses'       => 'AdminAboutController@create',
+            'as'   => 'about.create',
+            'uses' => 'AdminAboutController@create',
         ]);
         Route::post('/store', [
-            'as'         => 'about.store',
-            'uses'       => 'AdminAboutController@store',
+            'as'   => 'about.store',
+            'uses' => 'AdminAboutController@store',
         ]);
         Route::get('/edit/{id}', [
-            'as'         => 'about.edit',
-            'uses'       => 'AdminAboutController@edit',
+            'as'   => 'about.edit',
+            'uses' => 'AdminAboutController@edit',
         ]);
         Route::post('/update/{id}', [
-            'as'         => 'about.update',
-            'uses'       => 'AdminAboutController@update',
+            'as'   => 'about.update',
+            'uses' => 'AdminAboutController@update',
         ]);
         Route::get('/delete/{id}', [
-            'as'         => 'about.delete',
-            'uses'       => 'AdminAboutController@delete',
+            'as'   => 'about.delete',
+            'uses' => 'AdminAboutController@delete',
         ]);
         Route::get('/action/{id}', [
-            'as'         => 'about.action',
-            'uses'       => 'AdminAboutController@action',
+            'as'   => 'about.action',
+            'uses' => 'AdminAboutController@action',
         ]);
     });
     Route::prefix('grade')->group(function () {
@@ -359,32 +360,32 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['CheckLogin']], function ()
     });
     Route::prefix('role')->group(function () {
         Route::get('/', [
-            'as'         => 'role.index',
-            'uses'       => 'AdminRoleController@index',
+            'as'   => 'role.index',
+            'uses' => 'AdminRoleController@index',
             'middleware' => 'can:role-list'
         ]);
         Route::get('/create', [
-            'as'         => 'role.create',
-            'uses'       => 'AdminRoleController@create',
-            'middleware' => 'can:role-add'
+            'as'   => 'role.create',
+            'uses' => 'AdminRoleController@create',
+                        'middleware' => 'can:role-add'
         ]);
         Route::post('/store', [
             'as'   => 'role.store',
             'uses' => 'AdminRoleController@store'
         ]);
         Route::get('/edit/{id}', [
-            'as'         => 'role.edit',
-            'uses'       => 'AdminRoleController@edit',
-            'middleware' => 'can:role-update'
+            'as'   => 'role.edit',
+            'uses' => 'AdminRoleController@edit',
+                        'middleware' => 'can:role-update'
         ]);
         Route::post('/update/{id}', [
             'as'   => 'role.update',
             'uses' => 'AdminRoleController@update'
         ]);
         Route::get('/delete/{id}', [
-            'as'           => 'role.delete',
-            'uses'         => 'AdminRoleController@delete'
-            , 'middleware' => 'can:role-delete'
+            'as'         => 'role.delete',
+            'uses'       => 'AdminRoleController@delete',
+            'middleware' => 'can:role-delete'
         ]);
     });
     Route::prefix('permission')->group(function () {
@@ -414,76 +415,76 @@ Route::group(['prefix' => 'admin' , 'middleware' => ['CheckLogin']], function ()
     });
     Route::prefix('recruitment')->group(function () {
         Route::get('/', [
-            'as'         => 'recruitment.index',
-            'uses'       => 'AdminRecruitmentController@index',
+            'as'   => 'recruitment.index',
+            'uses' => 'AdminRecruitmentController@index',
         ]);
         Route::get('/create', [
-            'as'         => 'recruitment.create',
-            'uses'       => 'AdminRecruitmentController@create',
+            'as'   => 'recruitment.create',
+            'uses' => 'AdminRecruitmentController@create',
         ]);
         Route::post('/store', [
-            'as'         => 'recruitment.store',
-            'uses'       => 'AdminRecruitmentController@store',
+            'as'   => 'recruitment.store',
+            'uses' => 'AdminRecruitmentController@store',
         ]);
         Route::get('/edit/{id}', [
-            'as'         => 'recruitment.edit',
-            'uses'       => 'AdminRecruitmentController@edit',
+            'as'   => 'recruitment.edit',
+            'uses' => 'AdminRecruitmentController@edit',
         ]);
         Route::post('/update/{id}', [
-            'as'         => 'recruitment.update',
-            'uses'       => 'AdminRecruitmentController@update',
+            'as'   => 'recruitment.update',
+            'uses' => 'AdminRecruitmentController@update',
         ]);
         Route::get('/delete/{id}', [
-            'as'         => 'recruitment.delete',
-            'uses'       => 'AdminRecruitmentController@delete',
+            'as'   => 'recruitment.delete',
+            'uses' => 'AdminRecruitmentController@delete',
         ]);
         Route::get('/action/{id}', [
-            'as'         => 'recruitment.action',
-            'uses'       => 'AdminRecruitmentController@action',
+            'as'   => 'recruitment.action',
+            'uses' => 'AdminRecruitmentController@action',
         ]);
     });
     Route::prefix('contact')->group(function () {
         Route::get('/', [
-            'as'         => 'contact.index',
-            'uses'       => 'AdminContactController@index',
+            'as'   => 'contact.index',
+            'uses' => 'AdminContactController@index',
         ]);
         Route::get('/action/{id}', [
-            'as'         => 'contact.action',
-            'uses'       => 'AdminContactController@action',
+            'as'   => 'contact.action',
+            'uses' => 'AdminContactController@action',
         ]);
         Route::get('/viewDetail/{id}', [
-            'as'         => 'contact.detail',
-            'uses'       => 'AdminContactController@detail',
+            'as'   => 'contact.detail',
+            'uses' => 'AdminContactController@detail',
         ]);
     });
     Route::prefix('news')->group(function () {
         Route::get('/', [
-            'as'         => 'news.index',
-            'uses'       => 'AdminNewsController@index',
+            'as'   => 'news.index',
+            'uses' => 'AdminNewsController@index',
         ]);
         Route::get('/create', [
-            'as'         => 'news.create',
-            'uses'       => 'AdminNewsController@create',
+            'as'   => 'news.create',
+            'uses' => 'AdminNewsController@create',
         ]);
         Route::post('/store', [
-            'as'         => 'news.store',
-            'uses'       => 'AdminNewsController@store',
+            'as'   => 'news.store',
+            'uses' => 'AdminNewsController@store',
         ]);
         Route::get('/edit/{id}', [
-            'as'         => 'news.edit',
-            'uses'       => 'AdminNewsController@edit',
+            'as'   => 'news.edit',
+            'uses' => 'AdminNewsController@edit',
         ]);
         Route::post('/update/{id}', [
-            'as'         => 'news.update',
-            'uses'       => 'AdminNewsController@update',
+            'as'   => 'news.update',
+            'uses' => 'AdminNewsController@update',
         ]);
         Route::get('/delete/{id}', [
-            'as'         => 'news.delete',
-            'uses'       => 'AdminNewsController@delete',
+            'as'   => 'news.delete',
+            'uses' => 'AdminNewsController@delete',
         ]);
         Route::get('/news/{id}', [
-            'as'         => 'news.action',
-            'uses'       => 'AdminNewsController@action',
+            'as'   => 'news.action',
+            'uses' => 'AdminNewsController@action',
         ]);
     });
 });
