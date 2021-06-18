@@ -73,7 +73,7 @@
                                                 <li>Số điện thoại: {{ $data->phone }}</li>
                                             </ul>
                                         </td>
-                                        <td>{{ $data->classroom->name }}</td>
+                                        <td>{{ $data->classroom == null ? 'hiện tại Học sinh không có lớp' : $data->classroom->name  }}</td>
                                         <td>
                                             <a href="{{ route('student.action',['id' => $data->id]) }}"
                                                class=" {{ $data->getStatus($data->status)['class'] }}">

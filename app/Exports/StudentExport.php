@@ -26,6 +26,8 @@ class StudentExport implements FromCollection, WithHeadings, WithMapping, WithEv
         return [
             $student->code,
             $student->name,
+            $student->email,
+            $student->phone,
             $student->birthday,
             $student->sex === 0 ? 'Nam' : 'Nữ',
             $student->nation,
@@ -38,6 +40,8 @@ class StudentExport implements FromCollection, WithHeadings, WithMapping, WithEv
         return [
             'Code',
             'Name',
+            'Email',
+            'Phone',
             'Birthday',
             'Sex',
             'Nation',

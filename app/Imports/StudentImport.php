@@ -17,12 +17,14 @@ class StudentImport implements ToCollection, WithHeadingRow, WithValidation
         $student = new  Student();
         foreach ($rows as $row) {
             $student->newQuery()->create([
-                'code' => $row['code'],
-                'name' => $row['name'],
-                'birthday' => $row['birthday'],
-                'sex' => $row['sex'],
-                'nation' => $row['nation'],
-                'classroom_id' => $row['classroom']
+                'code'         => $row['code'],
+                'name'         => $row['name'],
+                'email'        => $row['email'],
+                'phone'        => $row['phone'],
+                'birthday'     => $row['birthday'],
+                'sex'          => $row['sex'],
+                'nation'       => $row['nation'],
+//                'classroom_id' => $row['classroom']
             ]);
         }
     }
@@ -30,7 +32,8 @@ class StudentImport implements ToCollection, WithHeadingRow, WithValidation
     public function rules(): array
     {
         return [
-            '*.code' => ['unique:students,code']
+            '*.code'  => ['unique:students,code'],
+            '*.email' => ['unique:students,email']
         ];
     }
 

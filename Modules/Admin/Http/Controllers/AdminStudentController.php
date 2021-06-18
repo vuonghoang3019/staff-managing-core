@@ -29,7 +29,7 @@ class AdminStudentController extends FrontendController
     public function index()
     {
         $classrooms = $this->classroom->get();
-        $students = $this->student->newQuery()->with(['classroom'])->paginate(5);
+        $students = $this->student->newQuery()->with(['classroom'])->orderBy('id','asc')->paginate(5);
         return view('admin::student.index', compact('students', 'classrooms'));
     }
 
