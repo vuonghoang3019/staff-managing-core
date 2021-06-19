@@ -1,10 +1,11 @@
 <?php
 
-namespace Modules\Admin\Http\Requests;
+namespace Modules\Admin\Http\Requests\update;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StudentRequestAdd extends FormRequest {
+class StudentRequestUpdate extends FormRequest
+{
     /**
      * Get the validation rules that apply to the request.
      *
@@ -22,7 +23,7 @@ class StudentRequestAdd extends FormRequest {
             'phone'        => 'required',
             'email'        => 'required|unique:students,email,' . $this->id,
             'password'     => 'required',
-            'image_path'   => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
+            'image_path'   => 'max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
         ];
     }
 
@@ -42,7 +43,6 @@ class StudentRequestAdd extends FormRequest {
             'email.required'        => 'Email học sinh không được để trống',
             'email.unique'          => 'Email học sinh không được để trùng',
             'password.required'     => 'Pass không được để trống',
-            'image_path.required'   => 'Ảnh không được để trống',
             'image_path.max'          => 'Kích thước ảnh vượt quá mức',
             'image_path.mimes'      => 'Chỉ chấp nhận ảnh: jpeg,png,jpg'
         ];

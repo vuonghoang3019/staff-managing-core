@@ -3854,6 +3854,11 @@ a.link-style3 {
     padding: 15px;
     height: 200px;
 }
+.benefit{
+    border: 1px solid #4babb1;
+    padding: 15px;
+    height: 280px;
+}
 .course-meta-bot{
     border: 1px solid #4babb1;
     border-top: 0px;

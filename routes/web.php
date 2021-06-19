@@ -35,6 +35,10 @@ Route::group(['prefix' => 'auth'],function (){
         'as'         => 'user.info',
         'uses'       => 'auth\UserController@index',
     ]);
+    Route::post('updateStudentInfo/{id}', [
+        'as'         => 'user.update',
+        'uses'       => 'auth\UserController@updateStudentInfo',
+    ]);
     //send email
     Route::get('sendEmail', [
         'as'         => 'forgot.password',

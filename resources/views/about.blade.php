@@ -1,6 +1,6 @@
 @extends('master.master')
 @section('title')
-    <title>About</title>
+    <title>Giới thiệu</title>
 @endsection
 @section('css')
 {{--    <link rel="stylesheet" href="{{ asset('home/css/carousel.css') }}">--}}
@@ -8,9 +8,6 @@
 @section('content')
 
     <div class="all-title-box" style="background: url({{ asset('home/images/banner.png') }})">
-        <div class="container text-center">
-            <h1>About Us<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
-        </div>
     </div>
     <!-- about -->
     <div id="overviews" class="section lb">

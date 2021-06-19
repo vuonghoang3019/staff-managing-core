@@ -11,13 +11,16 @@ use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\ImportExcelRequest;
 use Modules\Admin\Http\Requests\StudentRequestAdd;
+use Modules\Admin\Http\Requests\update\StudentRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
+use Modules\Admin\Traits\StorageImageTrait;
 
 class AdminStudentController extends FrontendController
 {
     private $classroom;
     private $student;
     use DeleteTrait;
+    use StorageImageTrait;
 
     public function __construct(Student $student, Classroom $classroom)
     {
@@ -50,6 +53,12 @@ class AdminStudentController extends FrontendController
         $this->student->email = $request->email;
         $this->student->password = Hash::make($request->password);
         $this->student->phone = $request->phone;
+        $studentUpload = $this->storageTraitUpload($request,'image_path','student');
+        if (!empty($studentUpload))
+        {
+            $this->student->image_path = $studentUpload['file_path'];
+            $this->student->image_name = $studentUpload['file_name'];
+        }
         $this->student->save();
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
@@ -61,7 +70,7 @@ class AdminStudentController extends FrontendController
         return view('admin::student.edit', compact('classrooms', 'studentEdit'));
     }
 
-    public function update(StudentRequestAdd $request, $id)
+    public function update(StudentRequestUpdate $request, $id)
     {
         $studentUpdate = $this->student->find($id);
         $studentUpdate->code = $request->code;
@@ -73,6 +82,13 @@ class AdminStudentController extends FrontendController
         $studentUpdate->classroom_id = $request->classroom_id;
         $this->student->password = Hash::make($request->password);
         $studentUpdate->phone = $request->phone;
+        $studentUpload = $this->storageTraitUpload($request,'image_path','student');
+        if (!empty($studentUpload))
+        {
+            unlink(substr($studentUpdate->image_path, 1));
+            $studentUpdate->image_path = $studentUpload['file_path'];
+            $studentUpdate->image_name = $studentUpload['file_name'];
+        }
         $studentUpdate->save();
         return redirect()->back()->with('success', 'Cập nhật thành công');
     }

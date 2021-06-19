@@ -160,7 +160,7 @@
 
                 <div class="col-lg-3 col-md-3 col-6">
                     <div class="course-item">
-                        <div class="course-br">
+                        <div class="benefit">
                             <div class="course-title">
                                 <h2><a href="#" title="">Học phí thấp - Hiệu quả cao</a></h2>
                             </div>
@@ -178,7 +178,7 @@
 
                 <div class="col-lg-3 col-md-3 col-6">
                     <div class="course-item">
-                        <div class="course-br">
+                        <div class="benefit">
                             <div class="course-title">
                                 <h2><a href="#" title="">Học thử miễn phí - Càng học càng rẻ</a></h2>
                             </div>
@@ -194,7 +194,7 @@
 
                 <div class="col-lg-3 col-md-3 col-6">
                     <div class="course-item">
-                        <div class="course-br">
+                        <div class="benefit">
                             <div class="course-title">
                                 <h2><a href="#" title="">Dạy các kỹ năng học tập ưu việt miễn phí</a></h2>
                             </div>
@@ -210,7 +210,7 @@
 
                 <div class="col-lg-3 col-md-3 col-6">
                     <div class="course-item">
-                        <div class="course-br">
+                        <div class="benefit">
                             <div class="course-title">
                                 <h2><a href="#" title="">Hỗ trợ trả gớp với lãi suất 0%</a></h2>
                             </div>
@@ -233,7 +233,7 @@
 
                 <div class="col-lg-3 col-md-3 col-6">
                     <div class="course-item">
-                        <div class="course-br">
+                        <div class="benefit">
                             <div class="course-title">
                                 <h2><a href="#" title="">Học lại miễn phí khi kiểm tra chưa đạt</a></h2>
                             </div>
@@ -250,7 +250,7 @@
 
                 <div class="col-lg-3 col-md-3 col-6">
                     <div class="course-item">
-                        <div class="course-br">
+                        <div class="benefit">
                             <div class="course-title">
                                 <h2><a href="#" title="">Báo cáo học tập và học bổng cho học sinh giỏi</a></h2>
                             </div>
@@ -267,7 +267,7 @@
 
                 <div class="col-lg-3 col-md-3 col-6">
                     <div class="course-item">
-                        <div class="course-br">
+                        <div class="benefit">
                             <div class="course-title">
                                 <h2><a href="#" title="">Đánh giá năng lực theo chuẩn quốc tế</a></h2>
                             </div>
@@ -284,7 +284,7 @@
 
                 <div class="col-lg-3 col-md-3 col-6">
                     <div class="course-item">
-                        <div class="course-br">
+                        <div class="benefit">
                             <div class="course-title">
                                 <h2><a href="#" title="">Học với giáo viên nước ngoài</a></h2>
                             </div>
