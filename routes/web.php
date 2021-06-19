@@ -35,7 +35,11 @@ Route::group(['prefix' => 'auth'],function (){
         'as'         => 'user.info',
         'uses'       => 'auth\UserController@index',
     ]);
-
+    //send email
+    Route::get('sendEmail', [
+        'as'         => 'forgot.password',
+        'uses'       => 'auth\LoginController@forgotPassword',
+    ]);
     Route::get('logout', 'auth\LoginController@logoutUser')->name('logoutUser');
 });
 Route::get('/about', 'AboutController@index')->name('about');

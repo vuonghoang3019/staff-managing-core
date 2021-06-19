@@ -85,7 +85,7 @@ class AdminTeacherController extends FrontendController
         $teacherUpdate->email = $request->email;
         $teacherUpdate->description = $request->description;
         $teacherUpdate->is_check = $request->is_check == null ? 0 : 1;
-        $this->user->password = Hash::make($request->password);
+        $teacherUpdate->password = Hash::make($request->password);
         $userUpload = $this->storageTraitUpload($request, 'image_path', 'teacher');
         if (!empty($userUpload)) {
             unlink(substr($teacherUpdate->image_path, 1));

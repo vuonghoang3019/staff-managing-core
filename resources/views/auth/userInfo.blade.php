@@ -22,14 +22,13 @@
                                         <p class="text-muted font-size-sm">
                                             @foreach($courses as $course)
                                                 @if($studentClassroom->course_id == $course->id)
-                                                    {{ $course->name }}
+                                                  Khóa học:  {{ $course->name }}
                                                 @endif
                                             @endforeach
                                         </p>
                                         <button class="btn btn-primary">Follow</button>
                                     </div>
                                 </div>
-                                <hr class="my-4">
                             </div>
                         </div>
                     </div>

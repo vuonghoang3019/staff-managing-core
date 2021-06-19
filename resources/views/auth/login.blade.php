@@ -35,7 +35,16 @@
                         <button type="submit" class="btn btn-login float-right">Đăng nhập</button>
                     </div>
                 </form>
+                <div class="mt-4 text-center">
+                    <div class="form-group">
+                        Bạn chưa có tài khoản <a href="#">Đăng ký ngay</a>
+                    </div>
+                    <div class="form-group">
+                        <a href="{{ route('forgot.password') }}">Quên mật khẩu?</a>
+                    </div>
+                </div>
             </div>
+
             <div class="col-md-8 banner-sec">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
