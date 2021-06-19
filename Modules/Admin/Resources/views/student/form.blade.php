@@ -1,7 +1,7 @@
 <button type="submit" class="btn btn-success">Lưu</button>
 <a href="{{ route('student.index') }}" class="btn btn-primary">Quay lại</a>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group ">
             <label for="code">Nhập mã học sinh</label>
             <input type="text" class="form-control @error('code') is-invalid @enderror" id="code"
@@ -44,7 +44,7 @@
             @enderror
         </div>
     </div>
-    <div class="col-md-6 ">
+    <div class="col-md-4">
         <div class="form-group ">
             <label for="nation">Dân tộc</label>
             <input type="text" class="form-control @error('nation') is-invalid @enderror" id="nation"
@@ -97,6 +97,16 @@
             @enderror
         </div>
     </div>
-
+    <div class="col-md-4">
+        <div class="form-group mr-5">
+            <div class="drop-zone">
+                <span class="drop-zone__prompt @error('image_path') is-invalid @enderror">Drop file here or click to upload</span>
+                <input type="file" name="image_path" class="drop-zone__input">
+            </div>
+            @error('image_path')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
 </div>
 

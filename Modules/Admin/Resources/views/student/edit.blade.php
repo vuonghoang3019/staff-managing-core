@@ -4,6 +4,7 @@
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('vendors/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admins/assets/css/upload.css') }}">
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -22,4 +23,5 @@
 @section('js')
     <script src="{{ asset('admins/assets/js/add.js') }}"></script>
     <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('admins/assets/js/upload.js') }}"></script>
 @endsection

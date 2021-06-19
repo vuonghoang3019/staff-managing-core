@@ -35,12 +35,12 @@
                             <label for="">Tên:</label>
                             <input type="text" class="form-control ml-2" id="search">
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="">Trạng thái:</label>
-                            <select class="form-control ml-2">
-                                <option>---Chọn trạng thái---</option>
-                            </select>
-                        </div>
+{{--                        <div class="form-group col-md-3">--}}
+{{--                            <label for="">Trạng thái:</label>--}}
+{{--                            <select class="form-control ml-2">--}}
+{{--                                <option>---Chọn trạng thái---</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="col-md-12 ">
                         <table class="table">

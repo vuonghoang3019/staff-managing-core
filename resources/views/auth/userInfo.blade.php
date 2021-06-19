@@ -1,6 +1,6 @@
 @extends('master.master')
 @section('title')
-    <title>About</title>
+    <title>Thông tin tài khoản</title>
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('home/css/user.css') }}">
@@ -37,7 +37,7 @@
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Full Name</h6>
+                                        <h6 class="mb-0">Họ tên</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="text" class="form-control" value="{{ $studentDetail->name }}">
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone</h6>
+                                        <h6 class="mb-0">Số điện thoại</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="text" class="form-control" value="{{ $studentDetail->phone }}">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Mobile</h6>
+                                        <h6 class="mb-0">Ngày sinh</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="text" class="form-control" value="{{ $studentDetail->birthday }}">
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
+                                        <h6 class="mb-0">Mật khẩu</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="password" class="form-control"

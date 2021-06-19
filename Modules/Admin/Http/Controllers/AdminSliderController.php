@@ -58,7 +58,7 @@ class AdminSliderController extends FrontendController
         $sliderUpdate->description = $request->description;
         $sliderUpload = $this->storageTraitUpload($request, 'image_path', 'slider');
         if (!empty($sliderUpload)) {
-            unlink(substr($sliderUpdate->image_path, 1));
+//            unlink(substr($sliderUpdate->image_path, 1));
             $sliderUpdate->image_name = $sliderUpload['file_name'];
             $sliderUpdate->image_path = $sliderUpload['file_path'];
         }
@@ -69,7 +69,7 @@ class AdminSliderController extends FrontendController
     public function delete($id)
     {
         $sliderDelete = $this->slider->findOrFail($id);
-        unlink(substr($sliderDelete->image_path, 1));
+//        unlink(substr($sliderDelete->image_path, 1));
         return $this->deleteModelTrait($id, $this->slider);
     }
 
