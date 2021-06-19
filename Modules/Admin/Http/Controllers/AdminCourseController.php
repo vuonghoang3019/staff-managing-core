@@ -73,7 +73,7 @@ class AdminCourseController extends FrontendController
         $courseEdit->description = $request->description;
         $courseUpload = $this->storageTraitUpload($request, 'image_path', 'course');
         if (!empty($courseUpload)) {
-            unlink(substr($courseEdit->image_path, 1));
+//            unlink(substr($courseEdit->image_path, 1));
             $courseEdit->image_name = $courseUpload['file_name'];
             $courseEdit->image_path = $courseUpload['file_path'];
         }

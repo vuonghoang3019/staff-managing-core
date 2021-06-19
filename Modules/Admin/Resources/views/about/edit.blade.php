@@ -8,7 +8,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'About', 'key' => 'Edit About'])
+        @include('admin::components.headerContent',['name' => 'Giới thiệu', 'key' => 'Sửa giới thiệu'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('about.update',['id' => $aboutEdit->id]) }}" method="post" enctype="multipart/form-data">

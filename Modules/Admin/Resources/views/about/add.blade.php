@@ -8,12 +8,13 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'About', 'key' => 'Add About'])
+        @include('admin::components.headerContent',['name' => 'Giới thiệu', 'key' => 'Thêm giới thiệu'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('about.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
+                    <a href="{{ route('about.index') }}" class="btn btn-primary">Quay lại</a>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

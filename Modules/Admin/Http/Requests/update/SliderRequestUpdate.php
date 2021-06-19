@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Admin\Http\Requests;
+namespace Modules\Admin\Http\Requests\update;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SliderRequestAdd extends FormRequest
+class SliderRequestUpdate extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,7 +15,7 @@ class SliderRequestAdd extends FormRequest
     {
         return [
             'name'      => 'required',
-            'image_path' => 'required|max:10000|mimes:jpeg,png,jpg',
+            'image_path' => 'max:10000|mimes:jpeg,png,jpg',
             'description'    => 'required',
         ];
     }

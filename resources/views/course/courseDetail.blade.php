@@ -4,9 +4,6 @@
 @endsection
 @section('content')
     <div class="all-title-box" style="background: url({{ asset('home/images/banner.png') }})">
-        <div class="container text-center">
-            <h1>Chi tiế<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
-        </div>
     </div>
     <div id="overviews" class="section wb">
         <div class="container">
@@ -22,6 +19,7 @@
                                 <span><i class="fa fa-calendar"></i> {{ $courseDetail->created_at }} </span>
                             </div>
                             <div class="blog-desc">
+                                <p>{{ $courseDetail->name }}</p>
                                 <p>{!! $courseDetail->description !!}</p>
                             </div>
                         </div>

@@ -13,7 +13,8 @@
             <div class="container-fluid">
                 <form action="{{ route('news.update',['id' => $newsEdit->id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Lưu</button>
+                    <a href="{{ route('news.index') }}" class="btn btn-primary">Quay lại</a>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

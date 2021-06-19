@@ -5,6 +5,8 @@ namespace Modules\Admin\Http\Controllers;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Http\Requests\SliderRequestAdd;
+use Modules\Admin\Http\Requests\update\SliderRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
@@ -32,7 +34,7 @@ class AdminSliderController extends FrontendController
         return view('admin::slider.add');
     }
 
-    public function store(Request $request)
+    public function store(SliderRequestAdd $request)
     {
         $this->slider->name = $request->name;
         $this->slider->description = $request->description;
@@ -51,14 +53,14 @@ class AdminSliderController extends FrontendController
         return view('admin::slider.edit', compact('sliderEdit'));
     }
 
-    public function update(Request $request, $id)
+    public function update(SliderRequestUpdate $request, $id)
     {
         $sliderUpdate = $this->slider->findOrFail($id);
         $sliderUpdate->name = $request->name;
         $sliderUpdate->description = $request->description;
         $sliderUpload = $this->storageTraitUpload($request, 'image_path', 'slider');
         if (!empty($sliderUpload)) {
-//            unlink(substr($sliderUpdate->image_path, 1));
+            unlink(substr($sliderUpdate->image_path, 1));
             $sliderUpdate->image_name = $sliderUpload['file_name'];
             $sliderUpdate->image_path = $sliderUpload['file_path'];
         }
@@ -69,7 +71,7 @@ class AdminSliderController extends FrontendController
     public function delete($id)
     {
         $sliderDelete = $this->slider->findOrFail($id);
-//        unlink(substr($sliderDelete->image_path, 1));
+        unlink(substr($sliderDelete->image_path, 1));
         return $this->deleteModelTrait($id, $this->slider);
     }
 
