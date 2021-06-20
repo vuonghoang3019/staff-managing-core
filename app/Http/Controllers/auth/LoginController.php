@@ -58,19 +58,4 @@ class LoginController extends Controller
         Auth::guard('student')->logout();
         return redirect()->route('home');
     }
-
-    public function forgotPassword()
-    {
-        $to_name = "Vuong dep trai";
-        $to_email = "vuongmau199@gmail.com";
-        $data = [
-            'name' => 'Mail tu tai khoan',
-            'body' => 'sadas'
-        ];
-        Mail::send('auth.sendmail',$data,function ($message) use ($to_name,$to_email){
-            $message->to($to_email)->subject('Test mail');
-            $message->from($to_email,$to_name);
-        });
-        return redirect()->route('login');
-    }
 }

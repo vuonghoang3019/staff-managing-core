@@ -40,7 +40,7 @@
                         Bạn chưa có tài khoản <a href="#">Đăng ký ngay</a>
                     </div>
                     <div class="form-group">
-                        <a href="{{ route('forgot.password') }}">Quên mật khẩu?</a>
+                        <a href="{{ route('get.reset.password') }}">Quên mật khẩu?</a>
                     </div>
                 </div>
             </div>

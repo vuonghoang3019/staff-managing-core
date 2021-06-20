@@ -39,10 +39,17 @@ Route::group(['prefix' => 'auth'],function (){
         'as'         => 'user.update',
         'uses'       => 'auth\UserController@updateStudentInfo',
     ]);
-    //send email
-    Route::get('sendEmail', [
-        'as'         => 'forgot.password',
-        'uses'       => 'auth\LoginController@forgotPassword',
+    Route::get('getPassword', [
+        'as'         => 'get.reset.password',
+        'uses'       => 'auth\ForgotPasswordController@getFormResetPassword',
+    ]);
+    Route::post('getCodeReset', [
+        'as'         => 'send.code.reset',
+        'uses'       => 'auth\ForgotPasswordController@sendCodeResetPassword',
+    ]);
+    Route::get('password/reset', [
+        'as'         => 'password.reset',
+        'uses'       => 'auth\ForgotPasswordController@resetPassword',
     ]);
     Route::get('logout', 'auth\LoginController@logoutUser')->name('logoutUser');
 });
