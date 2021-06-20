@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontendController;
 use App\Models\Student;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ForgotPasswordController extends FrontendController {
     public function __construct()
@@ -31,6 +32,9 @@ class ForgotPasswordController extends FrontendController {
         $checkStudent->code_reset = $code_reset;
         $checkStudent->code_time = Carbon::now();
         $checkStudent->save();
+        Mail::send('email.resetPassword',  $checkStudent->toArray(), function($message) use ($email){
+            $message->to($email, 'Reset Password')->subject('Lấy lại mật khẩu');
+        });
         return redirect()->back()->with('success', 'Link lấy lại mật khẩu đã gửi vào email của bạn');
     }
 
