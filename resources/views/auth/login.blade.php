@@ -18,6 +18,16 @@
                 <h2 class="text-center">Đăng nhập</h2>
                 <form action="{{ route('postLogin.User') }}" method="post" class="login-form">
                     @csrf
+                    @if (session('success'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label for="email" class="text-uppercase">Email</label>
                         <input type="text" class="form-control" placeholder="" name="email">

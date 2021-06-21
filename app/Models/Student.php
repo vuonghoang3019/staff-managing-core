@@ -12,7 +12,10 @@ class Student extends Authenticatable
     protected $table = 'students';
     protected $guarded = 'student';
     protected $fillable = ['code','name','birthday','sex','nation','classroom_id',
-                           'status','email','password','phone','image_path','image_name','code_reset','code_time'];
+                           'status','email','password','phone',
+                           'image_path','image_name','code_reset','code_time',
+                           'code_active','time_active'
+        ];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;
     protected $statusStudent = [

@@ -17,11 +17,15 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'auth'],function (){
     Route::get('/register', [
         'as'         => 'register',
-        'uses'       => 'auth\LoginController@getRegister',
+        'uses'       => 'auth\RegisterController@getRegister',
     ]);
     Route::post('/postRegister', [
         'as'         => 'postRegister',
-        'uses'       => 'auth\LoginController@postRegister',
+        'uses'       => 'auth\RegisterController@postRegister',
+    ]);
+    Route::get('/verifyAccount', [
+        'as'         => 'verify.account',
+        'uses'       => 'auth\RegisterController@verifyAccount',
     ]);
     Route::get('/login', [
         'as'         => 'login',
@@ -30,6 +34,7 @@ Route::group(['prefix' => 'auth'],function (){
     Route::post('/postLogin', [
         'as'         => 'postLogin.User',
         'uses'       => 'auth\LoginController@postLogin',
+        'middleware'    => 'checkStatus',
     ]);
     Route::get('userInfo/{id}', [
         'as'         => 'user.info',
@@ -50,6 +55,10 @@ Route::group(['prefix' => 'auth'],function (){
     Route::get('password/reset', [
         'as'         => 'password.reset',
         'uses'       => 'auth\ForgotPasswordController@resetPassword',
+    ]);
+    Route::post('password/saveResetPassword', [
+        'as'         => 'password.updatePassword',
+        'uses'       => 'auth\ForgotPasswordController@saveResetPassword',
     ]);
     Route::get('logout', 'auth\LoginController@logoutUser')->name('logoutUser');
 });

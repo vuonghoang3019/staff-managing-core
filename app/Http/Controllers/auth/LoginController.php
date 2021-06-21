@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RegisterRequestAdd;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 
 class LoginController extends Controller
 {
@@ -24,32 +21,17 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function getRegister()
-    {
-        return view('auth.register');
-    }
-
-    public function postRegister(RegisterRequestAdd $request)
-    {
-        $this->student->name = $request->name;
-        $this->student->email = $request->email;
-        $this->student->password = Hash::make($request->password);
-        $this->student->phone = $request->phone;
-        $this->student->sex = $request->sex;
-        $this->student->save();
-        if ($this->student->id) {
-            return redirect()->route('login');
-        }
-        return redirect()->back();
-    }
-
     public function postLogin(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('student')->attempt($credentials)) {
+            if (Auth::guard('student')->user()->status == 0)
+            {
+                return redirect()->route('login')->with('error','Email của bạn chưa kích hoạt, vui lòng kích hoạt Email');
+            }
             return redirect()->route('home');
         } else {
-            return redirect()->back();
+            return redirect()->back()->with('error','Sai tài khoản hoặc mật khẩu');
         }
     }
 
