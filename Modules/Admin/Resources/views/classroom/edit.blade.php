@@ -5,7 +5,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Classroom', 'key' => 'Edit classroom'])
+        @include('admin::components.headerContent',['name' => 'Lớp học', 'key' => 'Sửa lớp học'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('classroom.update',['id' => $classroomEdit->id]) }}" method="post">
