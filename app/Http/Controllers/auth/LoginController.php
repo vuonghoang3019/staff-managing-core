@@ -25,10 +25,6 @@ class LoginController extends Controller
     {
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('student')->attempt($credentials)) {
-            if (Auth::guard('student')->user()->status == 0)
-            {
-                return redirect()->route('login')->with('error','Email của bạn chưa kích hoạt, vui lòng kích hoạt Email');
-            }
             return redirect()->route('home');
         } else {
             return redirect()->back()->with('error','Sai tài khoản hoặc mật khẩu');

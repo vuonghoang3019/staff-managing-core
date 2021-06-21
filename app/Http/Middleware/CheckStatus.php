@@ -16,23 +16,11 @@ class CheckStatus
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
-//        if (Auth::check())
-//        {
-//            $user = Auth::user();
-//            if ($user->status == 1)
-//            {
-//                return $next($request);
-//            }
-//            else
-//            {
-//                Auth::logout();
-//                return redirect()->route('login');
-//            }
-//        }
-//        else
-//        {
-//            return redirect()->route('login');
-//        }
+        $response = $next($request);
+        if(Auth::guard('student')->check() && Auth::guard('student')->user()->status != 1){
+            Auth::logout();
+            return redirect()->route('login')->with('error', 'Email của bạn chưa kích hoạt, vui lòng kích hoạt Email');
+        }
+        return $response;
     }
 }
