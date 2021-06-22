@@ -44,6 +44,12 @@ class Schedule extends Model
         return $this->belongsTo(Classroom::class, 'classroom_id');
     }
 
+    public function room()
+    {
+        return $this->belongsTo(Room::class, 'room_id');
+    }
+
+
     public function countNumber($userID, $classId)
     {
         return $this->newQuery()

@@ -71,11 +71,16 @@
         </div>
         <div class="form-group">
             <label for="start_time">Phòng</label>
-            <select class="form-control " name="calendar_id">
+            <select class="form-control " name="room_id">
                 <option value="">---Chọn phòng học---</option>
-
+                @foreach($rooms as $room)
+                    <option
+                        value="{{ $room->id }}" @if(isset($scheduleEdit))
+                        {{ $scheduleEdit->room_id === $room->id ? 'selected' : '' }}
+                        @endif>{{ $room->name }}</option>
+                @endforeach
             </select>
-            @error('calendar_id')
+            @error('room_id')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>

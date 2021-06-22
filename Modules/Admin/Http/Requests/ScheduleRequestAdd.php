@@ -5,8 +5,7 @@ namespace Modules\Admin\Http\Requests;
 use App\Models\Schedule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ScheduleRequestAdd extends FormRequest
-{
+class ScheduleRequestAdd extends FormRequest {
     /**
      * Get the validation rules that apply to the request.
      *
@@ -26,6 +25,7 @@ class ScheduleRequestAdd extends FormRequest
             'classroom_id' => 'required',
             'user_id'      => 'required',
             'calendar_id'  => 'required|unique:schedules,calendar_id,' . $this->id,
+            'room_id'      => 'required',
             'date_start'   => 'required|after_or_equal:today',
             'date_end'     => 'required|after:date_start'
         ];

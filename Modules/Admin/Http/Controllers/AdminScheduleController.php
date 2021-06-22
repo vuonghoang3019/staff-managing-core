@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use App\Models\Calendar;
 use App\Models\Classroom;
 use App\Models\Course;
+use App\models\Room;
 use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,8 +13,7 @@ use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\ScheduleRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 
-class AdminScheduleController extends FrontendController
-{
+class AdminScheduleController extends FrontendController {
     use DeleteTrait;
 
     private $classroom;
@@ -21,8 +21,9 @@ class AdminScheduleController extends FrontendController
     private $course;
     private $calendar;
     private $schedule;
+    private $room;
 
-    public function __construct(Classroom $classroom, User $user, Course $course, Calendar $calendar, Schedule $schedule)
+    public function __construct(Classroom $classroom, User $user, Course $course, Calendar $calendar, Schedule $schedule, Room $room)
     {
         parent::__construct();
         $this->classroom = $classroom;
@@ -30,13 +31,14 @@ class AdminScheduleController extends FrontendController
         $this->course = $course;
         $this->calendar = $calendar;
         $this->schedule = $schedule;
+        $this->room = $room;
     }
 
     public function index()
     {
         $weeks = $this->schedule->getWeek();
         $schedules = $this->schedule->newQuery()->with(['calendar', 'user', 'class'])->get();
-        return view('admin::schedule.index', compact('schedules','weeks'));
+        return view('admin::schedule.index', compact('schedules', 'weeks'));
     }
 
     public function create()
@@ -45,19 +47,18 @@ class AdminScheduleController extends FrontendController
         $users = $this->user->newQuery()->with(['grades'])->get();
         $calendars = $this->calendar->newQuery()->get();
         $weeks = $this->schedule->getWeek();
-        return view('admin::schedule.add', compact('classrooms', 'users', 'calendars','weeks'));
+        $rooms = $this->room->where('status',0)->get();
+        return view('admin::schedule.add', compact('classrooms', 'users', 'calendars', 'weeks','rooms'));
     }
 
     public function store(ScheduleRequestAdd $request)
     {
         $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id);
-        if ($validate >= 3)
-        {
+        if ($validate >= 3) {
             return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
-        }
-        else
-        {
+        } else {
             $this->schedule->calendar_id = $request->calendar_id;
+            $this->schedule->room_id = $request->room_id;
             $this->schedule->user_id = $request->user_id;
             $this->schedule->classroom_id = $request->classroom_id;
             $this->schedule->date_start = $request->date_start;
@@ -74,20 +75,19 @@ class AdminScheduleController extends FrontendController
         $users = $this->user->newQuery()->with(['grades'])->get();
         $calendars = $this->calendar->newQuery()->get();
         $scheduleEdit = $this->schedule->with(['calendar', 'user', 'class'])->findOrFail($id);
-        return view('admin::schedule.edit', compact('classrooms', 'users', 'scheduleEdit','calendars','weeks'));
+        $rooms = $this->room->where('status',0)->get();
+        return view('admin::schedule.edit', compact('classrooms', 'users', 'scheduleEdit', 'calendars', 'weeks','rooms'));
     }
 
     public function update(ScheduleRequestAdd $request, $id)
     {
         $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id);
-        if ($validate >= 3)
-        {
+        if ($validate >= 3) {
             return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
-        }
-        else
-        {
+        } else {
             $scheduleEdit = $this->schedule->findOrFail($id);
             $scheduleEdit->calendar_id = $request->calendar_id;
+            $scheduleEdit->room_id = $request->room_id;
             $scheduleEdit->user_id = $request->user_id;
             $scheduleEdit->classroom_id = $request->classroom_id;
             $scheduleEdit->date_start = $request->date_start;
