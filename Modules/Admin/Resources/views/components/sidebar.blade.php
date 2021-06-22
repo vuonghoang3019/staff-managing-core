@@ -2,10 +2,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('dashboard') }}" class="brand-link">
-        <img src="{{ asset('admins/assets/img/AdminLTELogo.png') }}" alt=""
+        <img src="{{ asset('home/images/logoAsia.png') }}" alt=""
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Trung tâm Asia</span>
     </a>
 
     <!-- Sidebar -->
@@ -13,7 +13,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ \Illuminate\Support\Facades\Auth::user()->image_path }}" class="img-circle elevation-2"
+                <img src="{{ \Illuminate\Support\Facades\Auth::user()->image_path }}" class="img-circle elevation-2 bg-white"
                      alt="User Image">
             </div>
             <div class="info">
@@ -97,6 +97,15 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('room.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'room.index' ? 'active' : ''}}">
+                                <i class="fas fa-door-open"></i>
+                                <p>
+                                    Room
+                                </p>
+                            </a>
+                        </li>
                         @can('grade-list')
                             <li class="nav-item">
                                 <a href="{{ route('grade.index') }}"

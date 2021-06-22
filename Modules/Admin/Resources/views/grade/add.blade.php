@@ -11,7 +11,7 @@
                 <form action="{{ route('grade.store') }}" method="post">
                     @csrf
                     <div class="form-group col-md-6">
-                        <label for="name">Nhập danh mục</label>
+                        <label for="name">Nhập mức độ</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                                placeholder="Nhập tên mức độ" name="name" value="{{ old('name') }}">
                         @error('name')

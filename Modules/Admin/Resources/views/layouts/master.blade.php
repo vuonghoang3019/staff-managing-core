@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('admins/assets/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admins/assets/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admins/assets/css/summernote-bs4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admins/assets/css/custom.css') }}">
     @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
