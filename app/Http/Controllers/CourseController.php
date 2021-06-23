@@ -5,25 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Classroom;
 use App\Models\Course;
 use App\Models\News;
+use App\Models\Payment;
 use App\Models\Price;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class CourseController extends FrontendController
-{
+class CourseController extends FrontendController {
     private $course;
     private $classroom;
     private $price;
     private $news;
+    private $payment;
 
-    public function __construct(Course $course, Classroom $classroom, Price $price, News $news)
+    public function __construct(Course $course, Classroom $classroom, Price $price, News $news, Payment $payment)
     {
         parent::__construct();
         $this->course = $course;
         $this->classroom = $classroom;
         $this->price = $price;
         $this->news = $news;
+        $this->payment = $payment;
     }
 
     public function index()
@@ -41,22 +42,23 @@ class CourseController extends FrontendController
             ->where('courses.id', $id)
             ->get();
         $prices = $this->price->newQuery()->with(['course'])->where([
-            ['course_id','=',$id],
-            ['price','>',0]
+            ['course_id', '=', $id],
+            ['price', '>', 0]
         ])->whereNotNull('price')->get();
         $courseDetail = $this->course->findOrFail($id);
         $news = $this->news->newQuery()->limit(3)->get();
-        return view('course.courseDetail', compact('courseDetail', 'classrooms','prices','news'));
+        return view('course.courseDetail', compact('courseDetail', 'classrooms', 'prices', 'news'));
     }
 
-    public function showCart($idPrice,$idCourse)
+    public function showCart($idPrice, $idCourse)
     {
         $prices = $this->price->findOrFail($idPrice);
-        $courseDetail =  $this->course->findOrFail($idCourse);
-        return view('cart.cart',compact('prices','courseDetail'));
+        $courseDetail = $this->course->findOrFail($idCourse);
+        return view('cart.cart', compact('prices', 'courseDetail'));
     }
 
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 10)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
@@ -66,19 +68,18 @@ class CourseController extends FrontendController
         return $randomString;
     }
 
-    public function payment($idPrice,$idCourse)
+    public function payment($idPrice, $idCourse)
     {
-        if (!Auth::guard('student')->check())
-        {
-            return redirect()->back()->with('error','Bạn phải đăng nhập mới thanh toán');
+        if (!Auth::guard('student')->check()) {
+            return redirect()->back()->with('error', 'Bạn phải đăng nhập mới thanh toán');
         }
         $prices = $this->price->findOrFail($idPrice);
-        $courseDetail =  $this->course->findOrFail($idCourse);
+        $courseDetail = $this->course->findOrFail($idCourse);
         $total = $prices->price - ($prices->sale * $prices->price) / 100;
         $dataCourses = $courseDetail->id;
-        session()->put('courseID',$dataCourses);
+        session()->put('courseID', $dataCourses);
 //        dd(session()->get('courseID'));
-        return view('vnpay.index',compact('total','courseDetail'));
+        return view('vnpay.index', compact('total', 'courseDetail'));
     }
 
     public function postPay(Request $request)
@@ -91,18 +92,18 @@ class CourseController extends FrontendController
         $vnp_BankCode = $request->bank_code;
         $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];;
         $inputData = [
-            "vnp_Version" => "2.0.0",
-            "vnp_TmnCode" => env('VNP_TMN_CODE'),
-            "vnp_Amount" => $vnp_Amount,
-            "vnp_Command" => "pay",
+            "vnp_Version"    => "2.0.0",
+            "vnp_TmnCode"    => env('VNP_TMN_CODE'),
+            "vnp_Amount"     => $vnp_Amount,
+            "vnp_Command"    => "pay",
             "vnp_CreateDate" => date('YmdHis'),
-            "vnp_CurrCode" => "VND",
-            "vnp_IpAddr" => $vnp_IpAddr,
-            "vnp_Locale" => $vnp_Locale,
-            "vnp_OrderInfo" => $vnp_OrderInfo,
-            "vnp_OrderType" => $vnp_OrderType,
-            "vnp_ReturnUrl" => route('vnpay.return'),
-            "vnp_TxnRef" => $vnp_TxnRef,
+            "vnp_CurrCode"   => "VND",
+            "vnp_IpAddr"     => $vnp_IpAddr,
+            "vnp_Locale"     => $vnp_Locale,
+            "vnp_OrderInfo"  => $vnp_OrderInfo,
+            "vnp_OrderType"  => $vnp_OrderType,
+            "vnp_ReturnUrl"  => route('vnpay.return'),
+            "vnp_TxnRef"     => $vnp_TxnRef,
         ];
         if (isset($vnp_BankCode) && $vnp_BankCode != "") {
             $inputData['vnp_BankCode'] = $vnp_BankCode;
@@ -132,17 +133,28 @@ class CourseController extends FrontendController
 
     public function vnpayReturn(Request $request)
     {
-        if ($request->vnp_ResponseCode == '00')
-        {
+        if ($request->vnp_ResponseCode == '00') {
             $vnpayData = $request->all();
             $userID = Auth::guard('student')->user()->id;
-            $couseID = session()->get('courseID');
+            $courseID = session()->get('courseID');
 
-            return view('vnpay.vnpay_return',compact('vnpayData','userID'));
-        }
-        else
-        {
-            return redirect()->back()->with('error','Đã xảy ra lỗi');
+            $dataPayment = [
+                'user_id'          => $userID,
+                'course_id'        => $courseID,
+                'total'            => $vnpayData['vnp_Amount'],
+                'transaction_code' => $vnpayData['vnp_TxnRef'],
+                'note'             => $vnpayData['vnp_OrderInfo'],
+                'vn_response_code' => $vnpayData['vnp_ResponseCode'],
+                'code_vnpay'       => $vnpayData['vnp_TransactionNo'],
+                'code_bank'        => $vnpayData['vnp_BankCode'],
+                'time'             => date('Y-m-d H:i', strtotime($vnpayData['vnp_PayDate']))
+
+            ];
+            $this->payment->create($dataPayment);
+            session()->forget('courseID');
+            return view('vnpay.vnpay_return', compact('vnpayData', 'userID'));
+        } else {
+            return redirect()->back()->with('error', 'Đã xảy ra lỗi');
         }
     }
 }
