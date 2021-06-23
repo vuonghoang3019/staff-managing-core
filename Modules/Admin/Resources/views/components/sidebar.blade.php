@@ -37,56 +37,67 @@
 {{--                        </a>--}}
 {{--                    </li>--}}
 {{--                @endcan--}}
-
+{{--                introduce--}}
                 <li class="nav-item">
-                    <a href="{{ route('slider.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'slider.index' ? 'active' : ''}}">
-                        <i class="fas fa-images"></i>
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-school"></i>
                         <p>
-                            Slider
+                            Introduce
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('slider.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'slider.index' ? 'active' : ''}}">
+                                <i class="fas fa-images"></i>
+                                <p>
+                                    Slider
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('about.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'about.index' ? 'active' : ''}}">
+                                <i class="fas fa-info-circle"></i>
+                                <p>
+                                    About
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('contact.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
+                                <i class="fas fa-id-card-alt"></i>
+                                <p>
+                                    Contact
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('recruitment.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
+                                <i class="fas fa-user-plus"></i>
+                                <p>
+                                    Recruitment
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('news.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
+                                <i class="fas fa-newspaper"></i>
+                                <p>
+                                    News
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('about.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'about.index' ? 'active' : ''}}">
-                        <i class="fas fa-info-circle"></i>
-                        <p>
-                            About
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('contact.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
-                        <i class="fas fa-id-card-alt"></i>
-                        <p>
-                            Contact
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('recruitment.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
-                        <i class="fas fa-user-plus"></i>
-                        <p>
-                            Recruitment
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('news.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
-                        <i class="fas fa-newspaper"></i>
-                        <p>
-                            News
-                        </p>
-                    </a>
-                </li>
                 {{--School--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -187,17 +198,6 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        @can('calendar-list')
-                            <li class="nav-item">
-                                <a href="{{ route('calendar.index') }}"
-                                   class="nav-link {{ \Request::route()->getName() == 'calendar.index' ? 'active' : ''}}">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <p>
-                                        Calender
-                                    </p>
-                                </a>
-                            </li>
-                        @endcan
                         @can('schedule-list')
                             <li class="nav-item ac">
                                 <a href="{{ route('schedule.index') }}"
@@ -245,6 +245,15 @@
                             </li>
                         @endcan
                     </ul>
+                </li>
+
+                <li class="nav-item ac">
+                    <a href="{{ route('testCalendar.index') }}" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <p>
+                            Test Calendar
+                        </p>
+                    </a>
                 </li>
 
                 <li class="nav-item ac">

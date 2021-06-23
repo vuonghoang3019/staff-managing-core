@@ -31,41 +31,37 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="start_time">Chọn lịch</label>
-            <select class="form-control " name="calendar_id">
-                <option value="">---Chọn lịch---</option>
-                @foreach($calendars as $calendar)
-
-                    <option value="{{ $calendar->id }}"
-                    @if(isset($scheduleEdit)) {{ $scheduleEdit->calendar_id === $calendar->id ? 'selected' : '' }} @endif>
-                        @foreach($weeks as $item => $day)
-                            {{ $calendar->day === $item ? $day : '' }}
-                        @endforeach
-                        {{ $calendar->start_time }}-{{ $calendar->end_time }}</option>
+            <label for="weekday">Chọn thứ</label>
+            <select class="form-control" name="weekday">
+                <option value="">---Chọn thứ----</option>
+                @foreach($weeks as $item => $day)
+                    <option value="{{ $item }}"
+                    @if(isset($scheduleEdit)) {{ $scheduleEdit->weekday === $item ? 'selected' : '' }} @endif
+                    >{{ $day }}</option>
                 @endforeach
             </select>
-            @error('calendar_id')
+            @error('weekday')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group ">
-            <label for="date_start">Ngày dự kiến bắt đầu</label>
-            <input type="date" class="form-control @error('date_start') is-invalid @enderror"
-                   id="date"
-                   name="date_start"
-                   value="{{ old('date_start',isset($scheduleEdit) ? $scheduleEdit->date_start : '') }}">
-            @error('date_start')
+            <label for="start_time">Thời gian bắt đầu học</label>
+            <input type="time" class="form-control @error('start_time') is-invalid @enderror"
+                   id="start_time"
+                   name="start_time"
+                   value="{{ old('start_time',isset($scheduleEdit) ? $scheduleEdit->start_time : '') }}">
+            @error('start_time')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group ">
-            <label for="date_end">Ngày dự kiến kết thúc</label>
-            <input type="date" class="form-control @error('date_end') is-invalid @enderror"
-                   id="date_end"
-                   name="date_end" value="{{ old('date_end',isset($scheduleEdit) ? $scheduleEdit->date_end : '') }}">
-            @error('date_end')
+            <label for="end_time">Thời gian kết thúc</label>
+            <input type="time" class="form-control @error('end_time') is-invalid @enderror"
+                   id="end_time"
+                   name="end_time" value="{{ old('end_time',isset($scheduleEdit) ? $scheduleEdit->end_time : '') }}">
+            @error('end_time')
             <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
             @enderror
         </div>

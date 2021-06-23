@@ -1,18 +1,17 @@
 <?php
 
-namespace Modules\Admin\Http\Requests;
+namespace Modules\Admin\Http\Requests\update;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\SheduleTimeAvalabilityRule;
 
-class ScheduleRequestAdd extends FormRequest {
+class ScheduleRequestUpdate extends FormRequest
+{
     /**
      * Get the validation rules that apply to the request.
      *
+     * @return array
      */
-    private $schedule;
-
-
     public function rules()
     {
         return [
@@ -22,16 +21,9 @@ class ScheduleRequestAdd extends FormRequest {
             'user_id'      => 'required',
             'start_time'   => [
                 'required',
-                new SheduleTimeAvalabilityRule(),
+                new SheduleTimeAvalabilityRule($this->id),
             ],
             'end_time'     => 'required'
-        ];
-    }
-
-    public function messages()
-    {
-        return [
-
         ];
     }
 

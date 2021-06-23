@@ -9,7 +9,7 @@ use Illuminate\Support\Arr;
 class Schedule extends Model
 {
     protected $table = 'schedules';
-    protected $fillable = ['calendar_id', 'user_id', 'classroom_id','date_start','date_end'];
+    protected $fillable = ['weekday', 'user_id', 'classroom_id','room_id','start_time','end_time'];
     protected $weekDay = [
         '1' => 'Monday',
         '2' => 'Tuesday',
@@ -29,10 +29,6 @@ class Schedule extends Model
     {
         $time = Carbon::createFromFormat('H:i:s', $value);
         return $time->format('H:i');
-    }
-    public function calendar()
-    {
-        return $this->belongsTo(Calendar::class,'calendar_id');
     }
     public function user()
     {
@@ -63,5 +59,25 @@ class Schedule extends Model
         return $this->newQuery()
             ->where('user_id',$userID)
             ->get()->count();
+    }
+
+    public static function isTimeAvailable($weekday, $startTime, $endTime, $classroom_id, $user_id, $room_id, $id)
+    {
+        $schedule = self::where('weekday', $weekday)
+            ->when($id, function ($query) use ($id) {
+                $query->where('id', '!=', $id);
+            })
+            ->where(function ($query) use ($classroom_id, $user_id, $room_id) {
+                $query->where('classroom_id', $classroom_id)
+                    ->orWhere('user_id', $user_id)
+                    ->orWhere('room_id', $room_id);
+            })
+            ->where([
+                ['start_time', '<', $endTime],
+                ['end_time', '>', $startTime],
+            ])
+            ->count();
+
+        return !$schedule;
     }
 }

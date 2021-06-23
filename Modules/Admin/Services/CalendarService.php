@@ -11,7 +11,7 @@ class CalendarService {
         $user = auth()->user();
         $calendarData = [];
         $timeRange = (new TimeService)->generateTimeRange(config('app.calendar.start_time'), config('app.calendar.end_time'));
-        $schedules = Schedule::with('calendar', 'user', 'class', 'room')->get();
+        $schedules = Schedule::with('user', 'class', 'room')->get();
         foreach ($timeRange as $time) {
             $timeText = substr($time['start'], 0, -3) . ' - ' . substr($time['end'], 0, -3);
             $calendarData[$timeText] = [];
@@ -19,9 +19,9 @@ class CalendarService {
 
                 foreach ($user->roles as $role) {
                     if ($role->code == 'SA') {
-                        $schedule = $schedules->where('calendar.day', $index)->where('calendar.start_time', $time['start'])->first();
+                        $schedule = $schedules->where('weekday', $index)->where('start_time', $time['start'])->first();
                     } else {
-                        $schedule = $schedules->where('user_id', $user->id)->where('calendar.day', $index)->where('calendar.start_time', $time['start'])->first();
+                        $schedule = $schedules->where('user_id', $user->id)->where('weekday', $index)->where('start_time', $time['start'])->first();
                     }
                     if ($schedule) {
                         array_push($calendarData[$timeText], [

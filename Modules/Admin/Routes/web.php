@@ -328,36 +328,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () 
             'middleware' => 'can:schedule-delete'
         ]);
     });
-    Route::prefix('calendar')->group(function () {
-        Route::get('/', [
-            'as'         => 'calendar.index',
-            'uses'       => 'AdminCalendarController@index',
-            'middleware' => 'can:calendar-list'
-        ]);
-        Route::get('/create', [
-            'as'         => 'calendar.create',
-            'uses'       => 'AdminCalendarController@create',
-            'middleware' => 'can:calendar-add'
-        ]);
-        Route::post('/store', [
-            'as'   => 'calendar.store',
-            'uses' => 'AdminCalendarController@store'
-        ]);
-        Route::get('/edit/{id}', [
-            'as'         => 'calendar.edit',
-            'uses'       => 'AdminCalendarController@edit',
-            'middleware' => 'can:calendar-update'
-        ]);
-        Route::post('/update/{id}', [
-            'as'   => 'calendar.update',
-            'uses' => 'AdminCalendarController@update'
-        ]);
-        Route::get('/delete/{id}', [
-            'as'         => 'calendar.delete',
-            'uses'       => 'AdminCalendarController@delete',
-            'middleware' => 'can:calendar-delete'
-        ]);
-    });
     Route::prefix('role')->group(function () {
         Route::get('/', [
             'as'   => 'role.index',
@@ -515,6 +485,28 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () 
         Route::get('/action/{id}', [
             'as'   => 'room.action',
             'uses' => 'AdminRoomController@action',
+        ]);
+    });
+    Route::prefix('testCalendar')->group(function () {
+        Route::get('/', [
+            'as'   => 'testCalendar.index',
+            'uses' => 'TestCalendarController@index',
+        ]);
+        Route::get('/create', [
+            'as'   => 'testCalendar.create',
+            'uses' => 'TestCalendarController@create',
+        ]);
+        Route::post('/store', [
+            'as'   => 'testCalendar.store',
+            'uses' => 'TestCalendarController@store',
+        ]);
+        Route::get('/{id}', [
+            'as'   => 'testCalendar.edit',
+            'uses' => 'TestCalendarController@edit',
+        ]);
+        Route::post('/update/{id}', [
+            'as'   => 'testCalendar.update',
+            'uses' => 'TestCalendarController@update',
         ]);
     });
 });

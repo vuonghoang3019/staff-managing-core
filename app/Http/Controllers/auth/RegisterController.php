@@ -43,7 +43,7 @@ class RegisterController extends Controller {
                 'route' => $url
             ];
             $email = $this->student->email;
-            Mail::send('email.resetPassword', $data, function ($message) use ($email) {
+            Mail::send('email.verifyAccount', $data, function ($message) use ($email) {
                 $message->to($email, 'Active Account')->subject('Kích hoạt email');
             });
             return redirect()->route('login');

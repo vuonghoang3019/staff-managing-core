@@ -20,10 +20,10 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Giáo viên</th>
                                 <th scope="col">Lớp</th>
-                                <th scope="col">Ngày</th>
-                                <th scope="col">Giờ học</th>
-                                <th scope="col">Ngày bắt đầu</th>
-                                <th scope="col">Ngày kết thúc</th>
+                                <th scope="col">Thứ</th>
+                                <th scope="col">Phòng học</th>
+                                <th scope="col">Giờ bắt đầu</th>
+                                <th scope="col">Giờ kết thúc</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -37,24 +37,12 @@
                                         <td>{{ $data->class->name }}</td>
                                         <td>
                                             @foreach($weeks as $item => $day)
-                                                {{ $data->calendar->day === $item ? $day : '' }}
+                                                {{ $data->weekday === $item ? $day : '' }}
                                             @endforeach
-
                                         </td>
-                                        <td>
-                                            <ul>
-                                                <li>
-                                                    Bắt đầu :
-                                                    {{ $data->calendar->start_time }}
-                                                </li>
-                                                <li>
-                                                    Kết thúc :
-                                                    {{ $data->calendar->end_time }}
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td>{{ $data->date_start }}</td>
-                                        <td>{{ $data->date_end }}</td>
+                                        <td>{{ $data->room->name }}</td>
+                                        <td>{{ substr($data->start_time, 0, -3) }}</td>
+                                        <td>{{ substr($data->end_time, 0, -3) }}</td>
                                         <td>
                                             @can('schedule-update')
                                                 <a href="{{ route('schedule.edit',['id' => $data->id]) }}"

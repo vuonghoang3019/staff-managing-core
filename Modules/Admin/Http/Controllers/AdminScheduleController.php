@@ -2,7 +2,6 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use App\Models\Calendar;
 use App\Models\Classroom;
 use App\Models\Course;
 use App\models\Room;
@@ -11,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\ScheduleRequestAdd;
+use Modules\Admin\Http\Requests\update\ScheduleRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 
 class AdminScheduleController extends FrontendController {
@@ -19,17 +19,15 @@ class AdminScheduleController extends FrontendController {
     private $classroom;
     private $user;
     private $course;
-    private $calendar;
     private $schedule;
     private $room;
 
-    public function __construct(Classroom $classroom, User $user, Course $course, Calendar $calendar, Schedule $schedule, Room $room)
+    public function __construct(Classroom $classroom, User $user, Course $course, Schedule $schedule, Room $room)
     {
         parent::__construct();
         $this->classroom = $classroom;
         $this->user = $user;
         $this->course = $course;
-        $this->calendar = $calendar;
         $this->schedule = $schedule;
         $this->room = $room;
     }
@@ -37,7 +35,7 @@ class AdminScheduleController extends FrontendController {
     public function index()
     {
         $weeks = $this->schedule->getWeek();
-        $schedules = $this->schedule->newQuery()->with(['calendar', 'user', 'class'])->get();
+        $schedules = $this->schedule->newQuery()->with(['room', 'user', 'class'])->get();
         return view('admin::schedule.index', compact('schedules', 'weeks'));
     }
 
@@ -45,10 +43,9 @@ class AdminScheduleController extends FrontendController {
     {
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $users = $this->user->newQuery()->with(['grades'])->get();
-        $calendars = $this->calendar->newQuery()->get();
         $weeks = $this->schedule->getWeek();
         $rooms = $this->room->where('status',0)->get();
-        return view('admin::schedule.add', compact('classrooms', 'users', 'calendars', 'weeks','rooms'));
+        return view('admin::schedule.add', compact('classrooms', 'users', 'weeks','rooms'));
     }
 
     public function store(ScheduleRequestAdd $request)
@@ -57,12 +54,12 @@ class AdminScheduleController extends FrontendController {
         if ($validate >= 3) {
             return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
         } else {
-            $this->schedule->calendar_id = $request->calendar_id;
+            $this->schedule->weekday = $request->weekday;
             $this->schedule->room_id = $request->room_id;
             $this->schedule->user_id = $request->user_id;
             $this->schedule->classroom_id = $request->classroom_id;
-            $this->schedule->date_start = $request->date_start;
-            $this->schedule->date_end = $request->date_end;
+            $this->schedule->start_time = $request->start_time;
+            $this->schedule->end_time = $request->end_time;
             $this->schedule->save();
             return redirect()->back()->with('success', 'Đặt lịch thành công');
         }
@@ -73,25 +70,24 @@ class AdminScheduleController extends FrontendController {
         $weeks = $this->schedule->getWeek();
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $users = $this->user->newQuery()->with(['grades'])->get();
-        $calendars = $this->calendar->newQuery()->get();
-        $scheduleEdit = $this->schedule->with(['calendar', 'user', 'class'])->findOrFail($id);
+        $scheduleEdit = $this->schedule->with(['room', 'user', 'class'])->findOrFail($id);
         $rooms = $this->room->where('status',0)->get();
-        return view('admin::schedule.edit', compact('classrooms', 'users', 'scheduleEdit', 'calendars', 'weeks','rooms'));
+        return view('admin::schedule.edit', compact('classrooms', 'users', 'scheduleEdit' , 'weeks','rooms'));
     }
 
-    public function update(ScheduleRequestAdd $request, $id)
+    public function update(ScheduleRequestUpdate $request, $id)
     {
         $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id);
         if ($validate >= 3) {
             return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
         } else {
             $scheduleEdit = $this->schedule->findOrFail($id);
-            $scheduleEdit->calendar_id = $request->calendar_id;
+            $scheduleEdit->weekday = $request->weekday;
             $scheduleEdit->room_id = $request->room_id;
             $scheduleEdit->user_id = $request->user_id;
             $scheduleEdit->classroom_id = $request->classroom_id;
-            $scheduleEdit->date_start = $request->date_start;
-            $scheduleEdit->date_end = $request->date_end;
+            $scheduleEdit->start_time = $request->start_time;
+            $scheduleEdit->end_time = $request->end_time;
             $scheduleEdit->save();
             return redirect()->back()->with('success', 'Cập nhật thành công');
         }
