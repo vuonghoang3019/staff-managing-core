@@ -13,7 +13,8 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ \Illuminate\Support\Facades\Auth::user()->image_path }}" class="img-circle elevation-2 bg-white"
+                <img src="{{ \Illuminate\Support\Facades\Auth::user()->image_path }}"
+                     class="img-circle elevation-2 bg-white"
                      alt="User Image">
             </div>
             <div class="info">
@@ -26,18 +27,18 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 {{--category--}}
-{{--                @can('category-list')--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a href="{{ route('category.index') }}"--}}
-{{--                           class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">--}}
-{{--                            <i class="fas fa-bars"></i>--}}
-{{--                            <p>--}}
-{{--                                Category--}}
-{{--                            </p>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endcan--}}
-{{--                introduce--}}
+                {{--                @can('category-list')--}}
+                {{--                    <li class="nav-item">--}}
+                {{--                        <a href="{{ route('category.index') }}"--}}
+                {{--                           class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">--}}
+                {{--                            <i class="fas fa-bars"></i>--}}
+                {{--                            <p>--}}
+                {{--                                Category--}}
+                {{--                            </p>--}}
+                {{--                        </a>--}}
+                {{--                    </li>--}}
+                {{--                @endcan--}}
+                {{--                introduce--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-school"></i>
@@ -150,6 +151,17 @@
                                 </a>
                             </li>
                         @endcan
+                        @can('schedule-list')
+                            <li class="nav-item ac">
+                                <a href="{{ route('schedule.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'schedule.index' ? 'active' : ''}}">
+                                    <i class="fas fa-clock"></i>
+                                    <p>
+                                        Schedule
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
                     </ul>
                 </li>
 
@@ -181,30 +193,6 @@
                                     <i class="fas fa-user-graduate"></i>
                                     <p>
                                         Student
-                                    </p>
-                                </a>
-                            </li>
-                        @endcan
-                    </ul>
-                </li>
-
-                {{--Schedule--}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-calendar-check"></i>
-                        <p>
-                            Schedule
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        @can('schedule-list')
-                            <li class="nav-item ac">
-                                <a href="{{ route('schedule.index') }}"
-                                   class="nav-link {{ \Request::route()->getName() == 'schedule.index' ? 'active' : ''}}">
-                                    <i class="fas fa-clock"></i>
-                                    <p>
-                                        Schedule
                                     </p>
                                 </a>
                             </li>
@@ -245,15 +233,6 @@
                             </li>
                         @endcan
                     </ul>
-                </li>
-
-                <li class="nav-item ac">
-                    <a href="{{ route('testCalendar.index') }}" class="nav-link">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <p>
-                            Test Calendar
-                        </p>
-                    </a>
                 </li>
 
                 <li class="nav-item ac">

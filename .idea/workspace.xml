@@ -26,24 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="342640c1-971d-45f2-8fff-4b484beac8fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Rules/SheduleTimeAvalabilityRule.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminCalendarController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminScheduleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Requests/CalendarRequestAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/update/ScheduleRequestUpdate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Requests/ScheduleRequestAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/ScheduleRequestAdd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/calendar/add.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/calendar/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/calendar/form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/calendar/index.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/schedule/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/schedule/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/schedule/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/schedule/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Services/CalendarService.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Services/CalendarService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Calendar.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Schedule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Schedule.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +238,7 @@
       <workItem from="1624377035090" duration="5652000" />
       <workItem from="1624387389782" duration="44000" />
       <workItem from="1624387534443" duration="9000" />
-      <workItem from="1624415770837" duration="3417000" />
+      <workItem from="1624415770837" duration="3711000" />
     </task>
     <servers />
   </component>
