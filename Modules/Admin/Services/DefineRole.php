@@ -14,7 +14,6 @@ class DefineRole
         $this->defineClassroom();
         $this->defineTeacher();
         $this->defineStudent();
-        $this->defineCalendar();
         $this->defineSchedule();
         $this->defineRole();
         $this->definePermission();
@@ -66,14 +65,6 @@ class DefineRole
         Gate::define('student-add', 'Modules\Admin\Policies\StudentPolicy@create');
         Gate::define('student-update', 'Modules\Admin\Policies\StudentPolicy@update');
         Gate::define('student-delete', 'Modules\Admin\Policies\StudentPolicy@delete');
-    }
-
-    public function defineCalendar()
-    {
-        Gate::define('calendar-list', 'Modules\Admin\Policies\CalendarPolicy@view');
-        Gate::define('calendar-add', 'Modules\Admin\Policies\CalendarPolicy@create');
-        Gate::define('calendar-update', 'Modules\Admin\Policies\CalendarPolicy@update');
-        Gate::define('calendar-delete', 'Modules\Admin\Policies\CalendarPolicy@delete');
     }
 
     public function defineSchedule()
