@@ -8,15 +8,15 @@
     color: #fff;
     margin-top: 4%;
 }
-.register-left input{
+.register-left a{
     border: none;
+    text-decoration: none;
     border-radius: 1.5rem;
     padding: 2%;
-    width: 60%;
+    width: 50%;
     background: #f8f9fa;
     font-weight: bold;
     color: #383d41;
-    margin-top: 30%;
     margin-bottom: 3%;
     cursor: pointer;
 }

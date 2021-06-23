@@ -14,10 +14,10 @@
 <div class="container register">
     <div class="row">
         <div class="col-md-3 register-left">
-            <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
-            <h3>Welcome</h3>
-            <p>You are 30 seconds away from earning your own money!</p>
-            <input type="submit" name="" value="Login"/><br/>
+            <img src="{{ asset('home/images/logoAsia.png') }}" alt="" class="rounded-circle"/>
+            <h3>Chào mừng đến với trung tâm Ngoại ngữ Asia</h3>
+            <p>Bạn đã có tài khoản? Đăng nhập ngay!</p>
+            <a href="{{ route('login') }}" class="btn btn-primary">Đăng nhập</a>
         </div>
         <div class="col-md-9 register-right">
             <div class="tab-content" id="myTabContent">
