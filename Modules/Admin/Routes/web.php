@@ -5,9 +5,28 @@ use Illuminate\Support\Facades\Route;
 Route::any('/ckfinder/examples/{example?}', 'CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
     ->name('ckfinder_examples');
 
-Route::get('admin/login', 'auth\LoginController@getLogin')->name('getLogin');
-Route::post('admin/postLogin', 'auth\LoginController@postLogin')->name('postLogin');
-Route::get('logout', 'auth\LoginController@logout')->name('logout');
+
+Route::group(['prefix' => 'authAdmin'], function () {
+    Route::get('login', 'auth\LoginController@getLogin')->name('getLogin');
+    Route::post('postLogin', 'auth\LoginController@postLogin')->name('postLogin');
+    Route::get('logout', 'auth\LoginController@logout')->name('logout');
+    Route::get('getPasswordReset', [
+        'as'         => 'get.form.reset',
+        'uses'       => 'auth\ForgotPasswordAdminController@getFormResetPassword',
+    ]);
+    Route::post('getCodeReset', [
+        'as'         => 'get.code.reset',
+        'uses'       => 'auth\ForgotPasswordAdminController@getCodeResetPassword',
+    ]);
+    Route::get('password/reset/admin', [
+        'as'         => 'password.reset.admin',
+        'uses'       => 'auth\ForgotPasswordAdminController@getResetPassword',
+    ]);
+    Route::post('password/saveResetPassword', [
+        'as'         => 'password.updatePassword.admin',
+        'uses'       => 'auth\ForgotPasswordAdminController@saveResetPassword',
+    ]);
+});
 Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::prefix('category')->group(function () {
@@ -485,28 +504,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () 
         Route::get('/action/{id}', [
             'as'   => 'room.action',
             'uses' => 'AdminRoomController@action',
-        ]);
-    });
-    Route::prefix('testCalendar')->group(function () {
-        Route::get('/', [
-            'as'   => 'testCalendar.index',
-            'uses' => 'TestCalendarController@index',
-        ]);
-        Route::get('/create', [
-            'as'   => 'testCalendar.create',
-            'uses' => 'TestCalendarController@create',
-        ]);
-        Route::post('/store', [
-            'as'   => 'testCalendar.store',
-            'uses' => 'TestCalendarController@store',
-        ]);
-        Route::get('/{id}', [
-            'as'   => 'testCalendar.edit',
-            'uses' => 'TestCalendarController@edit',
-        ]);
-        Route::post('/update/{id}', [
-            'as'   => 'testCalendar.update',
-            'uses' => 'TestCalendarController@update',
         ]);
     });
 });

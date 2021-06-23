@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\auth;
 
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\FrontendController;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Models\Student;
@@ -28,10 +27,9 @@ class ForgotPasswordController extends FrontendController {
         $email = $request->email;
         $checkStudent = Student::where('email', $email)->first();
         if (!$checkStudent) {
-            return redirect()->back()->with('danger', 'email khong ton tai');
+            return redirect()->back()->with('danger', 'email này không tồn tại');
         }
         $code_reset = bcrypt(md5(time() . $email));
-
         $checkStudent->code_reset = $code_reset;
         $checkStudent->code_time = Carbon::now();
         $checkStudent->save();
@@ -39,7 +37,7 @@ class ForgotPasswordController extends FrontendController {
         $data = [
             'route' => $url
         ];
-        Mail::send('email.verifyAccount',$data, function($message) use ($email){
+        Mail::send('email.resetPassword',$data, function($message) use ($email){
             $message->to($email, 'Reset Password')->subject('Lấy lại mật khẩu');
         });
         return redirect()->back()->with('success', 'Link lấy lại mật khẩu đã gửi vào email của bạn');
@@ -62,7 +60,7 @@ class ForgotPasswordController extends FrontendController {
         return view('auth.password.reset');
     }
 
-    public function saveResetPassword(Request $request)
+    public function saveResetPassword(ResetPasswordRequest $request)
     {
         if ($request->password)
         {

@@ -7,18 +7,19 @@ use App\Models\Grade;
 use App\Models\Role;
 use App\Models\Schedule;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 use Modules\Admin\Http\Requests\TeacherRequestAdd;
 use Modules\Admin\Http\Requests\update\TeacherRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
-class AdminTeacherController extends FrontendController
-{
+class AdminTeacherController extends FrontendController {
     use StorageImageTrait;
     use DeleteTrait;
 
@@ -64,7 +65,18 @@ class AdminTeacherController extends FrontendController
         $this->user->save();
         $this->user->grades()->attach($request->grade_id);
         $this->user->roles()->attach(Role::where('name', 'Teacher')->first());
-        return redirect()->back()->with('success', 'Thêm mới thành công');
+        if ($this->user->id)
+        {
+            $email = $this->user->email;
+            $data = [
+                'email ' => $request->email,
+                'password' => $request->password
+            ];
+            Mail::send('admin::auth.email.verifyAccountAdmin',  array('email'=>$request->email, 'password' => $request->password), function ($message) use ($email) {
+                $message->to($email, 'Active Account')->subject('Kích hoạt email');
+            });
+        }
+        return redirect()->back()->with('success', 'Thêm mới và gửi email thành công');
     }
 
     public function edit($id)

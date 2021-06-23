@@ -47,7 +47,7 @@
                 </form>
                 <div class="mt-4 text-center">
                     <div class="form-group">
-                        Bạn chưa có tài khoản <a href="#">Đăng ký ngay</a>
+                        Bạn chưa có tài khoản <a href="{{ route('register') }}">Đăng ký ngay</a>
                     </div>
                     <div class="form-group">
                         <a href="{{ route('get.reset.password') }}">Quên mật khẩu?</a>

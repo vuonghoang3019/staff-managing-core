@@ -15,11 +15,11 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <h2>ASIA SYSTEM ADMIN</h2>
+            <h2>Quên mật khẩu</h2>
         </div>
 
         <!-- Login Form -->
-        <form action="{{ route('postLogin') }}" method="POST">
+        <form action="{{ route('get.code.reset') }}" method="POST">
             @csrf
             @if (session('success'))
                 <div class="alert alert-success" role="alert">
@@ -31,15 +31,9 @@
                     {{ session('error') }}
                 </div>
             @endif
-            <input type="text" id="email" class="fadeIn second" name="email" placeholder="login">
-            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+            <input type="text" id="email" class="fadeIn third" name="email">
             <input type="submit" class="fadeIn fourth" value="Xác nhận">
         </form>
-
-    <!-- Remind Passowrd -->
-        <div id="formFooter">
-            <a class="underlineHover" href="{{ route('get.form.reset') }}">Forgot Password?</a>
-        </div>
 
     </div>
 </div>

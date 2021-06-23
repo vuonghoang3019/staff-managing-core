@@ -35,7 +35,7 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect()->back()->with('error','Sai pass');
+            return redirect()->back()->with('error','Sai tài khoản hoặc mật khẩu');
         }
     }
 
