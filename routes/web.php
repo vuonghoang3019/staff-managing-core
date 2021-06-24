@@ -40,9 +40,9 @@ Route::group(['prefix' => 'auth'],function (){
         'as'         => 'user.info',
         'uses'       => 'auth\UserController@index',
     ]);
-    Route::post('updateStudentInfo/{id}', [
-        'as'         => 'user.update',
-        'uses'       => 'auth\UserController@updateStudentInfo',
+    Route::post('updatePassword/{id}', [
+        'as'         => 'user.update.password',
+        'uses'       => 'auth\UserController@updatePassword',
     ]);
     Route::get('getPassword', [
         'as'         => 'get.reset.password',

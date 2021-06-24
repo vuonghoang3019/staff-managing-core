@@ -18,6 +18,10 @@ class LoginController extends Controller
 
     public function getLogin()
     {
+        if (Auth::guard('student')->check())
+        {
+            Auth::guard('student')->logout();
+        }
         return view('auth.login');
     }
 

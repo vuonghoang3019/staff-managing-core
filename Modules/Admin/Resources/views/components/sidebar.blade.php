@@ -25,20 +25,6 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-                {{--category--}}
-                {{--                @can('category-list')--}}
-                {{--                    <li class="nav-item">--}}
-                {{--                        <a href="{{ route('category.index') }}"--}}
-                {{--                           class="nav-link {{ \Request::route()->getName() == 'category.index' ? 'active' : ''}}">--}}
-                {{--                            <i class="fas fa-bars"></i>--}}
-                {{--                            <p>--}}
-                {{--                                Category--}}
-                {{--                            </p>--}}
-                {{--                        </a>--}}
-                {{--                    </li>--}}
-                {{--                @endcan--}}
-                {{--                introduce--}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-school"></i>
@@ -232,6 +218,15 @@
                                 </a>
                             </li>
                         @endcan
+                        <li class="nav-item ac">
+                            <a href="{{ route('payment.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'payment.index' ? 'active' : ''}}">
+                                <i class="fas fa-money-check-alt"></i>
+                                <p>
+                                    Payment
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
