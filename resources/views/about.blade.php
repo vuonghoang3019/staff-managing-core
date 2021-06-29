@@ -53,7 +53,6 @@
         </div>
     </div>
 
-    @include('components.slideTeacher')
 
 @endsection
 @section('js')

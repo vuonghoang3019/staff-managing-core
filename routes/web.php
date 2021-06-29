@@ -64,6 +64,7 @@ Route::group(['prefix' => 'auth'],function (){
 });
 Route::get('/about', 'AboutController@index')->name('about');
 Route::get('/teacher', 'TeacherController@index')->name('teacher');
+Route::get('/teacherType/{is_check}', 'TeacherController@getTypeTeacher')->name('get.type.teacher');
 Route::get('/news', 'NewsController@index')->name('news');
 Route::get('/news/{id}', 'NewsController@detail')->name('news.detail');
 

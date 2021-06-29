@@ -5,22 +5,10 @@
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <h3>About US</h3>
+                        <h3>Giới thiệu</h3>
                     </div>
-                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus
-                        bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis
-                        montes.
+                    <p> Asia là trung tâm Ngoại ngữ Quốc tế được thành lập vào năm 2013 chuyên về Khóa Học IELTS, Tiếng Anh Trẻ em và Thiếu Niên. Có hơn 8 kinh nghiệm giảng dạy ngoại ngữ. Đáp ứng các nhu cầu học tiếng anh chất lượng, uy tín. Là trung tâm Ngoại ngữ tiêu chuẩn Quốc tế ĐH OX/FOLD/CAMBRIDGE.
                     </p>
-                    <div class="footer-right">
-                        <ul class="footer-links-soi">
-                            <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                            <li><a href="#"><i class="fa fa-github"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                        <!-- end links -->
-                    </div>
                 </div>
                 <!-- end clearfix -->
             </div>
@@ -28,14 +16,14 @@
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <h3>Information Link</h3>
+                        <h3>Liên kết nhanh</h3>
                     </div>
                     <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                        <li><a href="{{ route('news') }}">Tin tức</a></li>
+                        <li><a href="{{ route('course') }}">Khóa học</a></li>
+                        <li><a href="{{ route('about') }}">Giới thiệu</a></li>
+                        <li><a href="{{ route('contact') }}">Liên hệ</a></li>
                     </ul>
                     <!-- end links -->
                 </div>
@@ -45,13 +33,13 @@
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <h3>Contact Details</h3>
+                        <h3>Thông tin chi tiết</h3>
                     </div>
                     <ul class="footer-links">
-                        <li><a href="mailto:#">info@yoursite.com</a></li>
-                        <li><a href="#">www.yoursite.com</a></li>
-                        <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
-                        <li>+61 3 8376 6284</li>
+                        <li><a href="mailto:#">asiaedu@gmail.com</a></li>
+                        <li><a href="#">https://www.facebook.com/asiacenterhalong</a></li>
+                        <li>Lô 41, SG 1, khu sân vườn Cái Dăm, tổ 3, khu 7, phường Bãi Cháy Hạ Long, Quảng Ninh </li>
+                        <li>096 219 04 98</li>
                     </ul>
                     <!-- end links -->
                 </div>
@@ -68,8 +56,8 @@
     <div class="container">
         <div class="footer-distributed">
             <div class="footer-center">
-                <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">SmartEDU</a> Design By : <a
-                        href="https://html.design/">html design</a></p>
+                <p class="footer-company-name"> Hoàng Kế Vương: Lớp KHMT - K3 - <a
+                        href="https://html.design/">TRường Đại học Hạ Long</a></p>
             </div>
         </div>
     </div>

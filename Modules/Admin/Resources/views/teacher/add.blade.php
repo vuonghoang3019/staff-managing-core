@@ -59,7 +59,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="is_check" value="1"> Nổi bật
+                                <input type="checkbox" name="is_check" value="1"> Nước ngoài
                             </div>
                         </div>
                         <div class="col-md-6">

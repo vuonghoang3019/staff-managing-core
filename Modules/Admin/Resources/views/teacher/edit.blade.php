@@ -88,7 +88,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="is_check"
-                                       value="1" {{ $teacherEdit->is_check == 1 ? 'checked' : '' }} > Nổi bật
+                                       value="1" {{ $teacherEdit->is_check == 1 ? 'checked' : '' }} > Nước ngoài
                             </div>
                         </div>
                         <div class="col-md-6 ">

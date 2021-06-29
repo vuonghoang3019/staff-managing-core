@@ -44,7 +44,6 @@
     </div>
 </div>
 <header class="top-navbar">
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">
@@ -57,21 +56,26 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="{{ route('course') }}">Khóa học </a>
                         <div class="dropdown-menu" aria-labelledby="dropdown-a">
-                            @foreach($courses as $course)
+                            @foreach($data['courses'] as $course)
                                 <a class="dropdown-item"
                                    href="{{ route('course.detail',['id' => $course-> id]) }}">{{ $course->name }}</a>
                             @endforeach
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('teacher') }}">Giáo Viên</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{{ route('teacher') }}">Giáo Viên</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                            @foreach($data['teachers'] as $teacher)
+                                <a class="dropdown-item" href="{{ route('get.type.teacher',['is_check' => $teacher->is_check]) }}">{{ $teacher->is_check == 1 ? 'Giáo viên nước ngoài' : 'Giáo viên bản địa'  }}</a>
+                            @endforeach
+                        </div>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('recruitment') }}">Tuyển dụng</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Liên hệ</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('news') }}">Tin tức</a></li>
 
                 </ul>
             </div>
-            {{--            @include('components.mainMenu')--}}
-
         </div>
     </nav>
 </header>

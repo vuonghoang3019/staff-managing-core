@@ -34,7 +34,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/23735967_1527841197253065_1552406061031976797_o.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/23735967_1527841197253065_1552406061031976797_o.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/23735967_1527841197253065_1552406061031976797_o.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/23737576_1527837430586775_6711863325875544897_o.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/23737576_1527837430586775_6711863325875544897_o.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/23737576_1527837430586775_6711863325875544897_o.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/159239991_3750019965035166_2301047150127593530_n.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/159239991_3750019965035166_2301047150127593530_n.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/159239991_3750019965035166_2301047150127593530_n.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/23783485_1527842647252920_6153414976471746244_o.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/23783485_1527842647252920_6153414976471746244_o.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/23783485_1527842647252920_6153414976471746244_o.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/135887636_3583696248334206_8152789178872712242_n.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/135887636_3583696248334206_8152789178872712242_n.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/135887636_3583696248334206_8152789178872712242_n.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/34581766_1719161371454379_2450204706937503744_n.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/34581766_1719161371454379_2450204706937503744_n.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/34581766_1719161371454379_2450204706937503744_n.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/34689415_1719152501455266_6904625940861550592_n.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/34689415_1719152501455266_6904625940861550592_n.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/34689415_1719152501455266_6904625940861550592_n.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/34602588_1719151164788733_7057667385238487040_n.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/34602588_1719151164788733_7057667385238487040_n.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/34602588_1719151164788733_7057667385238487040_n.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href=""><img src="{{ asset('home/images/activity/34644281_1719162674787582_4915523137501659136_n.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/34644281_1719162674787582_4915523137501659136_n.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/34644281_1719162674787582_4915523137501659136_n.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>
@@ -118,15 +118,15 @@
                                 <i class="fas fa-book-reader"></i>
                             </span>
                     <p class="stat_count">{{ count($students) }}</p>
-                    <h3>Students</h3>
+                    <h3>Học sinh</h3>
                 </div>
                 <!-- end col -->
                 <div class="col-md-4 col-sm-4 col-xs-12">
                             <span data-scroll class="global-radius icon_wrap effect-1 alignleft">
                                 <i class="fas fa-book-open"></i>
                             </span>
-                    <p class="stat_count">{{ count($courses) }}</p>
-                    <h3>Courses</h3>
+                    <p class="stat_count">{{ count($data['courses']) }}</p>
+                    <h3>Khóa học</h3>
                 </div>
                 <!-- end col -->
                 <div class="col-md-4 col-sm-4 col-xs-12">
@@ -134,7 +134,7 @@
                                 <i class="fas fa-chalkboard-teacher"></i>
                             </span>
                     <p class="stat_count">{{ count($users) }}</p>
-                    <h3>Teacher</h3>
+                    <h3>Giáo viên</h3>
                 </div>
                 <!-- end col -->
             </div>

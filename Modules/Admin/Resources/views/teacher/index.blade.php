@@ -24,7 +24,7 @@
                                 <th scope="col">Ảnh</th>
                                 <th scope="col">Quyền</th>
                                 <th scope="col">Trình độ</th>
-                                <th scope="col">Nổi bật</th>
+                                <th scope="col">Nước ngoài</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>

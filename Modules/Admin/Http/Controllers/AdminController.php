@@ -32,8 +32,8 @@ class AdminController extends FrontendController {
         }
         else
         {
-            $schedule = $this->schedule->newQuery()->with(['user', 'class', 'room'])->get();
-            $schedules = $schedule->where('user.id','=',Auth::user()->id)->all();
+            $scheduleDetail = $this->schedule->newQuery()->with(['user', 'class', 'room'])->get();
+            $schedules = $scheduleDetail->where('user.id','=',Auth::user()->id)->all();
         }
         return view('admin::index', compact('weekDays', 'schedules'));
     }

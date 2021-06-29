@@ -15,14 +15,14 @@
                         <div class="our-team">
                             <div class="team-img">
                                 <img src="{{ asset($user->image_path) }}" width="255" height="325" class="border">
-{{--                                <div class="social">--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a href="#" class="fa fa-facebook"></a></li>--}}
-{{--                                        <li><a href="#" class="fa fa-twitter"></a></li>--}}
-{{--                                        <li><a href="#" class="fa fa-linkedin"></a></li>--}}
-{{--                                        <li><a href="#" class="fa fa-skype"></a></li>--}}
-{{--                                    </ul>--}}
-{{--                                </div>--}}
+                                {{--                                <div class="social">--}}
+                                {{--                                    <ul>--}}
+                                {{--                                        <li><a href="#" class="fa fa-facebook"></a></li>--}}
+                                {{--                                        <li><a href="#" class="fa fa-twitter"></a></li>--}}
+                                {{--                                        <li><a href="#" class="fa fa-linkedin"></a></li>--}}
+                                {{--                                        <li><a href="#" class="fa fa-skype"></a></li>--}}
+                                {{--                                    </ul>--}}
+                                {{--                                </div>--}}
                             </div>
                             <div class="team-content">
                                 <h3 class="title">{{ $user->name }}</h3>
@@ -40,6 +40,5 @@
         </div><!-- end container -->
     </div><!-- end section -->
 
-    @include('components.slideTeacher')
 
 @endsection
