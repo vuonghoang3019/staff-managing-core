@@ -35,7 +35,7 @@ class AdminScheduleController extends FrontendController {
     public function index()
     {
         $weeks = $this->schedule->getWeek();
-        $schedules = $this->schedule->newQuery()->with(['room', 'user', 'class'])->get();
+        $schedules = $this->schedule->newQuery()->with(['room', 'user', 'class'])->orderBy('weekday','asc')->paginate(10);
         return view('admin::schedule.index', compact('schedules', 'weeks'));
     }
 
@@ -50,7 +50,7 @@ class AdminScheduleController extends FrontendController {
 
     public function store(ScheduleRequestAdd $request)
     {
-        $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id);
+        $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id,$request->weekday);
         if ($validate >= 3) {
             return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
         } else {
@@ -61,8 +61,9 @@ class AdminScheduleController extends FrontendController {
             $this->schedule->start_time = $request->start_time;
             $this->schedule->end_time = $request->end_time;
             $this->schedule->save();
-            return redirect()->back()->with('success', 'Đặt lịch thành công');
         }
+
+        return redirect()->back()->with('success', 'Đặt lịch thành công');
     }
 
     public function edit($id)
@@ -77,7 +78,7 @@ class AdminScheduleController extends FrontendController {
 
     public function update(ScheduleRequestUpdate $request, $id)
     {
-        $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id);
+        $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id,$request->weekday);
         if ($validate >= 3) {
             return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
         } else {

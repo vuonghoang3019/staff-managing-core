@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="col-md-12 float-right">
-                        {{--                        {{ $schedule->links('pagination::bootstrap-4') }}--}}
+                        {{ $schedules->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>

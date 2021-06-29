@@ -46,9 +46,10 @@ class Schedule extends Model
     }
 
 
-    public function countNumber($userID, $classId)
+    public function countNumber($userID, $classId,$weekday)
     {
         return $this->newQuery()
+            ->where('weekday',$weekday)
             ->where('user_id',$userID)
             ->orWhere('classroom_id',$classId)
             ->get()->count();

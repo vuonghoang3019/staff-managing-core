@@ -31,7 +31,7 @@ class User extends Authenticatable
     //check multiple role (check user one-to-many role)
     public function hasAnyRole($roles)
     {
-        return null !== $this->roles()->whereIn('name', $roles)->first();
+        return null !== $this->roles()->whereIn('code', $roles)->first();
     }
 
     public function authorizeRoles($roles)
@@ -42,10 +42,10 @@ class User extends Authenticatable
         return $this->hasRole($roles) || abort(401, 'This action is unauthorized.');
     }
 
-    public function isAdmin($code)
-    {
-        return $this->roles()->where('code',$code)->exists();
-    }
+//    public function isAdmin($code)
+//    {
+//        return $this->roles()->where('code',$code)->exists();
+//    }
 
     public function checkPermission($permissionCheck)
     {
@@ -60,6 +60,17 @@ class User extends Authenticatable
         return false;
     }
 
+    public function checkRole($roleCheck)
+    {
+        $roles = auth()->user()->roles;
+        foreach ($roles as $role)
+        {
+            if ($role->code == $roleCheck) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

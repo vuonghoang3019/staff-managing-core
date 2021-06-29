@@ -27,9 +27,9 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="fas fa-school"></i>
+                        <i class="fas fa-info-circle"></i>
                         <p>
-                            Introduce
+                            Giới thiệu
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -49,7 +49,7 @@
                                class="nav-link {{ \Request::route()->getName() == 'about.index' ? 'active' : ''}}">
                                 <i class="fas fa-info-circle"></i>
                                 <p>
-                                    About
+                                    Giới thiệu
                                 </p>
                             </a>
                         </li>
@@ -58,7 +58,7 @@
                                class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
                                 <i class="fas fa-id-card-alt"></i>
                                 <p>
-                                    Contact
+                                    Liên hệ
                                 </p>
                             </a>
                         </li>
@@ -68,7 +68,7 @@
                                class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
                                 <i class="fas fa-user-plus"></i>
                                 <p>
-                                    Recruitment
+                                    Tuyển dụng
                                 </p>
                             </a>
                         </li>
@@ -78,7 +78,7 @@
                                class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
                                 <i class="fas fa-newspaper"></i>
                                 <p>
-                                    News
+                                    Tin tức
                                 </p>
                             </a>
                         </li>
@@ -90,7 +90,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-school"></i>
                         <p>
-                            School
+                            Trung tâm
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -100,7 +100,7 @@
                                class="nav-link {{ \Request::route()->getName() == 'room.index' ? 'active' : ''}}">
                                 <i class="fas fa-door-open"></i>
                                 <p>
-                                    Room
+                                    Phòng học
                                 </p>
                             </a>
                         </li>
@@ -110,7 +110,7 @@
                                    class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
                                     <i class="fas fa-layer-group"></i>
                                     <p>
-                                        Grade
+                                        Trình độ
                                     </p>
                                 </a>
                             </li>
@@ -121,7 +121,7 @@
                                    class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">
                                     <i class="fas fa-book"></i>
                                     <p>
-                                        Course
+                                        Khóa học
                                     </p>
                                 </a>
                             </li>
@@ -132,7 +132,7 @@
                                    class="nav-link {{ \Request::route()->getName() == 'classroom.index' ? 'active' : ''}}">
                                     <i class="fas fa-school"></i>
                                     <p>
-                                        Classroom
+                                        Lớp học
                                     </p>
                                 </a>
                             </li>
@@ -143,7 +143,7 @@
                                    class="nav-link {{ \Request::route()->getName() == 'schedule.index' ? 'active' : ''}}">
                                     <i class="fas fa-clock"></i>
                                     <p>
-                                        Schedule
+                                        Tạo lịch
                                     </p>
                                 </a>
                             </li>
@@ -156,7 +156,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-user"></i>
                         <p>
-                            User
+                            Tài khoản
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -167,7 +167,7 @@
                                    class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
                                     <i class="fas fa-chalkboard-teacher"></i>
                                     <p>
-                                        Teacher
+                                        Giáo viên
                                     </p>
                                 </a>
                             </li>
@@ -178,7 +178,7 @@
                                    class="nav-link {{ \Request::route()->getName() == 'student.index' ? 'active' : ''}}">
                                     <i class="fas fa-user-graduate"></i>
                                     <p>
-                                        Student
+                                        Học sinh
                                     </p>
                                 </a>
                             </li>
@@ -191,7 +191,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-tools"></i>
                         <p>
-                            System
+                            Hệ thống
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -202,7 +202,7 @@
                                    class="nav-link {{ \Request::route()->getName() == 'role.index' ? 'active' : ''}}">
                                     <i class="fas fa-users-cog"></i>
                                     <p>
-                                        Role
+                                        Quyền
                                     </p>
                                 </a>
                             </li>
@@ -213,7 +213,7 @@
                                    class="nav-link {{ \Request::route()->getName() == 'permission.index' ? 'active' : ''}}">
                                     <i class="fas fa-user-lock"></i>
                                     <p>
-                                        Permission
+                                        Truy cập
                                     </p>
                                 </a>
                             </li>
@@ -223,7 +223,7 @@
                                class="nav-link {{ \Request::route()->getName() == 'payment.index' ? 'active' : ''}}">
                                 <i class="fas fa-money-check-alt"></i>
                                 <p>
-                                    Payment
+                                    Thanh toán
                                 </p>
                             </a>
                         </li>
@@ -234,7 +234,7 @@
                     <a href="{{ route('logout') }}" class="nav-link">
                         <i class="fas fa-sign-out-alt"></i>
                         <p>
-                            logout
+                            Đăng xuất
                         </p>
                     </a>
                 </li>
