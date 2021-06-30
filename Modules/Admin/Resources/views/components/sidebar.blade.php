@@ -53,36 +53,36 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('contact.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
-                                <i class="fas fa-id-card-alt"></i>
-                                <p>
-                                    Liên hệ
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('recruitment.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
-                                <i class="fas fa-user-plus"></i>
-                                <p>
-                                    Tuyển dụng
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('news.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
-                                <i class="fas fa-newspaper"></i>
-                                <p>
-                                    Tin tức
-                                </p>
-                            </a>
-                        </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('contact.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
+                        <i class="fas fa-id-card-alt"></i>
+                        <p>
+                            Liên hệ
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('recruitment.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
+                        <i class="fas fa-user-plus"></i>
+                        <p>
+                            Tuyển dụng
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('news.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
+                        <i class="fas fa-newspaper"></i>
+                        <p>
+                            Tin tức
+                        </p>
+                    </a>
                 </li>
 
                 {{--School--}}
@@ -95,37 +95,6 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('room.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'room.index' ? 'active' : ''}}">
-                                <i class="fas fa-door-open"></i>
-                                <p>
-                                    Phòng học
-                                </p>
-                            </a>
-                        </li>
-                        @can('grade-list')
-                            <li class="nav-item">
-                                <a href="{{ route('grade.index') }}"
-                                   class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
-                                    <i class="fas fa-layer-group"></i>
-                                    <p>
-                                        Trình độ
-                                    </p>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('course-list')
-                            <li class="nav-item">
-                                <a href="{{ route('course.index') }}"
-                                   class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">
-                                    <i class="fas fa-book"></i>
-                                    <p>
-                                        Khóa học
-                                    </p>
-                                </a>
-                            </li>
-                        @endcan
                         @can('classroom-list')
                             <li class="nav-item">
                                 <a href="{{ route('classroom.index') }}"
@@ -137,6 +106,37 @@
                                 </a>
                             </li>
                         @endcan
+                        <li class="nav-item">
+                            <a href="{{ route('room.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'room.index' ? 'active' : ''}}">
+                                <i class="fas fa-door-open"></i>
+                                <p>
+                                    Phòng học
+                                </p>
+                            </a>
+                        </li>
+                        @can('course-list')
+                            <li class="nav-item">
+                                <a href="{{ route('course.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'course.index' ? 'active' : ''}}">
+                                    <i class="fas fa-book"></i>
+                                    <p>
+                                        Khóa học
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('grade-list')
+                            <li class="nav-item">
+                                <a href="{{ route('grade.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'grade.index' ? 'active' : ''}}">
+                                    <i class="fas fa-layer-group"></i>
+                                    <p>
+                                        Trình độ
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
                         @can('schedule-list')
                             <li class="nav-item ac">
                                 <a href="{{ route('schedule.index') }}"
@@ -144,6 +144,17 @@
                                     <i class="fas fa-clock"></i>
                                     <p>
                                         Tạo lịch
+                                    </p>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('teacher-list')
+                            <li class="nav-item">
+                                <a href="{{ route('teacher.index') }}"
+                                   class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <p>
+                                        Giáo viên
                                     </p>
                                 </a>
                             </li>
@@ -161,17 +172,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        @can('teacher-list')
-                            <li class="nav-item">
-                                <a href="{{ route('teacher.index') }}"
-                                   class="nav-link {{ \Request::route()->getName() == 'teacher.index' ? 'active' : ''}}">
-                                    <i class="fas fa-chalkboard-teacher"></i>
-                                    <p>
-                                        Giáo viên
-                                    </p>
-                                </a>
-                            </li>
-                        @endcan
+
                         @can('student-list')
                             <li class="nav-item">
                                 <a href="{{ route('student.index') }}"

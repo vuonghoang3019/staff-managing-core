@@ -26,9 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="342640c1-971d-45f2-8fff-4b484beac8fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-dNVuYlNgnSILVyVUVxLjzdgxAYWVUeJe.tmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Rules/SheduleTimeAvalabilityRule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rules/SheduleTimeAvalabilityRule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/sidebar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +263,8 @@
       <workItem from="1624955582669" duration="4800000" />
       <workItem from="1624971377446" duration="2102000" />
       <workItem from="1624978366902" duration="5179000" />
-      <workItem from="1625021372929" duration="13863000" />
+      <workItem from="1625021372929" duration="15469000" />
+      <workItem from="1625052113478" duration="1084000" />
     </task>
     <servers />
   </component>
