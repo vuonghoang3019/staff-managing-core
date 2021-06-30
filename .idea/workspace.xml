@@ -26,20 +26,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="342640c1-971d-45f2-8fff-4b484beac8fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/teacher/typeTeacher.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Rules/ScheduleGradeAvalability.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/teacher/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FrontendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FrontendController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/teacher.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/teacher/teacher.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminPermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminPermissionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminScheduleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminTeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Requests/ScheduleRequestAdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/ScheduleRequestAdd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Requests/update/ScheduleRequestUpdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Requests/update/ScheduleRequestUpdate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/components/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/permission/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/permission/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Schedule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Schedule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +272,8 @@
       <workItem from="1624937197782" duration="9307000" />
       <workItem from="1624955582669" duration="4800000" />
       <workItem from="1624971377446" duration="2102000" />
-      <workItem from="1624978366902" duration="4487000" />
+      <workItem from="1624978366902" duration="5179000" />
+      <workItem from="1625021372929" duration="8951000" />
     </task>
     <servers />
   </component>
@@ -337,5 +336,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1624541232938" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1625023693189">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1625023693189" />
   </component>
 </project>

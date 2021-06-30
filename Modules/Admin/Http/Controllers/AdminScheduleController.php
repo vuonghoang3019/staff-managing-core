@@ -3,12 +3,10 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Models\Classroom;
-use App\Models\Course;
 use App\models\Room;
 use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\ScheduleRequestAdd;
 use Modules\Admin\Http\Requests\update\ScheduleRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
@@ -18,16 +16,14 @@ class AdminScheduleController extends FrontendController {
 
     private $classroom;
     private $user;
-    private $course;
     private $schedule;
     private $room;
 
-    public function __construct(Classroom $classroom, User $user, Course $course, Schedule $schedule, Room $room)
+    public function __construct(Classroom $classroom, User $user, Schedule $schedule, Room $room)
     {
         parent::__construct();
         $this->classroom = $classroom;
         $this->user = $user;
-        $this->course = $course;
         $this->schedule = $schedule;
         $this->room = $room;
     }

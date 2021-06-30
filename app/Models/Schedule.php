@@ -81,4 +81,26 @@ class Schedule extends Model
 
         return !$schedule;
     }
+
+    public static function checkGrade($user_id,$classroom_id)
+    {
+        $user= User::with('grades')->where('id',$user_id)->first();
+        $userGrade = $user->grades;
+        $class = Classroom::with('course')->where('id',$classroom_id)->first();
+        $classGrade = $class->course->course_grade;
+        foreach ($userGrade as $item)
+        {
+            foreach ($classGrade as $value)
+            {
+                if ($item->name == $value->name)
+                {
+                    return true;
+                }
+            }
+        }
+        return  false;
+
+
+
+    }
 }

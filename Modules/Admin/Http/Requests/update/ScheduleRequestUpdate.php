@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Http\Requests\update;
 
+use App\Rules\ScheduleGradeAvalability;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\SheduleTimeAvalabilityRule;
 
@@ -18,7 +19,10 @@ class ScheduleRequestUpdate extends FormRequest
             'classroom_id' => 'required',
             'room_id'      => 'required',
             'weekday'      => 'required',
-            'user_id'      => 'required',
+            'user_id'      => [
+                'required',
+                new ScheduleGradeAvalability()
+            ],
             'start_time'   => [
                 'required',
                 new SheduleTimeAvalabilityRule($this->id),

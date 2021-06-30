@@ -38,7 +38,7 @@
 
     <!-- Remind Passowrd -->
         <div id="formFooter">
-            <a class="underlineHover" href="{{ route('get.form.reset') }}">Forgot Password?</a>
+            <a class="underlineHover" href="{{ route('get.form.reset') }}">Quên mật khẩu?</a>
         </div>
 
     </div>

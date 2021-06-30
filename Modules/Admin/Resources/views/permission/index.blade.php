@@ -1,6 +1,6 @@
 @extends('admin::layouts.master')
 @section('title')
-    <title>Permission</title>
+    <title>Hạn chế</title>
 @endsection
 @section('css')
     <link rel="stylesheet" href="{{ asset('admins/assets/css/checkbox.css') }}">
@@ -47,7 +47,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Permission', 'key' => 'List Permission'])
+        @include('admin::components.headerContent',['name' => '', 'key' => 'Danh sách '])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -60,7 +60,7 @@
                         @include('admin::permission.add')
                     </div>
                     @endcan
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-2">
                         <table class="table">
                             <thead>
                             <tr>

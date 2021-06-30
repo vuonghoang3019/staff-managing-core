@@ -25,7 +25,7 @@ class AdminPermissionController extends FrontendController
 
     public function index()
     {
-        $permissions = $this->permission->newQuery()->with(['child'])->where('parent_id',0)->paginate(5);
+        $permissions = $this->permission->newQuery()->with(['child'])->where('parent_id',0)->paginate(10);
         $modules = $this->module->get();
         return view('admin::permission.index', compact('permissions', 'modules'));
     }

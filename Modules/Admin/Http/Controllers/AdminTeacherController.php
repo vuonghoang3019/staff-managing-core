@@ -68,10 +68,6 @@ class AdminTeacherController extends FrontendController {
         if ($this->user->id)
         {
             $email = $this->user->email;
-            $data = [
-                'email ' => $request->email,
-                'password' => $request->password
-            ];
             Mail::send('admin::auth.email.verifyAccountAdmin',  array('email'=>$request->email, 'password' => $request->password), function ($message) use ($email) {
                 $message->to($email, 'Active Account')->subject('Kích hoạt email');
             });
