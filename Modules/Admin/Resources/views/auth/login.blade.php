@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="{{ asset('admins/assets/css/style.css') }}">
 </head>
 <body>
-<div class="wrapper fadeInDown" style="background: url({{ asset('home/images/banner.png') }})">
+<div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <h2>ASIA SYSTEM ADMIN</h2>
+            <h2>ĐĂNG NHẬP QUẢN TRỊ</h2>
         </div>
 
         <!-- Login Form -->

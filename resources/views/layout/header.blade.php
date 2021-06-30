@@ -1,10 +1,10 @@
-{{--<div id="preloader">--}}
-{{--    <div class="loader-container">--}}
-{{--        <div class="progress-br float shadow">--}}
-{{--            <div class="progress__item"></div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+<div id="preloader">
+    <div class="loader-container">
+        <div class="progress-br float shadow">
+            <div class="progress__item"></div>
+        </div>
+    </div>
+</div>
 <!-- END LOADER -->
 <!-- Start header -->
 <div class="topbar">
@@ -47,7 +47,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="" alt=""/>
+                <img src="{{ asset('home/images/logoAsia.png') }}" style="width: 60px; height: 60px" class="rounded-circle"/>
             </a>
             <div class="collapse navbar-collapse" id="navbars-host">
                 <ul class="navbar-nav ml-auto">
