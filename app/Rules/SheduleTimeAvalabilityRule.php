@@ -36,6 +36,6 @@ class SheduleTimeAvalabilityRule implements Rule
      */
     public function message()
     {
-        return 'Thời gian ko hợp lệ';
+        return 'Đã có lớp học tại thời gian này';
     }
 }
