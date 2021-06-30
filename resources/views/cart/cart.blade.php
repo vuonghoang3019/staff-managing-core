@@ -40,17 +40,18 @@
                     </p>
                     @if($prices->sale > 0)
                         <p class="product-description">Khuyến mãi: <strong>{{ $prices->sale }}%</strong>
-                            Tiết kiệm: <strong> {{ number_format(($prices->sale * $prices->price) / 100) }}</strong> VNĐ</p>
-                        <h4 class="price">Giá<span style="font-size: 1rem;text-decoration: line-through;color: #929292;margin-right: 10px;"> :{{ number_format($prices->price) }} VNĐ</span>
+                            Tiết kiệm: <strong> {{ number_format(($prices->sale * $prices->price) / 100) }}</strong> VNĐ
+                        </p>
+                        <h4 class="price">Giá<span
+                                style="font-size: 1rem;text-decoration: line-through;color: #929292;margin-right: 10px;"> :{{ number_format($prices->price) }} VNĐ</span>
                             <span style="color: #d0011b;font-size: 1.875rem;"> {{ number_format( $prices->price - (($prices->sale * $prices->price) / 100)) }} VNĐ</span>
                         </h4>
                     @else
-                        <h4 class="price">Giá<span> :{{ number_format($prices->price) }} VNĐ</span>
-
-                        </h4>
+                        <h4 class="price">Giá<span> :{{ number_format($prices->price) }} VNĐ</span></h4>
                     @endif
                     <div class="action">
-                        <a href="{{ route('payment.index',['idPrice' => $prices->id,'idCourse' => $courseDetail->id]) }}" class="add-to-cart btn btn-default">Thanh toán</a>
+                        <a href="{{ route('payment.course.index',['idPrice' => $prices->id,'idCourse' => $courseDetail->id]) }}"
+                           class="add-to-cart btn btn-default">Thanh toán</a>
                     </div>
                 </div>
             </div>
@@ -139,17 +140,17 @@
     </div>
 @endsection
 @section('js')
-{{--    <script>--}}
-{{--        $('.add-to-cart').on('click', function () {--}}
-{{--            let url = "{{ route('course.addToCart',['idPrice' => $prices->id,'idCourse' => $courseDetail->id]) }}";--}}
-{{--            $.ajax({--}}
-{{--                type: "GET",--}}
-{{--                url: url,--}}
-{{--                dataType: 'json',--}}
-{{--                success: function (data) {--}}
+    {{--    <script>--}}
+    {{--        $('.add-to-cart').on('click', function () {--}}
+    {{--            let url = "{{ route('course.addToCart',['idPrice' => $prices->id,'idCourse' => $courseDetail->id]) }}";--}}
+    {{--            $.ajax({--}}
+    {{--                type: "GET",--}}
+    {{--                url: url,--}}
+    {{--                dataType: 'json',--}}
+    {{--                success: function (data) {--}}
 
-{{--                }--}}
-{{--            });--}}
-{{--        })--}}
-{{--    </script>--}}
+    {{--                }--}}
+    {{--            });--}}
+    {{--        })--}}
+    {{--    </script>--}}
 @endsection

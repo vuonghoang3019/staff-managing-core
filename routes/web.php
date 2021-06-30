@@ -83,8 +83,8 @@ Route::prefix('course')->group(function () {
         'as'         => 'course.showCart',
         'uses'       => 'CourseController@showCart',
     ]);
-    Route::get('/payment/{idPrice}/{idCourse}', [
-        'as'         => 'payment.index',
+    Route::get('payment/{idPrice}/{idCourse}', [
+        'as'         => 'payment.course.index',
         'uses'       => 'CourseController@payment',
     ]);
     Route::post('/payment/online', [
