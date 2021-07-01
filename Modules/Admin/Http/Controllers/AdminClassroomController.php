@@ -23,13 +23,14 @@ class AdminClassroomController extends FrontendController
 
     public function index()
     {
-        $classrooms = $this->classroom->newQuery()->with(['course'])->paginate(5);
+        $classrooms = $this->classroom->newQuery()->with(['course'])->paginate(10);
         return view('admin::classroom.index',compact('classrooms'));
     }
     public function create()
     {
         $courses = $this->course->get();
-        return view('admin::classroom.add',compact('courses'));
+        $classrooms = $this->classroom->newQuery()->with(['course'])->orderBy('id','desc')->paginate(10);
+        return view('admin::classroom.add',compact('courses','classrooms'));
     }
 
     public function store(ClassroomRequestAdd $request)
@@ -45,7 +46,8 @@ class AdminClassroomController extends FrontendController
     {
         $classroomEdit = $this->classroom->find($id);
         $courses = $this->course->get();
-        return view('admin::classroom.edit',compact('courses','classroomEdit'));
+        $classrooms = $this->classroom->newQuery()->with(['course'])->orderBy('id','desc')->paginate(10);
+        return view('admin::classroom.edit',compact('courses','classroomEdit','classrooms'));
     }
     public function update(ClassroomRequestAdd $request ,$id)
     {

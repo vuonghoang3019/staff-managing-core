@@ -17,5 +17,6 @@
     </div>
 @endsection
 @section('js')
-
+    <script src="{{ asset('vendors/sweetAlert2/sweetalert2.js') }}"></script>
+    <script src="{{ asset('admins/assets/delete.js') }}"></script>
 @endsection
