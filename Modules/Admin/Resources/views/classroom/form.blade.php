@@ -21,6 +21,15 @@
             @enderror
         </div>
         <div class="form-group ">
+            <label for="name">Nhập số lượng học sinh</label>
+            <input type="number" class="form-control @error('number') is-invalid @enderror" id="number" min="0" max="12"
+                    name="number"
+                   value="{{ old('number',isset($classroomEdit) ? $classroomEdit->number : '') }}">
+            @error('number')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group ">
             <label for="course_id">Chọn khóa học</label>
                 <select class="form-control @error('course_id') is-invalid @enderror" name="course_id">
                 <option value="">---Mời bạn chọn khóa học---</option>

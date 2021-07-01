@@ -19,7 +19,7 @@ class StudentRequestAdd extends FormRequest {
             'nation'       => 'required',
             'classroom_id' => 'required',
             'sex'          => 'required',
-            'phone'        => 'required',
+            'phone'        => 'required|size:10',
             'email'        => 'required|unique:students,email,' . $this->id,
             'password'     => 'required',
             'image_path'   => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
@@ -38,12 +38,13 @@ class StudentRequestAdd extends FormRequest {
             'nation.required'       => 'Dân tộc không được để trống',
             'classroom_id.required' => 'Lớp không được để trống',
             'phone.required'        => 'Số điện thoại không được để trống',
+            'phone.size'            => 'Số điện thoại chỉ được 10 số',
             'sex.required'          => 'giới tính không được để trống',
             'email.required'        => 'Email học sinh không được để trống',
             'email.unique'          => 'Email học sinh không được để trùng',
             'password.required'     => 'Pass không được để trống',
             'image_path.required'   => 'Ảnh không được để trống',
-            'image_path.max'          => 'Kích thước ảnh vượt quá mức',
+            'image_path.max'        => 'Kích thước ảnh vượt quá mức',
             'image_path.mimes'      => 'Chỉ chấp nhận ảnh: jpeg,png,jpg'
         ];
     }

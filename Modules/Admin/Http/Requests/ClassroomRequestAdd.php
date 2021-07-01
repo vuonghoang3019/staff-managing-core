@@ -16,6 +16,7 @@ class ClassroomRequestAdd extends FormRequest
         return [
             'name' => 'required|unique:classrooms,name,'.$this->id,
             'code' => 'required',
+            'number' => 'required',
             'course_id' => 'required'
         ];
     }

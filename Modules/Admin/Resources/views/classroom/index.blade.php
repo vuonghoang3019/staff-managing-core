@@ -20,6 +20,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Tên</th>
                                 <th scope="col">Mã</th>
+                                <th scope="col">Số lượng học viên(tối đa)</th>
                                 <th scope="col">Khóa học</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
@@ -33,6 +34,7 @@
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->name }}</td>
                                         <td>{{ $data->code }}</td>
+                                        <td>{{ $data->number }}</td>
                                         <td>{{ $data->course->name }}</td>
                                         <td>
                                             <a href="{{ route('classroom.action',['id' => $data->id]) }}"

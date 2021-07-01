@@ -45,7 +45,6 @@ class Schedule extends Model
         return $this->belongsTo(Room::class, 'room_id');
     }
 
-
     public function countNumber($userID, $classId,$weekday)
     {
         return $this->newQuery()
@@ -98,9 +97,6 @@ class Schedule extends Model
                 }
             }
         }
-        return  false;
-
-
-
+        return false;
     }
 }

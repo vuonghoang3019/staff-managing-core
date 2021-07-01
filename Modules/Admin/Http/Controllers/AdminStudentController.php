@@ -15,8 +15,7 @@ use Modules\Admin\Http\Requests\update\StudentRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
 
-class AdminStudentController extends FrontendController
-{
+class AdminStudentController extends FrontendController {
     private $classroom;
     private $student;
     use DeleteTrait;
@@ -32,7 +31,7 @@ class AdminStudentController extends FrontendController
     public function index()
     {
         $classrooms = $this->classroom->get();
-        $students = $this->student->newQuery()->with(['classroom'])->orderBy('id','asc')->paginate(5);
+        $students = $this->student->newQuery()->with(['classroom'])->orderBy('id', 'asc')->paginate(5);
         return view('admin::student.index', compact('students', 'classrooms'));
     }
 
@@ -53,9 +52,8 @@ class AdminStudentController extends FrontendController
         $this->student->email = $request->email;
         $this->student->password = Hash::make($request->password);
         $this->student->phone = $request->phone;
-        $studentUpload = $this->storageTraitUpload($request,'image_path','student');
-        if (!empty($studentUpload))
-        {
+        $studentUpload = $this->storageTraitUpload($request, 'image_path', 'student');
+        if (!empty($studentUpload)) {
             $this->student->image_path = $studentUpload['file_path'];
             $this->student->image_name = $studentUpload['file_name'];
         }
@@ -82,9 +80,9 @@ class AdminStudentController extends FrontendController
         $studentUpdate->classroom_id = $request->classroom_id;
         $this->student->password = Hash::make($request->password);
         $studentUpdate->phone = $request->phone;
-        $studentUpload = $this->storageTraitUpload($request,'image_path','student');
-        if (!empty($studentUpload))
-        {
+        $studentUpdate->status = 1;
+        $studentUpload = $this->storageTraitUpload($request, 'image_path', 'student');
+        if (!empty($studentUpload)) {
             unlink(substr($studentUpdate->image_path, 1));
             $studentUpdate->image_path = $studentUpload['file_path'];
             $studentUpdate->image_name = $studentUpload['file_name'];
@@ -120,7 +118,7 @@ class AdminStudentController extends FrontendController
                     <td>' . $student->name . '</td>
                      <td>' . $student->email . '</td>
                      <td>' . $student->code . '</td>
-                     <td><ul><li>' . $student->birthday . '</li><li>'. $student->nation .'</li><li>'. $student->phone .'</li></ul></td>
+                     <td><ul><li>' . $student->birthday . '</li><li>' . $student->nation . '</li><li>' . $student->phone . '</li></ul></td>
                        <td>' . $student->classroom->name . '</td>
                        <td><a class="' . $student->getStatus($student->status)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getStatus($student->status)['name'] . '</a></td>
                           <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>
@@ -147,7 +145,7 @@ class AdminStudentController extends FrontendController
                     <td>' . $student->name . '</td>
                      <td>' . $student->email . '</td>
                      <td>' . $student->code . '</td>
-                     <td><ul><li>' . $student->birthday . '</li><li>'. $student->nation .'</li><li>'. $student->phone .'</li></ul></td>
+                     <td><ul><li>' . $student->birthday . '</li><li>' . $student->nation . '</li><li>' . $student->phone . '</li></ul></td>
                        <td>' . $student->classroom->name . '</td>
                        <td><a class="' . $student->getStatus($student->status)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getStatus($student->status)['name'] . '</a></td>
                           <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>

@@ -36,6 +36,7 @@ class AdminClassroomController extends FrontendController
     {
         $this->classroom->code = $request->code;
         $this->classroom->name = $request->name;
+        $this->classroom->number = $request->number;
         $this->classroom->course_id = $request->course_id;
         $this->classroom->save();
         return redirect()->back()->with('success','Thêm mới thành công');
@@ -51,6 +52,7 @@ class AdminClassroomController extends FrontendController
         $classroomUpdate = $this->classroom->find($id);
         $classroomUpdate->code = $request->code;
         $classroomUpdate->name = $request->name;
+        $classroomUpdate->number = $request->number;
         $classroomUpdate->course_id = $request->course_id;
         $classroomUpdate->save();
         return redirect()->back()->with('success','Cập nhật thành công');
