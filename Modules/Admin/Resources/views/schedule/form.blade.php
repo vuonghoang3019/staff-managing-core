@@ -4,7 +4,7 @@
     <div class="col-md-6">
         <div class="form-group ">
             <label for="classroom_id">Lớp</label>
-            <select class="form-control " name="classroom_id">
+            <select class="form-control classroom" name="classroom_id" data-url="{{ route('schedule.ajaxGetSelect') }}">
                 <option value="">---Chọn lớp---</option>
                 @foreach($classrooms as $classroom)
                     <option value="{{ $classroom->id }}"
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="user_id">Giáo Viên</label>
-            <select class="form-control " name="user_id">
+            <select class="form-control user" name="user_id">
                 <option value="">---Chọn giáo viên---</option>
                 @foreach($users as $user)
                     <option value="{{ $user->id }}"

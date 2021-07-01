@@ -31,7 +31,7 @@ class AdminScheduleController extends FrontendController {
     public function index()
     {
         $weeks = $this->schedule->getWeek();
-        $schedules = $this->schedule->newQuery()->with(['room', 'user', 'class'])->orderBy('weekday','asc')->paginate(10);
+        $schedules = $this->schedule->newQuery()->with(['room', 'user', 'class'])->orderBy('weekday', 'asc')->paginate(10);
         return view('admin::schedule.index', compact('schedules', 'weeks'));
     }
 
@@ -40,13 +40,13 @@ class AdminScheduleController extends FrontendController {
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $users = $this->user->newQuery()->with(['grades'])->get();
         $weeks = $this->schedule->getWeek();
-        $rooms = $this->room->where('status',0)->get();
-        return view('admin::schedule.add', compact('classrooms', 'users', 'weeks','rooms'));
+        $rooms = $this->room->where('status', 0)->get();
+        return view('admin::schedule.add', compact('classrooms', 'users', 'weeks', 'rooms'));
     }
 
     public function store(ScheduleRequestAdd $request)
     {
-        $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id,$request->weekday);
+        $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id, $request->weekday);
         if ($validate >= 3) {
             return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
         } else {
@@ -68,13 +68,13 @@ class AdminScheduleController extends FrontendController {
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $users = $this->user->newQuery()->with(['grades'])->get();
         $scheduleEdit = $this->schedule->with(['room', 'user', 'class'])->findOrFail($id);
-        $rooms = $this->room->where('status',0)->get();
-        return view('admin::schedule.edit', compact('classrooms', 'users', 'scheduleEdit' , 'weeks','rooms'));
+        $rooms = $this->room->where('status', 0)->get();
+        return view('admin::schedule.edit', compact('classrooms', 'users', 'scheduleEdit', 'weeks', 'rooms'));
     }
 
     public function update(ScheduleRequestUpdate $request, $id)
     {
-        $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id,$request->weekday);
+        $validate = $this->schedule->countNumber($request->user_id, $request->classroom_id, $request->weekday);
         if ($validate >= 3) {
             return redirect()->back()->with('error', 'Môn học và thầy giáo đã quá lịch');
         } else {
@@ -94,6 +94,34 @@ class AdminScheduleController extends FrontendController {
     public function delete($id)
     {
         return $this->deleteModelTrait($id, $this->schedule);
+    }
+
+    public function ajaxGetSelect(Request $request)
+    {
+        if ($request->get('id')) {
+            $id = $request->get('id');
+            $classrooms = $this->classroom->newQuery()->with('course')->findOrFail($id);
+            $classroomGrade = $classrooms->course->course_grade;
+            $users = $this->user->newQuery()->with(['grades'])->get();
+            $output = '';
+            foreach ($classroomGrade as $classroom)
+            {
+                foreach ($users as $user)
+                {
+                    foreach ($user->grades as $item)
+                    {
+                        if ($item->name == $classroom->name)
+                        {
+                            $output .= '<option value="' . $user->id . '">' . $user->name . '</option>';
+
+                        }
+
+                    }
+                }
+                return response($output);
+            }
+
+        }
     }
 
 }

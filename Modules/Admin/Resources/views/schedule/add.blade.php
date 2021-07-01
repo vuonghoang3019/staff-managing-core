@@ -14,10 +14,12 @@
                 <form action="{{ route('schedule.store') }}" method="post">
                     @csrf
                     @include('admin::schedule.form')
+                </form>
             </div>
         </section>
     </div>
 @endsection
 @section('js')
+    <script src="{{ asset('admins/assets/js/getAjaxSchedule.js') }}"></script>
     <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
 @endsection

@@ -346,6 +346,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () 
             'uses'       => 'AdminScheduleController@delete',
             'middleware' => 'can:schedule-delete'
         ]);
+        Route::get('/ajaxGetSelect', [
+            'as'   => 'schedule.ajaxGetSelect',
+            'uses' => 'AdminScheduleController@ajaxGetSelect'
+        ]);
     });
     Route::prefix('role')->group(function () {
         Route::get('/', [
