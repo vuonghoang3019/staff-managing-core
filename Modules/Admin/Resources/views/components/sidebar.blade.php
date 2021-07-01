@@ -26,6 +26,36 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
+                    <a href="{{ route('contact.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
+                        <i class="fas fa-id-card-alt"></i>
+                        <p>
+                            Liên hệ
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('recruitment.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
+                        <i class="fas fa-user-plus"></i>
+                        <p>
+                            Tuyển dụng
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('news.index') }}"
+                       class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
+                        <i class="fas fa-newspaper"></i>
+                        <p>
+                            Tin tức
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-info-circle"></i>
                         <p>
@@ -54,35 +84,6 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('contact.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
-                        <i class="fas fa-id-card-alt"></i>
-                        <p>
-                            Liên hệ
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('recruitment.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
-                        <i class="fas fa-user-plus"></i>
-                        <p>
-                            Tuyển dụng
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('news.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
-                        <i class="fas fa-newspaper"></i>
-                        <p>
-                            Tin tức
-                        </p>
-                    </a>
                 </li>
 
                 {{--School--}}
