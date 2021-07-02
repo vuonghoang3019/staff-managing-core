@@ -3,8 +3,8 @@
     <title>About</title>
 @endsection
 @section('content')
-    <div class="all-title-box" style="background: url({{ asset('home/images/banner.png') }})">
-    </div>
+    <div class="all-title-box title-image" style="background-image:url({{ asset('home/images/banner.png') }});background-repeat: no-repeat;background-attachment: fixed;background-position: center">
+    </div>    </div>
     <div id="overviews" class="section wb">
         <div class="container">
             <div class="section-title text-center">

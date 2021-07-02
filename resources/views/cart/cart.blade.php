@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('home\css\cart.css') }}">
 @endsection
 @section('content')
-    <div class="all-title-box" style="background: url({{ asset('home/images/banner.png') }})">
+    <div class="all-title-box title-image" style="background-image:url({{ asset('home/images/banner.png') }});background-repeat: no-repeat;background-attachment: fixed;background-position: center">
     </div>
     @if(session('error'))
         <div class="alert alert-danger" role="alert" style="position: fixed;right: 2%;bottom: 15%">
