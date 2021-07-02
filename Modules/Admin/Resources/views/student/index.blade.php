@@ -47,8 +47,7 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Tên</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">Tên,Email</th>
                                 <th scope="col">Mã</th>
                                 <th scope="col">Thông tin</th>
                                 <th scope="col">Lớp</th>
@@ -62,8 +61,12 @@
                                 @foreach($students as $data)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td>{{ $data->name }}</td>
-                                        <td>{{ $data->email }}</td>
+                                        <td>
+                                            <ul>
+                                                <li>{{ $data->name }}</li>
+                                                <li>{{ $data->email }}</li>
+                                            </ul>
+                                        </td>
                                         <td>{{ $data->code }}</td>
                                         <td>
                                             <ul>

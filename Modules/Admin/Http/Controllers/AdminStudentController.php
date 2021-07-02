@@ -115,8 +115,7 @@ class AdminStudentController extends FrontendController {
             foreach ($students as $student) {
                 $output .= '<tr>
                     <td>' . $student->id . '</td>
-                    <td>' . $student->name . '</td>
-                     <td>' . $student->email . '</td>
+                    <td><ul><li>' . $student->name . '</li><li>' . $student->email . '</li></ul></td>
                      <td>' . $student->code . '</td>
                      <td><ul><li>' . $student->birthday . '</li><li>' . $student->nation . '</li><li>' . $student->phone . '</li></ul></td>
                        <td>' . $student->classroom->name . '</td>
@@ -142,8 +141,7 @@ class AdminStudentController extends FrontendController {
             foreach ($students as $student) {
                 $output .= '<tr>
                     <td>' . $student->id . '</td>
-                    <td>' . $student->name . '</td>
-                     <td>' . $student->email . '</td>
+                    <td><ul><li>' . $student->name . '</li><li>' . $student->email . '</li></ul></td>
                      <td>' . $student->code . '</td>
                      <td><ul><li>' . $student->birthday . '</li><li>' . $student->nation . '</li><li>' . $student->phone . '</li></ul></td>
                        <td>' . $student->classroom->name . '</td>

@@ -26,6 +26,10 @@ class Student extends Authenticatable {
         0 => [
             'name'  => 'Nghỉ học',
             'class' => 'btn btn-default'
+        ],
+        2 => [
+            'name'  => 'Đang chờ',
+            'class' => 'btn btn-warning'
         ]
     ];
 
