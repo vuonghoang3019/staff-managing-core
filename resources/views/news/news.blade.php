@@ -33,7 +33,7 @@
                             </div>
                             <div class="blog-button">
                                 <a class="hover-btn-new orange"
-                                   href="{{ route('news.detail',['id' => $newItem->id]) }}"><span>Read More</span></a>
+                                   href="{{ route('news.detail',['id' => $newItem->id]) }}"><span>Đọc thêm</span></a>
                             </div>
                         </div>
                     </div>
