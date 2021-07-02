@@ -14,7 +14,7 @@ class StudentRequestAdd extends FormRequest {
     {
         return [
             'code'         => 'required|unique:students,code,' . $this->id,
-            'name'         => 'required|max:50|min:10',
+            'name'         => 'required|max:50|min:5',
             'birthday'     => 'required',
             'nation'       => 'required',
             'classroom_id' => 'required',
@@ -33,7 +33,7 @@ class StudentRequestAdd extends FormRequest {
             'code.unique'           => 'Mã học sinh không được để trùng',
             'name.required'         => 'Tên không được để trống',
             'name.max'              => 'Tên không được quá 50 ký tự',
-            'name.min'              => 'Tên phải trên 10 ký tự',
+            'name.min'              => 'Tên phải trên 5 ký tự',
             'birthday.required'     => 'Ngày sinh không được để trống',
             'nation.required'       => 'Dân tộc không được để trống',
             'classroom_id.required' => 'Lớp không được để trống',

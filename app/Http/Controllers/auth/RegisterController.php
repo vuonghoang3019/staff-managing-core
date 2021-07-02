@@ -30,7 +30,7 @@ class RegisterController extends Controller {
         $this->student->password = Hash::make($request->password);
         $this->student->phone = $request->phone;
         $this->student->sex = $request->sex;
-        $this->student->status = 0;
+        $this->student->status = 2;
         $this->student->save();
         if ($this->student->id)
         {

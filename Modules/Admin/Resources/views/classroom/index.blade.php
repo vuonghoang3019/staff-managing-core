@@ -20,21 +20,35 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Tên</th>
                                 <th scope="col">Mã</th>
-                                <th scope="col">Số lượng học viên(tối đa)</th>
+                                <th scope="col">Số lượng học viên</th>
                                 <th scope="col">Khóa học</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $stt = 0 ?>
+                            <?php $stt = 0; ?>
                             @if(isset($classrooms))
                                 @foreach($classrooms as $data)
+                                    <?php $countStudent = \Illuminate\Support\Facades\DB::table('students')->where('classroom_id', $data->id)->count() ?>
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $data->name }}</td>
                                         <td>{{ $data->code }}</td>
-                                        <td>{{ $data->number }}</td>
+                                        <td>
+                                            <ul>
+                                                <li>Tối đa:{{ $data->number }}</li>
+                                                <li>Tối thiểu:{{ $data->min }}</li>
+                                                <li>
+{{--                                                    {{ $countStudent }}--}}
+                                                    @if($countStudent > $data->min && $countStudent < $data->number)
+                                                        Được phép mở lớp
+                                                    @else
+                                                        Không được phép mở lớp
+                                                    @endif
+                                                </li>
+                                            </ul>
+                                        </td>
                                         <td>{{ $data->course->name }}</td>
                                         <td>
                                             <a href="{{ route('classroom.action',['id' => $data->id]) }}"

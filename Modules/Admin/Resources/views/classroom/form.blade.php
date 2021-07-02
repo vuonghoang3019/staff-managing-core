@@ -21,15 +21,6 @@
             @enderror
         </div>
         <div class="form-group ">
-            <label for="name">Nhập số lượng học sinh</label>
-            <input type="number" class="form-control @error('number') is-invalid @enderror" id="number" min="0" max="12"
-                    name="number"
-                   value="{{ old('number',isset($classroomEdit) ? $classroomEdit->number : '') }}">
-            @error('number')
-            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
-            @enderror
-        </div>
-        <div class="form-group ">
             <label for="course_id">Chọn khóa học</label>
                 <select class="form-control @error('course_id') is-invalid @enderror" name="course_id">
                 <option value="">---Mời bạn chọn khóa học---</option>
@@ -45,6 +36,26 @@
             @enderror
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="form-group ">
+            <label for="name">Nhập số lượng học sinh tối thiểu</label>
+            <input type="number" class="form-control @error('min') is-invalid @enderror" id="min" min="0" max="12"
+                   name="min"
+                   value="{{ old('number',isset($classroomEdit) ? $classroomEdit->min : '') }}">
+            @error('number')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group ">
+            <label for="name">Nhập số lượng học sinh tối đa</label>
+            <input type="number" class="form-control @error('number') is-invalid @enderror" id="number" min="0" max="12"
+                   name="number"
+                   value="{{ old('number',isset($classroomEdit) ? $classroomEdit->number : '') }}">
+            @error('number')
+            <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
     <div class="col-md-12">
         <table class="table">
             <thead>
@@ -52,7 +63,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Tên</th>
                 <th scope="col">Mã</th>
-                <th scope="col">Số lượng học viên(tối đa)</th>
+                <th scope="col">Số lượng học viên</th>
                 <th scope="col">Khóa học</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
@@ -66,7 +77,12 @@
                         <th scope="row">{{ $stt }}</th>
                         <td>{{ $data->name }}</td>
                         <td>{{ $data->code }}</td>
-                        <td>{{ $data->number }}</td>
+                        <td>
+                            <ul>
+                                <li>Tối đa:{{ $data->number }}</li>
+                                <li>Tối thiểu:{{ $data->min }}</li>
+                            </ul>
+                        </td>
                         <td>{{ $data->course->name }}</td>
                         <td>
                             <a href="{{ route('classroom.action',['id' => $data->id]) }}"

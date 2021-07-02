@@ -8,7 +8,7 @@ use Illuminate\Support\Arr;
 class Classroom extends Model
 {
     protected $table = 'classrooms';
-    protected $fillable = ['name','code','course_id','status','number'];
+    protected $fillable = ['name','code','course_id','status','number','min'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;
     protected $statusClassroom = [
@@ -32,5 +32,10 @@ class Classroom extends Model
     public function student()
     {
         return $this->hasMany(Student::class,'classroom_id');
+    }
+
+    public function countStudent($id)
+    {
+        return Student::all()->where('classroom_id',$id)->count();
     }
 }
