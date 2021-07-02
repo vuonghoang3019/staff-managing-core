@@ -66,7 +66,7 @@
                 <div class="col-lg-4 col-md-4 col-12 mt-3">
                     <div class="course-item">
                         <div class="course-list">
-                            <a href="{{ asset('home/images/activity/135887636_3583696248334206_8152789178872712242_n.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/135887636_3583696248334206_8152789178872712242_n.jpg') }}" alt="" width="300" height="300"></a>
+                            <a href="{{ asset('home/images/activity/activity.jpg') }}" target="_blank"><img src="{{ asset('home/images/activity/activity.jpg') }}" alt="" width="300" height="300"></a>
                         </div>
                     </div>
                 </div>

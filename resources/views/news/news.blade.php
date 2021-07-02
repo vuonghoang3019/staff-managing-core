@@ -6,6 +6,9 @@
 
     <div id="overviews" class="section wb">
         <div class="container">
+            <div class="section-title text-center">
+                <h3 class="text-danger">Tin tức tại trung tâm Ngoại ngữ Asia</h3>
+            </div><!-- end title -->
             <div class="row">
                 @foreach($news as $newItem)
 

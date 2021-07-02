@@ -16,7 +16,7 @@ class TeacherController extends FrontendController
 
     public function index()
     {
-        $users = $this->user->newQuery()->with(['grades'])->where('status',1)->get();
+        $users = $this->user->newQuery()->with(['grades'])->where('status',1)->paginate(20);
         return view('teacher.teacher', compact('users'));
     }
 

@@ -8,10 +8,8 @@
 
     <div id="overviews" class="section wb">
         <div class="container">
-            <div class="section-title row text-center">
-                <div class="col-md-8 offset-md-2">
-                    <p class="lead">TIN TỨC TUYỂN DỤNG</p>
-                </div>
+            <div class="section-title text-center">
+                <h3 class="text-danger">Tin tức tuyển dụng</h3>
             </div><!-- end title -->
 
             <hr class="invis">

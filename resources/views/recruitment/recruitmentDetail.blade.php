@@ -7,8 +7,10 @@
     </div>
     <div id="overviews" class="section wb">
         <div class="container">
+            <div class="section-title text-center">
+                <h3 class="text-danger">Tin tức tuyển dụng</h3>
+            </div><!-- end title -->
             <div class="row">
-
                 <div class="col-lg-9 blog-post-single">
                     <div class="blog-item">
                         <div class="image-blog">

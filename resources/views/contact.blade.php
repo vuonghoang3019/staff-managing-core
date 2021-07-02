@@ -10,9 +10,7 @@
     <div id="contact" class="section wb">
         <div class="container">
             <div class="section-title text-center">
-                <h3 class="text-danger">THÔNG TIN LIÊN HỆ</h3>
-                <p class="lead">Quý phụ huynh, học sinh vui lòng liên hệ với chúng tôi theo thông tin bên dưới, hoặc để
-                    lại thông tin liên hệ vào biểu mẫu đăng ký. ASIA sẽ liên hệ trong thời gian sớm nhất.</p>
+                <h3 class="text-danger">Thông tin liên hệ</h3>
             </div><!-- end title -->
 
             <div class="row">

@@ -6,7 +6,7 @@
                 <li>
                     <div class="row">
                         <div class="flex-row mt-3">
-                            <div class="flex-column news-left">
+                            <div class="flex-column news-left ml-2">
                                 <a href="{{ route('news.detail',['id' => $newItem->id]) }}">
                                     <img class="rounded-circle"
                                         src="{{ asset($newItem->image_path) }}"

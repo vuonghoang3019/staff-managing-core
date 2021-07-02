@@ -3773,11 +3773,13 @@ a.link-style3 {
     padding: 0px;
     margin-bottom: 15px;
     border-right: 3px solid #eea412;
+    text-align: center;
 }
 .widget-categories ul{
     list-style: none;
     margin: 0px;
     padding: 0px;
+    border-left: 3px solid #eea412;
 }
 .widget-categories ul li{
     border-bottom: 1px solid #f2f2f2;

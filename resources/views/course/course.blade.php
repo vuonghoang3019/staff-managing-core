@@ -7,6 +7,9 @@
     </div>
     <div id="overviews" class="section wb">
         <div class="container">
+            <div class="section-title text-center">
+                <h3 class="text-danger">Khóa học tại trung tâm Ngoại ngữ Asia</h3>
+            </div><!-- end title -->
             <hr class="invis">
             <div class="row">
                 @foreach($courses as $course)

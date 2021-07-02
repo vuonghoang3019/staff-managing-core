@@ -9,6 +9,9 @@
 
     <div id="teachers" class="section wb">
         <div class="container">
+            <div class="section-title text-center">
+                <h3 class="text-danger">Giáo viên tại trung tâm Ngoại ngữ Asia</h3>
+            </div><!-- end title -->
             <div class="row">
                 @foreach($users as $user)
                     <div class="col-lg-3 col-md-6 col-12">
@@ -37,6 +40,9 @@
                     </div>
                 @endforeach
             </div><!-- end row -->
+            <div class="col-md-12 float-right">
+                {{ $users->links('pagination::bootstrap-4') }}
+            </div>
         </div><!-- end container -->
     </div><!-- end section -->
 

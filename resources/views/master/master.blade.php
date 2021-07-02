@@ -12,7 +12,7 @@
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="{{ asset('home/images/1200px-Sun-group-logo.png') }}"/>
+<link rel="shortcut icon" href="{{ asset('home/images/logoAsia.png') }}"/>
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
