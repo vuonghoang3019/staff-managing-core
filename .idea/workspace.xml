@@ -26,9 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="342640c1-971d-45f2-8fff-4b484beac8fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/storage/framework/laravel-excel/laravel-excel-kwMEpwixKyB4nMRCUjCB5LPkK887SmZs.tmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news/news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/slider/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/slider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/slider.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +275,9 @@
       <workItem from="1625193854649" duration="4198000" />
       <workItem from="1625215155056" duration="3979000" />
       <workItem from="1625228278377" duration="1517000" />
-      <workItem from="1625237884218" duration="4922000" />
+      <workItem from="1625237884218" duration="4982000" />
+      <workItem from="1625272612411" duration="1301000" />
+      <workItem from="1625274832426" duration="370000" />
     </task>
     <servers />
   </component>

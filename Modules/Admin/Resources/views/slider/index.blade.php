@@ -40,16 +40,16 @@
                                         </td>
 
                                         <td>
-                                            @can('category-update')
+
                                                 <a href="{{ route('slider.edit',['id' => $data->id]) }}"
                                                    class="btn btn-default">Edit</a>
-                                            @endcan
-                                            @can('category-delete')
+
+
                                                 <a href=""
                                                    data-url="{{ route('slider.delete',['id' => $data->id]) }}"
                                                    class="btn btn-danger action-delete">Delete
                                                 </a>
-                                            @endcan
+                        
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>
