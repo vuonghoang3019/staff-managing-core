@@ -76,26 +76,31 @@ class CourseController extends FrontendController {
         if (!Auth::guard('student')->check()) {
             return redirect()->back()->with('error', 'Bạn phải đăng nhập mới thanh toán');
         }
-        $courseDetail = $this->course->newQuery()->with('classroom')->findOrFail($idCourse);
-        $classrooms = $courseDetail->classroom;
-        foreach ($classrooms as $classroom) {
-            $countStudent = $this->student->newQuery()->where('classroom_id', $classroom->id)->count();
-            if ($countStudent < $classroom->number) // nếu thiếu học sinh thì dừng lại
-            {
-                break;
-            }
-            // nếu đủ học sinh thì thông báo
-            else
-            {
-                return redirect()->back()->with('error', 'Số lượng học sinh đã đủ! Vui lòng liên hệ với trung tâm để biết thêm thông tin chi tiết');
-            }
+        $course = $this->course->getStudentInClassroom($idCourse,$max = 3);
+
+        if (!$course) {
+            return redirect()->back()->with('error', 'Số lượng học sinh đã đủ! Vui lòng liên hệ với trung tâm để biết thêm thông tin chi tiết');
         }
+//        $course = $this->course->newQuery()->with('classroom')->findOrFail($idCourse);
+        $classrooms = $course->classroom;
+//        foreach ($classrooms as $classroom) {
+//            $countStudent = $this->student->newQuery()->where('classroom_id', $classroom->id)->count();
+//            if ($countStudent <  $classroom->number) // nếu thiếu học sinh thì dừng lại
+//            {
+//                break;
+//            }
+////            // nếu đủ học sinh thì thông báo
+////            else
+////            {
+////            return redirect()->back()->with('error', 'Số lượng học sinh đã đủ! Vui lòng liên hệ với trung tâm để biết thêm thông tin chi tiết');
+////            }
+//       }
         $prices = $this->price->findOrFail($idPrice);
         $total = $prices->price - ($prices->sale * $prices->price) / 100;
-        $dataCourses = $courseDetail->id;
+        $dataCourses = $course->id;
         session()->put('courseID', $dataCourses);
 //        dd(session()->get('courseID'));
-        return view('vnpay.index', compact('total', 'courseDetail', 'classrooms'));
+        return view('vnpay.index', compact('total', 'course', 'classrooms'));
     }
 
     public function postPay(Request $request)

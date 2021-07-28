@@ -38,9 +38,10 @@
                                         <td>
                                             <ul>
                                                 <li>Tối đa:{{ $data->number }}</li>
-                                                <li>Tối thiểu:{{ $data->min }}</li>
+{{--                                                <li>Tối thiểu:{{ $data->min }}</li>--}}
+                                                <li>Số học sinh hiện tại: {{ $countStudent }}</li>
                                                 <li>
-{{--                                                    {{ $countStudent }}--}}
+
                                                     @if($countStudent > $data->min && $countStudent < $data->number)
                                                         Được phép mở lớp
                                                     @else

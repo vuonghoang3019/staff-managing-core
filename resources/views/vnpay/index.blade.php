@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label for="amount">Khóa học</label>
                     <select name="course_id" class="form-control">
-                        <option value="{{ $courseDetail->id }}">{{ $courseDetail->name }}</option>
+                        <option value="{{ $course->id }}">{{ $course->name }}</option>
                     </select>
                 </div>
                 <div class="form-group">
