@@ -26,15 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="342640c1-971d-45f2-8fff-4b484beac8fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/home/images/202816380_1458047291206975_8570831734651660767_n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/home/images/208552053_1458047254540312_3147888921341554826_n.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/classroom/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Classroom.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Classroom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Course.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Course.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vnpay/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vnpay/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminAboutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Http/Controllers/AdminAboutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/about/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/about/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/about/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/about/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Modules/Admin/Resources/views/about/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Modules/Admin/Resources/views/about/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/About.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/About.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +285,8 @@
       <workItem from="1625715698372" duration="204000" />
       <workItem from="1626348397773" duration="18000" />
       <workItem from="1626697790344" duration="28000" />
-      <workItem from="1627453229291" duration="8529000" />
+      <workItem from="1627453229291" duration="8657000" />
+      <workItem from="1627486593663" duration="2144000" />
     </task>
     <servers />
   </component>

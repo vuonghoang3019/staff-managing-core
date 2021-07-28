@@ -8,17 +8,17 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Giới thiệu', 'key' => 'Thêm giới thiệu'])
+        @include('admin::components.headerContent',['name' => 'About', 'key' => ''])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('about.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <button type="submit" class="btn btn-success">Lưu</button>
-                    <a href="{{ route('about.index') }}" class="btn btn-primary">Quay lại</a>
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="{{ route('about.index') }}" class="btn btn-primary">Back</a>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="title">Nhập tiêu đề</label>
+                                <label for="title">Title</label>
                                 <textarea class="form-control" name="title" rows="3" id="title">{{ old('title') }}</textarea>
                                 @error('title')
                                 <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-md-6 ">
                             <div class="form-group">
-                                <label for="name">Chọn ảnh đại diện</label>
+                                <label for="name">Image</label>
                                 <div class="drop-zone ">
                                     <span class="drop-zone__prompt @error('image_path') is-invalid @enderror">Drop file here or click to upload</span>
                                     <input type="file" name="image_path" class="drop-zone__input">
@@ -39,7 +39,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="content">Viết nội dung</label>
+                                <label for="content">Content</label>
                                 <textarea class="form-control @error('content') is-invalid @enderror" name="Content" id="content">{{ old('content') }}</textarea>
                                 @error('content')
                                 <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>

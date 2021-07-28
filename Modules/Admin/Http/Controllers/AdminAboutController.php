@@ -3,7 +3,6 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Models\About;
-use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\AboutRequestAdd;
 use Modules\Admin\Traits\DeleteTrait;
 use Modules\Admin\Traits\StorageImageTrait;
@@ -27,7 +26,7 @@ class AdminAboutController extends FrontendController
 
     public function create()
     {
-        return view('admin::about.add');
+        return view('admin::about.create');
     }
 
     public function store(AboutRequestAdd $request)
@@ -74,7 +73,7 @@ class AdminAboutController extends FrontendController
     public function action($id)
     {
         $aboutUpdate = $this->about->findOrFail($id);
-        $aboutUpdate->status = $aboutUpdate->status ? 0 : 1;
+        $aboutUpdate->is_active = $aboutUpdate->is_active ? 0 : 1;
         $aboutUpdate->save();
         return redirect()->back()->with('success','Cập nhật trạng thái thành công');
     }

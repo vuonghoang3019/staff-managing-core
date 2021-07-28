@@ -7,8 +7,8 @@ use Illuminate\Support\Arr;
 
 class About extends Model
 {
-    protected $table = 'abouts';
-    protected $fillable = ['title','image_path','image_name','content'];
+    protected $table = 'about';
+    protected $fillable = ['title','image_path','image_name','content','is_active'];
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;
     protected $statusCategory = [
@@ -23,6 +23,6 @@ class About extends Model
     ];
     public function getStatus()
     {
-        return Arr::get($this->statusCategory,$this->status,'N\A');
+        return Arr::get($this->statusCategory,$this->is_active,'N\A');
     }
 }

@@ -4,23 +4,23 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('admin::components.headerContent',['name' => 'Giới thiệu', 'key' => 'Danh sách giới thiệu'])
+        @include('admin::components.headerContent',['name' => 'About', 'key' => ''])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    @can('category-add')
+{{--                    @can('category-add')--}}
                         <div class="col-md-12">
                             <a href="{{ route('about.create') }}" class="btn btn-success">ADD</a>
                         </div>
-                    @endcan
+{{--                    @endcan--}}
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Ảnh đại diện</th>
-                                <th scope="col">Tiêu đề</th>
-                                <th scope="col">Nội dung</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Content</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -36,8 +36,8 @@
                                         <td>{!! \Illuminate\Support\Str::limit($data->content,10)  !!}</td>
                                         <td>
                                             <a href="{{ route('about.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
+                                               class=" {{ $data->getStatus($data->is_active)['class'] }}">
+                                                {{ $data->getStatus($data->is_active)['name'] }}
                                             </a>
                                         </td>
                                         <td>
