@@ -10,7 +10,6 @@ class Course extends Model
 {
     protected $table = 'courses';
     protected $fillable = ['name','description','image_name','image_path','status'];
-    //k cos primary key à
     const STATUS_ACTIVE  = 1;
     const STATUS_INACTIVE = 0;
     protected $statusCourse = [
