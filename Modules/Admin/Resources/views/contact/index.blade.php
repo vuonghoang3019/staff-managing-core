@@ -13,27 +13,26 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Tên phụ huynh</th>
-                                <th scope="col">Tên học sinh</th>
-                                <th scope="col">Số điện thoại</th>
+                                <th scope="col">Name of parent</th>
+                                <th scope="col">Name of Student</th>
+                                <th scope="col">Phone</th>
                                 <th scope="col">Email</th>
-                                {{--th scope="col">Status</th>--}}
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $stt = 0 ?>
                             @if(isset($contactsView)  )
-                                @foreach($contactsView as $data)
+                                @foreach($contactsView as $contach)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td>{{ $data->name_parent }}</td>
-                                        <td>{{ $data->name_student }}</td>
-                                        <td>{{ $data->phone }}</td>
-                                        <td>{{ $data->email }}</td>
+                                        <td>{{ $contach->name_parent }}</td>
+                                        <td>{{ $contach->name_student }}</td>
+                                        <td>{{ $contach->phone }}</td>
+                                        <td>{{ $contach->email }}</td>
                                         <td>
 
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactDetail{{ $data->id }}">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactDetail{{ $contach->id }}">
                                                 View
                                             </button>
                                             @include('admin::contact.modal')

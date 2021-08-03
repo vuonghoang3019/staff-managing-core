@@ -24,7 +24,7 @@ class AdminRoomController extends FrontendController
 
     public function create()
     {
-        return view('admin::room.add');
+        return view('admin::room.create');
     }
 
     public function store(Request $request)

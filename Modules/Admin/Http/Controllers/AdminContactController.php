@@ -24,7 +24,7 @@ class AdminContactController extends FrontendController
     public function action($id)
     {
         $contactAction = $this->contact->findOrFail($id);
-        $contactAction->status = $contactAction->status === 0 ? 1 : 0;
+        $contactAction->is_active = $contactAction->is_active === 0 ? 1 : 0;
         $contactAction->save();
         return redirect()->back()->with('success', 'Cập nhật trạng thái thành công');
     }
@@ -32,7 +32,7 @@ class AdminContactController extends FrontendController
     public function detail($id)
     {
         $contactDetail = $this->contact->findOrFail($id);
-        $contactDetail->status = 1;
+        $contactDetail->is_active = 1;
         $contactDetail->save();
         return view('admin::contact.view',compact('contactDetail'));
     }

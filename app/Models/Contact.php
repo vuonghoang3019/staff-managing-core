@@ -2,27 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
+use App\Models\Attributes\IsActiveAttributes;
 
-class Contact extends Model
+class Contact extends BaseModel
 {
-    protected $table = 'contacts';
-    protected $fillable = ['name_parent','phone','name_student','email','content'];
-    const STATUS_ACTIVE  = 1;
-    const STATUS_INACTIVE = 0;
-    protected $statusClassroom = [
-        1 => [
-            'name' => 'Đã xem',
-            'class' => 'btn btn-primary'
-        ],
-        0 => [
-            'name' => 'Chưa xem',
-            'class' => 'btn btn-default'
-        ]
-    ];
-    public function getStatus()
-    {
-        return Arr::get($this->statusClassroom,$this->status,'N\A');
-    }
+    use IsActiveAttributes;
+
+    protected $table = 'contact';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'name_parent',
+        'phone',
+        'name_student',
+        'email',
+        'content','is_active'];
+
+
 }

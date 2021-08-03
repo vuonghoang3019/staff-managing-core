@@ -32,8 +32,8 @@ class StudentImport implements ToCollection, WithHeadingRow, WithValidation {
     public function rules(): array
     {
         return [
-            '*.code'  => ['unique:students,code'],
-            '*.email' => ['unique:students,email']
+            '*.code'  => ['unique:student,code'],
+            '*.email' => ['unique:student,email']
         ];
     }
 

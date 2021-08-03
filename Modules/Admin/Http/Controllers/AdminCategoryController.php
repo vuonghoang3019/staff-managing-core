@@ -78,7 +78,7 @@ class AdminCategoryController extends FrontendController
     public function action($id)
     {
         $categoryUpdate = $this->category->find($id);
-        $categoryUpdate->status = $categoryUpdate->status ? 0 : 1;
+        $categoryUpdate->is_active = $categoryUpdate->is_active ? 0 : 1;
         $categoryUpdate->save();
         return redirect()->back()->with('success','Thêm mới thành công');
     }

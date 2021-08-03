@@ -2,27 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
+use App\Models\Attributes\IsActiveAttributes;
 
-class Slider extends Model
+class Slider extends BaseModel
 {
-    protected $table = 'sliders';
-    protected $fillable = ['name','description','image_name','image_path'];
-    const STATUS_ACTIVE  = 1;
-    const STATUS_INACTIVE = 0;
-    protected $statusSlider = [
-        1 => [
-            'name' => 'active',
-            'class' => 'btn btn-primary'
-        ],
-        0 => [
-            'name' => 'Inactive',
-            'class' => 'btn btn-default'
-        ]
+    use IsActiveAttributes;
+
+    protected $table = 'slider';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'name',
+        'description',
+        'image_name',
+        'image_path',
+        'is_active'
     ];
-    public function getStatus()
-    {
-        return Arr::get($this->statusSlider,$this->status,'N\A');
-    }
 }

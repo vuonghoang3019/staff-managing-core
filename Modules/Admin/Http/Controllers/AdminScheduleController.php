@@ -11,9 +11,10 @@ use Modules\Admin\Http\Requests\ScheduleRequestAdd;
 use Modules\Admin\Http\Requests\update\ScheduleRequestUpdate;
 use Modules\Admin\Traits\DeleteTrait;
 
-class AdminScheduleController extends FrontendController {
-    use DeleteTrait;
+class AdminScheduleController extends FrontendController
+{
 
+    use DeleteTrait;
     private $classroom;
     private $user;
     private $schedule;
@@ -40,8 +41,8 @@ class AdminScheduleController extends FrontendController {
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $users = $this->user->newQuery()->with(['grades'])->get();
         $weeks = $this->schedule->getWeek();
-        $rooms = $this->room->where('status', 0)->get();
-        return view('admin::schedule.add', compact('classrooms', 'users', 'weeks', 'rooms'));
+        $rooms = $this->room->where('is_active', 0)->get();
+        return view('admin::schedule.create', compact('classrooms', 'users', 'weeks', 'rooms'));
     }
 
     public function store(ScheduleRequestAdd $request)
@@ -68,7 +69,7 @@ class AdminScheduleController extends FrontendController {
         $classrooms = $this->classroom->newQuery()->with(['course'])->get();
         $users = $this->user->newQuery()->with(['grades'])->get();
         $scheduleEdit = $this->schedule->with(['room', 'user', 'class'])->findOrFail($id);
-        $rooms = $this->room->where('status', 0)->get();
+        $rooms = $this->room->where('is_active', 0)->get();
         return view('admin::schedule.edit', compact('classrooms', 'users', 'scheduleEdit', 'weeks', 'rooms'));
     }
 
@@ -113,9 +114,7 @@ class AdminScheduleController extends FrontendController {
                         if ($item->name == $classroom->name)
                         {
                             $output .= '<option value="' . $user->id . '">' . $user->name . '</option>';
-
                         }
-
                     }
                 }
                 return response($output);

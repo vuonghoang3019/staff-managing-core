@@ -25,7 +25,7 @@ class AdminGradeController extends FrontendController
     }
     public function create()
     {
-        return view('admin::grade.add');
+        return view('admin::grade.create');
     }
     public function store(GradeRequestAdd $request)
     {
@@ -59,7 +59,7 @@ class AdminGradeController extends FrontendController
     public function action($id)
     {
         $gradeEdit = $this->grade->find($id);
-        $gradeEdit->status = $gradeEdit->status ? 0 : 1;
+        $gradeEdit->is_active = $gradeEdit->is_active ? 0 : 1;
         $gradeEdit->save();
         return redirect()->back();
     }

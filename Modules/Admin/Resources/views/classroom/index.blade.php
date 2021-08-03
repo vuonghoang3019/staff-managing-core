@@ -18,53 +18,42 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Tên</th>
-                                <th scope="col">Mã</th>
-                                <th scope="col">Số lượng học viên</th>
-                                <th scope="col">Khóa học</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Code</th>
+                                <th scope="col">Infomation</th>
+                                <th scope="col">Course</th>
+                                <th scope="col">Active</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $stt = 0; ?>
                             @if(isset($classrooms))
-                                @foreach($classrooms as $data)
-                                    <?php $countStudent = \Illuminate\Support\Facades\DB::table('students')->where('classroom_id', $data->id)->count() ?>
+                                @foreach($classrooms as $classroom)
+                                    <?php $countStudent = \Illuminate\Support\Facades\DB::table('student')->where('classroom_id', $classroom->id)->count() ?>
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td>{{ $data->name }}</td>
-                                        <td>{{ $data->code }}</td>
+                                        <td>{{ $classroom->name }}</td>
+                                        <td>{{ $classroom->code }}</td>
                                         <td>
                                             <ul>
-                                                <li>Tối đa:{{ $data->number }}</li>
-{{--                                                <li>Tối thiểu:{{ $data->min }}</li>--}}
-                                                <li>Số học sinh hiện tại: {{ $countStudent }}</li>
-                                                <li>
-
-                                                    @if($countStudent > $data->min && $countStudent < $data->number)
-                                                        Được phép mở lớp
-                                                    @else
-                                                        Không được phép mở lớp
-                                                    @endif
-                                                </li>
+                                                <li>Max of Student:{{ $classroom->max_student }}</li>
+                                                <li>Min of Student:{{ $classroom->min_student }}</li>
+                                                <li>Number of Student: {{ $countStudent }}</li>
                                             </ul>
                                         </td>
-                                        <td>{{ $data->course->name }}</td>
+                                        <td>{{ $classroom->course->name }}</td>
                                         <td>
-                                            <a href="{{ route('classroom.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
+                                            {!! $classroom->is_active !!}
                                         </td>
                                         <td>
                                             @can('classroom-update')
-                                                <a href="{{ route('classroom.edit',['id' => $data->id]) }}"
+                                                <a href="{{ route('classroom.edit',['id' => $classroom->id]) }}"
                                                    class="btn btn-default">Edit</a>
                                             @endcan
                                             @can('classroom-delete')
                                                 <a href=""
-                                                   data-url="{{ route('classroom.delete',['id' => $data->id]) }}"
+                                                   data-url="{{ route('classroom.delete',['id' => $classroom->id]) }}"
                                                    class="btn btn-danger action-delete">Delete
                                                 </a>
                                             @endcan

@@ -38,7 +38,7 @@ class AdminStudentController extends FrontendController {
     public function create()
     {
         $classrooms = $this->classroom->get();
-        return view('admin::student.add', compact('classrooms'));
+        return view('admin::student.create', compact('classrooms'));
     }
 
     public function store(StudentRequestAdd $request)
@@ -80,7 +80,7 @@ class AdminStudentController extends FrontendController {
         $studentUpdate->classroom_id = $request->classroom_id;
         $this->student->password = Hash::make($request->password);
         $studentUpdate->phone = $request->phone;
-        $studentUpdate->status = 1;
+        $studentUpdate->is_active = 1;
         $studentUpload = $this->storageTraitUpload($request, 'image_path', 'student');
         if (!empty($studentUpload)) {
             unlink(substr($studentUpdate->image_path, 1));
@@ -99,7 +99,7 @@ class AdminStudentController extends FrontendController {
     public function action($id)
     {
         $studentAction = $this->student->find($id);
-        $studentAction->status = $studentAction->status ? 0 : 1;
+        $studentAction->is_active = $studentAction->is_active ? 0 : 1;
         $studentAction->save();
         return redirect()->back()->with('success', 'Cập nhật trạng thái thành công');
     }
@@ -119,7 +119,7 @@ class AdminStudentController extends FrontendController {
                      <td>' . $student->code . '</td>
                      <td><ul><li>' . $student->birthday . '</li><li>' . $student->nation . '</li><li>' . $student->phone . '</li></ul></td>
                        <td>' . $student->classroom->name . '</td>
-                       <td><a class="' . $student->getStatus($student->status)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getStatus($student->status)['name'] . '</a></td>
+                       <td><a class="' . $student->getis_active($student->is_active)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getis_active($student->is_active)['name'] . '</a></td>
                           <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>
                           <td><a class="btn btn-danger action-delete" href="#" data-url="' . route('student.delete', ['id' => $student->id]) . '">Delete</a></td>
                     </tr>';
@@ -145,7 +145,7 @@ class AdminStudentController extends FrontendController {
                      <td>' . $student->code . '</td>
                      <td><ul><li>' . $student->birthday . '</li><li>' . $student->nation . '</li><li>' . $student->phone . '</li></ul></td>
                        <td>' . $student->classroom->name . '</td>
-                       <td><a class="' . $student->getStatus($student->status)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getStatus($student->status)['name'] . '</a></td>
+                       <td><a class="' . $student->getis_active($student->is_active)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getis_active($student->is_active)['name'] . '</a></td>
                           <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>
                           <td><a class="btn btn-danger action-delete" href="#" data-url="' . route('student.delete', ['id' => $student->id]) . '">Delete</a></td>
                     </tr>';

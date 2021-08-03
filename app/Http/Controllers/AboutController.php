@@ -19,8 +19,8 @@ class AboutController extends FrontendController
 
     public function index()
     {
-        $abouts = $this->about->newQuery()->where('status', 1)->limit(2)->get();
-        $users = $this->user->newQuery()->where('status',1)->where('is_check',1)->get();
+        $abouts = $this->about->newQuery()->where('is_active', 1)->limit(2)->get();
+        $users = $this->user->newQuery()->where('is_active',1)->where('is_check',1)->get();
         return view('about', compact('abouts','users'));
     }
 }

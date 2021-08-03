@@ -2,27 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
+use App\Models\Attributes\IsActiveAttributes;
 
-class Recruitment extends Model
+class Recruitment extends BaseModel
 {
-    protected $table = 'recruitments';
-    protected $fillable = ['title','content','status','image_name','image_path'];
-    const STATUS_ACTIVE  = 1;
-    const STATUS_INACTIVE = 0;
-    protected $statusCategory = [
-        1 => [
-            'name' => 'active',
-            'class' => 'btn btn-primary'
-        ],
-        0 => [
-            'name' => 'inactive',
-            'class' => 'btn btn-default'
-        ]
+    use IsActiveAttributes;
+
+    protected $table = 'recruitment';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'title',
+        'content',
+        'is_active',
+        'image_name',
+        'image_path'
     ];
-    public function getStatus()
-    {
-        return Arr::get($this->statusCategory,$this->status,'N\A');
-    }
 }

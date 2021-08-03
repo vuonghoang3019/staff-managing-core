@@ -35,23 +35,17 @@
                             <label for="">Tên:</label>
                             <input type="text" class="form-control ml-2" id="search">
                         </div>
-{{--                        <div class="form-group col-md-3">--}}
-{{--                            <label for="">Trạng thái:</label>--}}
-{{--                            <select class="form-control ml-2">--}}
-{{--                                <option>---Chọn trạng thái---</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
                     </div>
                     <div class="col-md-12 ">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Tên,Email</th>
-                                <th scope="col">Mã</th>
-                                <th scope="col">Thông tin</th>
-                                <th scope="col">Lớp</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Name, Email</th>
+                                <th scope="col">Code</th>
+                                <th scope="col">Information</th>
+                                <th scope="col">Classroom</th>
+                                <th scope="col">Active</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -78,10 +72,7 @@
                                         </td>
                                         <td>{{ $data->classroom == null ? 'hiện tại Học sinh không có lớp' : $data->classroom->name  }}</td>
                                         <td>
-                                            <a href="{{ route('student.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
+                                            {!! $data->is_active !!}
                                         </td>
                                         <td>
                                             @can('student-update')

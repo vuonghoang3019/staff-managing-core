@@ -33,23 +33,15 @@
                                         <td>{{ $data->description }}</td>
                                         <td><img src="{{ asset($data->image_path) }}" width="100" height="100"></td>
                                         <td>
-                                            <a href="{{ route('slider.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
+                                            {!! $data->is_active !!}
                                         </td>
-
                                         <td>
-
-                                                <a href="{{ route('slider.edit',['id' => $data->id]) }}"
-                                                   class="btn btn-default">Edit</a>
-
-
-                                                <a href=""
-                                                   data-url="{{ route('slider.delete',['id' => $data->id]) }}"
-                                                   class="btn btn-danger action-delete">Delete
-                                                </a>
-                        
+                                            <a href="{{ route('slider.edit',['id' => $data->id]) }}"
+                                               class="btn btn-default">Edit</a>
+                                            <a href=""
+                                               data-url="{{ route('slider.delete',['id' => $data->id]) }}"
+                                               class="btn btn-danger action-delete">Delete
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php $stt++; ?>

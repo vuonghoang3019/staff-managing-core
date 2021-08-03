@@ -2,27 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
+use App\Models\Attributes\IsActiveAttributes;
 
-class Grade extends Model
+class Grade extends BaseModel
 {
-    protected $table = 'grades';
-    protected $fillable = ['name','description','status'];
-    const STATUS_ACTIVE  = 1;
-    const STATUS_INACTIVE = 0;
-    protected $statusGrade = [
-        1 => [
-            'name' => 'active',
-            'class' => 'btn btn-primary'
-        ],
-        0 => [
-            'name' => 'inactive',
-            'class' => 'btn btn-default'
-        ]
+    use IsActiveAttributes;
+
+    protected $table = 'grade';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'name',
+        'description',
+        'is_check'
     ];
-    public function getStatus()
-    {
-        return Arr::get($this->statusGrade,$this->status,'N\A');
-    }
+
 }

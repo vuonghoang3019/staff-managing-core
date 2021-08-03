@@ -16,31 +16,28 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Tiêu đề</th>
-                                <th scope="col">Ảnh</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Active</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $stt = 0 ?>
                             @if(isset($recruitments)  )
-                                @foreach($recruitments as $data)
+                                @foreach($recruitments as $recruitment)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td>{!! \Illuminate\Support\Str::limit($data->title,20)  !!}</td>
-                                        <td><img src="{{ asset($data->image_path) }}" width="100" height="100"></td>
+                                        <td>{!! \Illuminate\Support\Str::limit($recruitment->title,20)  !!}</td>
+                                        <td><img src="{{ asset($recruitment->image_path) }}" width="100" height="100"></td>
                                         <td>
-                                            <a href="{{ route('recruitment.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
+                                            {!! $recruitment->is_active !!}
                                         </td>
                                         <td>
-                                            <a href="{{ route('recruitment.edit',['id' => $data->id]) }}"
+                                            <a href="{{ route('recruitment.edit',['id' => $recruitment->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('recruitment.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('recruitment.delete',['id' => $recruitment->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

@@ -16,35 +16,32 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Tên</th>
-                                <th scope="col">Mã</th>
-                                <th scope="col">Chỗ ngồi</th>
-                                <th scope="col">Mô tả</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Code</th>
+                                <th scope="col">Sit Capacity</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Active</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $stt = 0 ?>
                             @if(isset($rooms))
-                                @foreach($rooms as $data)
+                                @foreach($rooms as $room)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td>{{ $data->name }}</td>
-                                        <td>{{ $data->code }}</td>
-                                        <td>{{ $data->sit_capacity }}</td>
-                                        <td>{{ $data->description }}</td>
+                                        <td>{{ $room->name }}</td>
+                                        <td>{{ $room->code }}</td>
+                                        <td>{{ $room->sit_capacity }}</td>
+                                        <td>{{ $room->description }}</td>
                                         <td>
-                                            <a href="{{ route('room.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
+                                            {!! $room->is_active !!}
                                         </td>
                                         <td>
-                                            <a href="{{ route('room.edit',['id' => $data->id]) }}"
+                                            <a href="{{ route('room.edit',['id' => $room->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('room.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('room.delete',['id' => $room->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

@@ -17,7 +17,7 @@ class RecruitmentController extends FrontendController
 
     public function index()
     {
-        $recruitments= Recruitment::where('status',1)->limit(6)->get();
+        $recruitments= Recruitment::where('is_active',1)->limit(6)->get();
         return view('recruitment.recruitment',compact('recruitments'));
     }
 

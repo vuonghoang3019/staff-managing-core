@@ -24,7 +24,7 @@ class RegisterRequestAdd extends FormRequest {
     {
         return [
             'name'     => 'required|max:50|min:10',
-            'email'    => 'required|unique:students,email,' . $this->id,
+            'email'    => 'required|unique:student,email,' . $this->id,
             'password' => 'required',
             'phone'    => 'required|size:10',
             'sex'      => 'required',

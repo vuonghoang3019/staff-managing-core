@@ -40,9 +40,9 @@ class CourseController extends FrontendController {
     {
         $classrooms = $this->classroom
             ->newQuery()
-            ->join('students', 'students.classroom_id', '=', 'classrooms.id')
-            ->join('courses', 'courses.id', '=', 'classrooms.course_id')
-            ->where('courses.id', $id)
+            ->join('student', 'student.classroom_id', '=', 'classroom.id')
+            ->join('course', 'course.id', '=', 'classroom.course_id')
+            ->where('course.id', $id)
             ->get();
         $prices = $this->price->newQuery()->with(['course'])->where([
             ['course_id', '=', $id],
@@ -76,30 +76,34 @@ class CourseController extends FrontendController {
         if (!Auth::guard('student')->check()) {
             return redirect()->back()->with('error', 'Bạn phải đăng nhập mới thanh toán');
         }
-        $course = $this->course->getStudentInClassroom($idCourse,$max = 3);
 
-        if (!$course) {
-            return redirect()->back()->with('error', 'Số lượng học sinh đã đủ! Vui lòng liên hệ với trung tâm để biết thêm thông tin chi tiết');
-        }
-//        $course = $this->course->newQuery()->with('classroom')->findOrFail($idCourse);
-        $classrooms = $course->classroom;
-//        foreach ($classrooms as $classroom) {
-//            $countStudent = $this->student->newQuery()->where('classroom_id', $classroom->id)->count();
-//            if ($countStudent <  $classroom->number) // nếu thiếu học sinh thì dừng lại
+//
+//        if (!$course) {
+//            return redirect()->back()->with('error', 'Số lượng học sinh đã đủ! Vui lòng liên hệ với trung tâm để biết thêm thông tin chi tiết');
+//        }
+
+        $course = $this->course->newQuery()->with('classroom')->findOrFail($idCourse);
+//        $classrooms = $course->classroom;
+
+
+//        $lengthClassroom = count($classrooms);
+//        for ($i = 0; $i < $lengthClassroom; $i++)
+//        {
+//            $countStudent = $this->student->newQuery()->where('classroom_id', $classrooms[$i]->id)->count();
+//            if ($countStudent < $classrooms[$i]->max_student)
 //            {
-//                break;
+//                echo $classrooms[$i]->id;
 //            }
-////            // nếu đủ học sinh thì thông báo
-////            else
-////            {
-////            return redirect()->back()->with('error', 'Số lượng học sinh đã đủ! Vui lòng liên hệ với trung tâm để biết thêm thông tin chi tiết');
-////            }
-//       }
+//            else
+//            {
+////                echo $classrooms[$i]->id;
+////                return redirect()->back()->with('error', 'Số lượng học sinh đã đủ! Vui lòng liên hệ với trung tâm để biết thêm thông tin chi tiết');
+//            }
+//        }
         $prices = $this->price->findOrFail($idPrice);
         $total = $prices->price - ($prices->sale * $prices->price) / 100;
         $dataCourses = $course->id;
         session()->put('courseID', $dataCourses);
-//        dd(session()->get('courseID'));
         return view('vnpay.index', compact('total', 'course', 'classrooms'));
     }
 

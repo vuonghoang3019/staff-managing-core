@@ -57,7 +57,7 @@
                                 data-target="#actionPermission">
                             Add
                         </button>
-                        @include('admin::permission.add')
+                        @include('admin::permission.create')
                     </div>
                     @endcan
                     <div class="col-md-12 mt-2">

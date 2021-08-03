@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Role extends Model
+class Role extends BaseModel
 {
-    protected $table = 'roles';
-    protected $fillable = ['code','name','description'];
+    protected $table = 'role';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'code',
+        'name',
+        'description'
+    ];
 
     public function permission_role()
     {

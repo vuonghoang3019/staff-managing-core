@@ -28,7 +28,7 @@ class AdminNewsController extends FrontendController
 
     public function create()
     {
-        return view('admin::news.add');
+        return view('admin::news.create');
     }
 
     public function store(NewsRequestAdd $request)
@@ -55,7 +55,7 @@ class AdminNewsController extends FrontendController
         $newsUpdate = $this->news->findOrFail($id);
         $newsUpdate->title = $request->title;
         $newsUpdate->content = $request->Content;
-        $aboutUpload = $this->storageTraitUpload($request, 'image_path', 'about');
+        $aboutUpload = $this->storageTraitUpload($request, 'image_path', 'news');
         if (!empty($aboutUpload)) {
             unlink(substr($newsUpdate->image_path, 1));
             $newsUpdate->image_name = $aboutUpload['file_name'];
@@ -75,7 +75,7 @@ class AdminNewsController extends FrontendController
     public function action($id)
     {
         $newsUpdate = $this->news->findOrFail($id);
-        $newsUpdate->status = $newsUpdate->status ? 0 : 1;
+        $newsUpdate->is_active = $newsUpdate->is_active ? 0 : 1;
         $newsUpdate->save();
         return redirect()->back()->with('success','Cập nhật trạng thái thành công');
     }

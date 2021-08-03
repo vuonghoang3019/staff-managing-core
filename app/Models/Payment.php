@@ -2,11 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+class Payment extends BaseModel
+{
 
-class Payment extends Model {
-    protected $table = 'payments';
-    protected $fillable = ['user_id', 'course_id', 'total', 'transaction_code', 'note', 'vn_response_code', 'code_vnpay', 'code_bank', 'time'];
+    protected $table = 'payment';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'user_id',
+        'course_id',
+        'total',
+        'tr ansaction_code',
+        'note',
+        'vn_response_code',
+        'code_vnpay',
+        'code_bank',
+        'time'
+    ];
 
     public function course()
     {

@@ -28,7 +28,7 @@ class AdminRecruitmentController extends FrontendController
 
     public function create()
     {
-        return view('admin::recruitment.add');
+        return view('admin::recruitment.create');
     }
 
     public function store(RecruitmentRequestAdd $request)
@@ -76,7 +76,7 @@ class AdminRecruitmentController extends FrontendController
     public function action($id)
     {
         $reEdit = $this->recruitment->findOrFail($id);
-        $reEdit->status = $reEdit->status ? 0 : 1;
+        $reEdit->is_active = $reEdit->is_active ? 0 : 1;
         $reEdit->save();
         return redirect()->back()->with('success','Cập nhật trạng thái thành công');
     }

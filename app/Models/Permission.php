@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Permission extends Model
+class Permission extends BaseModel
 {
-    protected $table = 'permissions';
-    protected $fillable = ['name','description','parent_id','value'];
+    protected $table = 'permission';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'name',
+        'description',
+        'parent_id',
+        'value'
+    ];
 
     public function child()
     {

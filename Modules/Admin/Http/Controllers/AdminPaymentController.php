@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class AdminPaymentController extends FrontendController {
+
     private $payment;
     private $course;
 
@@ -20,7 +21,7 @@ class AdminPaymentController extends FrontendController {
 
     public function index()
     {
-        $courses = $this->course->where('status', 1)->get();
+        $courses = $this->course->where('is_active', 1)->get();
         $payments = $this->payment->newQuery()->with(['course', 'user'])->paginate(5);
         return view('admin::payment.index', compact('payments', 'courses'));
     }
@@ -53,8 +54,8 @@ class AdminPaymentController extends FrontendController {
         if ($request->get('searchResult')) {
             $name = $request->get('searchResult');
             $payments = $this->payment->newQuery()
-                ->join('students','payments.user_id','=','students.id')
-                ->join('courses','payments.course_id','=','courses.id')
+                ->join('students','payment.user_id','=','students.id')
+                ->join('courses','payment.course_id','=','courses.id')
                 ->where('students.name', 'like', '%' . $name . '%')->get();
             $output = '';
             foreach ($payments as $payment) {

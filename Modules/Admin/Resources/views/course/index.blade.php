@@ -22,7 +22,7 @@
                                 <th scope="col">Tên khóa học</th>
                                 <th scope="col">Giá</th>
                                 <th scope="col">Mức độ</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Active</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
@@ -50,10 +50,7 @@
                                             </ul>
                                         </td>
                                         <td>
-                                            <a href="{{ route('course.action',['id' => $course->id]) }}"
-                                               class="{{ $course->getStatus($course->status)['class'] }}">
-                                                {{ $course->getStatus($course->status)['name'] }}
-                                            </a>
+                                            {!! $course->is_active !!}
                                         </td>
                                         <td>
                                             @can('course-update')

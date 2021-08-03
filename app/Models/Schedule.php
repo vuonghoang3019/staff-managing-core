@@ -3,13 +3,23 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 
-class Schedule extends Model
+class Schedule extends BaseModel
 {
-    protected $table = 'schedules';
-    protected $fillable = ['weekday', 'user_id', 'classroom_id','room_id','start_time','end_time'];
+    protected $table = 'schedule';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'weekday',
+        'user_id',
+        'classroom_id',
+        'room_id',
+        'start_time',
+        'end_time'
+    ];
+
     protected $weekDay = [
         '1' => 'Monday',
         '2' => 'Tuesday',
@@ -30,6 +40,7 @@ class Schedule extends Model
         $time = Carbon::createFromFormat('H:i:s', $value);
         return $time->format('H:i');
     }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

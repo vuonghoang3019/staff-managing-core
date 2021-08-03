@@ -9,8 +9,25 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'users';
-    protected $fillable = ['name', 'code', 'email', 'password', 'image_name', 'image_path', 'status','is_check','description','code_reset','time_reset'];
+    protected $table = 'user';
+
+    public static $name = 'user';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'name',
+        'code',
+        'email',
+        'password',
+        'image_name',
+        'image_path',
+        'status',
+        'is_check','
+        description',
+        'code_reset',
+        'time_reset'
+    ];
 
     public function grades()
     {

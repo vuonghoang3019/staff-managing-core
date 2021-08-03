@@ -20,7 +20,7 @@ class StudentRequestAdd extends FormRequest {
             'classroom_id' => 'required',
             'sex'          => 'required',
             'phone'        => 'required|size:10',
-            'email'        => 'required|unique:students,email,' . $this->id,
+            'email'        => 'required|unique:student,email,' . $this->id,
             'password'     => 'required',
             'image_path'   => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
         ];

@@ -16,33 +16,30 @@
                             <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Ảnh đại diện</th>
-                                <th scope="col">Tiêu đề</th>
-                                <th scope="col">Nội dung</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Content</th>
+                                <th scope="col">Active</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $stt = 0 ?>
                             @if(isset($news)  )
-                                @foreach($news as $data)
+                                @foreach($news as $newsItem)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td><img src="{{ asset($data->image_path) }}" width="100" height="100"></td>
-                                        <td style="font-size: 20px">{!! \Illuminate\Support\Str::lower(\Illuminate\Support\Str::limit($data->title,20)) !!}</td>
-                                        <td>{!! \Illuminate\Support\Str::limit($data->content,20)  !!}</td>
+                                        <td><img src="{{ asset($newsItem->image_path) }}" width="100" height="100"></td>
+                                        <td style="font-size: 20px">{!! \Illuminate\Support\Str::lower(\Illuminate\Support\Str::limit($newsItem->title,20)) !!}</td>
+                                        <td>{!! \Illuminate\Support\Str::limit($newsItem->content,20)  !!}</td>
                                         <td>
-                                            <a href="{{ route('news.action',['id' => $data->id]) }}"
-                                                   class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
+                                            {!! $newsItem->is_active !!}
                                         </td>
                                         <td>
-                                            <a href="{{ route('news.edit',['id' => $data->id]) }}"
+                                            <a href="{{ route('news.edit',['id' => $newsItem->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('news.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('news.delete',['id' => $newsItem->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

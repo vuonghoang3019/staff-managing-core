@@ -1,6 +1,6 @@
 @extends('master.master')
 @section('title')
-    <title>About</title>
+    <title>Course Detail</title>
 @endsection
 @section('content')
     <div class="all-title-box title-image" style="background-image:url({{ asset('home/images/banner.png') }});background-repeat: no-repeat;background-attachment: fixed;background-position: center">

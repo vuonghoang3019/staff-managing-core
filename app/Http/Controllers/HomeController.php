@@ -25,8 +25,8 @@ class HomeController extends FrontendController
 
     public function index()
     {
-        $sliders = $this->slider->newQuery()->where('status', 1)->limit(3)->get();
-        $abouts = $this->about->newQuery()->where('status', 1)->limit(2)->get();
+        $sliders = $this->slider->newQuery()->where('is_active', 1)->limit(3)->get();
+        $abouts = $this->about->newQuery()->where('is_active', 1)->limit(2)->get();
         $students = $this->student->newQuery()->get()->pluck('id');
         $users = $this->user->newQuery()->get()->pluck('id');
         return view('index', compact('sliders', 'abouts','students','users'));

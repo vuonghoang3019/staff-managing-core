@@ -5,12 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 
-class Category extends Model
+class Category extends BaseModel
 {
-    protected $table = 'categories';
-    protected $fillable = ['name','slug','parent_id','redirect','active'];
+    protected $table = 'category';
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'parent_id',
+        'redirect',
+        'active'
+    ];
+
     const STATUS_ACTIVE  = 1;
+
     const STATUS_INACTIVE = 0;
+
     protected $statusCategory = [
         1 => [
             'name' => 'active',
@@ -21,10 +31,12 @@ class Category extends Model
             'class' => 'btn btn-default'
         ]
     ];
+
     public function getStatus()
     {
         return Arr::get($this->statusCategory,$this->status,'N\A');
     }
+
     public function categoryChild()
     {
         return $this->hasMany(Category::class,'parent_id','id');

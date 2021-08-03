@@ -30,7 +30,7 @@ class AdminRoleController extends FrontendController
     public function create()
     {
         $permissions = $this->permission->newQuery()->with('child')->where('parent_id',0)->get();
-        return view('admin::role.add',compact('permissions'));
+        return view('admin::role.create',compact('permissions'));
     }
 
     public function store(Request $request)
@@ -64,7 +64,6 @@ class AdminRoleController extends FrontendController
         $roleEdit->update($dataRole);
         $roleEdit->permission_role()->sync($request->permissionID);
         return redirect()->back()->with('success','Cập nhật thành công');
-
     }
 
     public function delete($id)

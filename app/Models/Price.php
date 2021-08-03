@@ -2,12 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Price extends Model
+class Price extends BaseModel
 {
-    protected $table = 'prices';
-    protected $fillable = ['name','price','course_id','lesson','sale','description'];
+    protected $table = 'price';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'name',
+        'price',
+        'course_id',
+        'lesson',
+        'sale',
+        'description']
+    ;
+
     public function course()
     {
         return $this->belongsTo(Course::class,'course_id');

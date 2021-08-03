@@ -11,8 +11,8 @@ class FrontendController extends Controller
 {
     public function __construct()
     {
-        $courses = Course::all()->where('status',1);
-        $teachers = DB::table('users')->select('is_check')->distinct()->get();
+        $courses = DB::table(Course::$name)->where('is_active',1)->get();
+        $teachers = DB::table(User::$name)->select('is_check')->distinct()->get();
         $data = [
             'courses' => $courses,
             'teachers' => $teachers

@@ -31,7 +31,7 @@ class AdminSliderController extends FrontendController
 
     public function create()
     {
-        return view('admin::slider.add');
+        return view('admin::slider.create');
     }
 
     public function store(SliderRequestAdd $request)
@@ -78,7 +78,7 @@ class AdminSliderController extends FrontendController
     public function action($id)
     {
         $sliderAction = $this->slider->findOrFail($id);
-        $sliderAction->status = $sliderAction->status ? 0 : 1;
+        $sliderAction->is_active = $sliderAction->is_active ? 0 : 1;
         $sliderAction->save();
         return redirect()->back();
     }

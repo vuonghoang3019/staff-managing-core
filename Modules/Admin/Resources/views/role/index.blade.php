@@ -33,7 +33,6 @@
                                         <td>{{ $data->code }}</td>
                                         <td>{{ $data->name }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
-
                                         <td>
                                             @can('role-update')
                                                 <a href="{{ route('role.edit',['id' => $data->id]) }}"

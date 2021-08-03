@@ -1,13 +1,11 @@
 <?php
 
-namespace Modules\Admin\Http\Controllers\auth;
+namespace Modules\Admin\Http\Controllers\Auth;
 
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Modules\Admin\Http\Requests\ResetPasswordRequest;

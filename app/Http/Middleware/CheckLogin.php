@@ -19,7 +19,7 @@ class CheckLogin
         if (Auth::check())
         {
             $user = Auth::user();
-            if ($user->status == 1)
+            if ($user->is_active == 1)
             {
                 return $next($request);
             }

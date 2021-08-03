@@ -2,54 +2,35 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
+use App\Models\Attributes\IsActiveAttributes;
 
-class Classroom extends Model
+/**
+ * @property mixed is_active
+ */
+class Classroom extends BaseModel
 {
-    protected $table = 'classrooms';
+    use IsActiveAttributes;
+
+    protected $table = 'classroom';
+
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'name',
         'code',
         'course_id',
-        'status',
-        'number',
-        'min'
+        'is_active',
+        'max_student',
+        'min_student'
     ];
-
-    const STATUS_ACTIVE  = 1;
-
-    const STATUS_INACTIVE = 0;
-
-    protected $statusClassroom = [
-        1 => [
-            'name' => 'active',
-            'class' => 'btn btn-primary'
-        ],
-        0 => [
-            'name' => 'inactive',
-            'class' => 'btn btn-default'
-        ]
-    ];
-
-    public function getStatus()
-    {
-        return Arr::get($this->statusClassroom,$this->status,'N\A');
-    }
 
     public function course()
     {
-        return $this->belongsTo(Course::class,'course_id');
+        return $this->belongsTo(Course::class, 'course_id');
     }
 
-    public function student()
+    public function students()
     {
-        return $this->hasMany(Student::class,'classroom_id');
-    }
-
-    public function countStudent($id)
-    {
-        return Student::all()->where('classroom_id',$id)->count();
+        return $this->hasMany(Student::class, 'classroom_id');
     }
 }

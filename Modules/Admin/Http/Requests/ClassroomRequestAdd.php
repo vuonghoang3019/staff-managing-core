@@ -14,9 +14,10 @@ class ClassroomRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:classrooms,name,'.$this->id,
+            'name' => 'required|unique:classroom,name,'.$this->id,
             'code' => 'required',
-            'number' => 'required',
+            'max_student' => 'required',
+            'min_student' => 'required',
             'course_id' => 'required'
         ];
     }

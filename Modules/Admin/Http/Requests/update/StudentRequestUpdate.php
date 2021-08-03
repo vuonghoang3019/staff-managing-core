@@ -13,14 +13,14 @@ class StudentRequestUpdate extends FormRequest {
     public function rules()
     {
         return [
-            'code'         => 'required|unique:students,code,' . $this->id,
+            'code'         => 'required|unique:student,code,' . $this->id,
             'name'         => 'required|max:50|min:5',
             'birthday'     => 'required',
             'nation'       => 'required',
             'classroom_id' => 'required',
             'sex'          => 'required',
             'phone'        => 'required|size:10',
-            'email'        => 'required|unique:students,email,' . $this->id,
+            'email'        => 'required|unique:student,email,' . $this->id,
             'password'     => 'required',
             'image_path'   => 'max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
         ];

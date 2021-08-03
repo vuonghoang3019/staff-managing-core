@@ -39,7 +39,7 @@ class AdminCourseController extends FrontendController
     {
         $grades = $this->grade->get();
         $courses = $this->course->get();
-        return view('admin::course.add', compact('grades', 'courses'));
+        return view('admin::course.create', compact('grades', 'courses'));
     }
 
     public function store(CourseRequestAdd $request)
@@ -93,7 +93,7 @@ class AdminCourseController extends FrontendController
     public function action($id)
     {
         $courseEdit = $this->course->find($id);
-        $courseEdit->status = $courseEdit->status ? 0 : 1;
+        $courseEdit->is_active = $courseEdit->is_active ? 0 : 1;
         $courseEdit->save();
         return redirect()->back();
     }

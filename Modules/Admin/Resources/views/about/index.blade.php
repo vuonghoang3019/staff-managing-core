@@ -28,23 +28,20 @@
                             <tbody>
                             <?php $stt = 0 ?>
                             @if(isset($abouts)  )
-                                @foreach($abouts as $data)
+                                @foreach($abouts as $about)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td><img src="{{ asset($data->image_path) }}" width="100" height="100"></td>
-                                        <td>{!! \Illuminate\Support\Str::limit($data->title,20)  !!}</td>
-                                        <td>{!! \Illuminate\Support\Str::limit($data->content,10)  !!}</td>
+                                        <td><img src="{{ asset($about->image_path) }}" width="100" height="100"></td>
+                                        <td>{!! \Illuminate\Support\Str::limit($about->title,20)  !!}</td>
+                                        <td>{!! \Illuminate\Support\Str::limit($about->content,10)  !!}</td>
                                         <td>
-                                            <a href="{{ route('about.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->is_active)['class'] }}">
-                                                {{ $data->getStatus($data->is_active)['name'] }}
-                                            </a>
+                                            {!! $about->is_active !!}
                                         </td>
                                         <td>
-                                            <a href="{{ route('about.edit',['id' => $data->id]) }}"
+                                            <a href="{{ route('about.edit',['id' => $about->id]) }}"
                                                class="btn btn-default">Edit</a>
                                             <a href=""
-                                               data-url="{{ route('about.delete',['id' => $data->id]) }}"
+                                               data-url="{{ route('about.delete',['id' => $about->id]) }}"
                                                class="btn btn-danger action-delete">Delete
                                             </a>
                                         </td>

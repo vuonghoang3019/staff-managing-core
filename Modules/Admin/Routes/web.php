@@ -2,9 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::any('/ckfinder/examples/{example?}', 'CKSource\CKFinderBridge\Controller\CKFinderController@examplesAction')
-    ->name('ckfinder_examples');
-
+//include('auth.php');
 
 Route::group(['prefix' => 'authAdmin'], function () {
     Route::get('login', 'auth\LoginController@getLogin')->name('getLogin');

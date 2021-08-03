@@ -2,41 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Arr;
+use App\Models\Attributes\IsActiveAttributes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Student extends Authenticatable {
+class Student extends Authenticatable
+{
     use Notifiable;
+    use IsActiveAttributes;
 
-    protected $table = 'students';
-    protected $guarded = 'student';
-    protected $fillable = ['code', 'name', 'birthday', 'sex', 'nation', 'classroom_id',
-                           'status', 'email', 'password', 'phone',
-                           'image_path', 'image_name', 'code_reset', 'code_time',
-                           'code_active', 'time_active'
-    ];
-    const STATUS_ACTIVE = 1;
-    const STATUS_INACTIVE = 0;
-    protected $statusStudent = [
-        1 => [
-            'name'  => 'Đang học',
-            'class' => 'btn btn-primary'
-        ],
-        0 => [
-            'name'  => 'Nghỉ học',
-            'class' => 'btn btn-default'
-        ],
-        2 => [
-            'name'  => 'Đang chờ',
-            'class' => 'btn btn-warning'
-        ]
-    ];
+    protected $table = 'student';
 
-    public function getStatus()
-    {
-        return Arr::get($this->statusStudent, $this->status, 'N\A');
-    }
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'code', 'name', 'birthday', 'sex', 'nation','classroom_id',
+        'is_active', 'email', 'password', 'phone',
+        'image_path', 'image_name', 'code_reset', 'code_time',
+        'code_active', 'time_active'
+    ];
 
     public function classroom()
     {

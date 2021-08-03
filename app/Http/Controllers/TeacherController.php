@@ -16,7 +16,7 @@ class TeacherController extends FrontendController
 
     public function index()
     {
-        $users = $this->user->newQuery()->with(['grades'])->where('status',1)->paginate(20);
+        $users = $this->user->newQuery()->with(['grades'])->where('is_active',1)->paginate(20);
         return view('teacher.teacher', compact('users'));
     }
 
@@ -31,7 +31,7 @@ class TeacherController extends FrontendController
 //            $users = $this->user->newQuery()->with(['grades'])->where('status',1)->where('is_check','0')->get();
 //        }
         $users = $this->user->newQuery()->with(['grades'])
-            ->where('status',1)
+            ->where('is_active',1)
             ->when($is_check,function ($query) use ($is_check){
                 $query->where('is_check','=',$is_check);
             })

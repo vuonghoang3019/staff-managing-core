@@ -1,28 +1,23 @@
 <?php
 
-namespace App\models;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
+use App\Models\Attributes\IsActiveAttributes;
 
-class Room extends Model
+class Room extends BaseModel
 {
-    protected $table = 'rooms';
-    protected $fillable = ['code','name','sit_capacity','description','status'];
-    const STATUS_ACTIVE  = 1;
-    const STATUS_INACTIVE = 0;
-    protected $statusCategory = [
-        1 => [
-            'name' => 'Đang học',
-            'class' => 'btn btn-primary'
-        ],
-        0 => [
-            'name' => 'Trống',
-            'class' => 'btn btn-default'
-        ]
+    use IsActiveAttributes;
+
+    protected $table = 'room';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'code',
+        'name',
+        'sit_capacity',
+        'description',
+        'is_active'
     ];
-    public function getStatus()
-    {
-        return Arr::get($this->statusCategory,$this->status,'N\A');
-    }
+
 }

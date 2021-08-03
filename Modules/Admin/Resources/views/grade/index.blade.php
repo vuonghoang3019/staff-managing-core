@@ -20,32 +20,29 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Tên</th>
                                 <th scope="col">Mô tả</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Active</th>
                                 <th scope="col">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $stt = 0 ?>
                             @if(isset($grades))
-                                @foreach($grades as $data)
+                                @foreach($grades as $grade)
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
-                                        <td>{{ $data->name }}</td>
-                                        <td>{{ \Illuminate\Support\Str::limit($data->description,20)}}</td>
+                                        <td>{{ $grade->name }}</td>
+                                        <td>{{ \Illuminate\Support\Str::limit($grade->description,20)}}</td>
                                         <td>
-                                            <a href="{{ route('grade.action',['id' => $data->id]) }}"
-                                               class=" {{ $data->getStatus($data->status)['class'] }}">
-                                                {{ $data->getStatus($data->status)['name'] }}
-                                            </a>
+                                            {!! $grade->is_active !!}
                                         </td>
                                         <td>
                                             @can('grade-update')
-                                                <a href="{{ route('grade.edit',['id' => $data->id]) }}"
+                                                <a href="{{ route('grade.edit',['id' => $grade->id]) }}"
                                                    class="btn btn-default">Edit</a>
                                             @endcan
                                             @can('grade-delete')
                                                 <a href=""
-                                                   data-url="{{ route('grade.delete',['id' => $data->id]) }}"
+                                                   data-url="{{ route('grade.delete',['id' => $grade->id]) }}"
                                                    class="btn btn-danger action-delete">Delete
                                                 </a>
                                             @endcan
