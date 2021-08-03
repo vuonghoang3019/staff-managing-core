@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Models;
-
-
 use App\Models\Attributes\IsActiveAttributes;
 
 class Course extends BaseModel
