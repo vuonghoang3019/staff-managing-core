@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\helper;
 use App\Models\Classroom;
 use App\Models\Course;
 use App\Models\News;
@@ -12,6 +13,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CourseController extends FrontendController {
+
+    use Helper;
     private $course;
     private $classroom;
     private $price;
@@ -58,17 +61,6 @@ class CourseController extends FrontendController {
         $prices = $this->price->findOrFail($idPrice);
         $courseDetail = $this->course->findOrFail($idCourse);
         return view('cart.cart', compact('prices', 'courseDetail'));
-    }
-
-    function generateRandomString($length = 10)
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
     }
 
     public function payment($idPrice, $idCourse)
