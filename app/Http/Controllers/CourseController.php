@@ -83,7 +83,7 @@ class CourseController extends FrontendController {
 //        }
 
         $course = $this->course->newQuery()->with('classroom')->findOrFail($idCourse);
-//        $classrooms = $course->classroom;
+        $classrooms = $course->classroom;
 
 
 //        $lengthClassroom = count($classrooms);
