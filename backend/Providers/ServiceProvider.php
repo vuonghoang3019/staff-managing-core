@@ -1,9 +1,9 @@
 <?php
 
-namespace Backend;
+namespace Backend\Providers;
 
 use Illuminate\Support\Facades\Route;
-use \Illuminate\Support\ServiceProvider as Service;
+use Illuminate\Support\ServiceProvider as Service;
 
 class ServiceProvider extends Service
 {

@@ -22,17 +22,15 @@ class ServiceProvider extends Service
         $this->middleware();
     }
 
-//    public function register()
-//    {
-//        $this->app->register(ServiceProvider::class);
-//    }
-
     public function routes()
     {
         if (file_exists(__DIR__ . '/Routes/Routes.php')) {
-            Route::prefix($this->prefix)
+//            Route::prefix($this->prefix)
+//                ->namespace($this->namespace)
+//                ->group(__DIR__ . '/Routes/Routes.php');
+            Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group(__DIR__ . '/Routes/Routes.php');
+                ->group(__DIR__.'/Routes/Routes.php');
         }
     }
 
@@ -45,15 +43,13 @@ class ServiceProvider extends Service
 
     public function config()
     {
-        if (is_dir(__DIR__ . './Lang')) {
-            $this->loadJsonTranslationsFrom(__DIR__ . './Lang');
-        }
+
     }
 
     public function views()
     {
         if (is_dir(__DIR__ . './Views')) {
-            $this->loadViewsFrom(__DIR__.'/path/to/views', 'frontend');
+            $this->loadViewsFrom(__DIR__.'/Views', 'frontend');
         }
     }
 

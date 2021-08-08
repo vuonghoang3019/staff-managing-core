@@ -2,17 +2,24 @@
 
 use Illuminate\Support\Facades\Route;
 
-//include('auth.php');
-
-Route::group(['prefix' => 'authAdmin'], function () {
-    Route::get('login', 'auth\LoginController@getLogin')->name('getLogin');
-    Route::post('postLogin', 'auth\LoginController@postLogin')->name('postLogin');
-    Route::get('logout', 'auth\LoginController@logout')->name('logout');
-    Route::get('getPasswordReset', [
+Route::group(['prefix' => 'auth/admin'], function () {
+    Route::get('login', [
+        'as'         => 'getLogin',
+        'uses'       => 'auth\LoginController@getLogin',
+    ]);
+    Route::post('post/login', [
+        'as'         => 'postLogin',
+        'uses'       => 'auth\LoginController@postLogin',
+    ]);
+    Route::get('logout', [
+        'as'         => 'logout',
+        'uses'       => 'auth\LoginController@logout',
+    ]);
+    Route::get('get/password/reset', [
         'as'         => 'get.form.reset',
         'uses'       => 'auth\ForgotPasswordAdminController@getFormResetPassword',
     ]);
-    Route::post('getCodeReset', [
+    Route::post('get/code/reset', [
         'as'         => 'get.code.reset',
         'uses'       => 'auth\ForgotPasswordAdminController@getCodeResetPassword',
     ]);
@@ -20,13 +27,16 @@ Route::group(['prefix' => 'authAdmin'], function () {
         'as'         => 'password.reset.admin',
         'uses'       => 'auth\ForgotPasswordAdminController@getResetPassword',
     ]);
-    Route::post('password/saveResetPassword', [
+    Route::post('password/save/password', [
         'as'         => 'password.updatePassword.admin',
         'uses'       => 'auth\ForgotPasswordAdminController@saveResetPassword',
     ]);
 });
 Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () {
-    Route::get('/', 'AdminController@index')->name('dashboard');
+    Route::get('/', [
+        'as'         => 'dashboard',
+        'uses'       => 'AdminController@index',
+    ]);
     Route::prefix('category')->group(function () {
         Route::get('/', [
             'as'         => 'category.index',
@@ -222,11 +232,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () 
             'as'   => 'course.action',
             'uses' => 'AdminCourseController@action'
         ]);
-        Route::post('/storePrice', [
+        Route::post('/store/price', [
             'as'   => 'course.storePrice',
             'uses' => 'AdminCourseController@storePrice'
         ]);
-        Route::post('/updatePrice/{id}', [
+        Route::post('/update/price/{id}', [
             'as'   => 'course.updatePrice',
             'uses' => 'AdminCourseController@updatePrice'
         ]);

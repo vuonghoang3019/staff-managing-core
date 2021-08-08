@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Frontend\Http\Controllers;
 
 use App\Models\About;
 use App\Models\User;
@@ -21,6 +21,6 @@ class AboutController extends FrontendController
     {
         $abouts = $this->about->newQuery()->where('is_active', 1)->limit(2)->get();
         $users = $this->user->newQuery()->where('is_active',1)->where('is_check',1)->get();
-        return view('about', compact('abouts','users'));
+        return view('frontend::about', compact('abouts','users'));
     }
 }

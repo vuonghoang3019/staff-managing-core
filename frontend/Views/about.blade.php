@@ -1,4 +1,4 @@
-@extends('master.master')
+@extends('frontend::master.master')
 @section('title')
     <title>Giới thiệu</title>
 @endsection
@@ -11,7 +11,7 @@
     </div>
     <!-- about -->
     <div id="overviews" class="section lb">
-        @include('components.about')
+        @include('frontend::components.about')
     </div><!-- End about -->
 
     <div class="hmv-box">

@@ -27,11 +27,11 @@
 </head>
 <body class="host_version">
 <!-- LOADER -->
-@include('layout.header')
+@include('frontend::layout.header')
 
 @yield('content')
 
-@include('layout.footer')
+@include('frontend::layout.footer')
 </body>
 <script src="{{ asset('home/js/modernizer.js') }}"></script>
 <script src="{{ asset('home/js/all.js') }}"></script>

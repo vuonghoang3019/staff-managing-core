@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Frontend\Http\Controllers;
 
 use App\Helper\helper;
 use App\Models\Classroom;
@@ -36,7 +36,7 @@ class CourseController extends FrontendController {
     public function index()
     {
         $courses = $this->course->paginate(6);
-        return view('course.course', compact('courses'));
+        return view('frontend::course.course', compact('courses'));
     }
 
     public function detail($id)
@@ -53,7 +53,7 @@ class CourseController extends FrontendController {
         ])->whereNotNull('price')->get();
         $courseDetail = $this->course->findOrFail($id);
         $news = $this->news->newQuery()->limit(3)->get();
-        return view('course.courseDetail', compact('courseDetail', 'classrooms', 'prices', 'news'));
+        return view('frontend::course.courseDetail', compact('courseDetail', 'classrooms', 'prices', 'news'));
     }
 
     public function showCart($idPrice, $idCourse)

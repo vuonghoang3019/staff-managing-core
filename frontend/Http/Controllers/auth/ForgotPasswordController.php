@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\auth;
+namespace Frontend\Http\Controllers\auth;
 
 use App\Http\Controllers\FrontendController;
 use App\Http\Requests\ResetPasswordRequest;
