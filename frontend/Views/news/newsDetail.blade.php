@@ -1,4 +1,4 @@
-@extends('master.master')
+@extends('frontend::master.master')
 @section('title')
     <title>About</title>
 @endsection
@@ -37,7 +37,7 @@
 
                 </div><!-- end col -->
 
-                @include('components.news')
+                @include('frontend::components.news')
             </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->

@@ -3,9 +3,9 @@
 namespace Frontend\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\RegisterRequestAdd;
 use App\Models\Student;
 use Carbon\Carbon;
+use Frontend\Http\Requests\RegisterRequestAdd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -20,7 +20,7 @@ class RegisterController extends Controller {
 
     public function getRegister()
     {
-        return view('auth.register');
+        return view('frontend::auth.register');
     }
 
     public function postRegister(RegisterRequestAdd $request)

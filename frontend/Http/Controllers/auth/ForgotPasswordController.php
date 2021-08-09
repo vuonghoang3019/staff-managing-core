@@ -2,8 +2,8 @@
 
 namespace Frontend\Http\Controllers\auth;
 
-use App\Http\Controllers\FrontendController;
-use App\Http\Requests\ResetPasswordRequest;
+use Frontend\Http\Controllers\FrontendController;
+use Frontend\Http\Requests\ResetPasswordRequest;
 use App\Models\Student;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class ForgotPasswordController extends FrontendController {
 
     public function getFormResetPassword()
     {
-        return view('auth.password.email');
+        return view('frontend::auth.password.email');
     }
 
     public function sendCodeResetPassword(Request $request)
@@ -57,7 +57,7 @@ class ForgotPasswordController extends FrontendController {
             return redirect('/')->with('danger','Xin lỗi! Đường dẫn lấy lại mật khẩu không đúng, bạn vui lòng thử lại sau');
         }
 
-        return view('auth.password.reset');
+        return view('frontend::auth.password.reset');
     }
 
     public function saveResetPassword(ResetPasswordRequest $request)

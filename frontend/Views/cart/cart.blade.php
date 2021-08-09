@@ -1,4 +1,4 @@
-@extends('master.master')
+@extends('frontend::master.master')
 @section('title')
     <title>Chi tiết khóa học</title>
 @endsection

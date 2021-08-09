@@ -2,14 +2,11 @@
 
 namespace Frontend\Http\Controllers\auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\FrontendController;
-use App\Http\Requests\ResetPasswordRequest;
-use App\Http\Requests\update\UserRequestUpdate;
+use Frontend\Http\Controllers\FrontendController;
+use Frontend\Http\Requests\ResetPasswordRequest;
 use App\Models\Course;
 use App\Models\Payment;
 use App\Models\Student;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Modules\Admin\Traits\StorageImageTrait;
@@ -36,7 +33,7 @@ class UserController extends FrontendController {
         $paymentDetail = $this->payment->newQuery()->with(['course', 'user' => function ($query) {
             $query->where('id','=',Auth::guard('student')->id());
         }])->get();
-        return view('auth.userInfo', compact('studentDetail', 'studentClassroom', 'courses','paymentDetail'));
+        return view('frontend::auth.userInfo', compact('studentDetail', 'studentClassroom', 'courses','paymentDetail'));
     }
 
     public function updatePassword(ResetPasswordRequest $request, $id)

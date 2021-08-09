@@ -60,7 +60,7 @@ class CourseController extends FrontendController {
     {
         $prices = $this->price->findOrFail($idPrice);
         $courseDetail = $this->course->findOrFail($idCourse);
-        return view('cart.cart', compact('prices', 'courseDetail'));
+        return view('frontend::cart.cart', compact('prices', 'courseDetail'));
     }
 
     public function payment($idPrice, $idCourse)
@@ -96,7 +96,7 @@ class CourseController extends FrontendController {
         $total = $prices->price - ($prices->sale * $prices->price) / 100;
         $dataCourses = $course->id;
         session()->put('courseID', $dataCourses);
-        return view('vnpay.index', compact('total', 'course', 'classrooms'));
+        return view('frontend::vnpay.index', compact('total', 'course', 'classrooms'));
     }
 
     public function postPay(Request $request)
@@ -169,7 +169,7 @@ class CourseController extends FrontendController {
             ];
             $this->payment->create($dataPayment);
             session()->forget('courseID');
-            return view('vnpay.vnpay_return', compact('vnpayData', 'userID'));
+            return view('frontend::vnpay.vnpay_return', compact('vnpayData', 'userID'));
         } else {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi');
         }

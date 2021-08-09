@@ -11,7 +11,7 @@ Route::group(['prefix' => 'auth'], function () {
         'as'   => 'register',
         'uses' => 'auth\RegisterController@getRegister',
     ]);
-    Route::post('postRegister', [
+    Route::post('post/register', [
         'as'   => 'postRegister',
         'uses' => 'auth\RegisterController@postRegister',
     ]);
@@ -40,7 +40,7 @@ Route::group(['prefix' => 'auth'], function () {
         'as'   => 'get.reset.password',
         'uses' => 'auth\ForgotPasswordController@getFormResetPassword',
     ]);
-    Route::post('get/codeseset', [
+    Route::post('get/codereset', [
         'as'   => 'send.code.reset',
         'uses' => 'auth\ForgotPasswordController@sendCodeResetPassword',
     ]);
@@ -48,11 +48,14 @@ Route::group(['prefix' => 'auth'], function () {
         'as'   => 'password.reset',
         'uses' => 'auth\ForgotPasswordController@resetPassword',
     ]);
-    Route::post('password/save/Password', [
+    Route::post('password/savepassword', [
         'as'   => 'password.updatePassword',
         'uses' => 'auth\ForgotPasswordController@saveResetPassword',
     ]);
-    Route::get('logout', 'auth\LoginController@logoutUser')->name('logoutUser');
+    Route::get('logout', [
+        'as'   => 'logoutUser',
+        'uses' => 'auth\LoginController@logoutUser',
+    ]);
 });
 Route::get('about', [
     'as'   => 'about',
@@ -63,7 +66,7 @@ Route::prefix('teacher')->group(function () {
         'as'   => 'teacher',
         'uses' => 'TeacherController@index'
     ]);
-    Route::get('teacherType/{is_check}', [
+    Route::get('type/{is_check}', [
         'as'   => 'get.type.teacher',
         'uses' => 'TeacherController@getTypeTeacher'
     ]);
@@ -73,7 +76,7 @@ Route::prefix('news')->group(function () {
         'as'   => 'news',
         'uses' => 'NewsController@index'
     ]);
-    Route::get('news/{id}', [
+    Route::get('detail/{id}', [
         'as'   => 'news.detail',
         'uses' => 'NewsController@detail'
     ]);
@@ -83,7 +86,7 @@ Route::prefix('recruitment')->group(function () {
         'as'   => 'recruitment',
         'uses' => 'RecruitmentController@index'
     ]);
-    Route::get('recruitment/{id}', [
+    Route::get('detail/{id}', [
         'as'   => 'recruitment.detail',
         'uses' => 'RecruitmentController@detail'
     ]);
@@ -93,11 +96,11 @@ Route::prefix('course')->group(function () {
         'as'   => 'course',
         'uses' => 'CourseController@index',
     ]);
-    Route::get('/courseDetail/{id}', [
+    Route::get('detail/{id}', [
         'as'   => 'course.detail',
         'uses' => 'CourseController@detail',
     ]);
-    Route::get('/course/detail/cart/{idPrice},{idCourse}', [
+    Route::get('cart/{idPrice},{idCourse}', [
         'as'   => 'course.showCart',
         'uses' => 'CourseController@showCart',
     ]);
@@ -105,7 +108,7 @@ Route::prefix('course')->group(function () {
         'as'   => 'payment.course.index',
         'uses' => 'CourseController@payment',
     ]);
-    Route::post('/payment/online', [
+    Route::post('payment/online', [
         'as'   => 'payment.online',
         'uses' => 'CourseController@postPay',
     ]);

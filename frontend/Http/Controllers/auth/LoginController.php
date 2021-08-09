@@ -22,7 +22,7 @@ class LoginController extends Controller
         {
             Auth::guard('student')->logout();
         }
-        return view('auth.login');
+        return view('frontend::auth.login');
     }
 
     public function postLogin(Request $request)

@@ -1,8 +1,8 @@
-@extends('master.master')
+@extends('frontend::master.master')
 @section('title')
     <title>Khóa học</title>
-    @endsection
-        </div>
+@endsection
+
 @section('content')
     <div class="all-title-box title-image" style="background-image:url({{ asset('home/images/banner.png') }});background-repeat: no-repeat;background-attachment: fixed;background-position: center">
     </div>

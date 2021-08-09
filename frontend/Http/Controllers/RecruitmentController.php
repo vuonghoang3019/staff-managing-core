@@ -18,14 +18,14 @@ class RecruitmentController extends FrontendController
     public function index()
     {
         $recruitments= Recruitment::where('is_active',1)->limit(6)->get();
-        return view('recruitment.recruitment',compact('recruitments'));
+        return view('frontend::recruitment.recruitment',compact('recruitments'));
     }
 
 
     public function detail($id)
     {
         $news = $this->news->newQuery()->limit(3)->get();
-        $recruitmentDetail = Recruitment::all()->find($id)->where('status',1)->first();
-        return view('recruitment.recruitmentDetail',compact('recruitmentDetail','news'));
+        $recruitmentDetail = Recruitment::all()->find($id)->where('is_active',1)->first();
+        return view('frontend::recruitment.recruitmentDetail',compact('recruitmentDetail','news'));
     }
 }

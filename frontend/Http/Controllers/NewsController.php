@@ -16,13 +16,13 @@ class NewsController extends FrontendController
     public function index()
     {
         $news =  $this->news->paginate(8);
-        return view('news.news',compact('news'));
+        return view('frontend::news.news',compact('news'));
     }
 
     public function detail($id)
     {
         $news = $this->news->newQuery()->limit(3)->get();
         $newsDetail = $this->news->find($id);
-        return view('news.newsDetail',compact('newsDetail','news'));
+        return view('frontend::news.newsDetail',compact('newsDetail','news'));
     }
 }
