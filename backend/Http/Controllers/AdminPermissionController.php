@@ -4,7 +4,7 @@ namespace Backend\Http\Controllers;
 
 use App\Models\Module;
 use App\Models\Permission;
-use Backend\Http\Requests\PermissionRequestAdd;
+use Backend\Http\Requests\Permission\PermissionRequestAdd;
 use Backend\Traits\DeleteTrait;
 
 class AdminPermissionController extends FrontendController

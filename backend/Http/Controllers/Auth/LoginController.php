@@ -4,7 +4,7 @@ namespace Backend\Http\Controllers\Auth;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-use Backend\Http\Requests\CheckLoginRequest;
+use Backend\Http\Requests\Login\CheckLoginRequest;
 
 class LoginController extends Controller
 {

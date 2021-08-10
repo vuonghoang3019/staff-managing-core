@@ -19,6 +19,7 @@ class ServiceProvider extends Service
         $this->config();
         $this->views();
         $this->middleware();
+        $this->ApiRoutes();
     }
 
     public function routes()
@@ -31,6 +32,14 @@ class ServiceProvider extends Service
                 ->namespace($this->namespace)
                 ->group(__DIR__ . '/Routes/Routes.php');
         }
+    }
+
+    protected function ApiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(__DIR__.'/Routes/Api.php');
     }
 
     /**

@@ -6,9 +6,9 @@ use App\Models\Course;
 use App\Models\Grade;
 use App\Models\Price;
 use Illuminate\Http\Request;
-use Backend\Http\Requests\CourseRequestAdd;
-use Backend\Http\Requests\PriceRequestAdd;
-use Backend\Http\Requests\update\CourseRequestUpdate;
+use Backend\Http\Requests\Course\CourseRequestAdd;
+use Backend\Http\Requests\Price\PriceRequestAdd;
+use Backend\Http\Requests\Course\CourseRequestUpdate;
 use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 

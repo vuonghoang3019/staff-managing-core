@@ -3,8 +3,8 @@
 namespace Backend\Http\Controllers;
 
 use App\Models\Slider;
-use Backend\Http\Requests\SliderRequestAdd;
-use Backend\Http\Requests\update\SliderRequestUpdate;
+use Backend\Http\Requests\Slider\SliderRequestAdd;
+use Backend\Http\Requests\Slider\SliderRequestUpdate;
 use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 

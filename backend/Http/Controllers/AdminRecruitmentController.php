@@ -3,8 +3,8 @@
 namespace Backend\Http\Controllers;
 
 use App\Models\Recruitment;
-use Backend\Http\Requests\RecruitmentRequestAdd;
-use Backend\Http\Requests\update\RecruitmentRequestUpdate;
+use Backend\Http\Requests\Recruitment\RecruitmentRequestAdd;
+use Backend\Http\Requests\Recruitment\RecruitmentRequestUpdate;
 use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 

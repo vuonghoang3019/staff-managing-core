@@ -7,8 +7,8 @@ use App\models\Room;
 use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Backend\Http\Requests\ScheduleRequestAdd;
-use Backend\Http\Requests\update\ScheduleRequestUpdate;
+use Backend\Http\Requests\Schedule\ScheduleRequestAdd;
+use Backend\Http\Requests\Schedule\ScheduleRequestUpdate;
 use Backend\Traits\DeleteTrait;
 
 class AdminScheduleController extends FrontendController {

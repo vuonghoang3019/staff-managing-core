@@ -3,7 +3,7 @@
 namespace Backend\Http\Controllers;
 
 use App\Models\News;
-use Backend\Http\Requests\NewsRequestAdd;
+use Backend\Http\Requests\News\NewsRequestAdd;
 use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 

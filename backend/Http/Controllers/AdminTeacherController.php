@@ -10,8 +10,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
-use Backend\Http\Requests\TeacherRequestAdd;
-use Backend\Http\Requests\update\TeacherRequestUpdate;
+use Backend\Http\Requests\Teacher\TeacherRequestAdd;
+use Backend\Http\Requests\Teacher\TeacherRequestUpdate;
 use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 

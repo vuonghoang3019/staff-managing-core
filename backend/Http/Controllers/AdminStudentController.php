@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Backend\Http\Requests\ImportExcelRequest;
-use Backend\Http\Requests\StudentRequestAdd;
-use Backend\Http\Requests\update\StudentRequestUpdate;
+use Backend\Http\Requests\Student\StudentRequestAdd;
+use Backend\Http\Requests\Student\StudentRequestUpdate;
 use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 

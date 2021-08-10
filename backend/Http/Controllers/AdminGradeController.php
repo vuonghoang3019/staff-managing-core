@@ -3,7 +3,7 @@
 namespace Backend\Http\Controllers;
 
 use App\Models\Grade;
-use Backend\Http\Requests\GradeRequestAdd;
+use Backend\Http\Requests\Grade\GradeRequestAdd;
 use Backend\Traits\DeleteTrait;
 
 class AdminGradeController extends FrontendController

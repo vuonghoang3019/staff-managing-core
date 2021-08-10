@@ -4,7 +4,7 @@ namespace Backend\Http\Controllers;
 
 use App\Models\Classroom;
 use App\Models\Course;
-use Backend\Http\Requests\ClassroomRequestAdd;
+use Backend\Http\Requests\Classroom\ClassroomRequestAdd;
 use Backend\Traits\DeleteTrait;
 
 class AdminClassroomController extends FrontendController {

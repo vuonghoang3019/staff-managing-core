@@ -5,7 +5,7 @@ namespace Backend\Http\Controllers;
 use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Http\Request;
-use Backend\Http\Requests\RoleRequestAdd;
+use Backend\Http\Requests\Role\RoleRequestAdd;
 use Backend\Traits\DeleteTrait;
 
 class AdminRoleController extends FrontendController
