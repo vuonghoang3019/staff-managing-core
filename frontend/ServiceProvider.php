@@ -48,7 +48,7 @@ class ServiceProvider extends Service
 
     public function views()
     {
-        if (is_dir(__DIR__ . './Views')) {
+        if (is_dir(__DIR__ . '/Views')) {
             $this->loadViewsFrom(__DIR__.'/Views', 'frontend');
         }
     }

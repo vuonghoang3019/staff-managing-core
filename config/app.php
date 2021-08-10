@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
         Barryvdh\Debugbar\ServiceProvider::class,
-        Backend\Providers\ServiceProvider::class,
+        Backend\ServiceProvider::class,
         Frontend\ServiceProvider::class,
         /*
          * Application Service Providers...

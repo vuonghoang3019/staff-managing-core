@@ -19,7 +19,7 @@
         </div>
 
         <!-- Login Form -->
-        <form action="{{ route('backend.auth.postLogin') }}" method="POST">
+        <form action="{{ route('postLogin') }}" method="POST">
             @csrf
             @if (session('success'))
                 <div class="alert alert-success" role="alert">
