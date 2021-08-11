@@ -4,13 +4,13 @@ namespace Backend\Repositories;
 
 interface RepositoryInterface
 {
-    public function getAllList();
+    public function list();
 
-    public function getDetail($id);
+    public function detail($id);
 
     public function create($attribute = []);
 
-    public function update($attribute = []);
+    public function update($id ,$attribute = []);
 
     public function delete($id);
 }

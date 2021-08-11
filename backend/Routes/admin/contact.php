@@ -11,7 +11,7 @@ Route::prefix('contact')->group(function () {
         'as'   => 'contact.action',
         'uses' => 'AdminContactController@action',
     ]);
-    Route::get('/viewDetail/{id}', [
+    Route::get('/detail/{id}', [
         'as'   => 'contact.detail',
         'uses' => 'AdminContactController@detail',
     ]);

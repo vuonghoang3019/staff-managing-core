@@ -4,26 +4,27 @@ namespace Backend\Http\Controllers;
 
 use App\Models\News;
 use Backend\Http\Requests\News\NewsRequestAdd;
+use Backend\Repositories\News\NewsRepositoryInterface;
 use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 
 class AdminNewsController extends FrontendController
 {
-    private $news;
+    private $newsRepository;
 
     use StorageImageTrait;
 
     use DeleteTrait;
 
-    public function __construct(News $news)
+    public function __construct(NewsRepositoryInterface $newsRepository)
     {
         parent::__construct();
-        $this->news = $news;
+        $this->newsRepository = $newsRepository;
     }
 
     public function index()
     {
-        $news = $this->news->paginate(5);
+        $news = $this->newsRepository->paginate();
         return view('backend::news.index',compact('news'));
     }
 
@@ -34,48 +35,52 @@ class AdminNewsController extends FrontendController
 
     public function store(NewsRequestAdd $request)
     {
-        $this->news->title = $request->title;
-        $this->news->content = $request->Content;
-        $aboutUpload = $this->storageTraitUpload($request,'image_path','news');
-        if (!empty($aboutUpload)) {
-            $this->news->image_name = $aboutUpload['file_name'];
-            $this->news->image_path = $aboutUpload['file_path'];
+        $dataNews = [
+            'title' => $request->title,
+            'content' => $request->Content
+        ];
+        $newsUpload = $this->storageTraitUpload($request,'image_path','news');
+        if (!empty($newsUpload)) {
+            $dataNews['image_name'] = $newsUpload['file_name'];
+            $dataNews['image_path'] = $newsUpload['file_path'];
         }
-        $this->news->save();
+        $this->newsRepository->create($dataNews);
         return redirect()->back()->with('success','Thêm dữ liệu thành công');
     }
 
     public function edit($id)
     {
-        $newsEdit = $this->news->find($id);
+        $newsEdit = $this->newsRepository->detail($id);
         return view('backend::news.edit',compact('newsEdit'));
     }
 
     public function update($id, NewsRequestAdd $request)
     {
-        $newsUpdate = $this->news->findOrFail($id);
-        $newsUpdate->title = $request->title;
-        $newsUpdate->content = $request->Content;
-        $aboutUpload = $this->storageTraitUpload($request, 'image_path', 'news');
-        if (!empty($aboutUpload)) {
+        $newsUpdate = $this->newsRepository->detail($id);
+        $dataNews = [
+            'title' => $request->title,
+            'content' => $request->Content
+        ];
+        $newsUpload = $this->storageTraitUpload($request, 'image_path', 'news');
+        if (!empty($newsUpload)) {
             unlink(substr($newsUpdate->image_path, 1));
-            $newsUpdate->image_name = $aboutUpload['file_name'];
-            $newsUpdate->image_path = $aboutUpload['file_path'];
+            $dataNews['image_name'] = $newsUpload['file_name'];
+            $dataNews['image_path'] = $newsUpload['file_path'];
         }
-        $newsUpdate->save();
+        $this->newsRepository->update($id, $dataNews);
         return redirect()->back()->with('success','Cập nhật dữ liệu thành công');
     }
 
     public function delete($id)
     {
-        $newsDelete = $this->news->findOrFail($id);
+        $newsDelete = $this->newsRepository->detail($id);
         unlink(substr($newsDelete->image_path, 1));
-        return $this->deleteModelTrait($id, $this->news);
+        return $this->newsRepository->delete($id);
     }
 
     public function action($id)
     {
-        $newsUpdate = $this->news->findOrFail($id);
+        $newsUpdate = $this->newsRepository->detail($id);
         $newsUpdate->is_active = $newsUpdate->is_active ? 0 : 1;
         $newsUpdate->save();
         return redirect()->back()->with('success','Cập nhật trạng thái thành công');

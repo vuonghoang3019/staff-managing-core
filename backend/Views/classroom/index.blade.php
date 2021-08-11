@@ -30,7 +30,6 @@
                             <?php $stt = 0; ?>
                             @if(isset($classrooms))
                                 @foreach($classrooms as $classroom)
-                                    <?php $countStudent = \Illuminate\Support\Facades\DB::table('student')->where('classroom_id', $classroom->id)->count() ?>
                                     <tr>
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $classroom->name }}</td>
@@ -39,7 +38,6 @@
                                             <ul>
                                                 <li>Max of Student:{{ $classroom->max_student }}</li>
                                                 <li>Min of Student:{{ $classroom->min_student }}</li>
-                                                <li>Number of Student: {{ $countStudent }}</li>
                                             </ul>
                                         </td>
                                         <td>{{ $classroom->course->name }}</td>

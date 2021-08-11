@@ -2,86 +2,82 @@
 
 namespace Backend\Http\Controllers;
 
-use App\Models\Course;
-use App\Models\Grade;
-use App\Models\Price;
+use Backend\Repositories\Course\CourseRepositoryInterface;
+use Backend\Repositories\Price\PriceRepositoryInterface;
 use Illuminate\Http\Request;
 use Backend\Http\Requests\Course\CourseRequestAdd;
 use Backend\Http\Requests\Price\PriceRequestAdd;
 use Backend\Http\Requests\Course\CourseRequestUpdate;
-use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 
 class AdminCourseController extends FrontendController
 {
     use StorageImageTrait;
 
-    private $grade;
+    private $courseRepo;
 
-    private $course;
+    private $priceRepo;
 
-    private $price;
-
-    use DeleteTrait;
-
-    public function __construct(Course $course, Grade $grade, Price $price)
+    public function __construct(CourseRepositoryInterface $courseRepo, PriceRepositoryInterface $priceRepo)
     {
         parent::__construct();
-        $this->course = $course;
-        $this->grade = $grade;
-        $this->price = $price;
+        $this->courseRepo = $courseRepo;
+        $this->priceRepo = $priceRepo;
     }
 
     public function index()
     {
-        $courses = $this->course->newQuery()->with(['course_grade', 'price'])->orderBy('id', 'desc')->paginate(5);
+        $courses = $this->courseRepo->paginate();
         return view('backend::course.index', compact('courses'));
     }
 
     public function create()
     {
-        $grades = $this->grade->get();
-        $courses = $this->course->get();
+        $grades = $this->courseRepo->getGrades();
+        $courses = $this->courseRepo->getCourses();
         return view('backend::course.create', compact('grades', 'courses'));
     }
 
     public function store(CourseRequestAdd $request)
     {
-        $this->course->name = $request->name;
-        $this->course->description = $request->description;
+        $dataCourse = [
+            'name'        => $request->name,
+            'description' => $request->description
+        ];
         $courseUpload = $this->storageTraitUpload($request, 'image_path', 'course');
-        if (!empty($courseUpload))
-        {
-            $this->course->image_name = $courseUpload['file_name'];
-            $this->course->image_path = $courseUpload['file_path'];
+        if (!empty($courseUpload)) {
+            $dataCourse['image_name'] = $courseUpload['file_name'];
+            $dataCourse['image_path'] = $courseUpload['file_path'];
         }
-        $this->course->save();
-        $this->course->course_grade()->attach($request->grade_id);
+        $courseCreate = $this->courseRepo->create($dataCourse);
+        $courseCreate->course_grade()->attach($request->grade_id);
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
     public function edit($id)
     {
-        $priceEdit = $this->price->newQuery()->with(['course'])->where('course_id', $id)->get();
-        $grades = $this->grade->get();
-        $courses = $this->course->with(['price'])->get();
-        $courseEdit = $this->course->find($id);
+        $priceEdit = $this->priceRepo->getPrice($id);
+        $grades = $this->courseRepo->getGrades();
+        $courses = $this->courseRepo->getCourses();
+        $courseEdit = $this->courseRepo->detail($id);
         $courseGrade = $courseEdit->course_grade;
         return view('backend::course.edit', compact('courseEdit', 'grades', 'courseGrade', 'courses', 'priceEdit'));
     }
 
     public function update(CourseRequestUpdate $request, $id)
     {
-        $courseEdit = $this->course->find($id);
-        $courseEdit->name = $request->name;
-        $courseEdit->description = $request->description;
+        $courseEdit = $this->courseRepo->detail($id);
+        $dataCourse = [
+            'name'        => $request->name,
+            'description' => $request->description
+        ];
         $courseUpload = $this->storageTraitUpload($request, 'image_path', 'course');
         if (!empty($courseUpload)) {
-//            unlink(substr($courseEdit->image_path, 1));
-            $courseEdit->image_name = $courseUpload['file_name'];
-            $courseEdit->image_path = $courseUpload['file_path'];
+            unlink(substr($courseEdit->image_path, 1));
+            $dataCourse['image_name'] = $courseUpload['file_name'];
+            $dataCourse['image_path'] = $courseUpload['file_path'];
         }
-        $courseEdit->save();
+        $this->courseRepo->update($id, $dataCourse);
         $courseEdit->course_grade()->sync($request->grade_id);
         return redirect()->back()->with('success', 'Cập nhật thành công');
     }
@@ -89,14 +85,14 @@ class AdminCourseController extends FrontendController
     public function delete($id)
     {
 
-        $courseEdit = $this->course->find($id);
+        $courseEdit = $this->courseRepo->detail($id);
         unlink(substr($courseEdit->image_path, 1));
-        return $this->deleteModelTrait($id, $this->course);
+        return $this->courseRepo->delete($id);
     }
 
     public function action($id)
     {
-        $courseEdit = $this->course->find($id);
+        $courseEdit = $this->courseRepo->detail($id);
         $courseEdit->is_active = $courseEdit->is_active ? 0 : 1;
         $courseEdit->save();
         return redirect()->back();
@@ -105,36 +101,35 @@ class AdminCourseController extends FrontendController
     public function storePrice(Request $request)
     {
         $count = count($request->name);
-        for ($i = 0; $i < $count; $i++) {
+        for ($i = 0; $i < $count; $i++)
+        {
             $names = [
-                'course_id' => $request->course_id,
-                'name'      => $request->name[$i],
-                'price'     => $request->price[$i],
-                'lesson'    => $request->lesson[$i],
-                'sale'      => $request->sale[$i],
-                'description'      => $request->description[$i]
+                'course_id'   => $request->course_id,
+                'name'        => $request->name[$i],
+                'price'       => $request->price[$i],
+                'lesson'      => $request->lesson[$i],
+                'sale'        => $request->sale[$i],
+                'description' => $request->description[$i]
             ];
-            $this->price->create($names);
+            $this->priceRepo->create($names);
         }
-
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
     public function updatePrice(Request $request, $id)
     {
+        $this->priceRepo->deletePrice($id);
         $count = count($request->name);
         for ($i = 0; $i < $count; $i++) {
-            $idPrice = $this->price->newQuery()->where('course_id', $id)->pluck('id');
-            $this->price->newQuery()->where('id', $idPrice)->delete();
             $names = [
-                'course_id' => $request->course_id,
-                'name'      => $request->name[$i],
-                'price'     => $request->price[$i],
-                'lesson'    => $request->lesson[$i],
-                'sale'      => $request->sale[$i],
-                'description'      => $request->description[$i]
+                'course_id'   => $request->course_id,
+                'name'        => $request->name[$i],
+                'price'       => $request->price[$i],
+                'lesson'      => $request->lesson[$i],
+                'sale'        => $request->sale[$i],
+                'description' => $request->description[$i]
             ];
-            $this->price->create($names);
+            $this->priceRepo->create($names);
         }
         return redirect()->back()->with('success', 'Cập nhật thành công');
     }

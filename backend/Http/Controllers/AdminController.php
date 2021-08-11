@@ -24,17 +24,17 @@ class AdminController extends FrontendController {
     {
         $weekDays = $this->schedule->getWeek();
 //        $calendarData = $calendarService->generateCalendarData($weekDays);
-        $userCheck =  $this->user->checkRole('SA');
-        if ($userCheck)
-        {
+//        $userCheck =  $this->user->checkRole('SA');
+//        if ($userCheck)
+//        {
 
             $schedules = $this->schedule->newQuery()->with(['user', 'class', 'room'])->orderBy(DB::raw('HOUR(start_time)'))->get();
-        }
-        else
-        {
-            $scheduleDetail = $this->schedule->newQuery()->with(['user', 'class', 'room'])->get();
-            $schedules = $scheduleDetail->where('user.id','=',Auth::user()->id)->all();
-        }
+//        }
+//        else
+//        {
+//            $scheduleDetail = $this->schedule->newQuery()->with(['user', 'class', 'room'])->get();
+//            $schedules = $scheduleDetail->where('user.id','=',Auth::user()->id)->all();
+//        }
         return view('backend::index', compact('weekDays', 'schedules'));
     }
 }

@@ -14,7 +14,7 @@ class NewsRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'title'      => 'required|max:255|unique:news,title' . $this->id,
+            'title'      => 'required|max:255|unique:news,title,'.$this->id,
             'Content'    => 'required|min:20',
             'image_path' => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
 

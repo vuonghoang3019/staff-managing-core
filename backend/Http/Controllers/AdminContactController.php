@@ -3,26 +3,28 @@
 namespace Backend\Http\Controllers;
 
 use App\Models\Contact;
+use Backend\Repositories\Contact\ContactRepositoryInterface;
 
 class AdminContactController extends FrontendController
 {
-    private $contact;
 
-    public function __construct(Contact $contact)
+    private $contactRepo;
+
+    public function __construct(ContactRepositoryInterface $contactRepo)
     {
         parent::__construct();
-        $this->contact = $contact;
+        $this->contactRepo = $contactRepo;
     }
 
     public function index()
     {
-        $contactsView = $this->contact->paginate(5);
+        $contactsView = $this->contactRepo->paginate();
         return view('backend::contact.index',compact('contactsView'));
     }
 
     public function action($id)
     {
-        $contactAction = $this->contact->findOrFail($id);
+        $contactAction = $this->contactRepo->detail($id);
         $contactAction->is_active = $contactAction->is_active === 0 ? 1 : 0;
         $contactAction->save();
         return redirect()->back()->with('success', 'Cập nhật trạng thái thành công');
@@ -30,7 +32,7 @@ class AdminContactController extends FrontendController
 
     public function detail($id)
     {
-        $contactDetail = $this->contact->findOrFail($id);
+        $contactDetail = $this->contactRepo->detail($id);
         $contactDetail->is_active = 1;
         $contactDetail->save();
         return view('backend::contact.view',compact('contactDetail'));
