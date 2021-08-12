@@ -30,6 +30,8 @@ use Backend\Repositories\Schedule\ScheduleRepository;
 use Backend\Repositories\Schedule\ScheduleRepositoryInterface;
 use Backend\Repositories\Slider\SliderRepository;
 use Backend\Repositories\Slider\SliderRepositoryInterface;
+use Backend\Repositories\Student\StudentRepository;
+use Backend\Repositories\Student\StudentRepositoryInterface;
 use Illuminate\Support\ServiceProvider as Service;
 
 
@@ -64,5 +66,7 @@ class RepositoryServiceProvider extends Service
         $this->app->bind(ScheduleRepositoryInterface::class, ScheduleRepository::class);
 
         $this->app->bind(SliderRepositoryInterface::class, SliderRepository::class);
+
+        $this->app->bind(StudentRepositoryInterface::class, StudentRepository::class);
     }
 }

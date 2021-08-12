@@ -6,6 +6,7 @@ use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use App\Models\Classroom;
 use App\Models\Student;
+use Backend\Repositories\Student\StudentRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -15,94 +16,96 @@ use Backend\Http\Requests\Student\StudentRequestUpdate;
 use Backend\Traits\DeleteTrait;
 use Backend\Traits\StorageImageTrait;
 
-class AdminStudentController extends FrontendController {
+class AdminStudentController extends FrontendController
+{
 
-    private $classroom;
-
-    private $student;
+    private $studentRepo;
 
     use DeleteTrait;
 
     use StorageImageTrait;
 
-    public function __construct(Student $student, Classroom $classroom)
+    public function __construct(StudentRepositoryInterface $studentRepo)
     {
         parent::__construct();
-        $this->student = $student;
-        $this->classroom = $classroom;
+        $this->studentRepo = $studentRepo;
     }
 
     public function index()
     {
-        $classrooms = $this->classroom->get();
-        $students = $this->student->newQuery()->with(['classroom'])->orderBy('id', 'asc')->paginate(5);
+        $classrooms = $this->studentRepo->getClassrooms();
+        $students = $this->studentRepo->paginate();
         return view('backend::student.index', compact('students', 'classrooms'));
     }
 
     public function create()
     {
-        $classrooms = $this->classroom->get();
+        $classrooms = $this->studentRepo->getClassrooms();
         return view('backend::student.create', compact('classrooms'));
     }
 
     public function store(StudentRequestAdd $request)
     {
-        $this->student->code = $request->code;
-        $this->student->name = $request->name;
-        $this->student->birthday = $request->birthday;
-        $this->student->sex = $request->sex;
-        $this->student->nation = $request->nation;
-        $this->student->classroom_id = $request->classroom_id;
-        $this->student->email = $request->email;
-        $this->student->password = Hash::make($request->password);
-        $this->student->phone = $request->phone;
+        $dataStudent = [
+            'code'         => $request->code,
+            'name'         => $request->name,
+            'birthday'     => $request->birthday,
+            'sex'          => $request->sex,
+            'nation'       => $request->nation,
+            'classroom_id' => $request->classroom_id,
+            'email'        => $request->email,
+            'password'     => Hash::make($request->password),
+            'phone'        => $request->phone
+        ];
         $studentUpload = $this->storageTraitUpload($request, 'image_path', 'student');
         if (!empty($studentUpload)) {
-            $this->student->image_path = $studentUpload['file_path'];
-            $this->student->image_name = $studentUpload['file_name'];
+            $dataStudent['image_path'] = $studentUpload['file_path'];
+            $dataStudent['image_name'] = $studentUpload['file_name'];
         }
-        $this->student->save();
+        $this->studentRepo->create($dataStudent);
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
     public function edit($id)
     {
-        $studentEdit = $this->student->find($id);
-        $classrooms = $this->classroom->get();
+        $studentEdit = $this->studentRepo->detail($id);
+        $classrooms = $this->studentRepo->getClassrooms();
         return view('backend::student.edit', compact('classrooms', 'studentEdit'));
     }
 
     public function update(StudentRequestUpdate $request, $id)
     {
-        $studentUpdate = $this->student->find($id);
-        $studentUpdate->code = $request->code;
-        $studentUpdate->name = $request->name;
-        $studentUpdate->birthday = $request->birthday;
-        $studentUpdate->sex = $request->sex;
-        $studentUpdate->nation = $request->nation;
-        $studentUpdate->email = $request->email;
-        $studentUpdate->classroom_id = $request->classroom_id;
-        $this->student->password = Hash::make($request->password);
-        $studentUpdate->phone = $request->phone;
-        $studentUpdate->is_active = 1;
+        $studentUpdate = $this->studentRepo->detail($id);
+        $dataStudent = [
+            'code'         => $request->code,
+            'name'         => $request->name,
+            'birthday'     => $request->birthday,
+            'sex'          => $request->sex,
+            'nation'       => $request->nation,
+            'classroom_id' => $request->classroom_id,
+            'email'        => $request->email,
+            'password'     => Hash::make($request->password),
+            'phone'        => $request->phone,
+            'is_active'    => 1
+        ];
         $studentUpload = $this->storageTraitUpload($request, 'image_path', 'student');
         if (!empty($studentUpload)) {
             unlink(substr($studentUpdate->image_path, 1));
-            $studentUpdate->image_path = $studentUpload['file_path'];
-            $studentUpdate->image_name = $studentUpload['file_name'];
+            $dataStudent['image_path'] = $studentUpload['file_path'];
+            $dataStudent['image_name'] = $studentUpload['file_name'];
         }
-        $studentUpdate->save();
+        $this->studentRepo->update($id, $dataStudent);
         return redirect()->back()->with('success', 'Cập nhật thành công');
     }
 
     public function delete($id)
     {
-        return $this->deleteModelTrait($id, $this->student);
+        return $this->studentRepo->delete($id);
     }
 
     public function action($id)
     {
-        $studentAction = $this->student->find($id);
+        $studentAction = $this->studentRepo->detail($id);
         $studentAction->is_active = $studentAction->is_active ? 0 : 1;
         $studentAction->save();
         return redirect()->back()->with('success', 'Cập nhật trạng thái thành công');
@@ -110,72 +113,27 @@ class AdminStudentController extends FrontendController {
 
     public function ajaxGetSelect(Request $request)
     {
-        if ($request->get('id')) {
-            $id = $request->get('id');
-            $students = $this->student->with(['classroom'])
-                ->where('classroom_id', $id)
-                ->get();
-            $output = '';
-            foreach ($students as $student) {
-                $output .= '<tr>
-                    <td>' . $student->id . '</td>
-                    <td><ul><li>' . $student->name . '</li><li>' . $student->email . '</li></ul></td>
-                     <td>' . $student->code . '</td>
-                     <td><ul><li>' . $student->birthday . '</li><li>' . $student->nation . '</li><li>' . $student->phone . '</li></ul></td>
-                       <td>' . $student->classroom->name . '</td>
-                       <td><a class="' . $student->getis_active($student->is_active)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getis_active($student->is_active)['name'] . '</a></td>
-                          <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>
-                          <td><a class="btn btn-danger action-delete" href="#" data-url="' . route('student.delete', ['id' => $student->id]) . '">Delete</a></td>
-                    </tr>';
-            }
-
-            return response($output);
-        }
+        return $this->studentRepo->search($request);
     }
-
 
     public function searchPost(Request $request)
     {
-        if ($request->get('searchResult')) {
-            $query = $request->get('searchResult');
-            $students = $this->student->with('classroom')
-                ->where('name', 'like', '%' . $query . '%')
-                ->orWhere('nation', 'like', '%' . $query . '%')->get();
-            $output = '';
-            foreach ($students as $student) {
-                $output .= '<tr>
-                    <td>' . $student->id . '</td>
-                    <td><ul><li>' . $student->name . '</li><li>' . $student->email . '</li></ul></td>
-                     <td>' . $student->code . '</td>
-                     <td><ul><li>' . $student->birthday . '</li><li>' . $student->nation . '</li><li>' . $student->phone . '</li></ul></td>
-                       <td>' . $student->classroom->name . '</td>
-                       <td><a class="' . $student->getis_active($student->is_active)['class'] . '" href="' . route('student.action', ['id' => $student->id]) . '">' . $student->getis_active($student->is_active)['name'] . '</a></td>
-                          <td><a class="btn btn-default" href="' . route('student.edit', ['id' => $student->id]) . '">Edit</a></td>
-                          <td><a class="btn btn-danger action-delete" href="#" data-url="' . route('student.delete', ['id' => $student->id]) . '">Delete</a></td>
-                    </tr>';
-            }
-
-            return response($output);
-        } else {
-            $students = $this->student->newQuery()->with(['classroom'])->get();
-            return $students;
-        }
+        return $this->studentRepo->search($request);
     }
 
     public function exportIntoExcel()
     {
-        return Excel::download(new StudentExport, 'student.xlsx');
+//        return Excel::download(new StudentExport, 'students.xlsx');
     }
 
     public function importIntoExcel(ImportExcelRequest $request)
     {
-        $file = $request->file('file');
-        if ($file) {
-            Excel::import(new StudentImport, $file);
-            return redirect()->back()->with('success', 'Import Thành công');
-        } else {
-            abort(500);
-        }
-
+//        $file = $request->file('file');
+//        if ($file) {
+//            Excel::import(new StudentImport, $file);
+//            return redirect()->back()->with('success', 'Import Thành công');
+//        } else {
+//            abort(500);
+//        }
     }
 }
