@@ -25,35 +25,6 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item">
-                    <a href="{{ route('contact.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
-                        <i class="fas fa-id-card-alt"></i>
-                        <p>
-                            Liên hệ
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('recruitment.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
-                        <i class="fas fa-user-plus"></i>
-                        <p>
-                            Tuyển dụng
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('news.index') }}"
-                       class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
-                        <i class="fas fa-newspaper"></i>
-                        <p>
-                            Tin tức
-                        </p>
-                    </a>
-                </li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -83,6 +54,37 @@
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('contact.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'contact.index' ? 'active' : ''}}">
+                                <i class="fas fa-id-card-alt"></i>
+                                <p>
+                                    Liên hệ
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('recruitment.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'recruitment.index' ? 'active' : ''}}">
+                                <i class="fas fa-user-plus"></i>
+                                <p>
+                                    Tuyển dụng
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('news.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'news.index' ? 'active' : ''}}">
+                                <i class="fas fa-newspaper"></i>
+                                <p>
+                                    Tin tức
+                                </p>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -160,20 +162,6 @@
                                 </a>
                             </li>
                         @endcan
-                    </ul>
-                </li>
-
-                {{--Account--}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-user"></i>
-                        <p>
-                            Tài khoản
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-
                         @can('student-list')
                             <li class="nav-item">
                                 <a href="{{ route('student.index') }}"
@@ -185,6 +173,15 @@
                                 </a>
                             </li>
                         @endcan
+                        <li class="nav-item ac">
+                            <a href="{{ route('payment.index') }}"
+                               class="nav-link {{ \Request::route()->getName() == 'payment.index' ? 'active' : ''}}">
+                                <i class="fas fa-money-check-alt"></i>
+                                <p>
+                                    Thanh toán
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
@@ -220,15 +217,6 @@
                                 </a>
                             </li>
                         @endcan
-                        <li class="nav-item ac">
-                            <a href="{{ route('payment.index') }}"
-                               class="nav-link {{ \Request::route()->getName() == 'payment.index' ? 'active' : ''}}">
-                                <i class="fas fa-money-check-alt"></i>
-                                <p>
-                                    Thanh toán
-                                </p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
 

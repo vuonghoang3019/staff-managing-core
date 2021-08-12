@@ -10,6 +10,8 @@ use Backend\Repositories\Contact\ContactRepository;
 use Backend\Repositories\Contact\ContactRepositoryInterface;
 use Backend\Repositories\Course\CourseRepository;
 use Backend\Repositories\Course\CourseRepositoryInterface;
+use Backend\Repositories\Grade\GradeRepository;
+use Backend\Repositories\Grade\GradeRepositoryInterface;
 use Backend\Repositories\News\NewsRepository;
 use Backend\Repositories\News\NewsRepositoryInterface;
 use Backend\Repositories\Price\PriceRepository;
@@ -30,5 +32,6 @@ class RepositoryServiceProvider extends Service
         $this->app->bind(ClassroomRepositoryInterface::class, ClassroomRepository::class);
         $this->app->bind(CourseRepositoryInterface::class, CourseRepository::class);
         $this->app->bind(PriceRepositoryInterface::class, PriceRepository::class);
+        $this->app->bind(GradeRepositoryInterface::class, GradeRepository::class);
     }
 }

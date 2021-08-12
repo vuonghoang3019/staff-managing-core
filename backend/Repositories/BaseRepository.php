@@ -29,7 +29,7 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function detail($id)
     {
-        return $this->model->find($id);
+        return $this->model->findOrFail($id);
     }
 
     public function create($attributes = [])
@@ -39,7 +39,7 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function update($id, $attributes = [])
     {
-        $result = $this->model->find($id);
+        $result = $this->model->findOrFail($id);
         if ($result)
         {
             $result->update($attributes);
@@ -53,7 +53,7 @@ abstract class BaseRepository implements RepositoryInterface
     {
         try
         {
-            $this->model->find($id)->delete();
+            $this->model->findOrFail($id)->delete();
             return response()->json([
                 'code' => 200,
                 'message' => 'success'

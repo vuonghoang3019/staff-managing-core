@@ -2,25 +2,22 @@
 
 namespace Backend\Http\Controllers;
 
-use App\Models\Grade;
 use Backend\Http\Requests\Grade\GradeRequestAdd;
-use Backend\Traits\DeleteTrait;
+use Backend\Repositories\Grade\GradeRepositoryInterface;
 
 class AdminGradeController extends FrontendController
 {
-    use DeleteTrait;
+    private $gradeRepo;
 
-    private $grade;
-
-    public function __construct(Grade $grade)
+    public function __construct(GradeRepositoryInterface $gradeRepo)
     {
         parent::__construct();
-        $this->grade = $grade;
+        $this->gradeRepo = $gradeRepo;
     }
 
     public function index()
     {
-        $grades = $this->grade->orderBy('id','desc')->paginate(10);
+        $grades = $this->gradeRepo->paginate();
         return view('backend::grade.index',compact('grades'));
     }
     public function create()
@@ -29,36 +26,27 @@ class AdminGradeController extends FrontendController
     }
     public function store(GradeRequestAdd $request)
     {
-        $this->grade->name = $request->name;
-        $this->grade->description = $request->description;
-        $this->grade->save();
+        $this->gradeRepo->create($request->all());
         return redirect()->back()->with('success','Thêm mới thành công');
     }
     public function edit($id)
     {
-        $gradeEdit = $this->grade->find($id);
-        if ($gradeEdit)
-        {
-            return view('backend::grade.edit',compact('gradeEdit'));
-        }
-        return abort(500);
+        $gradeEdit = $this->gradeRepo->detail($id);
+        return view('backend::grade.edit',compact('gradeEdit'));
 
     }
     public function update(GradeRequestAdd $request,$id)
     {
-        $gradeEdit = $this->grade->find($id);
-        $gradeEdit->name = $request->name;
-        $gradeEdit->description = $request->description;
-        $gradeEdit->save();
+        $this->gradeRepo->update($id, $request->all());
         return redirect()->back()->with('success','Cập nhật thành công');
     }
     public function delete($id)
     {
-        return $this->deleteModelTrait($id,$this->grade);
+        return $this->gradeRepo->delete($id);
     }
     public function action($id)
     {
-        $gradeEdit = $this->grade->find($id);
+        $gradeEdit = $this->gradeRepo->detail($id);
         $gradeEdit->is_active = $gradeEdit->is_active ? 0 : 1;
         $gradeEdit->save();
         return redirect()->back();
