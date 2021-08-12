@@ -16,6 +16,8 @@ use Backend\Repositories\News\NewsRepository;
 use Backend\Repositories\News\NewsRepositoryInterface;
 use Backend\Repositories\Payment\PaymentRepository;
 use Backend\Repositories\Payment\PaymentRepositoryInterface;
+use Backend\Repositories\Permission\PermissionRepository;
+use Backend\Repositories\Permission\PermissionRepositoryInterface;
 use Backend\Repositories\Price\PriceRepository;
 use Backend\Repositories\Price\PriceRepositoryInterface;
 use Backend\Repositories\Recruitment\RecruitmentRepository;
@@ -44,5 +46,7 @@ class RepositoryServiceProvider extends Service
         $this->app->bind(GradeRepositoryInterface::class, GradeRepository::class);
 
         $this->app->bind(PaymentRepositoryInterface::class, PaymentRepository::class);
+
+        $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
     }
 }

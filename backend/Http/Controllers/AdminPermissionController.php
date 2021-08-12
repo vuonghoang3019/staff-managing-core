@@ -2,30 +2,23 @@
 
 namespace Backend\Http\Controllers;
 
-use App\Models\Module;
-use App\Models\Permission;
 use Backend\Http\Requests\Permission\PermissionRequestAdd;
-use Backend\Traits\DeleteTrait;
+use Backend\Repositories\Permission\PermissionRepositoryInterface;
 
 class AdminPermissionController extends FrontendController
 {
-    use DeleteTrait;
+    private $permissionRepo;
 
-    private $permission;
-
-    private $module;
-
-    public function __construct(Permission $permission, Module $module)
+    public function __construct(PermissionRepositoryInterface $permissionRepo)
     {
         parent::__construct();
-        $this->permission = $permission;
-        $this->module = $module;
+        $this->permissionRepo = $permissionRepo;
     }
 
     public function index()
     {
-        $permissions = $this->permission->newQuery()->with(['child'])->where('parent_id',0)->paginate(10);
-        $modules = $this->module->get();
+        $permissions = $this->permissionRepo->paginate();
+        $modules = $this->permissionRepo->getModules();
         return view('backend::permission.index', compact('permissions', 'modules'));
     }
 
@@ -36,7 +29,7 @@ class AdminPermissionController extends FrontendController
             'description' => $request->description,
             'parent_id' => 0,
         ];
-        $permissions = $this->permission->create($dataAdd);
+        $permissions = $this->permissionRepo->create($dataAdd);
         foreach ($request->module_child as $value)
         {
             $data = [
@@ -45,29 +38,28 @@ class AdminPermissionController extends FrontendController
                 'parent_id' => $permissions->id,
                 'value' => $value.'_'.$request->name
             ];
-            $this->permission->create($data);
+            $this->permissionRepo->create($data);
         }
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 
     public function edit($id)
     {
-        $permissionEdit = $this->permission->findOrFail($id);
+        $permissionEdit = $this->permissionRepo->detail($id);
         $permissionCheck = $permissionEdit->child;
-        $modules = $this->module->get();
+        $modules = $this->permissionRepo->getModules();
         return view('backend::permission.edit',compact('permissionEdit','modules','permissionCheck'));
     }
 
     public function update(PermissionRequestAdd $request, $id)
     {
-        $this->permission->newQuery()->where('parent_id',$id)->delete();
-        $permissionUpdate = $this->permission->find($id);
+        $this->permissionRepo->deleteParent($id);
         $dataUpdate = [
             'name' => $request->name,
             'description' => $request->description,
             'parent_id' => 0,
         ];
-        $permissionUpdate->update($dataUpdate);
+        $this->permissionRepo->update($id, $dataUpdate);
         foreach ($request->module_child as $value)
         {
             $dataChild = [
@@ -76,14 +68,14 @@ class AdminPermissionController extends FrontendController
                 'parent_id' => $request->id,
                 'value' => $value.'_'.$request->name
             ];
-            $this->permission->create($dataChild);
+            $this->permissionRepo->create($dataChild);
         }
         return redirect()->back()->with('success','Cập nhật thành công');
     }
 
     public function delete($id)
     {
-        return $this->deleteModelParent_idTrait($id, $this->permission);
+        return $this->permissionRepo->detail($id);
     }
 
 }
