@@ -18,7 +18,6 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Code</th>
-                                <th scope="col">Sit Capacity</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Active</th>
                                 <th scope="col">Action</th>
@@ -32,7 +31,6 @@
                                         <th scope="row">{{ $stt }}</th>
                                         <td>{{ $room->name }}</td>
                                         <td>{{ $room->code }}</td>
-                                        <td>{{ $room->sit_capacity }}</td>
                                         <td>{{ $room->description }}</td>
                                         <td>
                                             {!! $room->is_active !!}

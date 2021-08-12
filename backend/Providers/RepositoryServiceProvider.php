@@ -24,6 +24,8 @@ use Backend\Repositories\Recruitment\RecruitmentRepository;
 use Backend\Repositories\Recruitment\RecruitmentRepositoryInterface;
 use Backend\Repositories\Role\RoleRepository;
 use Backend\Repositories\Role\RoleRepositoryInterface;
+use Backend\Repositories\Room\RoomRepository;
+use Backend\Repositories\Room\RoomRepositoryInterface;
 use Illuminate\Support\ServiceProvider as Service;
 
 
@@ -52,5 +54,7 @@ class RepositoryServiceProvider extends Service
         $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
 
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
+
+        $this->app->bind(RoomRepositoryInterface::class, RoomRepository::class);
     }
 }

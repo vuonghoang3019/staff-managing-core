@@ -2,25 +2,22 @@
 
 namespace Backend\Http\Controllers;
 
-use App\models\Room;
+use Backend\Repositories\Room\RoomRepositoryInterface;
 use Illuminate\Http\Request;
-use Backend\Traits\DeleteTrait;
 
 class AdminRoomController extends FrontendController
 {
-    private $room;
+    private $roomRepo;
 
-    use DeleteTrait;
-
-    public function __construct(Room $room)
+    public function __construct(RoomRepositoryInterface $roomRepo)
     {
         parent::__construct();
-        $this->room = $room;
+        $this->roomRepo = $roomRepo;
     }
 
     public function index()
     {
-        $rooms = $this->room->paginate(10);
+        $rooms = $this->roomRepo->paginate();
         return view('backend::room.index',compact('rooms'));
     }
 
@@ -31,39 +28,30 @@ class AdminRoomController extends FrontendController
 
     public function store(Request $request)
     {
-        $this->room->code = $request->code;
-        $this->room->name = $request->name;
-        $this->room->sit_capacity = $request->sit_capacity;
-        $this->room->description = $request->description;
-        $this->room->save();
+        $this->roomRepo->create($request->all());
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 
     public function edit($id)
     {
-        $roomEdit = $this->room->findOrFail($id);
+        $roomEdit = $this->roomRepo->detail($id);
         return view('backend::room.edit',compact('roomEdit'));
     }
 
     public function update(Request $request, $id)
     {
-        $roomUpdate = $this->room->findOrFail($id);
-        $roomUpdate->code = $request->code;
-        $roomUpdate->name = $request->name;
-        $roomUpdate->sit_capacity = $request->sit_capacity;
-        $roomUpdate->description = $request->description;
-        $roomUpdate->save();
+        $this->roomRepo->update($id, $request->all());
         return redirect()->back()->with('success','Cập nhật thành công');
     }
 
     public function delete($id)
     {
-        return $this->deleteModelTrait($id, $this->room);
+        return $this->roomRepo->delete($id);
     }
 
     public function action($id)
     {
-        $roomUpdate = $this->room->findOrFail($id);
+        $roomUpdate = $this->roomRepo->detail($id);
         $roomUpdate->status = $roomUpdate->status ? 0 : 1;
         $roomUpdate->save();
         return redirect()->back()->with('success','Cập nhật trạng thái thành công');

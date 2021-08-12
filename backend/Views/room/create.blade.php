@@ -30,14 +30,6 @@
                                 <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group ">
-                                <label for="sit_capacity">Chỗ ngồi</label>
-                                <input type="number" class="form-control @error('sit_capacity') is-invalid @enderror" id="sit_capacity" min="1" max="30"
-                                       placeholder="1-30" name="sit_capacity" value="{{ old('sit_capacity') }}">
-                                @error('sit_capacity')
-                                <div class="alert alert-danger mt-2 px-2">{{ $message }}</div>
-                                @enderror
-                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group ">
