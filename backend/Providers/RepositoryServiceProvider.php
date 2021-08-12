@@ -32,6 +32,8 @@ use Backend\Repositories\Slider\SliderRepository;
 use Backend\Repositories\Slider\SliderRepositoryInterface;
 use Backend\Repositories\Student\StudentRepository;
 use Backend\Repositories\Student\StudentRepositoryInterface;
+use Backend\Repositories\Teacher\TeacherRepository;
+use Backend\Repositories\Teacher\TeacherRepositoryInterface;
 use Illuminate\Support\ServiceProvider as Service;
 
 
@@ -68,5 +70,7 @@ class RepositoryServiceProvider extends Service
         $this->app->bind(SliderRepositoryInterface::class, SliderRepository::class);
 
         $this->app->bind(StudentRepositoryInterface::class, StudentRepository::class);
+
+        $this->app->bind(TeacherRepositoryInterface::class, TeacherRepository::class);
     }
 }
