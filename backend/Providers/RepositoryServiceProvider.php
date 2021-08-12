@@ -14,6 +14,8 @@ use Backend\Repositories\Grade\GradeRepository;
 use Backend\Repositories\Grade\GradeRepositoryInterface;
 use Backend\Repositories\News\NewsRepository;
 use Backend\Repositories\News\NewsRepositoryInterface;
+use Backend\Repositories\Payment\PaymentRepository;
+use Backend\Repositories\Payment\PaymentRepositoryInterface;
 use Backend\Repositories\Price\PriceRepository;
 use Backend\Repositories\Price\PriceRepositoryInterface;
 use Backend\Repositories\Recruitment\RecruitmentRepository;
@@ -26,12 +28,21 @@ class RepositoryServiceProvider extends Service
     public function register()
     {
         $this->app->bind(ContactRepositoryInterface::class, ContactRepository::class);
+
         $this->app->bind(RecruitmentRepositoryInterface::class, RecruitmentRepository::class);
+
         $this->app->bind(NewsRepositoryInterface::class, NewsRepository::class);
+
         $this->app->bind(AboutRepositoryInterface::class, AboutRepository::class);
+
         $this->app->bind(ClassroomRepositoryInterface::class, ClassroomRepository::class);
+
         $this->app->bind(CourseRepositoryInterface::class, CourseRepository::class);
+
         $this->app->bind(PriceRepositoryInterface::class, PriceRepository::class);
+
         $this->app->bind(GradeRepositoryInterface::class, GradeRepository::class);
+
+        $this->app->bind(PaymentRepositoryInterface::class, PaymentRepository::class);
     }
 }

@@ -16,11 +16,4 @@ class RecruitmentRepository extends BaseRepository implements RecruitmentReposit
     {
         return $this->model->paginate(5);
     }
-
-//    public function with($relations)
-//    {
-//        return $this->model->with($relations);
-//    }
-
-
 }

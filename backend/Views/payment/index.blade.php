@@ -77,7 +77,6 @@
     <script>
         $(document).ready(function () {
             $('.classroom').change(function () {
-                let url = $(this).data('url');
                 let id = $(this).val();
                 $.ajax({
                     url: '{{ route('payment.search.classroom') }}',
@@ -87,7 +86,6 @@
                         $('tbody').html('<td>Loading..</td>');
                     },
                     success: function (data) {
-                        console.log(data);
                         $('tbody').html(data);
 
                     }
@@ -97,7 +95,7 @@
                 let searchResult = $(this).val();
                 $.ajax({
                     type: 'POST',
-                    url: '{{ route("payment.search.name") }}',
+                    url: '{{ route('payment.search.name') }}',
                     data: {
                         '_token': '{{ csrf_token() }}',
                         searchResult: searchResult
@@ -106,6 +104,7 @@
                         $('tbody').html('<td>Loading..</td>');
                     },
                     success: function (data) {
+                        console.log(data);
                         $('tbody').html(data);
                     }
                 });
