@@ -2,29 +2,26 @@
 
 namespace Backend\Http\Controllers;
 
-use App\Models\Slider;
 use Backend\Http\Requests\Slider\SliderRequestAdd;
 use Backend\Http\Requests\Slider\SliderRequestUpdate;
-use Backend\Traits\DeleteTrait;
+use Backend\Repositories\Slider\SliderRepositoryInterface;
 use Backend\Traits\StorageImageTrait;
 
 class AdminSliderController extends FrontendController
 {
     use StorageImageTrait;
 
-    use DeleteTrait;
+    private $sliderRepo;
 
-    private $slider;
-
-    public function __construct(Slider $slider)
+    public function __construct(SliderRepositoryInterface $sliderRepo)
     {
         parent::__construct();
-        $this->slider = $slider;
+        $this->sliderRepo = $sliderRepo;
     }
 
     public function index()
     {
-        $sliders = $this->slider->paginate(5);
+        $sliders = $this->sliderRepo->paginate();
         return view('backend::slider.index', compact('sliders'));
     }
 
@@ -35,48 +32,52 @@ class AdminSliderController extends FrontendController
 
     public function store(SliderRequestAdd $request)
     {
-        $this->slider->name = $request->name;
-        $this->slider->description = $request->description;
-        $dataUpload = $this->storageTraitUpload($request, 'image_path', 'slider');
-        if (!empty($dataUpload)) {
-            $this->slider->image_name = $dataUpload['file_name'];
-            $this->slider->image_path = $dataUpload['file_path'];
+        $dataSlider = [
+            'name'        => $request->name,
+            'description' => $request->description
+        ];
+        $sliderUpload = $this->storageTraitUpload($request, 'image_path', 'slider');
+        if (!empty($sliderUpload)) {
+            $dataSlider['image_name'] = $sliderUpload['file_name'];
+            $dataSlider['image_path'] = $sliderUpload['file_path'];
         }
-        $this->slider->save();
+        $this->sliderRepo->create();
         return redirect()->back()->with('success', 'Thêm mới thành công');
     }
 
     public function edit($id)
     {
-        $sliderEdit = $this->slider->findOrFail($id);
+        $sliderEdit = $this->sliderRepo->detail($id);
         return view('backend::slider.edit', compact('sliderEdit'));
     }
 
     public function update(SliderRequestUpdate $request, $id)
     {
-        $sliderUpdate = $this->slider->findOrFail($id);
-        $sliderUpdate->name = $request->name;
-        $sliderUpdate->description = $request->description;
+        $sliderUpdate = $this->sliderRepo->detail($id);
+        $dataSlider = [
+            'name'        => $request->name,
+            'description' => $request->description
+        ];
         $sliderUpload = $this->storageTraitUpload($request, 'image_path', 'slider');
         if (!empty($sliderUpload)) {
             unlink(substr($sliderUpdate->image_path, 1));
-            $sliderUpdate->image_name = $sliderUpload['file_name'];
-            $sliderUpdate->image_path = $sliderUpload['file_path'];
+            $dataSlider['image_name'] = $sliderUpload['file_name'];
+            $dataSlider['image_path'] = $sliderUpload['file_path'];
         }
-        $sliderUpdate->save();
+        $this->sliderRepo->update($id, $dataSlider);
         return redirect()->back()->with('success', 'Cập nhật thành công');
     }
 
     public function delete($id)
     {
-        $sliderDelete = $this->slider->findOrFail($id);
+        $sliderDelete = $this->sliderRepo->detail($id);
         unlink(substr($sliderDelete->image_path, 1));
-        return $this->deleteModelTrait($id, $this->slider);
+        return $this->sliderRepo->delete($id);
     }
 
     public function action($id)
     {
-        $sliderAction = $this->slider->findOrFail($id);
+        $sliderAction = $this->sliderRepo->detail($id);
         $sliderAction->is_active = $sliderAction->is_active ? 0 : 1;
         $sliderAction->save();
         return redirect()->back();
