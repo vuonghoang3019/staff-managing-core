@@ -22,6 +22,8 @@ use Backend\Repositories\Price\PriceRepository;
 use Backend\Repositories\Price\PriceRepositoryInterface;
 use Backend\Repositories\Recruitment\RecruitmentRepository;
 use Backend\Repositories\Recruitment\RecruitmentRepositoryInterface;
+use Backend\Repositories\Role\RoleRepository;
+use Backend\Repositories\Role\RoleRepositoryInterface;
 use Illuminate\Support\ServiceProvider as Service;
 
 
@@ -48,5 +50,7 @@ class RepositoryServiceProvider extends Service
         $this->app->bind(PaymentRepositoryInterface::class, PaymentRepository::class);
 
         $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
+
+        $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
     }
 }

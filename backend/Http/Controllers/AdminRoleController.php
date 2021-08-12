@@ -2,36 +2,31 @@
 
 namespace Backend\Http\Controllers;
 
-use App\Models\Permission;
-use App\Models\Role;
+use Backend\Repositories\Role\RoleRepositoryInterface;
 use Illuminate\Http\Request;
 use Backend\Http\Requests\Role\RoleRequestAdd;
-use Backend\Traits\DeleteTrait;
+
 
 class AdminRoleController extends FrontendController
 {
-    private $role;
+    private $roleRepo;
 
-    private $permission;
-
-    use DeleteTrait;
-
-    public function __construct(Role $role, Permission $permission)
+    public function __construct(RoleRepositoryInterface $roleRepo)
     {
         parent::__construct();
-        $this->role = $role;
-        $this->permission = $permission;
+
+        $this->roleRepo = $roleRepo;
     }
 
     public function index()
     {
-        $roles = $this->role->paginate(5);
+        $roles = $this->roleRepo->paginate();
         return view('backend::role.index',compact('roles'));
     }
 
     public function create()
     {
-        $permissions = $this->permission->newQuery()->with('child')->where('parent_id',0)->get();
+        $permissions = $this->roleRepo->getPermission();
         return view('backend::role.create',compact('permissions'));
     }
 
@@ -42,37 +37,33 @@ class AdminRoleController extends FrontendController
             'name' => $request->name,
             'description' => $request->description
         ];
-        $roleAdd = $this->role->create($dataRole);
+        $roleAdd = $this->roleRepo->create($dataRole);
         $roleAdd->permission_role()->attach($request->permissionID);
         return redirect()->back()->with('success','Thêm mới thành công');
     }
 
     public function edit($id)
     {
-        $roleEdit = $this->role->findOrFail($id);
-        $permissions = $this->permission->newQuery()
-            ->with('child')
-            ->where('parent_id',0)
-            ->get();
+        $roleEdit = $this->roleRepo->detail($id);
+        $permissions = $this->roleRepo->getPermission();
         $roleCheck = $roleEdit->permission_role;
         return view('backend::role.edit',compact('permissions','roleEdit','roleCheck'));
     }
 
     public function update(RoleRequestAdd $request ,$id)
     {
-        $roleEdit = $this->role->findOrFail($id);
         $dataRole = [
             'code' => $request->code,
             'name' => $request->name,
             'description' => $request->description
         ];
-        $roleEdit->update($dataRole);
+        $roleEdit = $this->roleRepo->update($id, $dataRole);
         $roleEdit->permission_role()->sync($request->permissionID);
         return redirect()->back()->with('success','Cập nhật thành công');
     }
 
     public function delete($id)
     {
-        return $this->deleteModelTrait($id, $this->role);
+        return $this->roleRepo->delete($id);
     }
 }
