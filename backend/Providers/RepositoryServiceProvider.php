@@ -26,6 +26,8 @@ use Backend\Repositories\Role\RoleRepository;
 use Backend\Repositories\Role\RoleRepositoryInterface;
 use Backend\Repositories\Room\RoomRepository;
 use Backend\Repositories\Room\RoomRepositoryInterface;
+use Backend\Repositories\Schedule\ScheduleRepository;
+use Backend\Repositories\Schedule\ScheduleRepositoryInterface;
 use Illuminate\Support\ServiceProvider as Service;
 
 
@@ -56,5 +58,7 @@ class RepositoryServiceProvider extends Service
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
 
         $this->app->bind(RoomRepositoryInterface::class, RoomRepository::class);
+
+        $this->app->bind(ScheduleRepositoryInterface::class, ScheduleRepository::class);
     }
 }

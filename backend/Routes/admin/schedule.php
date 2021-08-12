@@ -31,7 +31,7 @@ Route::prefix('schedule')->group(function () {
         'uses'       => 'AdminScheduleController@delete',
         'middleware' => 'can:schedule-delete'
     ]);
-    Route::get('/ajaxGetSelect', [
+    Route::get('/ajax/getSelect', [
         'as'   => 'schedule.ajaxGetSelect',
         'uses' => 'AdminScheduleController@ajaxGetSelect'
     ]);
