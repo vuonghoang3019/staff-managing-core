@@ -14,8 +14,18 @@ class CourseRequestUpdate extends FormRequest
     public function rules()
     {
         return [
-            'name'       => 'required|min:5|unique:course,name,' . $this->id,
-            'image_path'  => 'max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
+            'name'       => [
+                'required',
+                'unique:course,name,' . $this->id,
+            ],
+//            'grade_id' => [
+//                'required',
+//                'array',
+//            ],
+            'image_path' => [
+                'max:10000',
+                'mimes:jpeg,png,jpg'
+            ]
         ];
     }
 

@@ -14,7 +14,7 @@ class PriceRequestAdd extends FormRequest
     public function rules()
     {
         return [
-            'course_id' => 'required|unique:prices,course_id,'. $this->id
+            'course_id' => 'required|unique:price,course_id,'. $this->id,
         ];
     }
 
