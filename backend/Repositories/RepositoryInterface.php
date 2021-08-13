@@ -13,4 +13,6 @@ interface RepositoryInterface
     public function update($id ,$attribute = []);
 
     public function delete($id);
+
+    public function action($id);
 }

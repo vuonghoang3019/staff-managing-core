@@ -77,9 +77,7 @@ class AdminAboutController extends FrontendController
 
     public function action($id)
     {
-        $aboutUpdate = $this->aboutRepo->detail($id);
-        $aboutUpdate->is_active = $aboutUpdate->is_active ? 0 : 1;
-        $aboutUpdate->save();
+        $this->aboutRepo->action($id);
         return redirect()->back()->with('success','Cập nhật trạng thái thành công');
     }
 

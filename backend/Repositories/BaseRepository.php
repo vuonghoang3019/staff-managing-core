@@ -69,4 +69,11 @@ abstract class BaseRepository implements RepositoryInterface
         }
     }
 
+    public function action($id)
+    {
+        $result = $this->model->findOrFail($id);
+        $result->is_active = $result->is_active ? 0 : 1;
+        $result->save();
+    }
+
 }
