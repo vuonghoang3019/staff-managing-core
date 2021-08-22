@@ -75,7 +75,7 @@ class AdminPermissionController extends FrontendController
 
     public function delete($id)
     {
-        return $this->permissionRepo->detail($id);
+        return $this->permissionRepo->delete($id);
     }
 
 }

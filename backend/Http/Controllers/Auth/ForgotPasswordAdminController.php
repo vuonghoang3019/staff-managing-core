@@ -21,7 +21,7 @@ class ForgotPasswordAdminController extends Controller
 
     public function getFormResetPassword()
     {
-        return view('admin::auth.password.getEmailReset');
+        return view('backend::auth.password.getEmailReset');
     }
 
     public function getCodeResetPassword(Request $request)
@@ -39,7 +39,7 @@ class ForgotPasswordAdminController extends Controller
         $data = [
             'url' => $url,
         ];
-        Mail::send('admin::auth.email.resetPassword',$data, function ($message) use ($email){
+        Mail::send('backend::auth.email.resetPassword',$data, function ($message) use ($email){
             $message->to($email, 'Reset Password')->subject('Lấy lại mật khẩu');
         });
         return redirect()->back()->with('success', 'Link lấy lại mật khẩu đã gửi vào email của bạn');
@@ -56,7 +56,7 @@ class ForgotPasswordAdminController extends Controller
         if (!$checkUser) {
             return redirect('/')->with('danger','Xin lỗi! Đường dẫn lấy lại mật khẩu không đúng, bạn vui lòng thử lại sau');
         }
-        return view('admin::auth.password.resetPassword');
+        return view('backend::auth.password.resetPassword');
     }
 
     public function saveResetPassword(ResetPasswordRequest $request)
