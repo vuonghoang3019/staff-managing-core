@@ -77,21 +77,6 @@ class CourseController extends FrontendController {
         $course = $this->course->newQuery()->with('classroom')->findOrFail($idCourse);
         $classrooms = $course->classroom;
 
-
-//        $lengthClassroom = count($classrooms);
-//        for ($i = 0; $i < $lengthClassroom; $i++)
-//        {
-//            $countStudent = $this->student->newQuery()->where('classroom_id', $classrooms[$i]->id)->count();
-//            if ($countStudent < $classrooms[$i]->max_student)
-//            {
-//                echo $classrooms[$i]->id;
-//            }
-//            else
-//            {
-////                echo $classrooms[$i]->id;
-////                return redirect()->back()->with('error', 'Số lượng học sinh đã đủ! Vui lòng liên hệ với trung tâm để biết thêm thông tin chi tiết');
-//            }
-//        }
         $prices = $this->price->findOrFail($idPrice);
         $total = $prices->price - ($prices->sale * $prices->price) / 100;
         $dataCourses = $course->id;
