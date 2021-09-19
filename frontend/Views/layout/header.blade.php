@@ -15,6 +15,8 @@
                 <div class="top-left">
                     <ul class="list-main">
                         <li><i class="fas fa-headset"></i>+84 0962 190 498</li>
+                        <li><a href="{{ route('change.language',['en']) }}"><i class="fas fa-flag-usa"></i>EN</a></li>
+                        <li><a href="{{ route('change.language',['vi']) }}"><i class="fas fa-headset"></i>VI</a></li>
                     </ul>
                 </div>
                 <!--/ End Top Left -->
@@ -47,11 +49,12 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('home/images/logoAsia.png') }}" style="width: 60px; height: 60px" class="rounded-circle"/>
+                <img src="{{ asset('home/images/logoAsia.png') }}" style="width: 60px; height: 60px"
+                     class="rounded-circle"/>
             </a>
             <div class="collapse navbar-collapse" id="navbars-host">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}">Trang chủ</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}">{{ __('Home') }}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">Giới Thiệu</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="{{ route('course') }}">Khóa học </a>
@@ -66,7 +69,8 @@
                         <a class="nav-link" href="{{ route('teacher') }}">Giáo Viên</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown-a">
                             @foreach($data['teachers'] as $teacher)
-                                <a class="dropdown-item" href="{{ route('get.type.teacher',['is_check' => $teacher->is_check]) }}">{{ $teacher->is_check == 1 ? 'Giáo viên nước ngoài' : 'Giáo viên bản địa'  }}</a>
+                                <a class="dropdown-item"
+                                   href="{{ route('get.type.teacher',['is_check' => $teacher->is_check]) }}">{{ $teacher->is_check == 1 ? 'Giáo viên nước ngoài' : 'Giáo viên bản địa'  }}</a>
                             @endforeach
                         </div>
                     </li>

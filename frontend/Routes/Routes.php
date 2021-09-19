@@ -6,6 +6,10 @@ Route::get('/', [
     'as'   => 'home',
     'uses' => 'HomeController@index'
 ]);
+Route::get('change-language/{language}', [
+    'as'   => 'change.language',
+    'uses' => 'HomeController@changeLanguage'
+]);
 Route::group(['prefix' => 'auth'], function () {
     Route::get('register', [
         'as'   => 'register',
