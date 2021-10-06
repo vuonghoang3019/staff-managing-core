@@ -106,7 +106,7 @@ return [
         ],
         'students' => [
             'provider' => 'students',
-            'table' => 'password_resets',
+            'table'  => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],
