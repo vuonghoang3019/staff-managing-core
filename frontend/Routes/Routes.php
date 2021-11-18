@@ -104,7 +104,7 @@ Route::prefix('course')->group(function () {
         'as'   => 'course.detail',
         'uses' => 'CourseController@detail',
     ]);
-    Route::get('cart/{idPrice},{idCourse}', [
+    Route::get('cart/{idPrice}/{idCourse}', [
         'as'   => 'course.showCart',
         'uses' => 'CourseController@showCart',
     ]);
