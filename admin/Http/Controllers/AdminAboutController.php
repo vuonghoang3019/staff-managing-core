@@ -22,12 +22,12 @@ class AdminAboutController extends FrontendController
     public function index()
     {
         $abouts = $this->aboutRepo->paginate();
-        return view('backend::about.index',compact('abouts'));
+        return view('admin::about.index',compact('abouts'));
     }
 
     public function create()
     {
-        return view('backend::about.create');
+        return view('admin::about.create');
     }
 
     public function store(AboutRequestAdd $request)
@@ -48,7 +48,7 @@ class AdminAboutController extends FrontendController
     public function edit($id)
     {
         $aboutEdit = $this->aboutRepo->detail($id);
-        return view('backend::about.edit',compact('aboutEdit'));
+        return view('admin::about.edit',compact('aboutEdit'));
     }
 
     public function update(AboutRequestAdd $request, $id)

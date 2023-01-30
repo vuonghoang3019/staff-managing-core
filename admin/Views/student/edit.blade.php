@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Sửa học sinh</title>
 @endsection
@@ -8,12 +8,12 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Học sinh', 'key' => 'sửa học sinh'])
+        @include('admin::layouts.headerContent',['name' => 'Học sinh', 'key' => 'sửa học sinh'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('student.update',['id' => $studentEdit -> id]) }}" method="post" enctype="multipart/form-data" >
                     @csrf
-                    @include('backend::student.form')
+                    @include('admin::student.form')
                 </form>
             </div>
         </section>

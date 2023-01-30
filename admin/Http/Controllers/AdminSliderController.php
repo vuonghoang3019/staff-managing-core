@@ -22,12 +22,12 @@ class AdminSliderController extends FrontendController
     public function index()
     {
         $sliders = $this->sliderRepo->paginate();
-        return view('backend::slider.index', compact('sliders'));
+        return view('admin::slider.index', compact('sliders'));
     }
 
     public function create()
     {
-        return view('backend::slider.create');
+        return view('admin::slider.create');
     }
 
     public function store(SliderRequestAdd $request)
@@ -48,7 +48,7 @@ class AdminSliderController extends FrontendController
     public function edit($id)
     {
         $sliderEdit = $this->sliderRepo->detail($id);
-        return view('backend::slider.edit', compact('sliderEdit'));
+        return view('admin::slider.edit', compact('sliderEdit'));
     }
 
     public function update(SliderRequestUpdate $request, $id)

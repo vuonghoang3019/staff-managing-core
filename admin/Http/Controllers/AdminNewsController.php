@@ -25,12 +25,12 @@ class AdminNewsController extends FrontendController
     public function index()
     {
         $news = $this->newsRepository->paginate();
-        return view('backend::news.index',compact('news'));
+        return view('admin::news.index',compact('news'));
     }
 
     public function create()
     {
-        return view('backend::news.create');
+        return view('admin::news.create');
     }
 
     public function store(NewsRequestAdd $request)
@@ -51,7 +51,7 @@ class AdminNewsController extends FrontendController
     public function edit($id)
     {
         $newsEdit = $this->newsRepository->detail($id);
-        return view('backend::news.edit',compact('newsEdit'));
+        return view('admin::news.edit',compact('newsEdit'));
     }
 
     public function update($id, NewsRequestAdd $request)

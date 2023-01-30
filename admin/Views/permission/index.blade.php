@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Hạn chế</title>
 @endsection
@@ -47,7 +47,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => '', 'key' => 'Danh sách '])
+        @include('admin::layouts.headerContent',['name' => '', 'key' => 'Danh sách '])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -57,7 +57,7 @@
                                 data-target="#actionPermission">
                             Add
                         </button>
-                        @include('backend::permission.create')
+                        @include('admin::permission.create')
                     </div>
                     @endcan
                     <div class="col-md-12 mt-2">

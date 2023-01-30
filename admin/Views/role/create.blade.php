@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Add Role</title>
 @endsection
@@ -8,7 +8,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Quyền hệ thống', 'key' => 'Thêm quyền'])
+        @include('admin::layouts.headerContent',['name' => 'Quyền hệ thống', 'key' => 'Thêm quyền'])
         <section class="content">
             <div class="container-fluid" style="background-color: #ecf0f1">
                 <form action="{{ route('role.store') }}" method="post">

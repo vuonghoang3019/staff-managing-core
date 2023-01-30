@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Thanh toán</title>
 @endsection
@@ -11,7 +11,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Danh sách thanh toán', 'key' => ''])
+        @include('admin::layouts.headerContent',['name' => 'Danh sách thanh toán', 'key' => ''])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

@@ -1,11 +1,11 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Category</title>
 @endsection
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Category', 'key' => 'Add Category'])
+        @include('admin::layouts.headerContent',['name' => 'Category', 'key' => 'Add Category'])
         <section class="content">
             <div class="container-fluid">
                 <div class="row">

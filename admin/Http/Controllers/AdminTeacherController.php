@@ -28,13 +28,13 @@ class AdminTeacherController extends FrontendController
     public function index()
     {
         $teachers = $this->teacherRepo->paginate();
-        return view('backend::teacher.index', compact('teachers'));
+        return view('admin::teacher.index', compact('teachers'));
     }
 
     public function create()
     {
         $grades = $this->teacherRepo->getGrades();
-        return view('backend::teacher.create', compact('grades'));
+        return view('admin::teacher.create', compact('grades'));
     }
 
     public function store(TeacherRequestAdd $request)
@@ -57,7 +57,7 @@ class AdminTeacherController extends FrontendController
         $teacherAdd->roles()->attach(Role::where('name', 'Teacher')->first());
         if ($teacherAdd->id) {
             $email = $teacherAdd->email;
-            Mail::send('backend::auth.email.verifyAccountAdmin', array('email' => $request->email, 'password' => $request->password), function ($message) use ($email) {
+            Mail::send('admin::auth.email.verifyAccountAdmin', array('email' => $request->email, 'password' => $request->password), function ($message) use ($email) {
                 $message->to($email, 'Active Account')->subject('Kích hoạt email');
             });
         }
@@ -71,7 +71,7 @@ class AdminTeacherController extends FrontendController
         $teacherGrade = $teacherEdit->grades;
         $roles = $this->teacherRepo->getRoles();
         $teacherRole = $teacherEdit->roles;
-        return view('backend::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade', 'roles', 'teacherRole'));
+        return view('admin::teacher.edit', compact('teacherEdit', 'grades', 'teacherGrade', 'roles', 'teacherRole'));
     }
 
     public function update(TeacherRequestUpdate $request, $id)

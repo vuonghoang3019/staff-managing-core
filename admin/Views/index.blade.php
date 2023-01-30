@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Admin</title>
 @endsection
@@ -8,7 +8,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => '', 'key' => 'Dashboard'])
+        @include('admin::layouts.headerContent',['name' => '', 'key' => 'Dashboard'])
         <div class="content">
             <div class="row">
                 <div class="col-lg-12">

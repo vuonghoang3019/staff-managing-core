@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Add course</title>
 @endsection
@@ -9,7 +9,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Khóa học', 'key' => 'Thêm khóa học'])
+        @include('admin::layouts.headerContent',['name' => 'Khóa học', 'key' => 'Thêm khóa học'])
         <section class="content">
             <div class="container-fluid">
                 <div class="row">

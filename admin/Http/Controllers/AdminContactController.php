@@ -19,7 +19,7 @@ class AdminContactController extends FrontendController
     public function index()
     {
         $contactsView = $this->contactRepo->paginate();
-        return view('backend::contact.index',compact('contactsView'));
+        return view('admin::contact.index',compact('contactsView'));
     }
 
     public function action($id)
@@ -35,6 +35,6 @@ class AdminContactController extends FrontendController
         $contactDetail = $this->contactRepo->detail($id);
         $contactDetail->is_active = 1;
         $contactDetail->save();
-        return view('backend::contact.view',compact('contactDetail'));
+        return view('admin::contact.view',compact('contactDetail'));
     }
 }

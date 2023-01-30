@@ -28,14 +28,14 @@ class AdminCourseController extends FrontendController
     public function index()
     {
         $courses = $this->courseRepo->paginate();
-        return view('backend::course.index', compact('courses'));
+        return view('admin::course.index', compact('courses'));
     }
 
     public function create()
     {
         $grades = $this->courseRepo->getGrades();
         $courses = $this->courseRepo->getCourses();
-        return view('backend::course.create', compact('grades', 'courses'));
+        return view('admin::course.create', compact('grades', 'courses'));
     }
 
     public function store(CourseRequestAdd $request)
@@ -61,7 +61,7 @@ class AdminCourseController extends FrontendController
         $courses = $this->courseRepo->getCourses();
         $courseEdit = $this->courseRepo->detail($id);
         $courseGrade = $courseEdit->course_grade;
-        return view('backend::course.edit', compact('courseEdit', 'grades', 'courseGrade', 'courses', 'priceEdit'));
+        return view('admin::course.edit', compact('courseEdit', 'grades', 'courseGrade', 'courses', 'priceEdit'));
     }
 
     public function update(CourseRequestUpdate $request, $id)

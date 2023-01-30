@@ -23,7 +23,7 @@ class AdminScheduleController extends FrontendController
     {
         $weeks = $this->scheduleRepo->getWeek();
         $schedules = $this->scheduleRepo->paginate();
-        return view('backend::schedule.index', compact('schedules', 'weeks'));
+        return view('admin::schedule.index', compact('schedules', 'weeks'));
     }
 
     public function create()
@@ -32,7 +32,7 @@ class AdminScheduleController extends FrontendController
         $users = $this->scheduleRepo->getUsers();
         $weeks = $this->scheduleRepo->getWeek();
         $rooms = $this->scheduleRepo->getRooms();
-        return view('backend::schedule.create', compact('classrooms', 'users', 'weeks', 'rooms'));
+        return view('admin::schedule.create', compact('classrooms', 'users', 'weeks', 'rooms'));
     }
 
     public function store(ScheduleRequestAdd $request)
@@ -53,7 +53,7 @@ class AdminScheduleController extends FrontendController
         $users = $this->scheduleRepo->getUsers();
         $scheduleEdit = $this->scheduleRepo->detailSchedule($id);
         $rooms = $this->scheduleRepo->getRooms();
-        return view('backend::schedule.edit', compact('classrooms', 'users', 'scheduleEdit', 'weeks', 'rooms'));
+        return view('admin::schedule.edit', compact('classrooms', 'users', 'scheduleEdit', 'weeks', 'rooms'));
     }
 
     public function update(ScheduleRequestUpdate $request, $id)

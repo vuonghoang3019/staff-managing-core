@@ -1,11 +1,11 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Add Rooms</title>
 @endsection
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Phòng học', 'key' => 'Thêm Phòng học'])
+        @include('admin::layouts.headerContent',['name' => 'Phòng học', 'key' => 'Thêm Phòng học'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('room.store') }}" method="post">

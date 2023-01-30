@@ -21,13 +21,13 @@ class AdminRoleController extends FrontendController
     public function index()
     {
         $roles = $this->roleRepo->paginate();
-        return view('backend::role.index',compact('roles'));
+        return view('admin::role.index',compact('roles'));
     }
 
     public function create()
     {
         $permissions = $this->roleRepo->getPermission();
-        return view('backend::role.create',compact('permissions'));
+        return view('admin::role.create',compact('permissions'));
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class AdminRoleController extends FrontendController
         $roleEdit = $this->roleRepo->detail($id);
         $permissions = $this->roleRepo->getPermission();
         $roleCheck = $roleEdit->permission_role;
-        return view('backend::role.edit',compact('permissions','roleEdit','roleCheck'));
+        return view('admin::role.edit',compact('permissions','roleEdit','roleCheck'));
     }
 
     public function update(RoleRequestAdd $request ,$id)

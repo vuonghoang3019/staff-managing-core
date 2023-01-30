@@ -18,13 +18,13 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
-    @include('backend::layouts.header')
+    @include('admin::layouts.header')
 
-    @include('backend::layouts.sidebar')
+    @include('admin::layouts.sidebar')
 
     @yield('content')
 
-    @include('backend::layouts.footer')
+    @include('admin::layouts.footer')
 
 </body>
 <script src="{{ asset('admins/assets/js/jquery.min.js') }}"></script>
