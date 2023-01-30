@@ -1,10 +1,10 @@
 <?php
 
-namespace admin\Repositories\Student;
+namespace Admin\Repositories\Student;
 
 use App\Models\Classroom;
 use App\Models\Student;
-use admin\Repositories\BaseRepository;
+use Admin\Repositories\BaseRepository;
 
 class StudentRepository extends BaseRepository implements StudentRepositoryInterface
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
-use admin\Repositories\Room\RoomRepositoryInterface;
+use Admin\Repositories\Room\RoomRepositoryInterface;
 use Illuminate\Http\Request;
 
 class AdminRoomController extends FrontendController

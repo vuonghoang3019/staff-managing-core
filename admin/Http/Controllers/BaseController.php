@@ -1,6 +1,6 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 

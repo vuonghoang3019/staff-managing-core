@@ -1,9 +1,9 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
 use App\Models\Contact;
-use admin\Repositories\Contact\ContactRepositoryInterface;
+use Admin\Repositories\Contact\ContactRepositoryInterface;
 
 class AdminContactController extends FrontendController
 {

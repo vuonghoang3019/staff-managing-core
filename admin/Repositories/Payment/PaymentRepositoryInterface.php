@@ -1,8 +1,8 @@
 <?php
 
-namespace admin\Repositories\Payment;
+namespace Admin\Repositories\Payment;
 
-use admin\Repositories\RepositoryInterface;
+use Admin\Repositories\RepositoryInterface;
 
 interface PaymentRepositoryInterface extends RepositoryInterface
 {

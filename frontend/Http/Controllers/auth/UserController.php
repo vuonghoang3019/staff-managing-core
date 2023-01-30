@@ -9,7 +9,7 @@ use App\Models\Payment;
 use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Modules\Admin\Traits\StorageImageTrait;
+use Admin\Traits\StorageImageTrait;
 
 class UserController extends FrontendController {
     private $student;

@@ -1,10 +1,10 @@
 <?php
 
-namespace admin\Repositories\Payment;
+namespace Admin\Repositories\Payment;
 
 use App\Models\Course;
 use App\Models\Payment;
-use admin\Repositories\BaseRepository;
+use Admin\Repositories\BaseRepository;
 use Illuminate\Support\Str;
 
 class PaymentRepository extends BaseRepository implements PaymentRepositoryInterface

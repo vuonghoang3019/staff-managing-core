@@ -1,9 +1,9 @@
 <?php
 
-namespace admin\Repositories\Slider;
+namespace Admin\Repositories\Slider;
 
 use App\Models\Slider;
-use admin\Repositories\BaseRepository;
+use Admin\Repositories\BaseRepository;
 
 class SliderRepository extends BaseRepository implements SliderRepositoryInterface
 {

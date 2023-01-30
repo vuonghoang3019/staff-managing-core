@@ -1,20 +1,20 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
 use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use App\Models\Classroom;
 use App\Models\Student;
-use admin\Repositories\Student\StudentRepositoryInterface;
+use Admin\Repositories\Student\StudentRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
-use admin\Http\Requests\ImportExcelRequest;
-use admin\Http\Requests\Student\StudentRequestAdd;
-use admin\Http\Requests\Student\StudentRequestUpdate;
-use admin\Traits\DeleteTrait;
-use admin\Traits\StorageImageTrait;
+use Admin\Http\Requests\ImportExcelRequest;
+use Admin\Http\Requests\Student\StudentRequestAdd;
+use Admin\Http\Requests\Student\StudentRequestUpdate;
+use Admin\Traits\DeleteTrait;
+use Admin\Traits\StorageImageTrait;
 
 class AdminStudentController extends FrontendController
 {

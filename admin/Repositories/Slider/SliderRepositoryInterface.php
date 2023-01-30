@@ -1,8 +1,8 @@
 <?php
 
-namespace admin\Repositories\Slider;
+namespace Admin\Repositories\Slider;
 
-use admin\Repositories\RepositoryInterface;
+use Admin\Repositories\RepositoryInterface;
 
 interface  SliderRepositoryInterface extends RepositoryInterface
 {

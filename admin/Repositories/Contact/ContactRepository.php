@@ -1,9 +1,9 @@
 <?php
 
-namespace admin\Repositories\Contact;
+namespace Admin\Repositories\Contact;
 
 use App\Models\Contact;
-use admin\Repositories\BaseRepository;
+use Admin\Repositories\BaseRepository;
 
 class ContactRepository extends BaseRepository implements ContactRepositoryInterface
 {
