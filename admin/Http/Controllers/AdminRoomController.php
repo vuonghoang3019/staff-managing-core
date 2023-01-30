@@ -18,12 +18,12 @@ class AdminRoomController extends FrontendController
     public function index()
     {
         $rooms = $this->roomRepo->paginate();
-        return view('backend::room.index',compact('rooms'));
+        return view('admin::room.index',compact('rooms'));
     }
 
     public function create()
     {
-        return view('backend::room.create');
+        return view('admin::room.create');
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class AdminRoomController extends FrontendController
     public function edit($id)
     {
         $roomEdit = $this->roomRepo->detail($id);
-        return view('backend::room.edit',compact('roomEdit'));
+        return view('admin::room.edit',compact('roomEdit'));
     }
 
     public function update(Request $request, $id)

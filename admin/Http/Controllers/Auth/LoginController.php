@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function getLogin()
     {
-        return Auth::check() ? redirect('admin') : view('backend::auth.login');
+        return Auth::check() ? redirect('admin') : view('admin::auth.login');
     }
 
     public function postLogin(CheckLoginRequest $request)
@@ -29,6 +29,6 @@ class LoginController extends Controller
     {
         Auth::logout();
 
-        return view('backend::auth.login');
+        return view('admin::auth.login');
     }
 }

@@ -35,13 +35,13 @@ class AdminStudentController extends FrontendController
     {
         $classrooms = $this->studentRepo->getClassrooms();
         $students = $this->studentRepo->paginate();
-        return view('backend::student.index', compact('students', 'classrooms'));
+        return view('admin::student.index', compact('students', 'classrooms'));
     }
 
     public function create()
     {
         $classrooms = $this->studentRepo->getClassrooms();
-        return view('backend::student.create', compact('classrooms'));
+        return view('admin::student.create', compact('classrooms'));
     }
 
     public function store(StudentRequestAdd $request)
@@ -70,7 +70,7 @@ class AdminStudentController extends FrontendController
     {
         $studentEdit = $this->studentRepo->detail($id);
         $classrooms = $this->studentRepo->getClassrooms();
-        return view('backend::student.edit', compact('classrooms', 'studentEdit'));
+        return view('admin::student.edit', compact('classrooms', 'studentEdit'));
     }
 
     public function update(StudentRequestUpdate $request, $id)

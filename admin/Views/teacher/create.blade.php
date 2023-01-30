@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Add Teacher</title>
 @endsection
@@ -8,7 +8,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Giáo viên', 'key' => 'Thêm giáo viên'])
+        @include('admin::layouts.headerContent',['name' => 'Giáo viên', 'key' => 'Thêm giáo viên'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('teacher.store') }}" method="post" enctype="multipart/form-data" >

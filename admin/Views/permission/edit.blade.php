@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Edit Permission</title>
 @endsection
@@ -8,7 +8,7 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Permission', 'key' => 'Edit Permission'])
+        @include('admin::layouts.headerContent',['name' => 'Permission', 'key' => 'Edit Permission'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('permission.update',['id' => $permissionEdit -> id]) }}" method="POST">

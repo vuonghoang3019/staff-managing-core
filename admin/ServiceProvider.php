@@ -24,6 +24,7 @@ class ServiceProvider extends Service
         $this->config();
         $this->views();
         $this->middleware();
+        $this->migrations();
     }
 
     public function routes()
@@ -57,5 +58,10 @@ class ServiceProvider extends Service
     {
 //        $this->app['router']->aliasMiddleware('user.GetSupervisorsSubordinates', GetSupervisorsSubordinates::class);
 //        $this->app['router']->aliasMiddleware('user.GetAdmins', GetAdmins::class);
+    }
+
+    protected function migrations()
+    {
+        $this->loadMigrationsFrom(__DIR__ . './Databases/Migrations');
     }
 }

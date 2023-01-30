@@ -25,12 +25,12 @@ class AdminRecruitmentController extends FrontendController
     public function index()
     {
         $recruitments = $this->recruitmentRepo->paginate();
-        return view('backend::recruitment.index',compact('recruitments'));
+        return view('admin::recruitment.index',compact('recruitments'));
     }
 
     public function create()
     {
-        return view('backend::recruitment.create');
+        return view('admin::recruitment.create');
     }
 
     public function store(RecruitmentRequestAdd $request)
@@ -51,7 +51,7 @@ class AdminRecruitmentController extends FrontendController
     public function edit($id)
     {
         $reEdit = $this->recruitmentRepo->detail($id);
-        return view('backend::recruitment.edit',compact('reEdit'));
+        return view('admin::recruitment.edit',compact('reEdit'));
     }
 
     public function update(RecruitmentRequestUpdate $request, $id)

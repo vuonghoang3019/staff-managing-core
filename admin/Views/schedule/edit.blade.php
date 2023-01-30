@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Edit Schedule</title>
 @endsection
@@ -8,12 +8,12 @@
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Schedule  ', 'key' => 'Edit Schedule'])
+        @include('admin::layouts.headerContent',['name' => 'Schedule  ', 'key' => 'Edit Schedule'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('schedule.update',['id' => $scheduleEdit->id ]) }}" method="post">
                 @csrf
-                @include('backend::schedule.form')
+                @include('admin::schedule.form')
             </div>
         </section>
     </div>

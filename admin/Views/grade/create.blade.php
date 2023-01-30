@@ -1,11 +1,11 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Add Grade</title>
 @endsection
 @section('content')
     <!-- Main content -->
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Grade', 'key' => 'Add grade'])
+        @include('admin::layouts.headerContent',['name' => 'Grade', 'key' => 'Add grade'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('grade.store') }}" method="post">

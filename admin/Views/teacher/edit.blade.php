@@ -1,4 +1,4 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Edit Teacher</title>
 @endsection
@@ -17,7 +17,7 @@
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Giáo viên', 'key' => 'Sửa giáo viên'])
+        @include('admin::layouts.headerContent',['name' => 'Giáo viên', 'key' => 'Sửa giáo viên'])
         <section class="content">
             <div class="container-fluid">
                 <form action="{{ route('teacher.update',['id' => $teacherEdit->id]) }}" method="post"

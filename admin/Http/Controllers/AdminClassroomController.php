@@ -19,13 +19,13 @@ class AdminClassroomController extends FrontendController {
     public function index()
     {
         $classrooms = $this->classroomRepo->paginate();
-        return view('backend::classroom.index', compact('classrooms'));
+        return view('admin::classroom.index', compact('classrooms'));
     }
 
     public function create()
     {
         $courses = $this->classroomRepo->getCourses();
-        return view('backend::classroom.create', compact('courses'));
+        return view('admin::classroom.create', compact('courses'));
     }
 
     public function store(ClassroomRequestAdd $request)
@@ -38,7 +38,7 @@ class AdminClassroomController extends FrontendController {
     {
         $classroomEdit = $this->classroomRepo->detail($id);
         $courses = $this->classroomRepo->getCourses();
-        return view('backend::classroom.edit', compact('courses', 'classroomEdit'));
+        return view('admin::classroom.edit', compact('courses', 'classroomEdit'));
     }
 
     public function update(ClassroomRequestAdd $request, $id)

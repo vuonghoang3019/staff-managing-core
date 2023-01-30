@@ -21,7 +21,7 @@ class AdminPaymentController extends FrontendController
     {
         $courses = $this->paymentRepo->getCourse();
         $payments = $this->paymentRepo->paginate();
-        return view('backend::payment.index', compact('payments', 'courses'));
+        return view('admin::payment.index', compact('payments', 'courses'));
     }
 
     public function searchClassroom(Request $request)

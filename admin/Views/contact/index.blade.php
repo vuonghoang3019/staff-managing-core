@@ -1,10 +1,10 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Contact</title>
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Contact', 'key' => 'List Contact'])
+        @include('admin::layouts.headerContent',['name' => 'Contact', 'key' => 'List Contact'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -35,7 +35,7 @@
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactDetail{{ $contact->id }}">
                                                 View
                                             </button>
-                                            @include('backend::contact.modal')
+                                            @include('admin::contact.modal')
 
                                             <a href=""
                                                data-url=""

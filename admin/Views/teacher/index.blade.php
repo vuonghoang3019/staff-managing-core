@@ -1,10 +1,10 @@
-@extends('backend::master.master')
+@extends('admin::master.master')
 @section('title')
     <title>Teachers</title>
 @endsection
 @section('content')
     <div class="content-wrapper">
-        @include('backend::layouts.headerContent',['name' => 'Giáo viên', 'key' => 'Danh sách giáo viên'])
+        @include('admin::layouts.headerContent',['name' => 'Giáo viên', 'key' => 'Danh sách giáo viên'])
         <div class="content">
             <div class="container-fluid">
                 <div class="row">

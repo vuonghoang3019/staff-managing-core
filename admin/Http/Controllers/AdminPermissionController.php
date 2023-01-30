@@ -19,7 +19,7 @@ class AdminPermissionController extends FrontendController
     {
         $permissions = $this->permissionRepo->paginate();
         $modules = $this->permissionRepo->getModules();
-        return view('backend::permission.index', compact('permissions', 'modules'));
+        return view('admin::permission.index', compact('permissions', 'modules'));
     }
 
     public function store(PermissionRequestAdd $request)
@@ -48,7 +48,7 @@ class AdminPermissionController extends FrontendController
         $permissionEdit = $this->permissionRepo->detail($id);
         $permissionCheck = $permissionEdit->child;
         $modules = $this->permissionRepo->getModules();
-        return view('backend::permission.edit',compact('permissionEdit','modules','permissionCheck'));
+        return view('admin::permission.edit',compact('permissionEdit','modules','permissionCheck'));
     }
 
     public function update(PermissionRequestAdd $request, $id)

@@ -18,11 +18,11 @@ class AdminGradeController extends FrontendController
     public function index()
     {
         $grades = $this->gradeRepo->paginate();
-        return view('backend::grade.index',compact('grades'));
+        return view('admin::grade.index',compact('grades'));
     }
     public function create()
     {
-        return view('backend::grade.create');
+        return view('admin::grade.create');
     }
     public function store(GradeRequestAdd $request)
     {
@@ -32,7 +32,7 @@ class AdminGradeController extends FrontendController
     public function edit($id)
     {
         $gradeEdit = $this->gradeRepo->detail($id);
-        return view('backend::grade.edit',compact('gradeEdit'));
+        return view('admin::grade.edit',compact('gradeEdit'));
 
     }
     public function update(GradeRequestAdd $request,$id)
