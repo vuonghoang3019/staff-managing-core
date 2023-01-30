@@ -39,7 +39,7 @@
         "psr-4": {
             "App\\": "app/",
             "Modules\\": "Modules/",
-            "Backend\\": "backend/",
+            "Backend\\": "admin/",
             "Frontend\\": "frontend/"
         },
         "classmap": [
