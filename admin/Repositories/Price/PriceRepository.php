@@ -1,9 +1,9 @@
 <?php
 
-namespace admin\Repositories\Price;
+namespace Admin\Repositories\Price;
 
 use App\Models\Price;
-use admin\Repositories\BaseRepository;
+use Admin\Repositories\BaseRepository;
 
 class PriceRepository extends BaseRepository implements PriceRepositoryInterface
 {

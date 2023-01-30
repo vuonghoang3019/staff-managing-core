@@ -168,8 +168,8 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
         Admin\ServiceProvider::class,
-        Admin\Providers\RepositoryServiceProvider::class,
-        Frontend\ServiceProvider::class,
+//        Admin\Providers\RepositoryServiceProvider::class,
+//        Frontend\ServiceProvider::class,
         /*
          * Application Service Providers...
          */

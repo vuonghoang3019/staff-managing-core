@@ -1,8 +1,8 @@
 <?php
 
-namespace admin\Repositories\Student;
+namespace Admin\Repositories\Student;
 
-use admin\Repositories\RepositoryInterface;
+use Admin\Repositories\RepositoryInterface;
 
 interface StudentRepositoryInterface extends RepositoryInterface
 {

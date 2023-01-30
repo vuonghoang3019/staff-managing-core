@@ -1,11 +1,11 @@
 <?php
 
-namespace admin\Repositories\Teacher;
+namespace Admin\Repositories\Teacher;
 
 use App\Models\Grade;
 use App\Models\Role;
 use App\Models\User;
-use admin\Repositories\BaseRepository;
+use Admin\Repositories\BaseRepository;
 
 class TeacherRepository extends BaseRepository implements TeacherRepositoryInterface
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace admin\Http\Controllers\Auth;
+namespace Admin\Http\Controllers\Auth;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-use admin\Http\Requests\Login\CheckLoginRequest;
+use Admin\Http\Requests\Login\CheckLoginRequest;
 
 class LoginController extends Controller
 {

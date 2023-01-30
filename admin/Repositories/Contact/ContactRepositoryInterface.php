@@ -1,8 +1,8 @@
 <?php
 
-namespace admin\Repositories\Contact;
+namespace Admin\Repositories\Contact;
 
-use admin\Repositories\RepositoryInterface;
+use Admin\Repositories\RepositoryInterface;
 
 interface ContactRepositoryInterface extends RepositoryInterface
 {

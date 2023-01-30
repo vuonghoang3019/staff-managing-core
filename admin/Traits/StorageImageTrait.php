@@ -1,5 +1,5 @@
 <?php
-namespace admin\Traits;
+namespace Admin\Traits;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 

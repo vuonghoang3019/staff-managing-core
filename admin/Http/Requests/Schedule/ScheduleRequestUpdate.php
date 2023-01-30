@@ -1,6 +1,6 @@
 <?php
 
-namespace admin\Http\Requests\Schedule;
+namespace Admin\Http\Requests\Schedule;
 
 use App\Rules\ScheduleGradeAvalability;
 use Illuminate\Foundation\Http\FormRequest;

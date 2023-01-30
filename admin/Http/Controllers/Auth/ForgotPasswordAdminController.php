@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Modules\Admin\Http\Requests\ResetPasswordRequest;
+use Admin\Http\Requests\ResetPasswordRequest;
 
 class ForgotPasswordAdminController extends Controller
 {

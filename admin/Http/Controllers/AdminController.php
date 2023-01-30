@@ -1,13 +1,13 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
 use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Modules\Admin\Services\CalendarService;
+use Admin\Services\CalendarService;
 
 class AdminController extends FrontendController {
     private $schedule;

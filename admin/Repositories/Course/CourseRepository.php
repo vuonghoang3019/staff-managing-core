@@ -1,10 +1,10 @@
 <?php
 
-namespace admin\Repositories\Course;
+namespace Admin\Repositories\Course;
 
 use App\Models\Course;
 use App\Models\Grade;
-use admin\Repositories\BaseRepository;
+use Admin\Repositories\BaseRepository;
 
 class CourseRepository extends BaseRepository implements CourseRepositoryInterface
 {

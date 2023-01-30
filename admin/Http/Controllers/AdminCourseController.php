@@ -1,14 +1,14 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
-use admin\Repositories\Course\CourseRepositoryInterface;
-use admin\Repositories\Price\PriceRepositoryInterface;
+use Admin\Repositories\Course\CourseRepositoryInterface;
+use Admin\Repositories\Price\PriceRepositoryInterface;
 use Illuminate\Http\Request;
-use admin\Http\Requests\Course\CourseRequestAdd;
-use admin\Http\Requests\Price\PriceRequestAdd;
-use admin\Http\Requests\Course\CourseRequestUpdate;
-use admin\Traits\StorageImageTrait;
+use Admin\Http\Requests\Course\CourseRequestAdd;
+use Admin\Http\Requests\Price\PriceRequestAdd;
+use Admin\Http\Requests\Course\CourseRequestUpdate;
+use Admin\Traits\StorageImageTrait;
 
 class AdminCourseController extends FrontendController
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Support\Facades\View;
