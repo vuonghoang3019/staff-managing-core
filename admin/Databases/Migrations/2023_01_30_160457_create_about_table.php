@@ -16,7 +16,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('about', function (Blueprint $table) {
+        Schema::create(About::$Name, function (Blueprint $table) {
             $table->uuid(About::$Id)->primary()->default(DB::raw('uuid_generate_v4()'));
             $table->tinyInteger(About::$Status)->default(Config::ACTIVE);
             $table->tinyInteger(About::$Publish)->default(Config::FALSE);

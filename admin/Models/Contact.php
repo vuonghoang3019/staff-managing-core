@@ -1,23 +1,27 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
-use App\Models\Attributes\IsActiveAttributes;
+use Admin\Models\Columns\ContactColumn;
+use Admin\Traits\HasUuid;
 
 class Contact extends BaseModel
 {
-    use IsActiveAttributes;
+    use HasUuid, ContactColumn;
 
-    protected $table = 'contact';
+    protected $table = 'tbContact';
 
-    protected $primaryKey = 'id';
+    public static string $Name = 'tbContact';
+
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'name_parent',
-        'phone',
-        'name_student',
-        'email',
-        'content','is_active'];
-
-
+        'Id',
+        'DisplayName',
+        'Phone',
+        'NameStudent',
+        'Email',
+        'Content',
+        'Status'
+    ];
 }

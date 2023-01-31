@@ -1,23 +1,30 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
+use Admin\Models\Columns\ScheduleColumn;
+use Admin\Traits\HasUuid;
 use Carbon\Carbon;
 use Illuminate\Support\Arr;
 
 class Schedule extends BaseModel
 {
-    protected $table = 'schedule';
+    use HasUuid, ScheduleColumn;
 
-    protected $primaryKey = 'id';
+    protected $table = 'tbSchedule';
+
+    public static string $Name = 'tbSchedule';
+
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'weekday',
-        'user_id',
-        'classroom_id',
-        'room_id',
-        'start_time',
-        'end_time'
+        'Id',
+        'Weekday',
+        'UserId',
+        'ClassRoomId',
+        'RoomId',
+        'StartTime',
+        'EndTime'
     ];
 
     protected $weekDay = [

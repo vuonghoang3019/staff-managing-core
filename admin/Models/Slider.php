@@ -1,22 +1,25 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
-use App\Models\Attributes\IsActiveAttributes;
+use Admin\Models\Columns\SliderColumn;
+use Admin\Traits\HasUuid;
 
 class Slider extends BaseModel
 {
-    use IsActiveAttributes;
+    use HasUuid, SliderColumn;
 
-    protected $table = 'slider';
+    protected $table = 'tbSlider';
 
-    protected $primaryKey = 'id';
+    public static string $Name  = 'tbSlider';
+
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'name',
-        'description',
-        'image_name',
-        'image_path',
-        'is_active'
+        'Id',
+        'DisplayName',
+        'Remark',
+        'ImagePath',
+        'Status',
     ];
 }

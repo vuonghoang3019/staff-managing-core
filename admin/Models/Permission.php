@@ -1,18 +1,27 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
+
+use Admin\Models\Columns\PermissionColumn;
+use Admin\Traits\HasUuid;
 
 class Permission extends BaseModel
 {
-    protected $table = 'permission';
+    use PermissionColumn, HasUuid;
 
-    protected $primaryKey = 'id';
+    protected $table = 'tbPermission';
+
+    public static string $Name = 'tbPermission';
+
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'name',
-        'description',
-        'parent_id',
-        'value'
+        'Id',
+        'DisplayName',
+        'Remark',
+        'ParentId',
+        'Value',
+        'SortOrder',
     ];
 
     public function child()

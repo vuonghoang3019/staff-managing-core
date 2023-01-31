@@ -1,27 +1,37 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
-use App\Models\Attributes\IsActiveAttributes;
+use Admin\Models\Columns\ClassRoomColumn;
+use Admin\Traits\HasUuid;
 
 /**
  * @property mixed is_active
  */
 class Classroom extends BaseModel
 {
-    use IsActiveAttributes;
+    use HasUuid, ClassRoomColumn;
 
-    protected $table = 'classroom';
+    protected $table = 'tbClassroom';
 
-    protected $primaryKey = 'id';
+    public static $Name = 'tbClassRoom';
+
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'name',
-        'code',
-        'course_id',
-        'is_active',
-        'max_student',
-        'min_student'
+        'Id',
+        'Name',
+        'Code',
+        'CourseId',
+        'Status',
+        'Publish',
+        'MaxStudent',
+        'MinStudent',
+        'SortOrder',
+        'CreatedBy',
+        'CreatedDate',
+        'ChangedDate',
+        'ChangedBy',
     ];
 
     public function course()

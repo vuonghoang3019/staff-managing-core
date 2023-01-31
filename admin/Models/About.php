@@ -9,9 +9,9 @@ class About extends BaseModel
 {
     use AboutColumn, HasUuid;
 
-    protected $table = 'about';
+    protected $table = 'tbAbout';
 
-    public static $Name = 'about';
+    public static string $Name = 'tbAbout';
 
     protected $primaryKey = 'Id';
 

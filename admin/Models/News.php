@@ -1,24 +1,37 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
-
-use App\Models\Attributes\IsActiveAttributes;
+use Admin\Models\Columns\PostColumn;
+use Admin\Traits\HasUuid;
 
 class News extends BaseModel
 {
-    use IsActiveAttributes;
+    use HasUuid, PostColumn;
 
-    protected $table = 'news';
+    protected $table = 'tbPosts';
 
-    protected $primaryKey = 'id';
+    public static string $Name = 'tbPosts';
+
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'title',
-        'image_name',
-        'image_path',
-        'content',
-        'status'
+        'Id',
+        'Slug',
+        'Content',
+        'ShortContent',
+        'Seo',
+        'Title',
+        'ImagePath',
+        'Remark',
+        'Status',
+        'Publish',
+        'SortOrder',
+        'CreatedBy',
+        'CreatedDate',
+        'ChangedDate',
+        'ChangedBy',
+        'AuthorId',
     ];
 
 }

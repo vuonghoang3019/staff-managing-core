@@ -1,32 +1,37 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
+use Admin\Models\Columns\UserColumn;
+use Admin\Traits\HasUuid;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasUuid, UserColumn;
 
-    protected $table = 'user';
+    protected $table = 'tbUser';
 
-    public static $name = 'user';
+    public static string $Name = 'user';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'name',
-        'code',
-        'email',
-        'password',
-        'image_name',
-        'image_path',
-        'status',
-        'is_check','
-        description',
-        'code_reset',
-        'time_reset'
+        'Id',
+        'DisplayName',
+        'Code',
+        'Email',
+        'Password',
+        'ImagePath',
+        'Status',
+        'Remark',
+        'CodeReset',
+        'CodeTime',
+        'CreatedDate',
+        'CreatedBy',
+        'ChangedDate',
+        'ChangedBy',
     ];
 
     public function grades()
