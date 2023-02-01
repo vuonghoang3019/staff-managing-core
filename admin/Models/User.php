@@ -1,33 +1,74 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
+use Admin\Databases\Factories\AccountFactory;
+use Admin\Models\Attributes\AccountAttribute;
+use Admin\Models\Columns\UserColumn;
+use Admin\Traits\HasUuid;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable;
+    use Notifiable, HasUuid, UserColumn, AccountAttribute;
 
-    protected $table = 'user';
+    protected $table = 'tbUser';
 
-    public static $name = 'user';
+    public static string $Name = 'tbUser';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'Id';
+
+    protected $keyType = 'string';
+
+    protected $casts = ['Id' => 'string'];
+
+    protected $hidden = ['Password'];
+
+    public $timestamps = false;
 
     protected $fillable = [
-        'name',
-        'code',
-        'email',
-        'password',
-        'image_name',
-        'image_path',
-        'status',
-        'is_check','
-        description',
-        'code_reset',
-        'time_reset'
+        'Id',
+        'DisplayName',
+        'Code',
+        'Email',
+        'Password',
+        'ImagePath',
+        'Status',
+        'Remark',
+        'CodeReset',
+        'CodeTime',
+        'CreatedDate',
+        'CreatedBy',
+        'ChangedDate',
+        'ChangedBy',
+        'FailedLoginAttempts'
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return Factory
+     */
+    protected static function newFactory()
+    {
+        return AccountFactory::new();
+    }
+
+    public function getJWTIdentifier() {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims() {
+        return [];
+    }
 
     public function grades()
     {

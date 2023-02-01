@@ -1,12 +1,9 @@
 <?php
 
-namespace App\Models;
-
-use App\Models\Attributes\IsActiveAttributes;
+namespace Admin\Models;
 
 class Recruitment extends BaseModel
 {
-    use IsActiveAttributes;
 
     protected $table = 'recruitment';
 

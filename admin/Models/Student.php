@@ -1,25 +1,47 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
-use App\Models\Attributes\IsActiveAttributes;
+use Admin\Models\Columns\StudentColumn;
+use Admin\Traits\HasUuid;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class Student extends Authenticatable
 {
-    use Notifiable;
-    use IsActiveAttributes;
+    use Notifiable, HasUuid, StudentColumn;
 
-    protected $table = 'student';
+    protected $table = 'tbStudent';
 
-    protected $primaryKey = 'id';
+    public static string $Name = 'tbStudent';
+
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'code', 'name', 'birthday', 'sex', 'nation','classroom_id',
-        'is_active', 'email', 'password', 'phone',
-        'image_path', 'image_name', 'code_reset', 'code_time',
-        'code_active', 'time_active'
+        'Id',
+        'Code',
+        'DisplayName',
+        'Email',
+        'Password',
+        'Birthday',
+        'Gender',
+        'Value1',
+        'Value2',
+        'Value3',
+        'Value4',
+        'Value5',
+        'ClassroomId',
+        'Status',
+        'ImagePath',
+        'CodeReset',
+        'CodeTime',
+        'CodeActive',
+        'TimeActive',
+        'Deleted',
+        'CreatedBy',
+        'CreatedDate',
+        'ChangedDate',
+        'ChangedBy',
     ];
 
     public function classroom()

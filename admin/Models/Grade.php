@@ -1,21 +1,29 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
-use App\Models\Attributes\IsActiveAttributes;
+use Admin\Models\Columns\GradeColumn;
+use Admin\Traits\HasUuid;
 
 class Grade extends BaseModel
 {
-    use IsActiveAttributes;
+    use HasUuid, GradeColumn;
 
-    protected $table = 'grade';
+    protected $table = 'tbGrade';
+
+    public static string $Name = 'tbGrade';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name',
-        'description',
-        'is_check'
+        'Id',
+        'DisplayName',
+        'Remark',
+        'Status',
+        'CreatedBy',
+        'CreatedDate',
+        'ChangedDate',
+        'ChangedBy',
     ];
 
 }

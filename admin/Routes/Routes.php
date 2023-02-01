@@ -1,5 +1,8 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
-include ('auth.php');
 
-include('admin/admin.php');
+Route::group(['prefix' => 'admin'], function () {
+    include ('auth.php');
+    include('admin/admin.php');
+});

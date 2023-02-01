@@ -1,22 +1,32 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
 
-use App\Models\Attributes\IsActiveAttributes;
+use Admin\Models\Columns\RoomColumn;
+use Admin\Traits\HasUuid;
 
 class Room extends BaseModel
 {
-    use IsActiveAttributes;
+    use HasUuid, RoomColumn;
 
-    protected $table = 'room';
+    protected $table = 'tbRoom';
+
+    public static $Name = 'tbRoom';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'code',
-        'name',
-        'description',
-        'is_active'
+        'Id',
+        'Code',
+        'DisplayName',
+        'Remark',
+        'Status',
+        'Publish',
+        'SortOrder',
+        'CreatedBy',
+        'CreatedDate',
+        'ChangedDate',
+        'ChangedBy',
     ];
 
 }

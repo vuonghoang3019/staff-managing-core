@@ -8,9 +8,9 @@ use Illuminate\Support\ServiceProvider as Service;
 class ServiceProvider extends Service
 {
 
-    protected $namespace = "Admin\Http\Controllers";
+    protected string $namespace = "Admin\Http\Controllers";
 
-    protected $prefix = "admin";
+    protected string $prefix = "admin";
 
     public function __construct($app)
     {
@@ -19,6 +19,8 @@ class ServiceProvider extends Service
 
     public function boot()
     {
+        include_once(__DIR__.'/helper.php');
+
         $this->routes();
         $this->lang();
         $this->config();
@@ -30,8 +32,7 @@ class ServiceProvider extends Service
     public function routes()
     {
         if (file_exists(__DIR__ . '/Routes/Routes.php')) {
-            Route::middleware('web')
-                ->namespace($this->namespace)
+            Route::namespace($this->namespace)
                 ->group(__DIR__ . '/Routes/Routes.php');
         }
     }
@@ -51,7 +52,7 @@ class ServiceProvider extends Service
 
     private function views()
     {
-        if (is_dir(__DIR__ . '/Views')) $this->loadViewsFrom(__DIR__ . '/Views', 'backend');
+        if (is_dir(__DIR__ . '/Views')) $this->loadViewsFrom(__DIR__ . '/Views', 'admin');
     }
 
     private function middleware()

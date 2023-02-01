@@ -1,24 +1,30 @@
 <?php
 
-namespace App\Models;
-use App\Models\Attributes\IsActiveAttributes;
+namespace Admin\Models;
+
+use Admin\Models\Columns\CourseColumn;
+use Admin\Traits\HasUuid;
 
 class Course extends BaseModel
 {
-    use IsActiveAttributes;
+    use HasUuid, CourseColumn;
 
-    protected $table = 'course';
+    protected $table = 'tbCourse';
 
-    public static $name = 'course';
+    public static string $Name = 'tbCourse';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'name',
-        'description',
-        'image_name',
-        'image_path',
-        'is_active'
+        'Id',
+        'DisplayName',
+        'Remark',
+        'ImagePath',
+        'Status',
+        'CreatedBy',
+        'CreatedDate',
+        'ChangedDate',
+        'ChangedBy',
     ];
 
     public function course_grade()

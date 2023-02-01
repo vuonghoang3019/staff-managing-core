@@ -1,24 +1,31 @@
 <?php
 
-namespace App\Models;
+namespace Admin\Models;
+
+use Admin\Models\Columns\PaymentColumn;
+use Admin\Traits\HasUuid;
 
 class Payment extends BaseModel
 {
+    use HasUuid, PaymentColumn;
 
-    protected $table = 'payment';
+    protected $table = 'tbPayment';
 
-    protected $primaryKey = 'id';
+    public static string $Name = 'tbPayment';
+
+    protected $primaryKey = 'Id';
 
     protected $fillable = [
-        'user_id',
-        'course_id',
-        'total',
-        'tr ansaction_code',
-        'note',
-        'vn_response_code',
-        'code_vnpay',
-        'code_bank',
-        'time'
+        'Id'.
+        'UserId',
+        'CourseId',
+        'Total',
+        'TransactionCode',
+        'Remark',
+        'VNResponseCode',
+        'CodeVnPay',
+        'CodeBank',
+        'Time'
     ];
 
     public function course()
