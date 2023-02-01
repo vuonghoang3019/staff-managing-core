@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->timestamp(User::$CodeTime)->nullable();
             $table->timestamp(User::$CreatedDate)->default(DB::raw('CURRENT_TIMESTAMP(0)'))->nullable();
             $table->timestamp(User::$ChangedDate)->nullable();
+            $table->tinyInteger(User::$FailedLoginAttempts)->nullable();
             $table->uuid(User::$CreatedBy)->nullable();
             $table->uuid(User::$ChangedBy)->nullable();
         });

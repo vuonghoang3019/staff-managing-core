@@ -2,20 +2,32 @@
 
 namespace Admin\Models;
 
+use Admin\Databases\Factories\AccountFactory;
+use Admin\Models\Attributes\AccountAttribute;
 use Admin\Models\Columns\UserColumn;
 use Admin\Traits\HasUuid;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable, HasUuid, UserColumn;
+    use Notifiable, HasUuid, UserColumn, AccountAttribute;
 
     protected $table = 'tbUser';
 
-    public static string $Name = 'user';
+    public static string $Name = 'tbUser';
 
     protected $primaryKey = 'Id';
+
+    protected $keyType = 'string';
+
+    protected $casts = ['Id' => 'string'];
+
+    protected $hidden = ['Password'];
+
+    public $timestamps = false;
 
     protected $fillable = [
         'Id',
@@ -32,7 +44,31 @@ class User extends Authenticatable
         'CreatedBy',
         'ChangedDate',
         'ChangedBy',
+        'FailedLoginAttempts'
     ];
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return Factory
+     */
+    protected static function newFactory()
+    {
+        return AccountFactory::new();
+    }
+
+    public function getJWTIdentifier() {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims() {
+        return [];
+    }
 
     public function grades()
     {

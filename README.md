@@ -24,6 +24,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 4. Run migrate script for install database for first time run.
 ```shell
    php artisan migrate
+   php artisan db:seed
 ```
 
 5. Run app

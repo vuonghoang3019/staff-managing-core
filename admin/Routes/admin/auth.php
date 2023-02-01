@@ -11,14 +11,14 @@ Route::group(['prefix' => 'auth'], function () {
 //
 //    Route::post('getCodeReset', [
 //        'as'         => 'get.code.reset',
-//        'uses'       => 'auth\ForgotPasswordAdminController@getCodeResetPassword',
+//        'uses'       => 'auth\ForgotController@getCodeResetPassword',
 //    ]);
 //    Route::get('password/reset/admin', [
 //        'as'         => 'password.reset.admin',
-//        'uses'       => 'auth\ForgotPasswordAdminController@getResetPassword',
+//        'uses'       => 'auth\ForgotController@getResetPassword',
 //    ]);
 //    Route::post('password/saveResetPassword', [
 //        'as'         => 'password.updatePassword.admin',
-//        'uses'       => 'auth\ForgotPasswordAdminController@saveResetPassword',
+//        'uses'       => 'auth\ForgotController@saveResetPassword',
 //    ]);
 });
