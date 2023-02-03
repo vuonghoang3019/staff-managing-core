@@ -1,40 +1,31 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+include('slider.php');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['CheckLogin']], function () {
-    Route::get('/', [
-        'as'         => 'dashboard',
-        'uses'       => 'AdminController@index',
-    ]);
+include('about.php');
 
-    include ('slider.php');
+include('grade.php');
 
-    include ('about.php');
+include('teacher.php');
 
-    include ('grade.php');
+include('course.php');
 
-    include ('teacher.php');
+include('classroom.php');
 
-    include ('course.php');
+include('student.php');
 
-    include ('classroom.php');
+include('schedule.php');
 
-    include ('student.php');
+include('role.php');
 
-    include ('schedule.php');
+include('recruitment.php');
 
-    include ('role.php');
+include('payment.php');
 
-    include ('recruitment.php');
+include('contact.php');
 
-    include ('payment.php');
+include('news.php');
 
-    include ('contact.php');
+include('room.php');
 
-    include ('news.php');
-
-    include ('room.php');
-
-    include ('permission.php');
-});
+include('permission.php');

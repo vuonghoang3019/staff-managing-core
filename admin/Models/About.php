@@ -15,7 +15,11 @@ class About extends BaseModel
 
     protected $primaryKey = 'Id';
 
-    public static $Key = "Id";
+    public static string $Key = "Id";
+
+    protected $keyType = 'string';
+
+    protected $casts = ['Id' => 'string'];
 
     protected $fillable = [
         'Id',

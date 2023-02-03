@@ -18,17 +18,17 @@ trait ClassRoomColumn
     public static string $ChangedDate = 'ChangedDate';
     public static string $ChangedBy = 'ChangedBy';
 
-    public static string $_All = 'tbClassRoom.*';
-    public static string $_Id = 'tbClassRoom.Id';
-    public static string $_DisplayName = 'tbClassRoom.DisplayName';
-    public static string $_CourseId = 'tbClassRoom.CourseId';
-    public static string $_MaxStudent = 'tbClassRoom.MaxStudent';
-    public static string $_MinStudent = 'tbClassRoom.MinStudent';
-    public static string $_Publish = 'tbClassRoom.Publish';
-    public static string $_Status = 'tbClassRoom.Status';
+    public static string $_All = 'tbClassroom.*';
+    public static string $_Id = 'tbClassroom.Id';
+    public static string $_DisplayName = 'tbClassroom.DisplayName';
+    public static string $_CourseId = 'tbClassroom.CourseId';
+    public static string $_MaxStudent = 'tbClassroom.MaxStudent';
+    public static string $_MinStudent = 'tbClassroom.MinStudent';
+    public static string $_Publish = 'tbClassroom.Publish';
+    public static string $_Status = 'tbClassroom.Status';
     public static string $_SortOrder = 'SortOrder';
-    public static string $_CreatedDate = 'tbClassRoom.CreatedDate';
-    public static string $_CreatedBy = 'tbClassRoom.CreatedBy';
-    public static string $_ChangedDate = 'tbClassRoom.ChangedDate';
-    public static string $_ChangedBy = 'tbClassRoom.ChangedBy';
+    public static string $_CreatedDate = 'tbClassroom.CreatedDate';
+    public static string $_CreatedBy = 'tbClassroom.CreatedBy';
+    public static string $_ChangedDate = 'tbClassroom.ChangedDate';
+    public static string $_ChangedBy = 'tbClassroom.ChangedBy';
 }

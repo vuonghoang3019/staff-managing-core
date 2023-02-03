@@ -2,24 +2,21 @@
 
 namespace Admin\Http\Controllers;
 
-use App\Models\Contact;
-use Admin\Repositories\Contact\ContactRepositoryInterface;
+use Admin\Models\Contact;
 
-class ContactController extends FrontendController
+class ContactController extends BaseController
 {
 
     private $contactRepo;
 
     public function __construct(ContactRepositoryInterface $contactRepo)
     {
-        parent::__construct();
         $this->contactRepo = $contactRepo;
     }
 
     public function index()
     {
-        $contactsView = $this->contactRepo->paginate();
-        return view('admin::contact.index',compact('contactsView'));
+
     }
 
     public function action($id)

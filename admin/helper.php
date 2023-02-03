@@ -355,3 +355,10 @@ if (!function_exists('attempt_login')) {
 
     }
 }
+
+//if (!function_exists('get_account_id')) {
+//    function get_account_id($key = 'AccountId')
+//    {
+//        return get_account()->{$key};
+//    }
+//}
