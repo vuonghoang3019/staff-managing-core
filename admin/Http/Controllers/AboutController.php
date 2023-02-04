@@ -5,41 +5,39 @@ namespace Admin\Http\Controllers;
 use Admin\Http\Requests\About\BaseRequest;
 use Admin\Http\Requests\About\EditRequest;
 use Admin\Http\Requests\About\UpdateRequest;
-use Admin\Services\AboutService;
-use Admin\Traits\StorageImageTrait;
+use Admin\Repos\AboutRepo;
 
 class AboutController extends BaseController
 {
-    protected AboutService $service;
-    use StorageImageTrait;
+    protected AboutRepo $repo;
 
-    public function __construct(AboutService $service)
+    public function __construct(AboutRepo $repo)
     {
-        $this->service = $service;
+        $this->repo = $repo;
     }
 
     public function index()
     {
-        return $this->service->baseIndex();
+        return $this->repo->index();
     }
 
     public function store(BaseRequest $request)
     {
-        return $this->service->baseStore($request->data());
+        return $this->repo->baseStore($request->data());
     }
 
     public function edit(EditRequest $request, $id)
     {
-        return $this->service->baseEdit();
+        return $this->repo->baseEdit();
     }
 
     public function update(UpdateRequest $request, $id)
     {
-        return $this->service->baseUpdate($request->data(), $id);
+        return $this->repo->baseUpdate($request->data(), $id);
     }
 
     public function delete($id)
     {
-        return $this->service->baseDestroy($id);
+        return $this->repo->baseDestroy($id);
     }
 }

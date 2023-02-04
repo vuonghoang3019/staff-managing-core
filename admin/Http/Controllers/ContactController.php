@@ -2,36 +2,26 @@
 
 namespace Admin\Http\Controllers;
 
-use Admin\Models\Contact;
+use Admin\Http\Requests\Contact\BaseRequest;
+use Admin\repos\Contactrepo;
 
 class ContactController extends BaseController
 {
 
-    private $contactRepo;
+    protected Contactrepo $repo;
 
-    public function __construct(ContactRepositoryInterface $contactRepo)
+    public function __construct(Contactrepo $repo)
     {
-        $this->contactRepo = $contactRepo;
+        $this->repo = $repo;
     }
 
     public function index()
     {
-
+        return $this->repo->index();
     }
 
-    public function action($id)
+    public function edit(BaseRequest $request,$id)
     {
-        $contactAction = $this->contactRepo->detail($id);
-        $contactAction->is_active = $contactAction->is_active === 0 ? 1 : 0;
-        $contactAction->save();
-        return redirect()->back()->with('success', 'Cập nhật trạng thái thành công');
-    }
-
-    public function detail($id)
-    {
-        $contactDetail = $this->contactRepo->detail($id);
-        $contactDetail->is_active = 1;
-        $contactDetail->save();
-        return view('admin::contact.view',compact('contactDetail'));
+        return $this->repo->edit($request, $id);
     }
 }

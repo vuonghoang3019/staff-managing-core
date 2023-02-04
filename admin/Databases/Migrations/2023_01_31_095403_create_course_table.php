@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string(Course::$DisplayName, 64);
             $table->string(Course::$Remark, 512)->nullable();
             $table->string(Course::$ImagePath, 128)->nullable();
+            $table->tinyInteger(Course::$Publish)->default(Config::FALSE);
+            $table->integer(Course::$SortOrder)->nullable();
             $table->timestamp(Course::$CreatedDate)->default(DB::raw('CURRENT_TIMESTAMP(0)'))->nullable();
             $table->timestamp(Course::$ChangedDate)->nullable();
             $table->uuid(Course::$CreatedBy)->nullable();
@@ -36,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course');
+        Schema::dropIfExists(Course::$Name);
     }
 };

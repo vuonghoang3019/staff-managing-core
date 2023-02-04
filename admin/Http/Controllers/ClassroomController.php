@@ -5,20 +5,20 @@ namespace Admin\Http\Controllers;
 use Admin\Http\Requests\Classroom\BaseRequest;
 use Admin\Http\Requests\Classroom\EditRequest;
 use Admin\Http\Requests\Classroom\UpdateRequest;
-use Admin\Services\ClassroomService;
+use Admin\Repos\ClassroomRepo;
 
 class ClassroomController extends BaseController {
 
-    protected ClassroomService $service;
+    protected ClassroomRepo $repo;
 
-    public function __construct(ClassroomService $service)
+    public function __construct(ClassroomRepo $repo)
     {
-        $this->service = $service;
+        $this->repo = $repo;
     }
 
     public function index()
     {
-        return $this->service->baseIndex();
+        return $this->repo->index();
     }
 
     public function create()
@@ -30,21 +30,21 @@ class ClassroomController extends BaseController {
 
     public function store(BaseRequest $request)
     {
-        return $this->service->baseStore($request->data());
+        return $this->repo->baseStore($request->data());
     }
 
     public function edit(EditRequest $request,$id)
     {
-        return $this->service->baseEdit();
+        return $this->repo->baseEdit();
     }
 
     public function update(UpdateRequest $request, $id)
     {
-        return $this->service->baseUpdate($request->data(), $id);
+        return $this->repo->baseUpdate($request->data(), $id);
     }
 
     public function delete($id)
     {
-        return $this->service->baseDestroy($id);
+        return $this->repo->baseDestroy($id);
     }
 }

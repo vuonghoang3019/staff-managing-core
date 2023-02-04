@@ -1,55 +1,43 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
-use admin\Http\Requests\Grade\GradeRequestAdd;
-use admin\Repositories\Grade\GradeRepositoryInterface;
+use Admin\Http\Requests\Grade\BaseRequest;
+use Admin\Http\Requests\Grade\EditRequest;
+use Admin\Http\Requests\Grade\UpdateRequest;
+use Admin\Repos\GradeRepo;
 
-class GradeController extends FrontendController
+class GradeController extends BaseController
 {
-    private $gradeRepo;
+    private GradeRepo $repo;
 
-    public function __construct(GradeRepositoryInterface $gradeRepo)
+    public function __construct(GradeRepo $repo)
     {
-        parent::__construct();
-        $this->gradeRepo = $gradeRepo;
+        $this->repo = $repo;
     }
 
     public function index()
     {
-        $grades = $this->gradeRepo->paginate();
-        return view('admin::grade.index',compact('grades'));
+        return $this->repo->index();
     }
-    public function create()
-    {
-        return view('admin::grade.create');
-    }
-    public function store(GradeRequestAdd $request)
-    {
-        $this->gradeRepo->create($request->all());
-        return redirect()->back()->with('success','Thêm mới thành công');
-    }
-    public function edit($id)
-    {
-        $gradeEdit = $this->gradeRepo->detail($id);
-        return view('admin::grade.edit',compact('gradeEdit'));
 
-    }
-    public function update(GradeRequestAdd $request,$id)
+    public function store(BaseRequest $request)
     {
-        $this->gradeRepo->update($id, $request->all());
-        return redirect()->back()->with('success','Cập nhật thành công');
+        return $this->repo->baseStore($request->data());
     }
+
+    public function edit(EditRequest $request,$id)
+    {
+        return $this->repo->baseEdit();
+    }
+
+    public function update(UpdateRequest $request, $id)
+    {
+        return $this->repo->baseUpdate($request->data(), $id);
+    }
+
     public function delete($id)
     {
-        return $this->gradeRepo->delete($id);
+        return $this->repo->baseDestroy($id);
     }
-    public function action($id)
-    {
-        $gradeEdit = $this->gradeRepo->detail($id);
-        $gradeEdit->is_active = $gradeEdit->is_active ? 0 : 1;
-        $gradeEdit->save();
-        return redirect()->back();
-    }
-
 }

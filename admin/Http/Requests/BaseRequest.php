@@ -50,6 +50,7 @@ class BaseRequest extends FormRequest
             $args = $funcArgs['Args'] ?? [];
 
             $arguments = [];
+
             $arguments[] = is_null($id) ? $this->id : $id;
 
             foreach ($args as $arg) {

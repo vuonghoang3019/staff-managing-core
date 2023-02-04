@@ -15,12 +15,16 @@ class Course extends BaseModel
 
     protected $primaryKey = 'Id';
 
+    protected $keyType = 'string';
+
     protected $fillable = [
         'Id',
         'DisplayName',
         'Remark',
         'ImagePath',
         'Status',
+        'Publish',
+        'SortOrder',
         'CreatedBy',
         'CreatedDate',
         'ChangedDate',
@@ -29,16 +33,16 @@ class Course extends BaseModel
 
     public function course_grade()
     {
-        return $this->belongsToMany(Grade::class,'course_grade','course_id','grade_id');
+        return $this->belongsToMany(Grade::class, 'course_grade', 'course_id', 'grade_id');
     }
 
     public function price()
     {
-        return $this->hasMany(Price::class,'course_id');
+        return $this->hasMany(Price::class, 'course_id');
     }
 
     public function classroom()
     {
-        return $this->hasMany(Classroom::class,'course_id');
+        return $this->hasMany(Classroom::class, 'course_id');
     }
 }

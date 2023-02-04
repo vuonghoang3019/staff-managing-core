@@ -13,7 +13,13 @@ class Grade extends BaseModel
 
     public static string $Name = 'tbGrade';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'Id';
+
+    protected static $Key = "Id";
+
+    protected $keyType = 'string';
+
+    protected $casts = ['Id' => 'string'];
 
     protected $fillable = [
         'Id',
