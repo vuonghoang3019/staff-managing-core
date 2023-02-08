@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer(Room::$SortOrder)->nullable();
             $table->string(Room::$Code, 64);
             $table->string(Room::$DisplayName, 64);
+            $table->string(Room::$Remark, 512)->nullable();
             $table->timestamp(Room::$CreatedDate)->default(DB::raw('CURRENT_TIMESTAMP(0)'))->nullable();
             $table->timestamp(Room::$ChangedDate)->nullable();
             $table->uuid(Room::$CreatedBy)->nullable();
@@ -37,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('room');
+        Schema::dropIfExists(Room::$Name);
     }
 };

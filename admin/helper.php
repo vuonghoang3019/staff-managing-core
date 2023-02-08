@@ -234,7 +234,7 @@ if (!function_exists('convert_to_array')) {
         try {
             $value = request($keyword, '');
 
-            return empty($value) ? [] : explode(',', $value);
+            return explode(',', $value);
         } catch (Exception $ex) {
             return [];
         }
@@ -355,3 +355,10 @@ if (!function_exists('attempt_login')) {
 
     }
 }
+
+//if (!function_exists('get_account_id')) {
+//    function get_account_id($key = 'AccountId')
+//    {
+//        return get_account()->{$key};
+//    }
+//}

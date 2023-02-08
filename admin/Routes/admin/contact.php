@@ -3,16 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('contact')->group(function () {
-    Route::get('/', [
-        'as'   => 'contact.index',
-        'uses' => 'AdminContactController@index',
-    ]);
-    Route::get('/action/{id}', [
-        'as'   => 'contact.action',
-        'uses' => 'AdminContactController@action',
-    ]);
-    Route::get('/detail/{id}', [
-        'as'   => 'contact.detail',
-        'uses' => 'AdminContactController@detail',
-    ]);
+    Route::get('', 'ContactController@index');
+    Route::get('edit/{id}', 'ContactController@edit');
 });

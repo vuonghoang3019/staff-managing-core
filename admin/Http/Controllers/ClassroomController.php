@@ -1,62 +1,50 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
-use admin\Http\Requests\Classroom\ClassroomRequestAdd;
-use admin\Repositories\Classroom\ClassroomRepositoryInterface;
-use admin\Traits\DeleteTrait;
+use Admin\Http\Requests\Classroom\BaseRequest;
+use Admin\Http\Requests\Classroom\EditRequest;
+use Admin\Http\Requests\Classroom\UpdateRequest;
+use Admin\Repos\ClassroomRepo;
 
-class ClassroomController extends FrontendController {
-    private $classroomRepo;
-    use DeleteTrait;
+class ClassroomController extends BaseController {
 
-    public function __construct(ClassroomRepositoryInterface $classroomRepo)
+    protected ClassroomRepo $repo;
+
+    public function __construct(ClassroomRepo $repo)
     {
-        parent::__construct();
-        $this->classroomRepo = $classroomRepo;
+        $this->repo = $repo;
     }
 
     public function index()
     {
-        $classrooms = $this->classroomRepo->paginate();
-        return view('admin::classroom.index', compact('classrooms'));
+        return $this->repo->index();
     }
 
     public function create()
     {
-        $courses = $this->classroomRepo->getCourses();
-        return view('admin::classroom.create', compact('courses'));
+        //get course
+//        $courses = $this->classroomRepo->getCourses();
+
     }
 
-    public function store(ClassroomRequestAdd $request)
+    public function store(BaseRequest $request)
     {
-        $this->classroomRepo->create($request->all());
-        return redirect()->back()->with('success', 'Thêm mới thành công');
+        return $this->repo->baseStore($request->data());
     }
 
-    public function edit($id)
+    public function edit(EditRequest $request,$id)
     {
-        $classroomEdit = $this->classroomRepo->detail($id);
-        $courses = $this->classroomRepo->getCourses();
-        return view('admin::classroom.edit', compact('courses', 'classroomEdit'));
+        return $this->repo->baseEdit();
     }
 
-    public function update(ClassroomRequestAdd $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
-        $this->classroomRepo->update($id, $request->all());
-        return redirect()->back()->with('success', 'Cập nhật thành công');
+        return $this->repo->baseUpdate($request->data(), $id);
     }
 
     public function delete($id)
     {
-        return $this->classroomRepo->delete($id);
-    }
-
-    public function action($id)
-    {
-        $classroomAction = $this->classroomRepo->detail($id);
-        $classroomAction->is_active = $classroomAction->is_active ? 0 : 1;
-        $classroomAction->save();
-        return redirect()->back();
+        return $this->repo->baseDestroy($id);
     }
 }

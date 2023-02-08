@@ -1,83 +1,43 @@
 <?php
 
-namespace admin\Http\Controllers;
+namespace Admin\Http\Controllers;
 
-use Admin\Models\About;
-use admin\Http\Requests\About\AboutRequestAdd;
-use admin\Traits\DeleteTrait;
-use admin\Traits\StorageImageTrait;
+use Admin\Http\Requests\About\BaseRequest;
+use Admin\Http\Requests\About\EditRequest;
+use Admin\Http\Requests\About\UpdateRequest;
+use Admin\Repos\AboutRepo;
 
-class AboutController extends FrontendController
+class AboutController extends BaseController
 {
-    private $aboutRepo;
-    use DeleteTrait;
-    use StorageImageTrait;
-    public function __construct(AboutRepositoryInterface $aboutRepo)
+    protected AboutRepo $repo;
+
+    public function __construct(AboutRepo $repo)
     {
-        parent::__construct();
-        $this->aboutRepo = $aboutRepo;
+        $this->repo = $repo;
     }
 
     public function index()
     {
-        $abouts = $this->aboutRepo->paginate();
-        return view('admin::about.index',compact('abouts'));
+        return $this->repo->index();
     }
 
-    public function create()
+    public function store(BaseRequest $request)
     {
-        return view('admin::about.create');
+        return $this->repo->baseStore($request->data());
     }
 
-    public function store(AboutRequestAdd $request)
+    public function edit(EditRequest $request, $id)
     {
-        $dataAbout = [
-            'title' => $request->title,
-            'content' => $request->Content
-        ];
-        $aboutUpload = $this->storageTraitUpload($request,'image_path','about');
-        if (!empty($aboutUpload)) {
-            $dataAbout['image_name'] = $aboutUpload['file_name'];
-            $dataAbout['image_path'] = $aboutUpload['file_path'];
-        }
-       $this->aboutRepo->create($dataAbout);
-        return redirect()->back()->with('success','Thêm dữ liệu thành công');
+        return $this->repo->baseEdit();
     }
 
-    public function edit($id)
+    public function update(UpdateRequest $request, $id)
     {
-        $aboutEdit = $this->aboutRepo->detail($id);
-        return view('admin::about.edit',compact('aboutEdit'));
-    }
-
-    public function update(AboutRequestAdd $request, $id)
-    {
-        $aboutUpdate = $this->aboutRepo->detail($id);
-        $dataAbout = [
-            'title' => $request->title,
-            'content' => $request->Content
-        ];
-        $aboutUpload = $this->storageTraitUpload($request, 'image_path', 'about');
-        if (!empty($aboutUpload)) {
-            unlink(substr($aboutUpdate->image_path, 1));
-            $dataAbout['image_name'] = $aboutUpload['file_name'];
-            $dataAbout['image_path'] = $aboutUpload['file_path'];
-        }
-        $this->aboutRepo->update($id, $dataAbout);
-        return redirect()->back()->with('success','Cập nhật dữ liệu thành công');
+        return $this->repo->baseUpdate($request->data(), $id);
     }
 
     public function delete($id)
     {
-        $aboutUpdate = $this->aboutRepo->detail($id);
-        unlink(substr($aboutUpdate->image_path, 1));
-        return $this->aboutRepo->delete($id);
+        return $this->repo->baseDestroy($id);
     }
-
-    public function action($id)
-    {
-        $this->aboutRepo->action($id);
-        return redirect()->back()->with('success','Cập nhật trạng thái thành công');
-    }
-
 }

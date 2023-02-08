@@ -2,16 +2,11 @@
 
 namespace admin\Http\Requests\Teacher;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Admin\Http\Requests\BaseRequest as Request;
 
-class TeacherRequestAdd extends FormRequest
+class TeacherRequestAdd extends Request
 {
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
             'name'         => 'required|max:50|min:10',
@@ -21,15 +16,5 @@ class TeacherRequestAdd extends FormRequest
             'image_path'  => 'required|max:10000|mimes:jpeg,png,jpg', //a required, max 10000kb, jpeg,png,jpg
             'description' => 'max:255'
         ];
-    }
-
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
     }
 }

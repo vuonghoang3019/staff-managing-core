@@ -2,59 +2,43 @@
 
 namespace Admin\Http\Controllers;
 
-use Admin\Repositories\Room\RoomRepositoryInterface;
+use Admin\Http\Requests\Room\BaseRequest;
+use Admin\Http\Requests\Room\EditRequest;
+use Admin\Http\Requests\Room\UpdateRequest;
+use Admin\Repos\RoomRepo;
 use Illuminate\Http\Request;
 
-class RoomController extends FrontendController
+class RoomController extends BaseController
 {
-    private $roomRepo;
+    private $repo;
 
-    public function __construct(RoomRepositoryInterface $roomRepo)
+    public function __construct(RoomRepo $repo)
     {
-        parent::__construct();
-        $this->roomRepo = $roomRepo;
+        $this->repo = $repo;
     }
 
     public function index()
     {
-        $rooms = $this->roomRepo->paginate();
-        return view('admin::room.index',compact('rooms'));
+        return $this->repo->index();
     }
 
-    public function create()
+    public function store(BaseRequest $request)
     {
-        return view('admin::room.create');
+        return $this->repo->baseStore($request->data());
     }
 
-    public function store(Request $request)
+    public function edit(EditRequest $request,$id)
     {
-        $this->roomRepo->create($request->all());
-        return redirect()->back()->with('success','Thêm mới thành công');
+        return $this->repo->baseEdit();
     }
 
-    public function edit($id)
+    public function update(UpdateRequest $request, $id)
     {
-        $roomEdit = $this->roomRepo->detail($id);
-        return view('admin::room.edit',compact('roomEdit'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $this->roomRepo->update($id, $request->all());
-        return redirect()->back()->with('success','Cập nhật thành công');
+        return $this->repo->baseUpdate($request->data(), $id);
     }
 
     public function delete($id)
     {
-        return $this->roomRepo->delete($id);
+        return $this->repo->baseDelete($id);
     }
-
-    public function action($id)
-    {
-        $roomUpdate = $this->roomRepo->detail($id);
-        $roomUpdate->status = $roomUpdate->status ? 0 : 1;
-        $roomUpdate->save();
-        return redirect()->back()->with('success','Cập nhật trạng thái thành công');
-    }
-
 }

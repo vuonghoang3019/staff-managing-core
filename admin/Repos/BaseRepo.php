@@ -2,8 +2,10 @@
 
 namespace Admin\Repos;
 
+use Admin\Responses\Response;
 use Illuminate\Container\Container as Application;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Admin\Configs\Config;
 use Admin\Repos\Traits\FilterLike;
@@ -17,10 +19,13 @@ class BaseRepo extends BaseRepository
     use FilterLike, FilterWhereIn, Pagination, SortBy, WhereDate;
 
     protected string $deletedColumn = '';
+    protected string $responseList, $responseSingle;
+    protected Response $response;
 
     public function __construct(Application $app)
     {
         parent::__construct($app);
+        $this->response = new Response();
     }
 
     /**
@@ -31,6 +36,104 @@ class BaseRepo extends BaseRepository
     public function model(): string
     {
         return "";
+    }
+
+    public function baseIndex($data): JsonResponse
+    {
+        try {
+            if (request()->has('search')) return $this->response->success([$this->responseList => $data]);
+
+            $response = array_merge([$this->responseList => $data], $this->response());
+
+            return $this->response->success($response);
+        } catch (\Exception $ex) {
+            return $this->response->serverError($ex->getMessage());
+        }
+    }
+
+    public function baseCreate(array $response = []): JsonResponse
+    {
+        try {
+            return $this->response->success($this->response());
+        } catch (\Exception $ex) {
+            return $this->response->serverError($ex->getMessage());
+        }
+    }
+
+    public function baseStore(array $data): JsonResponse
+    {
+        try {
+            $store = $this->create($data);
+
+            return $this->response->success([
+                $this->responseSingle => $store,
+                'Message'             => __("Support.Operation was successful"),
+            ]);
+        } catch (\Exception $ex) {
+            return $this->response->serverError($ex->getMessage());
+        }
+    }
+
+    public function baseEdit(): JsonResponse
+    {
+        try {
+            $response = array_merge([$this->responseSingle => request($this->responseSingle)], $this->response());
+
+            return $this->response->success($response);
+        } catch (\Exception $ex) {
+            return $this->response->serverError($ex->getMessage());
+        }
+    }
+
+    public function baseUpdate(array $data, string $id): JsonResponse
+    {
+        try {
+            $response = $this->update($data, $id);
+//           Resource api
+
+
+            return $this->response->success([
+                $this->responseSingle => $response,
+                'Message'             => __("Support.Operation was successful")
+            ]);
+        } catch (\Exception $ex) {
+            return $this->response->serverError($ex->getMessage());
+        }
+    }
+
+    public function baseDestroy($ids): JsonResponse
+    {
+        try {
+            $ids = explode(Config::COMMA, $ids);
+
+            if (count($ids) <= 0) return $this->response->badRequest(__("Support.No element was selected"));
+
+            $this->softDelete($ids);
+
+            return $this->response->success(['Message' => __("Support.Operation was successful")]);
+        } catch (\Exception $ex) {
+            return $this->response->serverError($ex->getMessage());
+        }
+    }
+
+    public function baseDelete($ids): JsonResponse
+    {
+        try {
+            $ids = explode(Config::COMMA, $ids);
+
+            if (count($ids) <= 0) return $this->response->badRequest(__("Support.No element was selected"));
+
+            $this->destroy($ids);
+
+            return $this->response->success(['Message' => __("Support.Operation was successful")]);
+        } catch (\Exception $ex) {
+            return $this->response->serverError($ex->getMessage());
+        }
+    }
+
+    protected function response(): array
+    {
+        return [];
     }
 
     /**
@@ -115,6 +218,7 @@ class BaseRepo extends BaseRepository
 
     public function baseFind($id, $relation = [])
     {
+        dd($this->$id);
         return $this->baseQuery()->with($relation)->find($id);
     }
 

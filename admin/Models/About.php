@@ -9,13 +9,15 @@ class About extends BaseModel
 {
     use AboutColumn, HasUuid;
 
-    protected $table = 'tbAbout';
+    protected  $table = 'tbAbout';
 
     public static string $Name = 'tbAbout';
 
     protected $primaryKey = 'Id';
 
-    public static $Key = "Id";
+    protected $keyType = 'string';
+
+    protected $casts = ['Id' => 'string'];
 
     protected $fillable = [
         'Id',

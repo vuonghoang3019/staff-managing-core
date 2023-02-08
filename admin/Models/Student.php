@@ -17,6 +17,8 @@ class Student extends Authenticatable
 
     protected $primaryKey = 'Id';
 
+    protected $keyType = 'string';
+
     protected $fillable = [
         'Id',
         'Code',
@@ -25,11 +27,6 @@ class Student extends Authenticatable
         'Password',
         'Birthday',
         'Gender',
-        'Value1',
-        'Value2',
-        'Value3',
-        'Value4',
-        'Value5',
         'ClassroomId',
         'Status',
         'ImagePath',
@@ -37,6 +34,11 @@ class Student extends Authenticatable
         'CodeTime',
         'CodeActive',
         'TimeActive',
+        'Value1',
+        'Value2',
+        'Value3',
+        'Value4',
+        'Value5',
         'Deleted',
         'CreatedBy',
         'CreatedDate',

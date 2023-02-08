@@ -2,56 +2,51 @@
 
 namespace Admin\Http\Controllers;
 
-use Admin\Repositories\Course\CourseRepositoryInterface;
-use Admin\Repositories\Price\PriceRepositoryInterface;
+use Admin\Repos\CourseRepo;
+//use Admin\Repositories\Course\CourseRepositoryInterface;
+//use Admin\Repositories\Price\PriceRepositoryInterface;
 use Illuminate\Http\Request;
-use Admin\Http\Requests\Course\CourseRequestAdd;
+use Admin\Http\Requests\Course\BaseRequest;
 use Admin\Http\Requests\Price\PriceRequestAdd;
 use Admin\Http\Requests\Course\CourseRequestUpdate;
-use Admin\Traits\StorageImageTrait;
 
-class CourseController extends FrontendController
+class CourseController extends BaseController
 {
-    use StorageImageTrait;
 
-    private $courseRepo;
+    protected CourseRepo $courseRepo;
 
-    private $priceRepo;
+    protected $priceRepo;
 
-    public function __construct(CourseRepositoryInterface $courseRepo, PriceRepositoryInterface $priceRepo)
+    public function __construct(CourseRepo $courseRepo)
     {
-        parent::__construct();
         $this->courseRepo = $courseRepo;
-        $this->priceRepo = $priceRepo;
     }
 
     public function index()
     {
-        $courses = $this->courseRepo->paginate();
-        return view('admin::course.index', compact('courses'));
+        return $this->courseRepo->index();
     }
 
     public function create()
     {
-        $grades = $this->courseRepo->getGrades();
-        $courses = $this->courseRepo->getCourses();
-        return view('admin::course.create', compact('grades', 'courses'));
+        return $this->courseRepo->createCourse();
     }
 
-    public function store(CourseRequestAdd $request)
+    public function store(BaseRequest $request)
     {
-        $dataCourse = [
-            'name'        => $request->name,
-            'description' => $request->description
-        ];
-        $courseUpload = $this->storageTraitUpload($request, 'image_path', 'course');
-        if (!empty($courseUpload)) {
-            $dataCourse['image_name'] = $courseUpload['file_name'];
-            $dataCourse['image_path'] = $courseUpload['file_path'];
-        }
-        $courseCreate = $this->courseRepo->create($dataCourse);
-        $courseCreate->course_grade()->attach($request->grade_id);
-        return redirect()->back()->with('success', 'Thêm mới thành công');
+//        $dataCourse = [
+//            'name'        => $request->name,
+//            'description' => $request->description
+//        ];
+//        $courseUpload = $this->storageTraitUpload($request, 'image_path', 'course');
+//        if (!empty($courseUpload)) {
+//            $dataCourse['image_name'] = $courseUpload['file_name'];
+//            $dataCourse['image_path'] = $courseUpload['file_path'];
+//        }
+//        $courseCreate = $this->courseRepo->create($dataCourse);
+//        $courseCreate->course_grade()->attach($request->grade_id);
+//        return redirect()->back()->with('success', 'Thêm mới thành công');
+
     }
 
     public function edit($id)

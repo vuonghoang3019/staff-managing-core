@@ -48,6 +48,14 @@ class Config
         self::FALSE => 'False',
     ];
 
+    const MALE = 1;
+    const FEMALE = 2;
+
+    const GENDER = [
+        self::MALE   => 'Male',
+        self::FEMALE => 'Female',
+    ];
+
     const CODE_REGEX = '/^[A-Za-z0-9-._]+$/';
     const TEL_REGEX = '/^[0-9]{8,16}$/';
 

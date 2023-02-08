@@ -11,9 +11,13 @@ class Room extends BaseModel
 
     protected $table = 'tbRoom';
 
-    public static $Name = 'tbRoom';
+    public static string $Name = 'tbRoom';
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'Id';
+
+    protected $keyType = 'string';
+
+    protected $casts = ['Id' => 'string'];
 
     protected $fillable = [
         'Id',

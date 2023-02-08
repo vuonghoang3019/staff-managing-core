@@ -14,13 +14,15 @@ class Classroom extends BaseModel
 
     protected $table = 'tbClassroom';
 
-    public static $Name = 'tbClassRoom';
+    public static $Name = 'tbClassroom';
 
     protected $primaryKey = 'Id';
 
+    protected $keyType = 'string';
+
     protected $fillable = [
         'Id',
-        'Name',
+        'DisplayName',
         'Code',
         'CourseId',
         'Status',
