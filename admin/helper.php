@@ -234,7 +234,7 @@ if (!function_exists('convert_to_array')) {
         try {
             $value = request($keyword, '');
 
-            return empty($value) ? [] : explode(',', $value);
+            return explode(',', $value);
         } catch (Exception $ex) {
             return [];
         }

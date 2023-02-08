@@ -2,17 +2,16 @@
 
 namespace Admin\Http\Controllers;
 
-use Admin\Http\Requests\Room\BaseRequest;
-use Admin\Http\Requests\Room\EditRequest;
-use Admin\Http\Requests\Room\UpdateRequest;
-use Admin\Repos\RoomRepo;
-use Illuminate\Http\Request;
+use Admin\Http\Requests\Post\BaseRequest;
+use Admin\Http\Requests\Post\EditRequest;
+use Admin\Http\Requests\Post\UpdateRequest;
+use Admin\Repos\PostRepo;
 
-class RoomController extends BaseController
+class PostController extends BaseController
 {
-    private $repo;
+    private PostRepo $repo;
 
-    public function __construct(RoomRepo $repo)
+    public function __construct(PostRepo $repo)
     {
         $this->repo = $repo;
     }
@@ -20,6 +19,11 @@ class RoomController extends BaseController
     public function index()
     {
         return $this->repo->index();
+    }
+
+    public function create()
+    {
+        
     }
 
     public function store(BaseRequest $request)

@@ -2,6 +2,7 @@
 
 namespace Admin\Repos;
 
+use Admin\Http\Resources\BaseCollection;
 use Admin\Models\User;
 use Illuminate\Container\Container as Application;
 use Prettus\Validator\Exceptions\ValidatorException;
@@ -15,6 +16,17 @@ class UserRepo extends BaseRepo
 
 //        $this->deletedColumn = User::$_Deleted;
 
+    }
+
+    public function index()
+    {
+        $query = $this->baseQuery();
+
+        $query = $query->select(User::$_All);
+
+        $response = new BaseCollection($this->pagination($query));
+
+        return $this->baseIndex($this->pagination($query));
     }
 
     public function model(): string

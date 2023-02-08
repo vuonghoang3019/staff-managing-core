@@ -24,7 +24,7 @@ include('payment.php');
 
 include('contact.php');
 
-include('news.php');
+include('post.php');
 
 include('room.php');
 

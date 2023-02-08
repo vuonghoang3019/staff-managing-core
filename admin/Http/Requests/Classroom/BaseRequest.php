@@ -14,7 +14,7 @@ class BaseRequest extends Request
     public function rules(): array
     {
         return [
-            'DisplayName' => 'required|max:256',
+            'DisplayName' => 'required|min:5|max:256',
             'Code'        => [
                 'required',
                 'regex:' . Config::CODE_REGEX,
@@ -48,10 +48,11 @@ class BaseRequest extends Request
             Classroom::$MinStudent  => $this->get('MinStudent'),
             Classroom::$CourseId    => $this->get('CourseId'),
             Classroom::$SortOrder   => $this->get('SortOrder'),
-            Classroom::$CreatedDate  => get_now(),
-            Classroom::$ChangedDate  => get_now(),
-//            Classroom::$ChangedBy    => get_account_id(),
-//            Classroom::$CreatedBy    => get_account_id(),
+            Classroom::$Publish     => $this->get('Publish'),
+            Classroom::$CreatedDate => get_now(),
+            Classroom::$ChangedDate => get_now(),
+            //            Classroom::$ChangedBy    => get_account_id(),
+            //            Classroom::$CreatedBy    => get_account_id(),
         ];
     }
 }

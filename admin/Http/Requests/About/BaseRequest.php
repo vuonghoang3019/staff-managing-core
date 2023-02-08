@@ -40,7 +40,7 @@ class BaseRequest extends Request
         ];
     }
 
-    public function data()
+    public function data(): array
     {
         return [
             About::$Title        => $this->get('Title'),

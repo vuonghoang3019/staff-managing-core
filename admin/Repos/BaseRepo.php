@@ -116,6 +116,21 @@ class BaseRepo extends BaseRepository
         }
     }
 
+    public function baseDelete($ids): JsonResponse
+    {
+        try {
+            $ids = explode(Config::COMMA, $ids);
+
+            if (count($ids) <= 0) return $this->response->badRequest(__("Support.No element was selected"));
+
+            $this->destroy($ids);
+
+            return $this->response->success(['Message' => __("Support.Operation was successful")]);
+        } catch (\Exception $ex) {
+            return $this->response->serverError($ex->getMessage());
+        }
+    }
+
     protected function response(): array
     {
         return [];
@@ -203,6 +218,7 @@ class BaseRepo extends BaseRepository
 
     public function baseFind($id, $relation = [])
     {
+        dd($this->$id);
         return $this->baseQuery()->with($relation)->find($id);
     }
 
