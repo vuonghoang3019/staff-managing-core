@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('about')->group(function () {
-    Route::get('', 'AboutController@index');
+Route::prefix('abouts')->group(function () {
+    Route::get('/', 'AboutController@index');
     Route::post('store', 'AboutController@store');
     Route::get('edit/{id}', 'AboutController@edit');
     Route::put('update/{id}', 'AboutController@update');
