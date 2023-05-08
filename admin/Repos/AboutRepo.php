@@ -6,12 +6,14 @@ use Admin\Http\Resources\About\AboutCollection;
 use Admin\Models\About;
 use Illuminate\Container\Container as Application;
 use Admin\General\About as AboutConfig;
+use Illuminate\Http\JsonResponse;
 
 class AboutRepo extends BaseRepo
 {
     public function __construct(Application $app)
     {
         parent::__construct($app);
+
         $this->responseSingle = AboutConfig::NAME;
         $this->responseList = AboutConfig::LIST;
     }
@@ -21,7 +23,7 @@ class AboutRepo extends BaseRepo
         return About::class;
     }
 
-    public function index()
+    public function index(): JsonResponse
     {
         $query = $this->baseQuery();
 

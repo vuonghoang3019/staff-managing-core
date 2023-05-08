@@ -18,7 +18,7 @@ class BaseRequest extends Request
                 'required',
                 'max:100',
                 'min:5',
-                Rule::unique(About::$Name, About::$Title)
+                Rule::unique(About::$Name, About::$_Title)
             ],
             'ImagePath'    => [
                 'max:10000',
