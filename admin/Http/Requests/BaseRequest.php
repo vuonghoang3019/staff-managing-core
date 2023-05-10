@@ -17,7 +17,7 @@ class BaseRequest extends FormRequest
      */
     protected array $ignoreAuth = [];
 
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -40,7 +40,7 @@ class BaseRequest extends FormRequest
         throw new HttpResponseException($response->notFound());
     }
 
-    protected function validNotFound($funcArgs = [])
+    protected function validNotFound($funcArgs = []): bool
     {
         try {
             $class = $funcArgs['Class'];

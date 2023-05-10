@@ -13,6 +13,8 @@ use Admin\Repos\Traits\FilterWhereIn;
 use Admin\Repos\Traits\Pagination;
 use Admin\Repos\Traits\SortBy;
 use Admin\Repos\Traits\WhereDate;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class BaseRepo extends BaseRepository
 {
@@ -216,9 +218,8 @@ class BaseRepo extends BaseRepository
         return 0;
     }
 
-    public function baseFind($id, $relation = [])
+    public function baseFind($id, $relation = []): Model|Collection|Builder|array|null
     {
-        dd($this->$id);
         return $this->baseQuery()->with($relation)->find($id);
     }
 
@@ -227,7 +228,7 @@ class BaseRepo extends BaseRepository
         return $this->query()->whereIn($this->getColumn($column), $ids)->delete();
     }
 
-    public function getByIds(array $ids, string $column = '')
+    public function getByIds(array $ids, string $column = ''): Collection|array
     {
         return $this->baseQuery()->whereIn($this->getColumn($column), $ids)->get();
     }
@@ -242,7 +243,7 @@ class BaseRepo extends BaseRepository
         return $builder->where($column, Config::ACTIVE);
     }
 
-    public function getAllActive($relation = [])
+    public function getAllActive($relation = []): Collection|array
     {
         $query = $this->baseQuery()->with($relation);
 
