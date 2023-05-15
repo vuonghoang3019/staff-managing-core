@@ -21,6 +21,7 @@ class BaseRequest extends Request
                 Rule::unique(About::$Name, About::$_Title)
             ],
             'ImagePath'    => [
+                'nullable',
                 'max:10000',
                 'mimes:jpeg,png,jpg'
             ],
@@ -48,6 +49,7 @@ class BaseRequest extends Request
             About::$Remark       => $this->get('Remark'),
             About::$SortOrder    => $this->get('SortOrder'),
             About::$ShortContent => $this->get('ShortContent'),
+            About::$Content      => $this->get('Content'),
             About::$CreatedDate  => get_now(),
             About::$ChangedDate  => get_now(),
 //            About::$ChangedBy    => Auth::user()->Id,
